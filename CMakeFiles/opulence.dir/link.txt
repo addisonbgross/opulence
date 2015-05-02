@@ -1,0 +1,1 @@
+/usr/bin/cc      CMakeFiles/opulence.dir/opulence.c.o  -o opulence -rdynamic 

@@ -1,0 +1,4 @@
+// the configured options and settings for Opulence
+#define Opulence_VERSION_MAJOR @Opulence_VERSION_MAJOR@
+#define Opulence_VERSION_MINOR @Opulence_VERSION_MINOR@
+

@@ -1,3 +1,6 @@
+# IntelliJ cLion settings
+/.idea
+
 # Compiled Object files
 *.slo
 *.lo
