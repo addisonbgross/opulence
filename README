@@ -1,7 +1,8 @@
 Opulence Graphics Engine
 
 Libraries Used
-- freeGLUT
-- GLEW
-- Assimp
-- OpenGL
+- freeGLUT 2.8.1-2
+- Open Asset Import Library 3.1.1 (Assimp)
+- OpenGL 3.0
+- OpenGL Extension Wrangler Library 1.6 (GLEW)
+- OpenGL Mathematics Library 0.9.6 (GLM)

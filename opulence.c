@@ -1,29 +1,32 @@
+#include <stdio.h>
+#include <GL/glew.h>
 #include <GL/freeglut.h>
-#include <GL/gl.h>
-#include "opulenceConfig.h"
+#include <glm/glm.hpp>
 
-void renderFunction() {
-    glClearColor(0.0, 0.0, 0.0, 0.0);
-    glClear(GL_COLOR_BUFFER_BIT);
-    glColor3f(1.0, 1.0, 1.0);
-    glOrtho(-1.0, 1.0, -1.0, 1.0, -1.0, 1.0);
+void renderScene() {
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    glBegin(GL_POLYGON);
-        glVertex2f(-0.5, -0.5);
-        glVertex2f(-0.5, 0.5);
-        glVertex2f(0.5, 0.5);
-        glVertex2f(0.5, -0.5);
+    glBegin(GL_TRIANGLES);
+        glVertex3f(-0.5f, -0.5f, 0.0f);
+        glVertex3f(0.5f, 0.0f, 0.0f);
+        glVertex3f(0.0f, 0.5f, 0.0f);
     glEnd();
-    glFlush();
+
+    glutSwapBuffers();
 }
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
+    // init GLUT and create window
     glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_SINGLE);
-    glutInitWindowSize(500,500);
-    glutInitWindowPosition(100,100);
-    glutCreateWindow("OpenGL - First window demo");
-    glutDisplayFunc(renderFunction);
+    glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
+    glutInitWindowPosition(100, 100);
+    glutInitWindowSize(320, 320);
+    glutCreateWindow("Lighthouse3D - GLUT Tutorial");
+
+    // register callbacks
+    glutDisplayFunc(renderScene);
+
+    // enter GLUT event processing cycle
     glutMainLoop();
 
     return 0;
