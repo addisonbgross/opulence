@@ -53,38 +53,38 @@ CMAKE_SOURCE_DIR = /home/champ/Git/crows/opulence
 CMAKE_BINARY_DIR = /home/champ/Git/crows/opulence
 
 #=============================================================================
-# Target rules for target CMakeFiles/Opulence.dir
+# Target rules for target CMakeFiles/opulence.dir
 
 # All Build rule for target.
-CMakeFiles/Opulence.dir/all:
-	$(MAKE) -f CMakeFiles/Opulence.dir/build.make CMakeFiles/Opulence.dir/depend
-	$(MAKE) -f CMakeFiles/Opulence.dir/build.make CMakeFiles/Opulence.dir/build
+CMakeFiles/opulence.dir/all:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/depend
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles  1
-	@echo "Built target Opulence"
-.PHONY : CMakeFiles/Opulence.dir/all
+	@echo "Built target opulence"
+.PHONY : CMakeFiles/opulence.dir/all
 
 # Include target in all.
-all: CMakeFiles/Opulence.dir/all
+all: CMakeFiles/opulence.dir/all
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Opulence.dir/rule: cmake_check_build_system
+CMakeFiles/opulence.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/champ/Git/crows/opulence/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Opulence.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/opulence.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/champ/Git/crows/opulence/CMakeFiles 0
-.PHONY : CMakeFiles/Opulence.dir/rule
+.PHONY : CMakeFiles/opulence.dir/rule
 
 # Convenience name for target.
-Opulence: CMakeFiles/Opulence.dir/rule
-.PHONY : Opulence
+opulence: CMakeFiles/opulence.dir/rule
+.PHONY : opulence
 
 # clean rule for target.
-CMakeFiles/Opulence.dir/clean:
-	$(MAKE) -f CMakeFiles/Opulence.dir/build.make CMakeFiles/Opulence.dir/clean
-.PHONY : CMakeFiles/Opulence.dir/clean
+CMakeFiles/opulence.dir/clean:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/clean
+.PHONY : CMakeFiles/opulence.dir/clean
 
 # clean rule for target.
-clean: CMakeFiles/Opulence.dir/clean
+clean: CMakeFiles/opulence.dir/clean
 .PHONY : clean
 
 #=============================================================================

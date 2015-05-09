@@ -99,24 +99,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Opulence
+# Target rules for targets named opulence
 
 # Build rule for target.
-Opulence: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Opulence
-.PHONY : Opulence
+opulence: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 opulence
+.PHONY : opulence
 
 # fast build rule for target.
-Opulence/fast:
-	$(MAKE) -f CMakeFiles/Opulence.dir/build.make CMakeFiles/Opulence.dir/build
-.PHONY : Opulence/fast
+opulence/fast:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/build
+.PHONY : opulence/fast
 
 opulence.o: opulence.c.o
 .PHONY : opulence.o
 
 # target to build an object file
 opulence.c.o:
-	$(MAKE) -f CMakeFiles/Opulence.dir/build.make CMakeFiles/Opulence.dir/opulence.c.o
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/opulence.c.o
 .PHONY : opulence.c.o
 
 opulence.i: opulence.c.i
@@ -124,7 +124,7 @@ opulence.i: opulence.c.i
 
 # target to preprocess a source file
 opulence.c.i:
-	$(MAKE) -f CMakeFiles/Opulence.dir/build.make CMakeFiles/Opulence.dir/opulence.c.i
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/opulence.c.i
 .PHONY : opulence.c.i
 
 opulence.s: opulence.c.s
@@ -132,7 +132,7 @@ opulence.s: opulence.c.s
 
 # target to generate assembly for a file
 opulence.c.s:
-	$(MAKE) -f CMakeFiles/Opulence.dir/build.make CMakeFiles/Opulence.dir/opulence.c.s
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/opulence.c.s
 .PHONY : opulence.c.s
 
 # Help Target
@@ -141,8 +141,8 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... Opulence"
 	@echo "... edit_cache"
+	@echo "... opulence"
 	@echo "... rebuild_cache"
 	@echo "... opulence.o"
 	@echo "... opulence.i"

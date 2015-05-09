@@ -5,6 +5,6 @@ FILE(REMOVE_RECURSE
 )
 
 # Per-language clean rules from dependency scanning.
-FOREACH(lang C)
+FOREACH(lang CXX)
   INCLUDE(CMakeFiles/opulence.dir/cmake_clean_${lang}.cmake OPTIONAL)
 ENDFOREACH(lang)

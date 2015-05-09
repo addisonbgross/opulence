@@ -1,1 +1,1 @@
-/usr/bin/cc      CMakeFiles/opulence.dir/opulence.c.o  -o opulence -rdynamic 
+/usr/bin/c++    -std=c++11    CMakeFiles/opulence.dir/opulence.c.o  -o opulence -rdynamic -lGLU -lGL -lSM -lICE -lX11 -lXext -lGLEW -lglut -lXmu -lXi 

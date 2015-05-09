@@ -1,1 +1,1 @@
-/home/champ/Git/crows/opulence/CMakeFiles/Opulence.dir
+/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir
