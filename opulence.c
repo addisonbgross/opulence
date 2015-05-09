@@ -1,556 +1,380 @@
-#include <stdio.h>
+/*This source code copyrighted by Lazy Foo' Productions (2004-2015)
+and may not be redistributed without written permission.*/
+
+//Using SDL, SDL OpenGL, GLEW, standard IO, and strings
+#include <SDL.h>
 #include <GL/glew.h>
-#include <GL/freeglut.h>
-#include <glm/glm.hpp>
 
-#include <iostream>
-#include <fstream>
-#include <cstring>
-#include <sstream>
+class Opulence {
 
-//In this example, we will use a few IBO/VBO and a few VAO.
-//We will use glDrawRangeElements to render some shapes.
-//We will use a couple of simple shaders. GL 3.3 shaders.
-//We will create a 3.3 forward context with freeGLUT.
-//
-//We are using GLEW to get function pointers.
-//
-//As for the VBO, we will use an interleaved vertex format.
-//Vertex, texcoords and normals.
-//Vertex and color.
-//
-//As for the IBO, we will use 16 bit unsigned integers.
-//
-//http://freeglut.sourceforge.net
-//http://glew.sourceforge.net
+public:
 
-#define BUFFER_OFFSET(i) ((void*)(i))
+//Screen dimension constants
+    const int SCREEN_WIDTH = 640;
+    const int SCREEN_HEIGHT = 480;
 
-//Vertex, tex0
-//
-//SIZE : 4+4+4 +4+4 = 4*6 = 20 bytes
-//It's better to make it multiple of 32
-//32-20 = 12 bytes (of garbage should be added)
-//12/4 = 3 floats should be added
-struct TVertex_VT {
-    float	x, y, z;
-    float	s0, t0;
-    float	padding[3];
-};
+//Starts up SDL, creates window, and initializes OpenGL
+    //bool init();
 
-//Vertex, normal, tex0
-//
-//SIZE : 4+4+4 +4+4+4 +4+4 = 4*8 = 32 bytes
-struct TVertex_VNT {
-    float	x, y, z;
-    float	nx, ny, nz;
-    float	s0, t0;
-};
+//Initializes rendering program and clear color
+    //bool initGL();
 
-//Vertex, color
-//
-//SIZE : 4+4+4 +4 = 4*4 = 16 bytes
-//It's better to make it multiple of 32
-//32-16 = 16 bytes (of garbage should be added)
-//16/4 = 4 floats should be added
-struct TVertex_VC {
-    float	x, y, z;
-    unsigned int	color;
-    float	padding[4];
-};
+//Input handler
+    //void handleKeys(unsigned char key, int x, int y);
 
-//Globals
+//Per frame update
+    //void update();
 
-//A quad
-GLushort	pindex_quad[6];
-TVertex_VC	pvertex_quad[4];
+//Renders quad to the screen
+    //void render();
 
-//A triangle
-GLushort		pindex_triangle[3];
-TVertex_VNT		pvertex_triangle[3];
+//Frees media and shuts down SDL
+    //void close();
 
-//1 VAO for the quad
-//1 VAO for the triangle
-GLuint VAOID[2];
-//1 IBO for the quad (Index Buffer Object)
-//1 IBO for the triangle
-GLuint IBOID[2];
-//1 VBO for the quad (Vertex Buffer Object)
-//1 VBO for the triangle
-GLuint VBOID[2];
+//Shader loading utility programs
+    //void printProgramLog(GLuint program);
 
-//1 shader for the quad
-//1 shader for the triangle
-GLuint	ShaderProgram[2];
-GLuint	VertexShader[2];
-GLuint	FragmentShader[2];
+    //void printShaderLog(GLuint shader);
 
-//The location of ProjectionModelviewMatrix in the shaders
-int ProjectionModelviewMatrix_Loc[2];
+//The window we'll be rendering to
+    SDL_Window *gWindow = NULL;
 
-// loadFile - loads text file into char* fname
-// allocates memory - so need to delete after use
-// size of file returned in fSize
-std::string loadFile(const char *fname) {
-    std::ifstream file(fname);
-    if(!file.is_open()) {
-        std::cout << "Unable to open file " << fname << std::endl;
-        exit(1);
-    }
+//OpenGL context
+    SDL_GLContext gContext;
 
-    std::stringstream fileData;
-    fileData << file.rdbuf();
-    file.close();
+//Render flag
+    bool gRenderQuad = true;
 
-    return fileData.str();
-}
+//Graphics program
+    GLuint gProgramID = 0;
+    GLint gVertexPos2DLocation = -1;
+    GLuint gVBO = 0;
+    GLuint gIBO = 0;
 
-// printShaderInfoLog
-// From OpenGL Shading Language 3rd Edition, p215-216
-// Display (hopefully) useful error messages if shader fails to compile
-void printShaderInfoLog(GLint shader) {
-    int infoLogLen = 0;
-    int charsWritten = 0;
-    GLchar *infoLog;
+    bool init() {
+        //Initialization flag
+        bool success = true;
 
-    glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &infoLogLen);
+        //Initialize SDL
+        if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+            printf("SDL could not initialize! SDL Error: %s\n", SDL_GetError());
+            success = false;
+        }
+        else {
+            //Use OpenGL 3.1 core
+            SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+            SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+            SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 
-    if (infoLogLen > 0) {
-        infoLog = new GLchar[infoLogLen];
-        // error check for fail to allocate memory omitted
-        glGetShaderInfoLog(shader, infoLogLen, &charsWritten, infoLog);
-        std::cout << "InfoLog : " << std::endl << infoLog << std::endl;
-        delete [] infoLog;
-    }
-}
+            //Create window
+            gWindow = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH,
+                                       SCREEN_HEIGHT, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
+            if (gWindow == NULL) {
+                printf("Window could not be created! SDL Error: %s\n", SDL_GetError());
+                success = false;
+            }
+            else {
+                //Create context
+                gContext = SDL_GL_CreateContext(gWindow);
+                if (gContext == NULL) {
+                    printf("OpenGL context could not be created! SDL Error: %s\n", SDL_GetError());
+                    success = false;
+                }
+                else {
+                    //Initialize GLEW
+                    glewExperimental = GL_TRUE;
+                    GLenum glewError = glewInit();
+                    if (glewError != GLEW_OK) {
+                        printf("Error initializing GLEW! %s\n", glewGetErrorString(glewError));
+                    }
 
-void InitGLStates() {
-    glShadeModel(GL_SMOOTH);
-    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-    glReadBuffer(GL_BACK);
-    glDrawBuffer(GL_BACK);
-    glEnable(GL_DEPTH_TEST);
-    glDepthFunc(GL_LEQUAL);
-    glDepthMask(true);
-    glDisable(GL_STENCIL_TEST);
-    glStencilMask(0xFFFFFFFF);
-    glStencilFunc(GL_EQUAL, 0x00000000, 0x00000001);
-    glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
-    glFrontFace(GL_CCW);
-    glCullFace(GL_BACK);
-    glEnable(GL_CULL_FACE);
-    glClearColor(1.0, 1.0, 1.0, 1.0);
-    glClearDepth(1.0);
-    glClearStencil(0);
-    glDisable(GL_BLEND);
-    glDisable(GL_ALPHA_TEST);
-    glDisable(GL_DITHER);
-    glActiveTexture(GL_TEXTURE0);
-}
+                    //Use Vsync
+                    if (SDL_GL_SetSwapInterval(1) < 0) {
+                        printf("Warning: Unable to set VSync! SDL Error: %s\n", SDL_GetError());
+                    }
 
-
-
-int LoadShader(const char *pfilePath_vs, const char *pfilePath_fs,
-               bool bindTexCoord0, bool bindNormal, bool bindColor,
-               GLuint &shaderProgram, GLuint &vertexShader, GLuint &fragmentShader) {
-    shaderProgram=0;
-    vertexShader=0;
-    fragmentShader=0;
-
-    // load shaders & get length of each
-    int vlen;
-    int flen;
-    std::string vertexShaderString = loadFile(pfilePath_vs);
-    std::string fragmentShaderString = loadFile(pfilePath_fs);
-    vlen = vertexShaderString.length();
-    flen = fragmentShaderString.length();
-
-    if(vertexShaderString.empty()) {
-        return -1;
-    }
-
-    if(fragmentShaderString.empty()) {
-        return -1;
-    }
-
-    vertexShader = glCreateShader(GL_VERTEX_SHADER);
-    fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-
-    const char *vertexShaderCStr = vertexShaderString.c_str();
-    const char *fragmentShaderCStr = fragmentShaderString.c_str();
-    glShaderSource(vertexShader, 1, (const GLchar **)&vertexShaderCStr, &vlen);
-    glShaderSource(fragmentShader, 1, (const GLchar **)&fragmentShaderCStr, &flen);
-
-    GLint compiled;
-
-    glCompileShader(vertexShader);
-    glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &compiled);
-    if(compiled==false) {
-        std::cout << "Vertex shader not compiled." << std::endl;
-        printShaderInfoLog(vertexShader);
-
-        glDeleteShader(vertexShader);
-        vertexShader=0;
-        glDeleteShader(fragmentShader);
-        fragmentShader=0;
-
-        return -1;
-    }
-
-    glCompileShader(fragmentShader);
-    glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &compiled);
-    if(compiled==false) {
-        std::cout << "Fragment shader not compiled." << std::endl;
-        printShaderInfoLog(fragmentShader);
-
-        glDeleteShader(vertexShader);
-        vertexShader=0;
-        glDeleteShader(fragmentShader);
-        fragmentShader=0;
-
-        return -1;
-    }
-
-    shaderProgram = glCreateProgram();
-
-    glAttachShader(shaderProgram, vertexShader);
-    glAttachShader(shaderProgram, fragmentShader);
-
-    glBindAttribLocation(shaderProgram, 0, "InVertex");
-
-    if(bindTexCoord0)
-        glBindAttribLocation(shaderProgram, 1, "InTexCoord0");
-
-    if(bindNormal)
-        glBindAttribLocation(shaderProgram, 2, "InNormal");
-
-    if(bindColor)
-        glBindAttribLocation(shaderProgram, 3, "InColor");
-
-    glLinkProgram(shaderProgram);
-
-    GLint IsLinked;
-    glGetProgramiv(shaderProgram, GL_LINK_STATUS, (GLint *)&IsLinked);
-    if(IsLinked==false) {
-        std::cout << "Failed to link shader." << std::endl;
-
-        GLint maxLength;
-        glGetProgramiv(shaderProgram, GL_INFO_LOG_LENGTH, &maxLength);
-        if(maxLength>0) {
-            char *pLinkInfoLog = new char[maxLength];
-            glGetProgramInfoLog(shaderProgram, maxLength, &maxLength, pLinkInfoLog);
-            std::cout << pLinkInfoLog << std::endl;
-            delete [] pLinkInfoLog;
+                    //Initialize OpenGL
+                    if (!initGL()) {
+                        printf("Unable to initialize OpenGL!\n");
+                        success = false;
+                    }
+                }
+            }
         }
 
-        glDetachShader(shaderProgram, vertexShader);
-        glDetachShader(shaderProgram, fragmentShader);
-        glDeleteShader(vertexShader);
-        vertexShader=0;
-        glDeleteShader(fragmentShader);
-        fragmentShader=0;
-        glDeleteProgram(shaderProgram);
-        shaderProgram=0;
-
-        return -1;
+        return success;
     }
 
-    return 1;		//Success
-}
+    bool initGL() {
+        //Success flag
+        bool success = true;
 
-void CreateGeometry() {
-    //A quad
-    pvertex_quad[0].x = -0.8f;
-    pvertex_quad[0].y = -0.5f;
-    pvertex_quad[0].z = -0.9f;
-    pvertex_quad[0].color = 0xFFFFFFFF;
+        //Generate program
+        gProgramID = glCreateProgram();
 
-    pvertex_quad[1].x = 0.0f;
-    pvertex_quad[1].y = -0.5f;
-    pvertex_quad[1].z = -0.9f;
-    pvertex_quad[1].color = 0xFFFF0000;
+        //Create vertex shader
+        GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
 
-    pvertex_quad[2].x = -0.8f;
-    pvertex_quad[2].y = 0.5f;
-    pvertex_quad[2].z = -0.9f;
-    pvertex_quad[2].color = 0xFF00FF00;
+        GLuint vaoId = 0;
+        glGenVertexArrays(1, &vaoId);
+        glBindVertexArray(vaoId);
 
-    pvertex_quad[3].x = 0.0f;
-    pvertex_quad[3].y = 0.5f;
-    pvertex_quad[3].z = -0.9f;
-    pvertex_quad[3].color = 0xFF0000FF;
+        //Get vertex source
+        const GLchar *vertexShaderSource[] =
+                {
+                        "#version 140\nin vec2 LVertexPos2D; void main() { gl_Position = vec4( LVertexPos2D.x, LVertexPos2D.y, 0, 1 ); }"
+                };
 
-    pindex_quad[0] = 0;
-    pindex_quad[1] = 1;
-    pindex_quad[2] = 2;
-    pindex_quad[3] = 2;
-    pindex_quad[4] = 1;
-    pindex_quad[5] = 3;
+        //Set vertex source
+        glShaderSource(vertexShader, 1, vertexShaderSource, NULL);
 
-    //The triangle
-    pvertex_triangle[0].x = 0.0f;
-    pvertex_triangle[0].y = 0.5f;
-    pvertex_triangle[0].z = -1.0f;
-    pvertex_triangle[0].nx = 0.0f;
-    pvertex_triangle[0].ny = 0.0f;
-    pvertex_triangle[0].nz = 1.0f;
-    pvertex_triangle[0].s0 = 0.0f;
-    pvertex_triangle[0].t0 = 0.0f;
+        //Compile vertex source
+        glCompileShader(vertexShader);
 
-    pvertex_triangle[1].x = 0.3f;
-    pvertex_triangle[1].y = -0.5f;
-    pvertex_triangle[1].z = -1.0f;
-    pvertex_triangle[1].nx = 0.0f;
-    pvertex_triangle[1].ny = 0.0f;
-    pvertex_triangle[1].nz = 1.0f;
-    pvertex_triangle[1].s0 = 1.0f;
-    pvertex_triangle[1].t0 = 0.0f;
-
-    pvertex_triangle[2].x = 0.8f;
-    pvertex_triangle[2].y = 0.5f;
-    pvertex_triangle[2].z = -1.0f;
-    pvertex_triangle[2].nx = 0.0f;
-    pvertex_triangle[2].ny = 0.0f;
-    pvertex_triangle[2].nz = 1.0f;
-    pvertex_triangle[2].s0 = 0.5f;
-    pvertex_triangle[2].t0 = 1.0f;
-
-    pindex_triangle[0] = 0;
-    pindex_triangle[1] = 1;
-    pindex_triangle[2] = 2;
+        //Check vertex shader for errors
+        GLint vShaderCompiled = GL_FALSE;
+        glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &vShaderCompiled);
+        if (vShaderCompiled != GL_TRUE) {
+            printf("Unable to compile vertex shader %d!\n", vertexShader);
+            printShaderLog(vertexShader);
+            success = false;
+        }
+        else {
+            //Attach vertex shader to program
+            glAttachShader(gProgramID, vertexShader);
 
 
-    //Create the IBO for the quad
-    //16 bit indices
-    glGenBuffers(1, &IBOID[0]);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBOID[0]);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * sizeof(GLushort), pindex_quad, GL_STATIC_DRAW);
+            //Create fragment shader
+            GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
 
-    GLenum error = glGetError();
+            //Get fragment source
+            const GLchar *fragmentShaderSource[] =
+                    {
+                            "#version 140\nout vec4 LFragment; void main() { LFragment = vec4( 1.0, 1.0, 1.0, 1.0 ); }"
+                    };
 
-    //Create the IBO for the triangle
-    //16 bit indices
-    //We could have actually made one big IBO for both the quad and triangle.
-    glGenBuffers(1, &IBOID[1]);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBOID[1]);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 3 * sizeof(GLushort), pindex_triangle, GL_STATIC_DRAW);
+            //Set fragment source
+            glShaderSource(fragmentShader, 1, fragmentShaderSource, NULL);
 
-    error = glGetError();
+            //Compile fragment source
+            glCompileShader(fragmentShader);
 
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+            //Check fragment shader for errors
+            GLint fShaderCompiled = GL_FALSE;
+            glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &fShaderCompiled);
+            if (fShaderCompiled != GL_TRUE) {
+                printf("Unable to compile fragment shader %d!\n", fragmentShader);
+                printShaderLog(fragmentShader);
+                success = false;
+            }
+            else {
+                //Attach fragment shader to program
+                glAttachShader(gProgramID, fragmentShader);
 
-    error = glGetError();
 
-    //Create VBO for the quad
-    glGenBuffers(1, &VBOID[0]);
-    glBindBuffer(GL_ARRAY_BUFFER, VBOID[0]);
-    glBufferData(GL_ARRAY_BUFFER, 4 * sizeof(TVertex_VC), pvertex_quad, GL_STATIC_DRAW);
+                //Link program
+                glLinkProgram(gProgramID);
 
-    error = glGetError();
+                //Check for errors
+                GLint programSuccess = GL_TRUE;
+                glGetProgramiv(gProgramID, GL_LINK_STATUS, &programSuccess);
+                if (programSuccess != GL_TRUE) {
+                    printf("Error linking program %d!\n", gProgramID);
+                    printProgramLog(gProgramID);
+                    success = false;
+                }
+                else {
+                    //Get vertex attribute location
+                    gVertexPos2DLocation = glGetAttribLocation(gProgramID, "LVertexPos2D");
+                    if (gVertexPos2DLocation == -1) {
+                        printf("LVertexPos2D is not a valid glsl program variable!\n");
+                        success = false;
+                    }
+                    else {
+                        //Initialize clear color
+                        glClearColor(0.f, 0.f, 0.f, 1.f);
 
-    //Just testing
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
+                        //VBO data
+                        GLfloat vertexData[] =
+                                {
+                                        -0.5f, -0.5f,
+                                        0.5f, -0.5f,
+                                        0.5f, 0.5f,
+                                        -0.5f, 0.5f
+                                };
 
-    //Create VBO for the triangle
-    glGenBuffers(1, &VBOID[1]);
+                        //IBO data
+                        GLuint indexData[] = {0, 1, 2, 3};
 
-    glBindBuffer(GL_ARRAY_BUFFER, VBOID[1]);
-    glBufferData(GL_ARRAY_BUFFER, 3 * sizeof(TVertex_VNT), pvertex_triangle, GL_STATIC_DRAW);
+                        //Create VBO
+                        glGenBuffers(1, &gVBO);
+                        glBindBuffer(GL_ARRAY_BUFFER, gVBO);
+                        glBufferData(GL_ARRAY_BUFFER, 2 * 4 * sizeof(GLfloat), vertexData, GL_STATIC_DRAW);
 
-    //Just testing
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    error = glGetError();
+                        //Create IBO
+                        glGenBuffers(1, &gIBO);
+                        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, gIBO);
+                        glBufferData(GL_ELEMENT_ARRAY_BUFFER, 4 * sizeof(GLuint), indexData, GL_STATIC_DRAW);
+                    }
+                }
+            }
+        }
 
-    //VAO for the quad *********************
-    glGenVertexArrays(1, &VAOID[0]);
-    glBindVertexArray(VAOID[0]);
-
-    //Bind the VBO and setup pointers for the VAO
-    glBindBuffer(GL_ARRAY_BUFFER, VBOID[0]);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(TVertex_VC), BUFFER_OFFSET(0));
-    glVertexAttribPointer(3, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(TVertex_VC), BUFFER_OFFSET(sizeof(float)  *3));
-    glEnableVertexAttribArray(0);
-    glDisableVertexAttribArray(1);
-    glDisableVertexAttribArray(2);
-    glEnableVertexAttribArray(3);
-
-    //Bind the IBO for the VAO
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBOID[0]);
-
-    //Second VAO setup *******************
-    //This is for the triangle
-    glGenVertexArrays(1, &VAOID[1]);
-    glBindVertexArray(VAOID[1]);
-
-    //Bind the VBO and setup pointers for the VAO
-    glBindBuffer(GL_ARRAY_BUFFER, VBOID[1]);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(TVertex_VNT), BUFFER_OFFSET(0));
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(TVertex_VNT), BUFFER_OFFSET(sizeof(float) * 3));
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(TVertex_VNT), BUFFER_OFFSET(sizeof(float) * 6));
-    glEnableVertexAttribArray(0);
-    glEnableVertexAttribArray(1);
-    glEnableVertexAttribArray(2);
-    glDisableVertexAttribArray(3);
-
-    //Bind the IBO for the VAO
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBOID[1]);
-
-    //Just testing
-    glBindVertexArray(0);
-    glDisableVertexAttribArray(0);
-    glDisableVertexAttribArray(1);
-    glDisableVertexAttribArray(2);
-    glDisableVertexAttribArray(3);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-}
-
-void display() {
-    float projectionModelviewMatrix[16];
-
-    //Just set it to identity matrix
-    memset(projectionModelviewMatrix, 0, sizeof(float) * 16);
-    projectionModelviewMatrix[0] = 1.0;
-    projectionModelviewMatrix[5] = 1.0;
-    projectionModelviewMatrix[10] = 1.0;
-    projectionModelviewMatrix[15] = 1.0;
-
-    //Clear all the buffers
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-
-    //Bind the shader that we want to use
-    glUseProgram(ShaderProgram[0]);
-    //Setup all uniforms for your shader
-    glUniformMatrix4fv(ProjectionModelviewMatrix_Loc[0], 1, false, projectionModelviewMatrix);
-    //Bind the VAO
-    glBindVertexArray(VAOID[0]);
-    //At this point, we would bind textures but we aren't using textures in this example
-
-    //Draw command
-    //The first to last vertex is 0 to 3
-    //6 indices will be used to render the 2 triangles. This make our quad.
-    //The last parameter is the start address in the IBO => zero
-    glDrawRangeElements(GL_TRIANGLES, 0, 3, 6, GL_UNSIGNED_SHORT, NULL);
-
-    //Bind the shader that we want to use
-    glUseProgram(ShaderProgram[1]);
-    //Setup all uniforms for your shader
-    glUniformMatrix4fv(ProjectionModelviewMatrix_Loc[1], 1, false, projectionModelviewMatrix);
-    //Bind the VAO
-    glBindVertexArray(VAOID[1]);
-    //At this point, we would bind textures but we aren't using textures in this example
-
-    //Draw command
-    //The first to last vertex is 0 to 3
-    //3 indices will be used to render 1 triangle.
-    //The last parameter is the start address in the IBO => zero
-    glDrawRangeElements(GL_TRIANGLES, 0, 3, 3, GL_UNSIGNED_SHORT, NULL);
-
-    glutSwapBuffers();
-}
-
-void reshape(int w, int h) {
-    glViewport(0, 0, w, h);
-}
-
-void ExitFunction(int value) {
-    std::cout << "Exit called." << std::endl;
-
-    glBindVertexArray(0);
-    glDisableVertexAttribArray(0);
-    glDisableVertexAttribArray(1);
-    glDisableVertexAttribArray(2);
-    glDisableVertexAttribArray(3);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-
-    glUseProgram(0);
-
-    glDeleteBuffers(1, &IBOID[0]);
-    glDeleteBuffers(1, &IBOID[1]);
-    glDeleteBuffers(1, &VBOID[0]);
-    glDeleteBuffers(1, &IBOID[1]);
-    glDeleteVertexArrays(1, &VAOID[0]);
-    glDeleteVertexArrays(1, &VAOID[1]);
-
-    glDetachShader(ShaderProgram[0], VertexShader[0]);
-    glDetachShader(ShaderProgram[0], FragmentShader[0]);
-    glDeleteShader(VertexShader[0]);
-    glDeleteShader(FragmentShader[0]);
-    glDeleteProgram(ShaderProgram[0]);
-
-    glDetachShader(ShaderProgram[1], VertexShader[1]);
-    glDetachShader(ShaderProgram[1], FragmentShader[1]);
-    glDeleteShader(VertexShader[1]);
-    glDeleteShader(FragmentShader[1]);
-    glDeleteProgram(ShaderProgram[1]);
-}
-
-int main (int argc, char* argv[]) {
-    int i;
-    int NumberOfExtensions;
-    int OpenGLVersion[2];
-
-    glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_STENCIL);
-    //We want to make a GL 3.3 context
-    glutInitContextVersion(3, 3);
-    glutInitContextFlags(GLUT_CORE_PROFILE);
-    glutInitWindowPosition(100, 50);
-    glutInitWindowSize(600, 600);
-    glutCreateWindow("GL 3.3 Test");
-
-    //Currently, GLEW uses glGetString(GL_EXTENSIONS) which is not legal code
-    //in GL 3.3, therefore GLEW would fail if we don't set this to TRUE.
-    //GLEW will avoid looking for extensions and will just get function pointers for all GL functions.
-    glewExperimental = true;
-    GLenum err = glewInit();
-    if(err != GLEW_OK) {
-        //Problem: glewInit failed, something is seriously wrong.
-        std::cout << "glewInit failed, aborting." << std::endl;
-        exit(1);
+        return success;
     }
 
-    //This is the new way for getting the GL version.
-    //It returns integers. Much better than the old glGetString(GL_VERSION).
-    glGetIntegerv(GL_MAJOR_VERSION, &OpenGLVersion[0]);
-    glGetIntegerv(GL_MINOR_VERSION, &OpenGLVersion[1]);
-    std::cout << "OpenGL major version = " << OpenGLVersion[0] << std::endl;
-    std::cout << "OpenGL minor version = " << OpenGLVersion[1] << std::endl;
-
-    //The old method to get the extension list is obsolete.
-    //You must use glGetIntegerv and glGetStringi
-    glGetIntegerv(GL_NUM_EXTENSIONS, &NumberOfExtensions);
-
-    //We don't need any extensions. Useless code.
-    for(i = 0; i < NumberOfExtensions; i++) {
-        const GLubyte *ccc = glGetStringi(GL_EXTENSIONS, i);
-        //std::cout << "Extension[" << i << "] = " << glGetStringi(GL_EXTENSIONS, i) << std::endl;
-    }
-    std::cout << "Total OpenGL extensions = " << NumberOfExtensions << std::endl;
-
-    InitGLStates();
-
-    std::string prePath = "/home/champ/Git/crows/opulence/";
-
-    if(LoadShader("/home/champ/Git/crows/opulence/Shader1.vert", "/home/champ/Git/crows/opulence/Shader1.frag", false, false, true, ShaderProgram[0], VertexShader[0], FragmentShader[0])==-1) {
-        exit(1);
-    } else {
-        ProjectionModelviewMatrix_Loc[0] = glGetUniformLocation(ShaderProgram[0], "ProjectionModelviewMatrix");
+    void handleKeys(unsigned char key, int x, int y) {
+        //Toggle quad
+        if (key == 'q') {
+            gRenderQuad = !gRenderQuad;
+        }
     }
 
-    if(LoadShader("/home/champ/Git/crows/opulence/Shader2.vert", "/home/champ/Git/crows/opulence/Shader2.frag", true, true, false, ShaderProgram[1], VertexShader[1], FragmentShader[1])==-1) {
-        exit(1);
-    } else {
-        ProjectionModelviewMatrix_Loc[1] = glGetUniformLocation(ShaderProgram[1], "ProjectionModelviewMatrix");
+    void update() {
+        //No per frame update needed
     }
 
-    CreateGeometry();
+    void render() {
+        //Clear color buffer
+        glClear(GL_COLOR_BUFFER_BIT);
 
-    glutDisplayFunc(display);
-    glutReshapeFunc(reshape);
+        //Render quad
+        if (gRenderQuad) {
+            //Bind program
+            glUseProgram(gProgramID);
 
-    glutMainLoop();
+            //Enable vertex position
+            glEnableVertexAttribArray(gVertexPos2DLocation);
 
-    return 0;
-}
+            //Set vertex data
+            glBindBuffer(GL_ARRAY_BUFFER, gVBO);
+            glVertexAttribPointer(gVertexPos2DLocation, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(GLfloat), NULL);
+
+            //Set index data and render
+            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, gIBO);
+            glDrawElements(GL_TRIANGLE_FAN, 4, GL_UNSIGNED_INT, NULL);
+
+            //Disable vertex position
+            glDisableVertexAttribArray(gVertexPos2DLocation);
+
+            //Unbind program
+            //glUseProgram( NULL );
+        }
+    }
+
+    void close() {
+        //Deallocate program
+        glDeleteProgram(gProgramID);
+
+        //Destroy window
+        SDL_DestroyWindow(gWindow);
+        gWindow = NULL;
+
+        //Quit SDL subsystems
+        SDL_Quit();
+    }
+
+    void printProgramLog(GLuint program) {
+        //Make sure name is shader
+        if (glIsProgram(program)) {
+            //Program log length
+            int infoLogLength = 0;
+            int maxLength = infoLogLength;
+
+            //Get info string length
+            glGetProgramiv(program, GL_INFO_LOG_LENGTH, &maxLength);
+
+            //Allocate string
+            char *infoLog = new char[maxLength];
+
+            //Get info log
+            glGetProgramInfoLog(program, maxLength, &infoLogLength, infoLog);
+            if (infoLogLength > 0) {
+                //Print Log
+                printf("%s\n", infoLog);
+            }
+
+            //Deallocate string
+            delete[] infoLog;
+        }
+        else {
+            printf("Name %d is not a program\n", program);
+        }
+    }
+
+    void printShaderLog(GLuint shader) {
+        //Make sure name is shader
+        if (glIsShader(shader)) {
+            //Shader log length
+            int infoLogLength = 0;
+            int maxLength = infoLogLength;
+
+            //Get info string length
+            glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &maxLength);
+
+            //Allocate string
+            char *infoLog = new char[maxLength];
+
+            //Get info log
+            glGetShaderInfoLog(shader, maxLength, &infoLogLength, infoLog);
+            if (infoLogLength > 0) {
+                //Print Log
+                printf("%s\n", infoLog);
+            }
+
+            //Deallocate string
+            delete[] infoLog;
+        }
+        else {
+            printf("Name %d is not a shader\n", shader);
+        }
+    }
+
+    int go() {
+        //Start up SDL and create window
+        if (!init()) {
+            printf("Failed to initialize!\n");
+        }
+        else {
+            //Main loop flag
+            bool quit = false;
+
+            //Event handler
+            SDL_Event e;
+
+            //Enable text input
+            SDL_StartTextInput();
+
+            //While application is running
+            while (!quit) {
+                //Handle events on queue
+                while (SDL_PollEvent(&e) != 0) {
+                    //User requests quit
+                    if (e.type == SDL_QUIT) {
+                        quit = true;
+                    }
+                        //Handle keypress with current mouse position
+                    else if (e.type == SDL_TEXTINPUT) {
+                        int x = 0, y = 0;
+                        SDL_GetMouseState(&x, &y);
+                        handleKeys(e.text.text[0], x, y);
+                    }
+                }
+
+                //Render quad
+                render();
+
+                //Update screen
+                SDL_GL_SwapWindow(gWindow);
+            }
+
+            //Disable text input
+            SDL_StopTextInput();
+        }
+
+        //Free resources and close SDL
+        close();
+
+        return 0;
+    }
+};
