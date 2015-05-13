@@ -21,7 +21,8 @@ include_directories(
   )
 
 set(SOURCE_FILES main.c opulence.c)
+set(HEADER_FILES ${PROJECT_BINARY_DIR}/ControllerInterface.h)
 set_source_files_properties(main.c opulence.c PROPERTIES LANGUAGE CXX )
-add_executable(opulence ${SOURCE_FILES})
+add_executable(opulence ${SOURCE_FILES} ShaderLoader.cpp ShaderLoader.h)
 
 target_link_libraries(opulence ${SDL2_LIBRARY} ${OPENGL_LIBRARIES} ${GLEW_LIBRARIES})

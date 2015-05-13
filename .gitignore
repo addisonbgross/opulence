@@ -1,3 +1,6 @@
+# Compiled executables
+/bin
+
 # IntelliJ cLion settings
 /.idea
 

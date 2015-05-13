@@ -2,6 +2,6 @@
 
 int main (int argc, char* argv[]) {
     Opulence opl;
-    opl.go();
+    opl.start();
     return 0;
 }
