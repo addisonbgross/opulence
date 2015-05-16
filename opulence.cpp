@@ -1,16 +1,20 @@
+#include <iostream>
+#include <vector>
+
 #include <SDL.h>
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 
-#include "ControllerInterface.h"
-#include "ShaderLoader.h"
+#include "src/controls/ControllerInterface.h"
+#include "src/loaders/ShaderLoader.h"
+#include "src/entity/Model.h"
 
 class Opulence
 {
 private:
     //Screen dimension constants
-    const int SCREEN_WIDTH = 640;
-    const int SCREEN_HEIGHT = 480;
+    const int SCREEN_WIDTH = 800;
+    const int SCREEN_HEIGHT = 600;
 
     SDL_Window *gWindow = NULL; //The window we'll be rendering to
     SDL_GLContext gContext; //OpenGL context
@@ -39,7 +43,7 @@ public:
             SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 
             //Create window
-            gWindow = SDL_CreateWindow("SDL Tutorial",
+            gWindow = SDL_CreateWindow("opulence v1.0",
                                        SDL_WINDOWPOS_UNDEFINED,
                                        SDL_WINDOWPOS_UNDEFINED,
                                        SCREEN_WIDTH, SCREEN_HEIGHT,
@@ -109,16 +113,11 @@ public:
             //Initialize clear color
             glClearColor(0.f, 0.f, 0.f, 1.f);
 
-            //IBO data
-            GLuint indexData[] = {0, 1, 2, 0, 2, 3};
-
             //Create VBO
             glGenBuffers(2, &gVBO[0]);
 
             //Create IBO
             glGenBuffers(1, &gIBO);
-            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, gIBO);
-            glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indexData), indexData, GL_STATIC_DRAW);
         }
 
         return success;
@@ -136,19 +135,33 @@ public:
         glUseProgram(gProgramID);
 
         //VBO data
-        GLfloat vertexData[] = {
-                -0.8f, -0.8f, -1.0f,
-                0.5f, -0.5f, 0.0f,
-                0.5f, 0.5f, 0.0f,
-                -0.5f, 0.5f, 0.0f
+        std::vector<GLfloat> vertexData = {
+                -0.5f, -0.5f, -0.5f,
+                0.5f, -0.5f, -0.5f,
+                0.5f, 0.5f, -0.5f,
+                -0.5f, 0.5f, -0.5f,
+
+                -0.5f, -0.5f, 0.5f,
+                0.5f, -0.5f, 0.5f,
+                0.5f, 0.5f, 0.5f,
+                -0.5f, 0.5f, 0.5f
         };
+
+        //IBO data
+        std::vector<GLuint> indexData = {0, 1, 2, 0, 2, 3, 4, 5, 6, 4, 6, 7};
+
+        Model *square = new Model(0, 0, 0, vertexData, indexData);
 
         glm::vec4 c = keys.update();
         GLfloat colourData[] = { c.r, c.g, c.b, c.a };
 
+        // set index data
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, gIBO);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, square->getNumIndexVerts() * sizeof(GLuint), square->getIndexVerts(), GL_STATIC_DRAW);
+
         //Set vertex data
         glBindBuffer(GL_ARRAY_BUFFER, gVBO[0]);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(vertexData), vertexData, GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, square->getNumPositionVerts() * sizeof(GLfloat), square->getPositionVerts(), GL_STATIC_DRAW);
         glEnableVertexAttribArray(0);
         glVertexAttribPointer(gVertexPos2DLocation, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), NULL);
 

@@ -20,9 +20,9 @@ include_directories(
   ${GLEW_INCLUDE_DIRS}
   )
 
-set(SOURCE_FILES main.c opulence.c)
-set(HEADER_FILES ${PROJECT_BINARY_DIR}/ControllerInterface.h)
-set_source_files_properties(main.c opulence.c PROPERTIES LANGUAGE CXX )
-add_executable(opulence ${SOURCE_FILES} ShaderLoader.cpp ShaderLoader.h)
+set(SOURCE_FILES ../main.c opulence.cpp)
+set(HEADER_FILES ${PROJECT_BINARY_DIR}/src/ControllerInterface.h)
+set_source_files_properties(../main.c opulence.cpp PROPERTIES LANGUAGE CXX )
+add_executable(opulence ${SOURCE_FILES} src/loaders/ShaderLoader.cpp src/loaders/ShaderLoader.h src/entity/Model.cpp src/entity/Model.h src/loaders/ObjLoader.cpp src/loaders/ObjLoader.h)
 
 target_link_libraries(opulence ${SDL2_LIBRARY} ${OPENGL_LIBRARIES} ${GLEW_LIBRARIES})
