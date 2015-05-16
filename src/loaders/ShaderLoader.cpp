@@ -33,7 +33,7 @@ bool loadShader(const char *shaderPath, GLuint program) {
                                              glCreateShader(GL_FRAGMENT_SHADER);
 
     //Get vertex source
-    const GLchar *shaderSource[] = {readFile(shaderPath).c_str()};
+    const GLchar *shaderSource[] = { readFile(shaderPath).c_str() };
 
     //Set vertex source
     glShaderSource(shader, 1, shaderSource, NULL);
