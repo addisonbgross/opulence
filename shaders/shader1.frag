@@ -1,8 +1,11 @@
 #version 130
 
-out vec4 LFragment;
+uniform vec4 ambient;
+in vec4 vertexColour;
+
+out vec4 fragColour;
 
 void main()
 {
-    LFragment = vec4( 0.0, 0.0, 1.0, 1.0 );
+    fragColour = min(ambient * vertexColour, vec4(1.0));
 }
