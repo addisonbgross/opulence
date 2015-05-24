@@ -3,11 +3,18 @@
 
 #include <SDL.h>
 #include <GL/glew.h>
-#include <glm/glm.hpp>
 
-#include "src/controls/ControllerInterface.h"
+#define GLM_FORCE_RADIANS
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 #include "src/loaders/ShaderLoader.h"
 #include "src/entity/Model.h"
+
+// TODO extract
+#include "controls/ControllerInterface.h"
+#include "controls/Mouse.h"
 
 class Opulence
 {
@@ -20,12 +27,17 @@ private:
     SDL_GLContext gContext; //OpenGL context
 
     //Graphics program
-    GLint  gVertexPos2DLocation = -1;
+    GLuint vertexShader, fragmentShader;
+    GLint  gPosition, gModel, gView, gProj;
     GLuint gProgramID = 0;
-    GLuint gVBO[2];
-    GLuint gIBO = 0;
+    std::vector<GLuint> *gVBO;
+    std::vector<GLuint> *gVAO;
+    std::vector<GLuint> *gIBO;
+
+    glm::vec3 zoom = glm::vec3(0.0f, 1.0f, 0.0f);
 
     Keyboard keys;
+    Mouse mouse;
 
 public:
     bool init() {
@@ -41,6 +53,7 @@ public:
             SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
             SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
             SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+            SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
             //Create window
             gWindow = SDL_CreateWindow("opulence v1.0",
@@ -48,36 +61,21 @@ public:
                                        SDL_WINDOWPOS_UNDEFINED,
                                        SCREEN_WIDTH, SCREEN_HEIGHT,
                                        SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN); // full screen --> SDL_WINDOW_FULLSCREEN
-            if (gWindow == NULL) {
-                printf("Window could not be created! SDL Error: %s\n", SDL_GetError());
+
+            SDL_GLContext glcontext(SDL_GL_CreateContext(gWindow));
+
+            glewExperimental = GL_TRUE;
+            GLenum glewError = glewInit();
+
+            //Use Vsync
+            if (SDL_GL_SetSwapInterval(1) < 0) {
+                printf("Warning: Unable to set VSync! SDL Error: %s\n", SDL_GetError());
+            }
+
+            //Initialize OpenGL
+            if (!initGL()) {
+                printf("Unable to initialize OpenGL!\n");
                 success = false;
-
-            } else {
-                //Create context
-                gContext = SDL_GL_CreateContext(gWindow);
-                if (gContext == NULL) {
-                    printf("OpenGL context could not be created! SDL Error: %s\n", SDL_GetError());
-                    success = false;
-
-                } else {
-                    //Initialize GLEW
-                    glewExperimental = GL_TRUE;
-                    GLenum glewError = glewInit();
-                    if (glewError != GLEW_OK) {
-                        printf("Error initializing GLEW! %s\n", glewGetErrorString(glewError));
-                    }
-
-                    //Use Vsync
-                    if (SDL_GL_SetSwapInterval(1) < 0) {
-                        printf("Warning: Unable to set VSync! SDL Error: %s\n", SDL_GetError());
-                    }
-
-                    //Initialize OpenGL
-                    if (!initGL()) {
-                        printf("Unable to initialize OpenGL!\n");
-                        success = false;
-                    }
-                }
             }
         }
 
@@ -85,42 +83,52 @@ public:
     }
 
     bool initGL() {
-        //Success flag
+        // success flag
         bool success = true;
 
-        //Generate program
+        // generate program
         gProgramID = glCreateProgram();
 
-        //Create vertex shader
-        GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
+        // vertex & fragment
+        vertexShader   = loadShader("/home/champ/Git/crows/opulence/shaders/shader1.vert", gProgramID);
+        fragmentShader = loadShader("/home/champ/Git/crows/opulence/shaders/shader1.frag", gProgramID);
 
-        // vertex array object
-        GLuint vaoId = 0;
-        glGenVertexArrays(1, &vaoId);
-        glBindVertexArray(vaoId);
+        // create openGL buffer objects
+        GLuint buffer;
+        // create VAO
+        gVAO = new std::vector<GLuint>();
+        glGenVertexArrays(1, &buffer);
+        gVAO->push_back(buffer);
 
-        loadShader("/home/champ/Git/crows/opulence/shaders/shader1.vert", gProgramID);
-        loadShader("/home/champ/Git/crows/opulence/shaders/shader1.frag", gProgramID);
+        // create VBO
+        gVBO = new std::vector<GLuint>();
+        glGenBuffers(1, &buffer);
+        gVBO->push_back(buffer);
+
+        // create IBO
+        gIBO = new std::vector<GLuint>();
+        glGenBuffers(1, &buffer);
+        gIBO->push_back(buffer);
 
         glLinkProgram(gProgramID);
 
-        gVertexPos2DLocation = glGetAttribLocation(gProgramID, "centreVertex");
-        if (gVertexPos2DLocation == -1) {
-            printf("centreVertex is not a valid glsl program variable!\n");
-            success = false;
+        //Initialize clear color
+        glClearColor(0.f, 0.f, 0.f, 1.f);
 
-        } else {
-            //Initialize clear color
-            glClearColor(0.f, 0.f, 0.f, 1.f);
-
-            //Create VBO
-            glGenBuffers(2, &gVBO[0]);
-
-            //Create IBO
-            glGenBuffers(1, &gIBO);
-        }
+        gPosition = glGetAttribLocation(gProgramID, "position");
+        gModel    = glGetUniformLocation(gProgramID, "model");
+        gView     = glGetUniformLocation(gProgramID, "view");
+        gProj     = glGetUniformLocation(gProgramID, "proj");
 
         return success;
+    }
+
+    void setZoom(float z) {
+        zoom.z += z;
+    }
+
+    void setClearColour(glm::vec4 colour) {
+        glClearColor(colour.r, colour.g, colour.b, colour.a);
     }
 
     void update() {
@@ -131,46 +139,79 @@ public:
         //Clear color buffer
         glClear(GL_COLOR_BUFFER_BIT);
 
-        // bind program
-        glUseProgram(gProgramID);
-
         //VBO data
         std::vector<GLfloat> vertexData = {
-                -0.5f, -0.5f, -0.5f,
-                0.5f, -0.5f, -0.5f,
-                0.5f, 0.5f, -0.5f,
-                -0.5f, 0.5f, -0.5f,
-
                 -0.5f, -0.5f, 0.5f,
                 0.5f, -0.5f, 0.5f,
                 0.5f, 0.5f, 0.5f,
-                -0.5f, 0.5f, 0.5f
+                -0.5f, 0.5f, 0.5f,
+
+                -0.5f, -0.5f, -0.5f,
+                0.5f, -0.5f, -0.5f,
+                0.5f, 0.5f, -0.5f,
+                -0.5f, 0.5f, -0.5f
         };
 
         //IBO data
-        std::vector<GLuint> indexData = {0, 1, 2, 0, 2, 3, 4, 5, 6, 4, 6, 7};
+        std::vector<GLuint> indexData = {
+                // front
+                0, 1, 2,
+                2, 3, 0,
+                // top
+                3, 2, 6,
+                6, 7, 3,
+                // back
+                7, 6, 5,
+                5, 4, 7,
+                // bottom
+                4, 5, 1,
+                1, 0, 4,
+                // left
+                4, 0, 3,
+                3, 7, 4,
+                // right
+                1, 5, 6,
+                6, 2, 1,
+        };
+
+
+        glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0, 0.0, -4.0));
+
+        glm::mat4 view = glm::lookAt(zoom,
+                                     glm::vec3(0.0, 0.0, -4.0),
+                                     glm::vec3(0.0, 1.0, 0.0));
+
+        glm::mat4 proj = glm::perspective(45.0f, 800.0f/600.0f, 0.1f, 10.0f);
+
+        glUniformMatrix4fv(gModel, 1, GL_FALSE, &model[0][0]);
+        glUniformMatrix4fv(gView, 1, GL_FALSE, &view[0][0]);
+        glUniformMatrix4fv(gProj, 1, GL_FALSE, &proj[0][0]);
 
         Model *square = new Model(0, 0, 0, vertexData, indexData);
 
         glm::vec4 c = keys.update();
         GLfloat colourData[] = { c.r, c.g, c.b, c.a };
 
+        glUseProgram(gProgramID);
+
+        glBindVertexArray(gVAO->at(0));
+
         // set index data
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, gIBO);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, gIBO->at(0));
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, square->getNumIndexVerts() * sizeof(GLuint), square->getIndexVerts(), GL_STATIC_DRAW);
 
         //Set vertex data
-        glBindBuffer(GL_ARRAY_BUFFER, gVBO[0]);
+        glBindBuffer(GL_ARRAY_BUFFER, gVBO->at(0));
         glBufferData(GL_ARRAY_BUFFER, square->getNumPositionVerts() * sizeof(GLfloat), square->getPositionVerts(), GL_STATIC_DRAW);
-        glEnableVertexAttribArray(0);
-        glVertexAttribPointer(gVertexPos2DLocation, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), NULL);
+        glVertexAttribPointer(gPosition, 3, GL_FLOAT, GL_FALSE, 0, 0);
+        glEnableVertexAttribArray(gPosition);
 
         //Set index data and render
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, gIBO);
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, NULL);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, gIBO->at(0));
+        glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_INT, NULL);
 
         //Disable vertex position
-        glDisableVertexAttribArray(gVertexPos2DLocation);
+        glDisableVertexAttribArray(gPosition);
     }
 
     void close() {
@@ -206,7 +247,10 @@ public:
                     //User requests quit
                     if (e.type == SDL_QUIT) {
                         quit = true;
+                    } else if (e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEMOTION) {
+                        setZoom( mouse.getButtons( e ) );
                     }
+
                 }
 
                 //Render quad

@@ -25,7 +25,7 @@ std::string readFile(const char *filePath) {
 }
 
 
-bool loadShader(const char *shaderPath, GLuint program) {
+GLuint loadShader(const char *shaderPath, GLuint program) {
     GLchar fileExtension = shaderPath[strlen(shaderPath) - 4];
 
     //Create vertex shader
@@ -46,9 +46,9 @@ bool loadShader(const char *shaderPath, GLuint program) {
     glGetShaderiv(shader, GL_COMPILE_STATUS, &isCompiled);
     if (isCompiled != GL_TRUE) {
         printf("Unable to compile shader from %s!\n", shaderPath);
-        return false;
+        return 0;
     } else {
         glAttachShader(program, shader);
-        return true;
+        return shader;
     }
 }

@@ -1,8 +1,12 @@
 #version 130
 
-in vec3 centreVertex;
+uniform mat4 model;
+uniform mat4 view;
+uniform mat4 proj;
+
+in vec3 position;
 
 void main()
 {
-    gl_Position = vec4( centreVertex.x, centreVertex.y, centreVertex.z, 1 );
+    gl_Position = proj * view * model * vec4(position, 1.0);
 }
