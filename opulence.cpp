@@ -10,7 +10,8 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include "src/loaders/ShaderLoader.h"
-#include "src/entity/Model.h"
+#include "src/entity/model/Model.h"
+#include "src/entity/camera/Camera.h"
 
 // TODO extract
 #include "controls/ControllerInterface.h"
@@ -38,6 +39,7 @@ private:
 
     Keyboard keys;
     Mouse mouse;
+    Camera *camera;
 
 public:
     bool init() {
@@ -177,9 +179,9 @@ public:
 
         glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0, 0.0, -4.0));
 
-        glm::mat4 view = glm::lookAt(zoom,
-                                     glm::vec3(0.0, 0.0, -4.0),
-                                     glm::vec3(0.0, 1.0, 0.0));
+        glm::mat4 view = glm::lookAt(*camera->getEye(),
+                                     *camera->getFocus(),
+                                     *camera->getTop());
 
         glm::mat4 proj = glm::perspective(45.0f, 800.0f/600.0f, 0.1f, 10.0f);
 
@@ -241,6 +243,9 @@ public:
             //Enable text input
             SDL_StartTextInput();
 
+            // create camera 1
+            camera = new Camera();
+
             //While application is running
             while (!quit) {
                 while (SDL_PollEvent(&e) != 0) {
@@ -248,9 +253,9 @@ public:
                     if (e.type == SDL_QUIT) {
                         quit = true;
                     } else if (e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEMOTION) {
-                        setZoom( mouse.getButtons( e ) );
+                        // camera movement
+                        camera->setEye(mouse.getButtons( e, camera->getEye() ) );
                     }
-
                 }
 
                 //Render quad

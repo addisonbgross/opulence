@@ -12,7 +12,7 @@ public:
 	std::vector<SDL_Event> *eventRecord;
 
     Mouse();
-	float getButtons(SDL_Event e);
+	glm::vec3 *getButtons(SDL_Event e, glm::vec3 *eye);
 };
 
 #endif // OPULENCE_MOUSE_H

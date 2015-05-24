@@ -30,12 +30,12 @@ set_source_files_properties(../main.c opulence.cpp PROPERTIES LANGUAGE CXX )
 add_executable(opulence ${SOURCE_FILES}
                          src/loaders/ShaderLoader.cpp
                          src/loaders/ShaderLoader.h
-                         src/entity/Model.cpp
-                         src/entity/Model.h
+                         src/entity/model/Model.cpp
+                         src/entity/model/Model.h
                          src/loaders/ObjLoader.cpp
                          src/loaders/ObjLoader.h
                          controls/Mouse.cpp
-                         controls/Mouse.h)
+                         controls/Mouse.h src/entity/camera/Camera.cpp src/entity/camera/Camera.h)
 
 target_link_libraries(opulence
                       ${SDL2_LIBRARY}
