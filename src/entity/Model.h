@@ -16,6 +16,7 @@ private:
 public:
     Model(int x, int y, int z);
     Model(int x, int y, int z, std::vector<GLfloat> v, std::vector<GLuint> i);
+
     // set
     void setPositionVerts(std::vector<GLfloat> v);
     void setIndexVerts(std::vector<GLuint> v);

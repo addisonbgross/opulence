@@ -1,7 +1,6 @@
 Opulence Graphics Engine
 
-Libraries Used
-- Open Asset Import Library 3.1.1 (Assimp)
+Lib
 - OpenGL 3.3
 - GLSL 1.3
 - OpenGL Extension Wrangler Library 1.6 (GLEW)

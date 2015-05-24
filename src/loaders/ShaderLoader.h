@@ -5,6 +5,6 @@
 #include <iostream>
 
 std::string readFile(const char *filePath);
-bool loadShader(const char *shaderPath, GLuint program);
+GLuint loadShader(const char *shaderPath, GLuint program);
 
 #endif //OPULENCE_SHADERLOADER_H

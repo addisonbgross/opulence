@@ -7,7 +7,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${opulence_SOURCE_DIR}/CMakeFiles")
 
 # Set an output directory for our binaries
-set(BIN_DIR ${opulence_SOURCE_DIR}/bin)
+set(BIN_DIR ${opulence_SOURCE_DIR}/opulence/bin)
 
 find_package(SDL2 REQUIRED)
 find_package(OpenGL REQUIRED)
@@ -20,9 +20,24 @@ include_directories(
   ${GLEW_INCLUDE_DIRS}
   )
 
-set(SOURCE_FILES ../main.c opulence.cpp)
-set(HEADER_FILES ${PROJECT_BINARY_DIR}/src/ControllerInterface.h)
+set(SOURCE_FILES
+    ../main.c
+    opulence.cpp)
+set(HEADER_FILES
+    controls/ControllerInterface.h
+    controls/Mouse.h)
 set_source_files_properties(../main.c opulence.cpp PROPERTIES LANGUAGE CXX )
-add_executable(opulence ${SOURCE_FILES} src/loaders/ShaderLoader.cpp src/loaders/ShaderLoader.h src/entity/Model.cpp src/entity/Model.h src/loaders/ObjLoader.cpp src/loaders/ObjLoader.h)
+add_executable(opulence ${SOURCE_FILES}
+                         src/loaders/ShaderLoader.cpp
+                         src/loaders/ShaderLoader.h
+                         src/entity/Model.cpp
+                         src/entity/Model.h
+                         src/loaders/ObjLoader.cpp
+                         src/loaders/ObjLoader.h
+                         controls/Mouse.cpp
+                         controls/Mouse.h)
 
-target_link_libraries(opulence ${SDL2_LIBRARY} ${OPENGL_LIBRARIES} ${GLEW_LIBRARIES})
+target_link_libraries(opulence
+                      ${SDL2_LIBRARY}
+                      ${OPENGL_LIBRARIES}
+                      ${GLEW_LIBRARIES})
