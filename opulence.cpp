@@ -29,7 +29,10 @@ private:
 
     //Graphics program
     GLuint vertexShader, fragmentShader;
+    // vertex shader
     GLint  gPosition, gModel, gView, gProj;
+    // fragment shader
+    GLint  gColour, gAmbient;
     GLuint gProgramID = 0;
     std::vector<GLuint> *gVBO;
     std::vector<GLuint> *gVAO;
@@ -106,6 +109,8 @@ public:
         gVBO = new std::vector<GLuint>();
         glGenBuffers(1, &buffer);
         gVBO->push_back(buffer);
+        glGenBuffers(1, &buffer);
+        gVBO->push_back(buffer);
 
         // create IBO
         gIBO = new std::vector<GLuint>();
@@ -117,10 +122,19 @@ public:
         //Initialize clear color
         glClearColor(0.f, 0.f, 0.f, 1.f);
 
+        // vertex shader variables
         gPosition = glGetAttribLocation(gProgramID, "position");
         gModel    = glGetUniformLocation(gProgramID, "model");
         gView     = glGetUniformLocation(gProgramID, "view");
         gProj     = glGetUniformLocation(gProgramID, "proj");
+
+        // fragment shader variables
+        gColour   = glGetAttribLocation(gProgramID, "colour");
+        gAmbient  = glGetUniformLocation(gProgramID, "ambient");
+        if (gAmbient < 0)
+            std::cout << "gAmbient failed!" << std::endl;
+        if (gColour < 0)
+            std::cout << "gColour failed!" << std::endl;
 
         return success;
     }
@@ -154,6 +168,18 @@ public:
                 -0.5f, 0.5f, -0.5f
         };
 
+        std::vector<GLfloat> vertexColours = {
+                1.0, 0.0, 0.0, 1.0,
+                0.0, 1.0, 0.0, 1.0,
+                0.0, 0.0, 1.0, 1.0,
+                0.0, 0.0, 0.0, 1.0,
+
+                1.0, 0.0, 0.0, 1.0,
+                0.0, 1.0, 0.0, 1.0,
+                0.0, 0.0, 1.0, 1.0,
+                1.0, 1.0, 1.0, 1.0
+        };
+
         //IBO data
         std::vector<GLuint> indexData = {
                 // front
@@ -173,10 +199,11 @@ public:
                 3, 7, 4,
                 // right
                 1, 5, 6,
-                6, 2, 1,
+                6, 2, 1
         };
 
 
+        /* vertex shader stuff */
         glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0, 0.0, -4.0));
 
         glm::mat4 view = glm::lookAt(*camera->getEye(),
@@ -189,10 +216,11 @@ public:
         glUniformMatrix4fv(gView, 1, GL_FALSE, &view[0][0]);
         glUniformMatrix4fv(gProj, 1, GL_FALSE, &proj[0][0]);
 
-        Model *square = new Model(0, 0, 0, vertexData, indexData);
+        /* fragment shader stuff */
+        glm::vec4 light = glm::vec4(0.5);
+        glUniform4fv(gAmbient, 1, &light[0]);
 
-        glm::vec4 c = keys.update();
-        GLfloat colourData[] = { c.r, c.g, c.b, c.a };
+        Model *square = new Model(0, 0, 0, vertexData, indexData, vertexColours);
 
         glUseProgram(gProgramID);
 
@@ -200,20 +228,39 @@ public:
 
         // set index data
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, gIBO->at(0));
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, square->getNumIndexVerts() * sizeof(GLuint), square->getIndexVerts(), GL_STATIC_DRAW);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER,
+                     square->getNumIndexVerts() * sizeof(GLuint),
+                     square->getIndexVerts(),
+                     GL_STATIC_DRAW);
 
-        //Set vertex data
+        // set vertex data
         glBindBuffer(GL_ARRAY_BUFFER, gVBO->at(0));
-        glBufferData(GL_ARRAY_BUFFER, square->getNumPositionVerts() * sizeof(GLfloat), square->getPositionVerts(), GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER,
+                     square->getNumPositionVerts() * sizeof(GLfloat),
+                     square->getPositionVerts(),
+                     GL_STATIC_DRAW);
         glVertexAttribPointer(gPosition, 3, GL_FLOAT, GL_FALSE, 0, 0);
-        glEnableVertexAttribArray(gPosition);
 
-        //Set index data and render
+        // set colour data
+        glBindBuffer(GL_ARRAY_BUFFER, gVBO->at(1));
+        glBufferData(GL_ARRAY_BUFFER,
+                     square->getNumColourVerts() * sizeof(GLfloat),
+                     square->getColourVerts(),
+                     GL_STATIC_DRAW);
+        glVertexAttribPointer(gColour, 4, GL_FLOAT, GL_FALSE, 0, 0);
+
+        // enable variables within shader pipeline
+        glEnableVertexAttribArray(gPosition);
+        glEnableVertexAttribArray(gColour);
+
+        // set index data and render
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, gIBO->at(0));
+        //glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
         glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_INT, NULL);
 
-        //Disable vertex position
+        // free shader variables
         glDisableVertexAttribArray(gPosition);
+        glDisableVertexAttribArray(gColour);
     }
 
     void close() {
