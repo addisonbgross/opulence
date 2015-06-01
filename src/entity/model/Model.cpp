@@ -19,6 +19,21 @@ Model::Model(int x, int y, int z, std::vector<GLfloat> v, std::vector<GLuint> i,
 
 /*** setters ***/
 
+void Model::setX(GLfloat x)
+{
+    this->x = x;
+}
+
+void Model::setY(GLfloat y)
+{
+    this->y = y;
+}
+
+void Model::setZ(GLfloat z)
+{
+    this->z = z;
+}
+
 void Model::setPositionVerts(std::vector<GLfloat> v)
 {
     positionVerts = v;
@@ -35,6 +50,21 @@ void Model::setIndexVerts(std::vector<GLuint> v)
 }
 
 /*** getters ***/
+
+GLfloat Model::getX()
+{
+    return this->x;
+}
+
+GLfloat Model::getY()
+{
+    return this->y;
+}
+
+GLfloat Model::getZ()
+{
+    return this->z;
+}
 
 GLfloat * Model::getPositionVerts()
 {
