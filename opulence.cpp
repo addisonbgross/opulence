@@ -21,8 +21,8 @@ class Opulence
 {
 private:
     //Screen dimension constants
-    const int SCREEN_WIDTH = 800;
-    const int SCREEN_HEIGHT = 600;
+    const GLfloat SCREEN_WIDTH = 800.0;
+    const GLfloat SCREEN_HEIGHT = 600.0;
 
     SDL_Window *gWindow = NULL; //The window we'll be rendering to
     SDL_GLContext gContext; //OpenGL context
@@ -30,7 +30,7 @@ private:
     //Graphics program
     GLuint vertexShader, fragmentShader;
     // vertex shader
-    GLint  gPosition, gModel, gView, gProj;
+    GLint  gPosition, gModel, gView, gProj, gModelPosition;
     // fragment shader
     GLint  gColour, gAmbient;
     GLuint gProgramID = 0;
@@ -94,6 +94,14 @@ public:
         // generate program
         gProgramID = glCreateProgram();
 
+        // enable z-buffer face culling
+        glEnable(GL_DEPTH_TEST);
+        glDepthFunc(GL_LESS);
+
+        // enable vsync rate
+        if (SDL_GL_SetSwapInterval(1) < 0)
+            std::cout << "Swap Interval could not be set!" << std::endl;
+
         // vertex & fragment
         vertexShader   = loadShader("/home/champ/Git/crows/opulence/shaders/shader1.vert", gProgramID);
         fragmentShader = loadShader("/home/champ/Git/crows/opulence/shaders/shader1.frag", gProgramID);
@@ -123,18 +131,15 @@ public:
         glClearColor(0.f, 0.f, 0.f, 1.f);
 
         // vertex shader variables
-        gPosition = glGetAttribLocation(gProgramID, "position");
-        gModel    = glGetUniformLocation(gProgramID, "model");
-        gView     = glGetUniformLocation(gProgramID, "view");
-        gProj     = glGetUniformLocation(gProgramID, "proj");
+        gPosition      = glGetAttribLocation(gProgramID, "position");
+        gModel         = glGetUniformLocation(gProgramID, "model");
+        gView          = glGetUniformLocation(gProgramID, "view");
+        gProj          = glGetUniformLocation(gProgramID, "proj");
+        gModelPosition = glGetUniformLocation(gProgramID, "modelPosition");
 
         // fragment shader variables
         gColour   = glGetAttribLocation(gProgramID, "colour");
         gAmbient  = glGetUniformLocation(gProgramID, "ambient");
-        if (gAmbient < 0)
-            std::cout << "gAmbient failed!" << std::endl;
-        if (gColour < 0)
-            std::cout << "gColour failed!" << std::endl;
 
         return success;
     }
@@ -153,7 +158,7 @@ public:
 
     void render() {
         //Clear color buffer
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         //VBO data
         std::vector<GLfloat> vertexData = {
@@ -204,13 +209,13 @@ public:
 
 
         /* vertex shader stuff */
-        glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0, 0.0, -4.0));
+        glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0, 0.0, 0.0));
 
         glm::mat4 view = glm::lookAt(*camera->getEye(),
                                      *camera->getFocus(),
                                      *camera->getTop());
 
-        glm::mat4 proj = glm::perspective(45.0f, 800.0f/600.0f, 0.1f, 10.0f);
+        glm::mat4 proj = glm::perspective(45.0f, SCREEN_WIDTH / SCREEN_HEIGHT, 0.1f, 100.0f);
 
         glUniformMatrix4fv(gModel, 1, GL_FALSE, &model[0][0]);
         glUniformMatrix4fv(gView, 1, GL_FALSE, &view[0][0]);
@@ -220,32 +225,53 @@ public:
         glm::vec4 light = glm::vec4(0.5);
         glUniform4fv(gAmbient, 1, &light[0]);
 
-        Model *square = new Model(0, 0, 0, vertexData, indexData, vertexColours);
+        Model square1(0, 0, 0, vertexData, indexData, vertexColours);
+        Model square2(2, 0, 0, vertexData, indexData, vertexColours);
+        Model square3(-2, 0, 0, vertexData, indexData, vertexColours);
 
         glUseProgram(gProgramID);
 
         glBindVertexArray(gVAO->at(0));
 
+        drawModel(&square1);
+        drawModel(&square2);
+        drawModel(&square3);
+    }
+
+    void drawModel(Model *model)
+    {
+        // create VBO
+        GLuint vbo, cbo, ibo;
+        glGenBuffers(1, &vbo);
+        glGenBuffers(1, &cbo);
+        glGenBuffers(1, &ibo);
+
+        glm::vec3 modelPlace = glm::vec3();
+        modelPlace.x = model->getX();
+        modelPlace.y = model->getY();
+        modelPlace.z = model->getZ();
+        glUniform3fv(gModelPosition, 1, &modelPlace[0]);
+
         // set index data
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, gIBO->at(0));
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER,
-                     square->getNumIndexVerts() * sizeof(GLuint),
-                     square->getIndexVerts(),
+                     model->getNumIndexVerts() * sizeof(GLuint),
+                     model->getIndexVerts(),
                      GL_STATIC_DRAW);
 
         // set vertex data
-        glBindBuffer(GL_ARRAY_BUFFER, gVBO->at(0));
+        glBindBuffer(GL_ARRAY_BUFFER, vbo);
         glBufferData(GL_ARRAY_BUFFER,
-                     square->getNumPositionVerts() * sizeof(GLfloat),
-                     square->getPositionVerts(),
+                     model->getNumPositionVerts() * sizeof(GLfloat),
+                     model->getPositionVerts(),
                      GL_STATIC_DRAW);
         glVertexAttribPointer(gPosition, 3, GL_FLOAT, GL_FALSE, 0, 0);
 
         // set colour data
-        glBindBuffer(GL_ARRAY_BUFFER, gVBO->at(1));
+        glBindBuffer(GL_ARRAY_BUFFER, cbo);
         glBufferData(GL_ARRAY_BUFFER,
-                     square->getNumColourVerts() * sizeof(GLfloat),
-                     square->getColourVerts(),
+                     model->getNumColourVerts() * sizeof(GLfloat),
+                     model->getColourVerts(),
                      GL_STATIC_DRAW);
         glVertexAttribPointer(gColour, 4, GL_FLOAT, GL_FALSE, 0, 0);
 
@@ -254,9 +280,8 @@ public:
         glEnableVertexAttribArray(gColour);
 
         // set index data and render
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, gIBO->at(0));
-        //glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
-        glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_INT, NULL);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+        glDrawElements(GL_TRIANGLES, model->getNumIndexVerts(), GL_UNSIGNED_INT, NULL);
 
         // free shader variables
         glDisableVertexAttribArray(gPosition);
@@ -296,12 +321,48 @@ public:
             //While application is running
             while (!quit) {
                 while (SDL_PollEvent(&e) != 0) {
-                    //User requests quit
-                    if (e.type == SDL_QUIT) {
+                    if (e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEMOTION) {
+                        if (e.button.button == SDL_BUTTON_LEFT) {
+                            if (e.motion.yrel > 0) {
+                                camera->rotateVertical(0.1f);
+                            } else if (e.motion.yrel < 0) {
+                                camera->rotateVertical(-0.1f);
+                            }
+
+                            if (e.motion.xrel > 0) {
+                                camera->rotateHorizontal(0.1f);
+                            } else if (e.motion.xrel < 0) {
+                                camera->rotateHorizontal(-0.1f);
+                            }
+                        }
+                    }
+
+                    if (e.button.button == SDL_SCANCODE_PERIOD) {
+                        camera->incrementZoom();
+                    } else if (e.button.button == SDL_SCANCODE_COMMA) {
+                        camera->decrementZoom();
+                    }
+
+                    if (e.button.button == SDL_SCANCODE_LEFT) {
+                        camera->moveLeft();
+                    } else if (e.button.button == SDL_SCANCODE_RIGHT) {
+                        camera->moveRight();
+                    }
+
+                    if (e.button.button == SDL_SCANCODE_UP) {
+                        camera->moveUp();
+                    } else if (e.button.button == SDL_SCANCODE_DOWN) {
+                        camera->moveDown();
+                    }
+
+                    if (e.button.button == SDL_SCANCODE_I) {
+                        //camera->rotateUp();
+                    } else if (e.button.button == SDL_SCANCODE_K) {
+                        //camera->rotateDown();
+                    }
+
+                    if (e.button.button == SDL_SCANCODE_ESCAPE || e.type == SDL_QUIT) {
                         quit = true;
-                    } else if (e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEMOTION) {
-                        // camera movement
-                        camera->setEye(mouse.getButtons( e, camera->getEye() ) );
                     }
                 }
 

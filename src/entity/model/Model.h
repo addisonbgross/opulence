@@ -8,7 +8,7 @@
 class Model
 {
 private:
-    int x, y, z;
+    GLfloat x, y, z;
 
     std::vector<GLfloat> positionVerts;
     std::vector<GLfloat> colourVerts;
@@ -22,11 +22,17 @@ public:
     void setPositionVerts(std::vector<GLfloat> v);
     void setIndexVerts(std::vector<GLuint> v);
     void setColourVerts(std::vector<GLfloat> v);
+    void setX(GLfloat x);
+    void setY(GLfloat y);
+    void setZ(GLfloat z);
 
     // get
     GLfloat * getPositionVerts();
     GLfloat * getColourVerts();
     GLuint * getIndexVerts();
+    GLfloat getX();
+    GLfloat getY();
+    GLfloat getZ();
     unsigned long getNumPositionVerts();
     unsigned long getNumColourVerts();
     unsigned long getNumIndexVerts();
