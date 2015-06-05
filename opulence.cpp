@@ -10,18 +10,15 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include "src/loaders/ShaderLoader.h"
+#include "src/loaders/ObjLoader.h"
 #include "src/entity/model/Model.h"
 #include "src/entity/camera/Camera.h"
-
-// TODO extract
-#include "controls/ControllerInterface.h"
-#include "controls/Mouse.h"
 
 class Opulence
 {
 private:
     //Screen dimension constants
-    const GLfloat SCREEN_WIDTH = 800.0;
+    const GLfloat SCREEN_WIDTH = 1024.0;
     const GLfloat SCREEN_HEIGHT = 600.0;
 
     SDL_Window *gWindow = NULL; //The window we'll be rendering to
@@ -34,15 +31,12 @@ private:
     // fragment shader
     GLint  gColour, gAmbient;
     GLuint gProgramID = 0;
-    std::vector<GLuint> *gVBO;
-    std::vector<GLuint> *gVAO;
-    std::vector<GLuint> *gIBO;
+    GLuint gVAO;
 
     glm::vec3 zoom = glm::vec3(0.0f, 1.0f, 0.0f);
 
-    Keyboard keys;
-    Mouse mouse;
     Camera *camera;
+    Model *mesh;
 
 public:
     bool init() {
@@ -96,7 +90,7 @@ public:
 
         // enable z-buffer face culling
         glEnable(GL_DEPTH_TEST);
-        glDepthFunc(GL_LESS);
+        glDepthFunc(GL_LEQUAL);
 
         // enable vsync rate
         if (SDL_GL_SetSwapInterval(1) < 0)
@@ -106,29 +100,13 @@ public:
         vertexShader   = loadShader("/home/champ/Git/crows/opulence/shaders/shader1.vert", gProgramID);
         fragmentShader = loadShader("/home/champ/Git/crows/opulence/shaders/shader1.frag", gProgramID);
 
-        // create openGL buffer objects
-        GLuint buffer;
         // create VAO
-        gVAO = new std::vector<GLuint>();
-        glGenVertexArrays(1, &buffer);
-        gVAO->push_back(buffer);
-
-        // create VBO
-        gVBO = new std::vector<GLuint>();
-        glGenBuffers(1, &buffer);
-        gVBO->push_back(buffer);
-        glGenBuffers(1, &buffer);
-        gVBO->push_back(buffer);
-
-        // create IBO
-        gIBO = new std::vector<GLuint>();
-        glGenBuffers(1, &buffer);
-        gIBO->push_back(buffer);
+        glGenVertexArrays(1, &gVAO);
 
         glLinkProgram(gProgramID);
 
         //Initialize clear color
-        glClearColor(0.f, 0.f, 0.f, 1.f);
+        glClearColor(1.f, 1.f, 1.f, 1.f);
 
         // vertex shader variables
         gPosition      = glGetAttribLocation(gProgramID, "position");
@@ -225,17 +203,11 @@ public:
         glm::vec4 light = glm::vec4(0.5);
         glUniform4fv(gAmbient, 1, &light[0]);
 
-        Model square1(0, 0, 0, vertexData, indexData, vertexColours);
-        Model square2(2, 0, 0, vertexData, indexData, vertexColours);
-        Model square3(-2, 0, 0, vertexData, indexData, vertexColours);
-
         glUseProgram(gProgramID);
 
-        glBindVertexArray(gVAO->at(0));
+        glBindVertexArray(gVAO);
 
-        drawModel(&square1);
-        drawModel(&square2);
-        drawModel(&square3);
+        drawModel(mesh);
     }
 
     void drawModel(Model *model)
@@ -281,7 +253,7 @@ public:
 
         // set index data and render
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
-        glDrawElements(GL_TRIANGLES, model->getNumIndexVerts(), GL_UNSIGNED_INT, NULL);
+        glDrawElements(GL_TRIANGLES, model->getNumIndexVerts(), GL_UNSIGNED_INT, (void *) 0);
 
         // free shader variables
         glDisableVertexAttribArray(gPosition);
@@ -298,6 +270,48 @@ public:
 
         //Quit SDL subsystems
         SDL_Quit();
+    }
+
+    bool doInput(SDL_Event e, Camera *camera) {
+        if (e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEMOTION) {
+            if (e.button.button == SDL_BUTTON_LEFT) {
+                if (e.motion.yrel > 0) {
+                    camera->rotateVertical(-0.025f);
+                } else if (e.motion.yrel < 0) {
+                    camera->rotateVertical(0.025f);
+                }
+
+                if (e.motion.xrel > 0) {
+                    camera->rotateHorizontal(-0.025f);
+                } else if (e.motion.xrel < 0) {
+                    camera->rotateHorizontal(0.025f);
+                }
+            }
+        }
+
+        if (e.button.button == SDL_SCANCODE_PERIOD) {
+            camera->incrementZoom();
+        } else if (e.button.button == SDL_SCANCODE_COMMA) {
+            camera->decrementZoom();
+        }
+
+        if (e.button.button == SDL_SCANCODE_LEFT) {
+            camera->moveLeft();
+        } else if (e.button.button == SDL_SCANCODE_RIGHT) {
+            camera->moveRight();
+        }
+
+        if (e.button.button == SDL_SCANCODE_UP) {
+            camera->moveUp();
+        } else if (e.button.button == SDL_SCANCODE_DOWN) {
+            camera->moveDown();
+        }
+
+        if (e.button.button == SDL_SCANCODE_ESCAPE || e.type == SDL_QUIT) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     int start() {
@@ -318,52 +332,14 @@ public:
             // create camera 1
             camera = new Camera();
 
+            ObjLoader loader;
+            obj_data objModel = loader.import("res/models/obj/monkey.obj");
+            mesh =  new Model(0, 0, 0, objModel);
+
             //While application is running
             while (!quit) {
                 while (SDL_PollEvent(&e) != 0) {
-                    if (e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEMOTION) {
-                        if (e.button.button == SDL_BUTTON_LEFT) {
-                            if (e.motion.yrel > 0) {
-                                camera->rotateVertical(0.1f);
-                            } else if (e.motion.yrel < 0) {
-                                camera->rotateVertical(-0.1f);
-                            }
-
-                            if (e.motion.xrel > 0) {
-                                camera->rotateHorizontal(0.1f);
-                            } else if (e.motion.xrel < 0) {
-                                camera->rotateHorizontal(-0.1f);
-                            }
-                        }
-                    }
-
-                    if (e.button.button == SDL_SCANCODE_PERIOD) {
-                        camera->incrementZoom();
-                    } else if (e.button.button == SDL_SCANCODE_COMMA) {
-                        camera->decrementZoom();
-                    }
-
-                    if (e.button.button == SDL_SCANCODE_LEFT) {
-                        camera->moveLeft();
-                    } else if (e.button.button == SDL_SCANCODE_RIGHT) {
-                        camera->moveRight();
-                    }
-
-                    if (e.button.button == SDL_SCANCODE_UP) {
-                        camera->moveUp();
-                    } else if (e.button.button == SDL_SCANCODE_DOWN) {
-                        camera->moveDown();
-                    }
-
-                    if (e.button.button == SDL_SCANCODE_I) {
-                        //camera->rotateUp();
-                    } else if (e.button.button == SDL_SCANCODE_K) {
-                        //camera->rotateDown();
-                    }
-
-                    if (e.button.button == SDL_SCANCODE_ESCAPE || e.type == SDL_QUIT) {
-                        quit = true;
-                    }
+                    quit = doInput(e, camera);
                 }
 
                 //Render quad
