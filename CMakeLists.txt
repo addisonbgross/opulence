@@ -13,29 +13,25 @@ find_package(SDL2 REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(GLEW REQUIRED)
 
-include_directories(
-  ${PROJECT_BINARY_DIR}
-  ${OPENGL_INCLUDE_DIR}
-  ${SDL2_INCLUDE_DIR}
-  ${GLEW_INCLUDE_DIRS}
-  )
+include_directories(${PROJECT_BINARY_DIR}
+                    ${OPENGL_INCLUDE_DIR}
+                    ${SDL2_INCLUDE_DIR}
+                    ${GLEW_INCLUDE_DIRS})
 
 set(SOURCE_FILES
     ../main.c
     opulence.cpp)
-set(HEADER_FILES
-    controls/ControllerInterface.h
-    controls/Mouse.h)
+set(HEADER_FILES)
 set_source_files_properties(../main.c opulence.cpp PROPERTIES LANGUAGE CXX )
 add_executable(opulence ${SOURCE_FILES}
-                         src/loaders/ShaderLoader.cpp
-                         src/loaders/ShaderLoader.h
-                         src/entity/model/Model.cpp
-                         src/entity/model/Model.h
-                         src/loaders/ObjLoader.cpp
-                         src/loaders/ObjLoader.h
-                         controls/Mouse.cpp
-                         controls/Mouse.h src/entity/camera/Camera.cpp src/entity/camera/Camera.h)
+               src/loaders/ShaderLoader.cpp
+               src/loaders/ShaderLoader.h
+               src/entity/model/Model.cpp
+               src/entity/model/Model.h
+               src/loaders/ObjLoader.cpp
+               src/loaders/ObjLoader.h
+               src/entity/camera/Camera.cpp
+               src/entity/camera/Camera.h)
 
 target_link_libraries(opulence
                       ${SDL2_LIBRARY}

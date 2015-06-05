@@ -1,7 +1,6 @@
 #include <fstream>
 #include <vector>
 #include <cstring>
-#include <algorithm>
 
 #include "ShaderLoader.h"
 

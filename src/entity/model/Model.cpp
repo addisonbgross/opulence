@@ -1,10 +1,23 @@
 #include "Model.h"
 
+Model::Model() {}
+
 Model::Model(int x, int y, int z)
 {
     this->x = x;
     this->y = y;
     this->z = z;
+}
+
+Model::Model(int x, int y, int z, obj_data objData)
+{
+    this->x = x;
+    this->y = y;
+    this->z = z;
+    positionVerts = objData.position;
+    normalVerts   = objData.normal;
+    colourVerts   = objData.colour;
+    indexVerts    = objData.index;
 }
 
 Model::Model(int x, int y, int z, std::vector<GLfloat> v, std::vector<GLuint> i, std::vector<GLfloat> c)
@@ -39,6 +52,11 @@ void Model::setPositionVerts(std::vector<GLfloat> v)
     positionVerts = v;
 }
 
+void Model::setNormalVerts(std::vector<GLfloat> v)
+{
+    normalVerts = v;
+}
+
 void Model::setColourVerts(std::vector<GLfloat> v)
 {
     colourVerts = v;
@@ -71,6 +89,11 @@ GLfloat * Model::getPositionVerts()
     return positionVerts.data();
 }
 
+GLfloat * Model::getNormalVerts()
+{
+    return normalVerts.data();
+}
+
 GLfloat * Model::getColourVerts()
 {
     return colourVerts.data();
@@ -84,6 +107,11 @@ GLuint * Model::getIndexVerts()
 unsigned long Model::getNumPositionVerts()
 {
     return positionVerts.size();
+}
+
+unsigned long Model::getNumNormalVerts()
+{
+    return normalVerts.size();
 }
 
 unsigned long Model::getNumColourVerts()
