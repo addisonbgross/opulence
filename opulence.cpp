@@ -27,7 +27,7 @@ private:
     //Graphics program
     GLuint vertexShader, fragmentShader;
     // vertex shader
-    GLint  gPosition, gModel, gView, gProj, gModelPosition;
+    GLint  gPosition, gNormal, gLight, gModel, gView, gProj, gModelPosition;
     // fragment shader
     GLint  gColour, gAmbient;
     GLuint gProgramID = 0;
@@ -36,7 +36,8 @@ private:
     glm::vec3 zoom = glm::vec3(0.0f, 1.0f, 0.0f);
 
     Camera *camera;
-    Model *mesh;
+    Model *mesh, *mesh1, *mesh2, *mesh3;
+    glm::vec3 light;
 
 public:
     bool init() {
@@ -106,10 +107,12 @@ public:
         glLinkProgram(gProgramID);
 
         //Initialize clear color
-        glClearColor(1.f, 1.f, 1.f, 1.f);
+        glClearColor(0.0, 0.0, 0.0, 1.0f);
 
         // vertex shader variables
         gPosition      = glGetAttribLocation(gProgramID, "position");
+        gNormal        = glGetAttribLocation(gProgramID, "normal");
+        gLight         = glGetUniformLocation(gProgramID, "light");
         gModel         = glGetUniformLocation(gProgramID, "model");
         gView          = glGetUniformLocation(gProgramID, "view");
         gProj          = glGetUniformLocation(gProgramID, "proj");
@@ -138,54 +141,6 @@ public:
         //Clear color buffer
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        //VBO data
-        std::vector<GLfloat> vertexData = {
-                -0.5f, -0.5f, 0.5f,
-                0.5f, -0.5f, 0.5f,
-                0.5f, 0.5f, 0.5f,
-                -0.5f, 0.5f, 0.5f,
-
-                -0.5f, -0.5f, -0.5f,
-                0.5f, -0.5f, -0.5f,
-                0.5f, 0.5f, -0.5f,
-                -0.5f, 0.5f, -0.5f
-        };
-
-        std::vector<GLfloat> vertexColours = {
-                1.0, 0.0, 0.0, 1.0,
-                0.0, 1.0, 0.0, 1.0,
-                0.0, 0.0, 1.0, 1.0,
-                0.0, 0.0, 0.0, 1.0,
-
-                1.0, 0.0, 0.0, 1.0,
-                0.0, 1.0, 0.0, 1.0,
-                0.0, 0.0, 1.0, 1.0,
-                1.0, 1.0, 1.0, 1.0
-        };
-
-        //IBO data
-        std::vector<GLuint> indexData = {
-                // front
-                0, 1, 2,
-                2, 3, 0,
-                // top
-                3, 2, 6,
-                6, 7, 3,
-                // back
-                7, 6, 5,
-                5, 4, 7,
-                // bottom
-                4, 5, 1,
-                1, 0, 4,
-                // left
-                4, 0, 3,
-                3, 7, 4,
-                // right
-                1, 5, 6,
-                6, 2, 1
-        };
-
-
         /* vertex shader stuff */
         glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0, 0.0, 0.0));
 
@@ -200,28 +155,32 @@ public:
         glUniformMatrix4fv(gProj, 1, GL_FALSE, &proj[0][0]);
 
         /* fragment shader stuff */
-        glm::vec4 light = glm::vec4(0.5);
-        glUniform4fv(gAmbient, 1, &light[0]);
+        glm::vec4 lightDir = glm::vec4(0.1);
+        glUniform4fv(gAmbient, 1, &lightDir[0]);
+        glUniform3fv(gLight, 1, &light[0]);
 
         glUseProgram(gProgramID);
 
         glBindVertexArray(gVAO);
 
         drawModel(mesh);
+        drawModel(mesh1);
+        drawModel(mesh2);
     }
 
     void drawModel(Model *model)
     {
         // create VBO
-        GLuint vbo, cbo, ibo;
+        GLuint vbo, cbo, nbo, ibo;
         glGenBuffers(1, &vbo);
         glGenBuffers(1, &cbo);
+        glGenBuffers(1, &nbo);
         glGenBuffers(1, &ibo);
 
-        glm::vec3 modelPlace = glm::vec3();
-        modelPlace.x = model->getX();
-        modelPlace.y = model->getY();
-        modelPlace.z = model->getZ();
+        // set model position
+        glm::vec3 modelPlace = glm::vec3(model->getX(),
+                                         model->getY(),
+                                         model->getZ());
         glUniform3fv(gModelPosition, 1, &modelPlace[0]);
 
         // set index data
@@ -247,9 +206,18 @@ public:
                      GL_STATIC_DRAW);
         glVertexAttribPointer(gColour, 4, GL_FLOAT, GL_FALSE, 0, 0);
 
+        // set normal data
+        glBindBuffer(GL_ARRAY_BUFFER, nbo);
+        glBufferData(GL_ARRAY_BUFFER,
+                     model->getNumNormalVerts() * sizeof(GLfloat),
+                     model->getNormalVerts(),
+                     GL_STATIC_DRAW);
+        glVertexAttribPointer(gNormal, 3, GL_FLOAT, GL_FALSE, 0, 0);
+
         // enable variables within shader pipeline
         glEnableVertexAttribArray(gPosition);
         glEnableVertexAttribArray(gColour);
+        glEnableVertexAttribArray(gNormal);
 
         // set index data and render
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
@@ -258,6 +226,7 @@ public:
         // free shader variables
         glDisableVertexAttribArray(gPosition);
         glDisableVertexAttribArray(gColour);
+        glDisableVertexAttribArray(gNormal);
     }
 
     void close() {
@@ -287,6 +256,15 @@ public:
                     camera->rotateHorizontal(0.025f);
                 }
             }
+        }
+
+        if (e.button.button == SDL_SCANCODE_W) {
+            glm::mat4 rotationMatrix = glm::mat4(1.0f);
+            rotationMatrix = glm::rotate(rotationMatrix, 0.05f, glm::vec3(1.0f, 0.0f, 0.0f));
+            glm::vec4 temp = rotationMatrix * glm::vec4(light, 1.0f);
+            light.x = temp.x;
+            light.y = temp.y;
+            light.z = temp.z;
         }
 
         if (e.button.button == SDL_SCANCODE_PERIOD) {
@@ -333,8 +311,15 @@ public:
             camera = new Camera();
 
             ObjLoader loader;
-            obj_data objModel = loader.import("res/models/obj/monkey.obj");
-            mesh =  new Model(0, 0, 0, objModel);
+            obj_data objModel = loader.import("res/models/obj/cube.obj");
+            mesh =  new Model(-3, 0, 0, objModel);
+            mesh1 =  new Model(0, 0, 0, objModel);
+            mesh2 =  new Model(3, 0, 0, objModel);
+
+            light = glm::vec3(0.0, 1.0, 0.0);
+            std::cout << "vSize: " << mesh->getNumPositionVerts() <<
+                         " - nSize: " << mesh->getNumNormalVerts() <<
+                         " - iSize: " << mesh->getNumIndexVerts() << std::endl;
 
             //While application is running
             while (!quit) {

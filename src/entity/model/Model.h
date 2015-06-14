@@ -15,6 +15,7 @@ private:
     std::vector<GLfloat> normalVerts;
     std::vector<GLfloat> colourVerts;
     std::vector<GLuint>  indexVerts;
+    std::vector<GLuint>  normalIndexVerts;
 
 public:
     Model();
@@ -25,8 +26,9 @@ public:
     // set
     void setPositionVerts(std::vector<GLfloat> v);
     void setNormalVerts(std::vector<GLfloat> v);
-    void setIndexVerts(std::vector<GLuint> v);
     void setColourVerts(std::vector<GLfloat> v);
+    void setIndexVerts(std::vector<GLuint> v);
+    void setNormalIndexVerts(std::vector<GLuint> v);
     void setX(GLfloat x);
     void setY(GLfloat y);
     void setZ(GLfloat z);
@@ -36,6 +38,7 @@ public:
     GLfloat * getNormalVerts();
     GLfloat * getColourVerts();
     GLuint * getIndexVerts();
+    GLuint * getNormalIndexVerts();
     GLfloat getX();
     GLfloat getY();
     GLfloat getZ();
@@ -43,6 +46,7 @@ public:
     unsigned long getNumNormalVerts();
     unsigned long getNumColourVerts();
     unsigned long getNumIndexVerts();
+    unsigned long getNumNormalIndexVerts();
 };
 
 #endif //OPULENCE_MODEL_H
