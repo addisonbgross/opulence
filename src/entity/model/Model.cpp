@@ -17,7 +17,7 @@ Model::Model(int x, int y, int z, obj_data objData)
     positionVerts = objData.position;
     normalVerts   = objData.normal;
     colourVerts   = objData.colour;
-    indexVerts    = objData.index;
+    indexVerts    = objData.positionIndex;
 }
 
 Model::Model(int x, int y, int z, std::vector<GLfloat> v, std::vector<GLuint> i, std::vector<GLfloat> c)
@@ -67,6 +67,11 @@ void Model::setIndexVerts(std::vector<GLuint> v)
     indexVerts = v;
 }
 
+void Model::setNormalIndexVerts(std::vector<GLuint> v)
+{
+    normalIndexVerts = v;
+}
+
 /*** getters ***/
 
 GLfloat Model::getX()
@@ -104,6 +109,11 @@ GLuint * Model::getIndexVerts()
     return indexVerts.data();
 }
 
+GLuint * Model::getNormalIndexVerts()
+{
+    return normalIndexVerts.data();
+}
+
 unsigned long Model::getNumPositionVerts()
 {
     return positionVerts.size();
@@ -122,4 +132,9 @@ unsigned long Model::getNumColourVerts()
 unsigned long Model::getNumIndexVerts()
 {
     return indexVerts.size();
+}
+
+unsigned long Model::getNumNormalIndexVerts()
+{
+    return normalIndexVerts.size();
 }
