@@ -1,8 +1,9 @@
 #version 130
 
 uniform vec4 ambient;
+
 in vec4 fragmentColour;
-in vec3 fragmentNormal;
+flat in vec3 fragmentNormal;
 in vec3 fragmentLight;
 
 out vec4 outColour;

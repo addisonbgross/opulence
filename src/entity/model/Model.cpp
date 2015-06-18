@@ -16,7 +16,7 @@ Model::Model(int x, int y, int z, obj_data objData)
     this->z = z;
     positionVerts = objData.position;
     normalVerts   = objData.normal;
-    colourVerts   = objData.colour;
+    colourVerts   = objData.diffuse;
     indexVerts    = objData.positionIndex;
 }
 

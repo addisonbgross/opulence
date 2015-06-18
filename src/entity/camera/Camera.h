@@ -14,7 +14,7 @@ private:
     glm::vec3 *focus;  // target of view
     glm::vec3 *top;    // relative up direction of camera
 
-    GLfloat zoomInertia = 0.1;
+    GLfloat zoomInertia = 0.2;
 
 public:
     Camera();

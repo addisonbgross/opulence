@@ -81,10 +81,10 @@ obj_data ObjLoader::import(std::string filePath)
                     objData.position.push_back(a);
                     objData.position.push_back(b);
                     objData.position.push_back(c);
-                    objData.colour.push_back(0.5f);
-                    objData.colour.push_back(0.5f);
-                    objData.colour.push_back(0.5f);
-                    objData.colour.push_back(1.0f);
+                    objData.diffuse.push_back(0.5f);
+                    objData.diffuse.push_back(0.5f);
+                    objData.diffuse.push_back(0.5f);
+                    objData.diffuse.push_back(1.0f);
                     //std::cout << "v " << a << " " << b << " " << c <<  std::endl;
                 }
                 break;
