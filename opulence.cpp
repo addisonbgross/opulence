@@ -196,7 +196,7 @@ public:
         glBufferData(GL_ARRAY_BUFFER,
                      model->getNumPositionVerts() * sizeof(GLfloat),
                      model->getPositionVerts(),
-                     GL_STATIC_DRAW);
+                     GL_DYNAMIC_DRAW);
         glVertexAttribPointer(gPosition, 3, GL_FLOAT, GL_FALSE, 0, 0);
 
         // set diffuse colour data
@@ -338,7 +338,7 @@ public:
             camera = new Camera();
 
             ObjLoader loader;
-            obj_data objModel = loader.import("res/models/obj/hiMonkey.obj");
+            obj_data objModel = loader.import("res/models/obj/cube.obj");
             mesh1 =  new Model(0, 0, 0, objModel);
 
             light = glm::vec3(0.0, 1.0, -1.0);

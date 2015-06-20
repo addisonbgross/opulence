@@ -53,7 +53,7 @@ obj_data ObjLoader::import(std::string filePath)
     obj_data objData;
 
     std::vector<mtl_data> mtlData = importMtl(filePath);
-
+    mtl_data currentMtl;
 
     std::string line = "";
 
@@ -61,8 +61,8 @@ obj_data ObjLoader::import(std::string filePath)
     GLuint  d, e, f,
             g, h, i;
 
-    std::vector<GLfloat> tempNormals;
-
+    std::vector<GLfloat> tempNormals, tempPosition, tempColour;
+    GLuint count;
     while(!fileStream.eof()) {
         std::getline(fileStream, line);
 
@@ -78,20 +78,42 @@ obj_data ObjLoader::import(std::string filePath)
                     //std::cout << "vn " << a << " " << b << " " << c << std::endl;
                 } else {
                     sscanf(line.c_str(), "%f %f %f ", &a, &b, &c);
+                    tempPosition.push_back(a);
+                    tempPosition.push_back(b);
+                    tempPosition.push_back(c);
                     objData.position.push_back(a);
                     objData.position.push_back(b);
                     objData.position.push_back(c);
-                    objData.diffuse.push_back(0.5f);
-                    objData.diffuse.push_back(0.5f);
-                    objData.diffuse.push_back(0.5f);
-                    objData.diffuse.push_back(1.0f);
+                    //objData.diffuse.push_back(0.5f);
+                    //objData.diffuse.push_back(0.5f);
+                    //objData.diffuse.push_back(0.5f);
+                    //objData.diffuse.push_back(1.0f);
                     //std::cout << "v " << a << " " << b << " " << c <<  std::endl;
+                }
+                break;
+
+            case 'u':
+                line = line.substr(7, line.size());
+                count = 0;
+                while (count < mtlData.size()) {
+                    if (mtlData[count].name == line) {
+                        currentMtl = mtlData[count];
+                    }
+                    ++count;
                 }
                 break;
 
             case 'f':
                 line[0] = ' ';
                 sscanf(line.c_str(), "%i//%i %i//%i %i//%i ", &d, &e, &f, &g, &h, &i);
+                std::cout << currentMtl.name << std::endl;
+                objData.diffuse.push_back(currentMtl.diffuse.x);
+                objData.diffuse.push_back(currentMtl.diffuse.y);
+                objData.diffuse.push_back(currentMtl.diffuse.z);
+                objData.diffuse.push_back(currentMtl.diffuse.w);
+                //objData.position.push_back( tempPosition[d -1] );
+                //objData.position.push_back( tempPosition[f -1] );
+                //objData.position.push_back( tempPosition[h -1] );
                 objData.positionIndex.push_back(d - 1);
                 objData.positionIndex.push_back(f - 1);
                 objData.positionIndex.push_back(h - 1);
