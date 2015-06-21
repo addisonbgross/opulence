@@ -10,6 +10,6 @@ out vec4 outColour;
 
 void main()
 {
-    float diffuse = max(dot(normalize(fragmentNormal), -fragmentLight), 0.0);
-    outColour = fragmentColour * (diffuse + ambient);
-}
+     float diffuse = max(dot(normalize(fragmentNormal), -fragmentLight), 0.0);
+     outColour = fragmentColour * (diffuse + ambient);
+ }

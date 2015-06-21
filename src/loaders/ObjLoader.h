@@ -15,6 +15,7 @@ struct obj_data {
     std::vector<GLfloat> position;
     std::vector<GLfloat> normal;
     std::vector<GLfloat> diffuse;
+    std::vector<GLfloat> specular;
     std::vector<GLuint>  positionIndex;
     std::vector<GLuint>  uvIndex;
     std::vector<GLuint>  normalIndex;

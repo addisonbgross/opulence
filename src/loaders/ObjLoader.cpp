@@ -35,6 +35,13 @@ std::vector<mtl_data> ObjLoader::importMtl(std::string filePath)
             mtl.diffuse[0] = a;
             mtl.diffuse[1] = b;
             mtl.diffuse[2] = c;
+
+        } else if (line.c_str()[1] == 's') {
+            line = line.substr(2, line.length() - 1);
+            sscanf(line.c_str(), "%f %f %f ", &a, &b, &c);
+            mtl.specular[0] = a;
+            mtl.specular[1] = b;
+            mtl.specular[2] = c;
         }
     }
     materials.push_back(mtl);
@@ -57,9 +64,16 @@ obj_data ObjLoader::import(std::string filePath)
 
     std::string line = "";
 
+    bool hasTextures = false;
+    bool firstObject = true;
+    GLuint newObject = 0;
+    GLuint highFace = 0, highNormal = 0;
+    GLint faceOffset = 0, normalOffset = 0;
+
     GLfloat a, b, c;
     GLuint  d, e, f,
-            g, h, i;
+            g, h, i,
+            j, k, l;
 
     std::vector<GLfloat> tempNormals, tempPosition, tempColour;
     GLuint count;
@@ -67,28 +81,34 @@ obj_data ObjLoader::import(std::string filePath)
         std::getline(fileStream, line);
 
         switch(line.c_str()[0]) {
+            case 'g':
+                newObject++;
+                if (newObject == 2 && firstObject) {
+                    firstObject = false;
+                    newObject = 0;
+                } else if (newObject == 2) {
+                    newObject = 0;
+                    faceOffset = highFace;
+                    normalOffset = highNormal;
+                    std::cout << "face " << faceOffset << std::endl;
+                    std::cout << "normal " << normalOffset << std::endl;
+                }
+
             case 'v':
                 line[0] = ' ';
-                if (line.c_str()[1] == 'n') {
+                if (line.c_str()[1] == 't') {
+                    hasTextures = true;
+                } else if (line.c_str()[1] == 'n') {
                     line[1] = ' ';
                     sscanf(line.c_str(), "%f %f %f ", &a, &b, &c);
                     tempNormals.push_back(a);
                     tempNormals.push_back(b);
                     tempNormals.push_back(c);
-                    //std::cout << "vn " << a << " " << b << " " << c << std::endl;
                 } else {
                     sscanf(line.c_str(), "%f %f %f ", &a, &b, &c);
                     tempPosition.push_back(a);
                     tempPosition.push_back(b);
                     tempPosition.push_back(c);
-                    objData.position.push_back(a);
-                    objData.position.push_back(b);
-                    objData.position.push_back(c);
-                    //objData.diffuse.push_back(0.5f);
-                    //objData.diffuse.push_back(0.5f);
-                    //objData.diffuse.push_back(0.5f);
-                    //objData.diffuse.push_back(1.0f);
-                    //std::cout << "v " << a << " " << b << " " << c <<  std::endl;
                 }
                 break;
 
@@ -105,22 +125,95 @@ obj_data ObjLoader::import(std::string filePath)
 
             case 'f':
                 line[0] = ' ';
-                sscanf(line.c_str(), "%i//%i %i//%i %i//%i ", &d, &e, &f, &g, &h, &i);
-                std::cout << currentMtl.name << std::endl;
+
+                if (hasTextures) {
+                    sscanf(line.c_str(), "%i/%i/%i %i/%i/%i %i/%i/%i ", &d, &j, &e, &f, &k, &g, &h, &l, &i);
+                } else {
+                    sscanf(line.c_str(), "%i//%i %i//%i %i//%i ", &d, &e, &f, &g, &h, &i);
+                }
+
+                if (d > highFace) {
+                    highFace = d;
+                } else if (f > highFace) {
+                    highFace = f;
+                } else if (h > highFace) {
+                    highFace = h;
+                }
+
+                if (e > highNormal) {
+                    highNormal = e;
+                } else if (g > highNormal) {
+                    highNormal = g;
+                } else if (i > highNormal) {
+                    highNormal = i;
+                }
+
+                d -= faceOffset;
+                f -= faceOffset;
+                h -= faceOffset;
+
+                e -= normalOffset;
+                g -= normalOffset;
+                i -= normalOffset;
+
+
+                // diffuse colour
                 objData.diffuse.push_back(currentMtl.diffuse.x);
                 objData.diffuse.push_back(currentMtl.diffuse.y);
                 objData.diffuse.push_back(currentMtl.diffuse.z);
-                objData.diffuse.push_back(currentMtl.diffuse.w);
-                //objData.position.push_back( tempPosition[d -1] );
-                //objData.position.push_back( tempPosition[f -1] );
-                //objData.position.push_back( tempPosition[h -1] );
-                objData.positionIndex.push_back(d - 1);
-                objData.positionIndex.push_back(f - 1);
-                objData.positionIndex.push_back(h - 1);
-                objData.normalIndex.push_back(e - 1);
-                objData.normalIndex.push_back(g - 1);
-                objData.normalIndex.push_back(i - 1);
-                //std::cout << "f " << d << "//" << e << " " << f << "//" << g << " " << h << "//" << i << std::endl;
+                objData.diffuse.push_back(1.0f);
+
+                objData.diffuse.push_back(currentMtl.diffuse.x);
+                objData.diffuse.push_back(currentMtl.diffuse.y);
+                objData.diffuse.push_back(currentMtl.diffuse.z);
+                objData.diffuse.push_back(1.0f);
+
+                objData.diffuse.push_back(currentMtl.diffuse.x);
+                objData.diffuse.push_back(currentMtl.diffuse.y);
+                objData.diffuse.push_back(currentMtl.diffuse.z);
+                objData.diffuse.push_back(1.0f);
+
+                // specular colour
+                objData.specular.push_back(currentMtl.specular.x);
+                objData.specular.push_back(currentMtl.specular.y);
+                objData.specular.push_back(currentMtl.specular.z);
+                objData.specular.push_back(1.0f);
+
+                objData.specular.push_back(currentMtl.specular.x);
+                objData.specular.push_back(currentMtl.specular.y);
+                objData.specular.push_back(currentMtl.specular.z);
+                objData.specular.push_back(1.0f);
+
+                objData.specular.push_back(currentMtl.specular.x);
+                objData.specular.push_back(currentMtl.specular.y);
+                objData.specular.push_back(currentMtl.specular.z);
+                objData.specular.push_back(1.0f);
+
+                // position
+                objData.position.push_back( tempPosition[3 * (d - 1)] );
+                objData.position.push_back( tempPosition[3 * (d - 1) + 1] );
+                objData.position.push_back( tempPosition[3 * (d - 1) + 2] );
+
+                objData.position.push_back( tempPosition[3 * (f - 1)] );
+                objData.position.push_back( tempPosition[3 * (f - 1) + 1] );
+                objData.position.push_back( tempPosition[3 * (f - 1) + 2] );
+
+                objData.position.push_back( tempPosition[3 * (h - 1)] );
+                objData.position.push_back( tempPosition[3 * (h - 1) + 1] );
+                objData.position.push_back( tempPosition[3 * (h - 1) + 2] );
+
+                // normal
+                objData.normal.push_back( tempNormals[3 * (e - 1)] );
+                objData.normal.push_back( tempNormals[3 * (e - 1) + 1] );
+                objData.normal.push_back( tempNormals[3 * (e - 1) + 2] );
+
+                objData.normal.push_back( tempNormals[3 * (g - 1)] );
+                objData.normal.push_back( tempNormals[3 * (g - 1) + 1] );
+                objData.normal.push_back( tempNormals[3 * (g - 1) + 2] );
+
+                objData.normal.push_back( tempNormals[3 * (i - 1)] );
+                objData.normal.push_back( tempNormals[3 * (i - 1) + 1] );
+                objData.normal.push_back( tempNormals[3 * (i - 1) + 2] );
                 break;
 
             default:
@@ -128,25 +221,11 @@ obj_data ObjLoader::import(std::string filePath)
         }
     }
 
+    // create index buffer
+    for (i = 0; i < objData.position.size(); ++i)
+        objData.positionIndex.push_back(i);
+
     fileStream.close();
-
-    objData.normal.resize( objData.positionIndex.size() );
-
-    GLuint num, vertexIndex, normalIndex;
-    for (num = 0; num < objData.positionIndex.size(); num++) {
-        vertexIndex = (objData.positionIndex.at(num)) * 3;
-        normalIndex = (objData.normalIndex.at(num)) * 3;
-        //std::cout << "vert " << vertexIndex << " - norm " << normalIndex << std::endl;
-
-        objData.normal.at(vertexIndex) = tempNormals.at(normalIndex);
-        objData.normal.at(vertexIndex + 1) = tempNormals.at(normalIndex + 1);
-        objData.normal.at(vertexIndex + 2) = tempNormals.at(normalIndex + 2);
-        //std::cout << "n " << objData.normal[vertexIndex] <<
-        //              " " << objData.normal[vertexIndex + 1] <<
-       //               " " << objData.normal[vertexIndex + 2] << std::endl;
-    }
-
-    //objData.normal = tempNormals;
 
     return objData;
 }

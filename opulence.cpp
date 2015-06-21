@@ -34,6 +34,7 @@ private:
     GLuint gVAO;
 
     bool wire = false;
+    bool vboSent = false;
 
     glm::vec3 zoom = glm::vec3(0.0f, 1.0f, 0.0f);
 
@@ -191,21 +192,14 @@ public:
                      model->getIndexVerts(),
                      GL_STATIC_DRAW);
 
+
         // set vertex data
         glBindBuffer(GL_ARRAY_BUFFER, vbo);
         glBufferData(GL_ARRAY_BUFFER,
                      model->getNumPositionVerts() * sizeof(GLfloat),
                      model->getPositionVerts(),
-                     GL_DYNAMIC_DRAW);
-        glVertexAttribPointer(gPosition, 3, GL_FLOAT, GL_FALSE, 0, 0);
-
-        // set diffuse colour data
-        glBindBuffer(GL_ARRAY_BUFFER, cbo);
-        glBufferData(GL_ARRAY_BUFFER,
-                     model->getNumColourVerts() * sizeof(GLfloat),
-                     model->getColourVerts(),
                      GL_STATIC_DRAW);
-        glVertexAttribPointer(gColour, 4, GL_FLOAT, GL_FALSE, 0, 0);
+        glVertexAttribPointer(gPosition, 3, GL_FLOAT, GL_FALSE, 0, 0);
 
         // set normal data
         glBindBuffer(GL_ARRAY_BUFFER, nbo);
@@ -214,6 +208,14 @@ public:
                      model->getNormalVerts(),
                      GL_STATIC_DRAW);
         glVertexAttribPointer(gNormal, 3, GL_FLOAT, GL_FALSE, 0, 0);
+
+        // set diffuse colour data
+        glBindBuffer(GL_ARRAY_BUFFER, cbo);
+        glBufferData(GL_ARRAY_BUFFER,
+                     model->getNumColourVerts() * sizeof(GLfloat),
+                     model->getColourVerts(),
+                     GL_STATIC_DRAW);
+        glVertexAttribPointer(gColour, 4, GL_FLOAT, GL_FALSE, 0, 0);
 
         // enable variables within shader pipeline
         glEnableVertexAttribArray(gPosition);
@@ -338,7 +340,7 @@ public:
             camera = new Camera();
 
             ObjLoader loader;
-            obj_data objModel = loader.import("res/models/obj/cube.obj");
+            obj_data objModel = loader.import("res/models/obj/hiSphere.obj");
             mesh1 =  new Model(0, 0, 0, objModel);
 
             light = glm::vec3(0.0, 1.0, -1.0);
