@@ -9,6 +9,7 @@ uniform vec3 light;
 
 in vec3 position;
 in vec4 diffuse;
+in vec4 specular;
 in vec3 normal;
 
 out vec4 fragmentDiffuse;

@@ -75,7 +75,7 @@ obj_data ObjLoader::import(std::string filePath)
             g, h, i,
             j, k, l;
 
-    std::vector<GLfloat> tempNormals, tempPosition, tempColour;
+    std::vector<GLfloat> tempNormals, tempPosition;
     GLuint count;
     while(!fileStream.eof()) {
         std::getline(fileStream, line);
@@ -132,21 +132,8 @@ obj_data ObjLoader::import(std::string filePath)
                     sscanf(line.c_str(), "%i//%i %i//%i %i//%i ", &d, &e, &f, &g, &h, &i);
                 }
 
-                if (d > highFace) {
-                    highFace = d;
-                } else if (f > highFace) {
-                    highFace = f;
-                } else if (h > highFace) {
-                    highFace = h;
-                }
-
-                if (e > highNormal) {
-                    highNormal = e;
-                } else if (g > highNormal) {
-                    highNormal = g;
-                } else if (i > highNormal) {
-                    highNormal = i;
-                }
+                checkHighMark(highFace, d, f, h);
+                checkHighMark(highNormal, e, g, i);
 
                 d -= faceOffset;
                 f -= faceOffset;
@@ -156,37 +143,20 @@ obj_data ObjLoader::import(std::string filePath)
                 g -= normalOffset;
                 i -= normalOffset;
 
-
                 // diffuse colour
-                objData.diffuse.push_back(currentMtl.diffuse.x);
-                objData.diffuse.push_back(currentMtl.diffuse.y);
-                objData.diffuse.push_back(currentMtl.diffuse.z);
+                pushThree(objData.diffuse, currentMtl.diffuse.x, currentMtl.diffuse.y, currentMtl.diffuse.z);
                 objData.diffuse.push_back(1.0f);
-
-                objData.diffuse.push_back(currentMtl.diffuse.x);
-                objData.diffuse.push_back(currentMtl.diffuse.y);
-                objData.diffuse.push_back(currentMtl.diffuse.z);
+                pushThree(objData.diffuse, currentMtl.diffuse.x, currentMtl.diffuse.y, currentMtl.diffuse.z);
                 objData.diffuse.push_back(1.0f);
-
-                objData.diffuse.push_back(currentMtl.diffuse.x);
-                objData.diffuse.push_back(currentMtl.diffuse.y);
-                objData.diffuse.push_back(currentMtl.diffuse.z);
+                pushThree(objData.diffuse, currentMtl.diffuse.x, currentMtl.diffuse.y, currentMtl.diffuse.z);
                 objData.diffuse.push_back(1.0f);
 
                 // specular colour
-                objData.specular.push_back(currentMtl.specular.x);
-                objData.specular.push_back(currentMtl.specular.y);
-                objData.specular.push_back(currentMtl.specular.z);
+                pushThree(objData.specular, currentMtl.specular.x, currentMtl.specular.y, currentMtl.specular.z);
                 objData.specular.push_back(1.0f);
-
-                objData.specular.push_back(currentMtl.specular.x);
-                objData.specular.push_back(currentMtl.specular.y);
-                objData.specular.push_back(currentMtl.specular.z);
+                pushThree(objData.specular, currentMtl.specular.x, currentMtl.specular.y, currentMtl.specular.z);
                 objData.specular.push_back(1.0f);
-
-                objData.specular.push_back(currentMtl.specular.x);
-                objData.specular.push_back(currentMtl.specular.y);
-                objData.specular.push_back(currentMtl.specular.z);
+                pushThree(objData.specular, currentMtl.specular.x, currentMtl.specular.y, currentMtl.specular.z);
                 objData.specular.push_back(1.0f);
 
                 // position
@@ -222,10 +192,29 @@ obj_data ObjLoader::import(std::string filePath)
     }
 
     // create index buffer
-    for (i = 0; i < objData.position.size(); ++i)
-        objData.positionIndex.push_back(i);
+    for (count = 0; count < objData.position.size(); ++count)
+        objData.positionIndex.push_back(count);
 
     fileStream.close();
 
     return objData;
+}
+
+void ObjLoader::checkHighMark(GLuint high, GLuint a, GLuint b, GLuint c)
+{
+    if (a > high) {
+        high = a;
+    } else if (b > high) {
+        high = b;
+    } else if (c > high) {
+        high = c;
+    }
+}
+
+template <typename Type>
+void ObjLoader::pushThree(std::vector<Type> &v, Type a, Type b, Type c)
+{
+    v.push_back(a);
+    v.push_back(b);
+    v.push_back(c);
 }

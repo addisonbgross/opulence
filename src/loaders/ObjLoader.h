@@ -29,14 +29,17 @@ struct mtl_data {
     glm::vec4 specular;
 };
 
-class ObjLoader
-{
+class ObjLoader {
 private:
 
 public:
     ObjLoader();
     obj_data import(std::string filePath);
     std::vector<mtl_data> importMtl(std::string fliePath);
+    void checkHighMark(GLuint high, GLuint a, GLuint b, GLuint c);
+
+    template<typename Type>
+    void pushThree(std::vector<Type> &v, Type a, Type b, Type c);
 };
 
 #endif //OPULENCE_OBJLOADER_H

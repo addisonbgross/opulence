@@ -21,9 +21,12 @@ include_directories(${PROJECT_BINARY_DIR}
 set(SOURCE_FILES
     ../main.c
     opulence.cpp)
+
 set(HEADER_FILES)
 set_source_files_properties(../main.c opulence.cpp PROPERTIES LANGUAGE CXX )
 add_executable(opulence ${SOURCE_FILES}
+               src/entity/Entity.cpp
+               src/entity/Entity.h
                src/loaders/ShaderLoader.cpp
                src/loaders/ShaderLoader.h
                src/entity/model/Model.cpp
@@ -31,7 +34,9 @@ add_executable(opulence ${SOURCE_FILES}
                src/loaders/ObjLoader.cpp
                src/loaders/ObjLoader.h
                src/entity/camera/Camera.cpp
-               src/entity/camera/Camera.h)
+               src/entity/camera/Camera.h
+               src/infrastructure/Courier.cpp
+               src/infrastructure/Courier.h)
 
 target_link_libraries(opulence
                       ${SDL2_LIBRARY}

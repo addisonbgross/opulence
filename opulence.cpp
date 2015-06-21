@@ -9,10 +9,11 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include "src/loaders/ShaderLoader.h"
-#include "src/loaders/ObjLoader.h"
 #include "src/entity/model/Model.h"
 #include "src/entity/camera/Camera.h"
+#include "src/infrastructure/Courier.h"
+#include "src/loaders/ShaderLoader.h"
+#include "src/loaders/ObjLoader.h"
 
 class Opulence
 {
@@ -26,19 +27,13 @@ private:
 
     //Graphics program
     GLuint vertexShader, fragmentShader;
-    // vertex shader
-    GLint  gPosition, gNormal, gLight, gModel, gView, gProj, gModelPosition;
-    // fragment shader
-    GLint  gColour, gAmbient;
     GLuint gProgramID = 0;
     GLuint gVAO;
-
-    bool wire = false;
-    bool vboSent = false;
 
     glm::vec3 zoom = glm::vec3(0.0f, 1.0f, 0.0f);
 
     Camera *camera;
+    Courier *courier;
     Model *mesh, *mesh1, *mesh2, *mesh3;
     glm::vec3 light;
 
@@ -102,8 +97,8 @@ public:
             std::cout << "Swap Interval could not be set!" << std::endl;
 
         // vertex & fragment
-        vertexShader   = loadShader("/home/champ/Git/crows/opulence/shaders/lambertDiffuse.vert", gProgramID);
-        fragmentShader = loadShader("/home/champ/Git/crows/opulence/shaders/lambertDiffuse.frag", gProgramID);
+        vertexShader   = loadShader("/home/champ/Git/crows/opulence/shaders/phongSpecular.vert", gProgramID);
+        fragmentShader = loadShader("/home/champ/Git/crows/opulence/shaders/phongSpecular.frag", gProgramID);
 
         // create VAO
         glGenVertexArrays(1, &gVAO);
@@ -114,17 +109,18 @@ public:
         glClearColor(0.0, 0.0, 0.0, 1.0f);
 
         // vertex shader variables
-        gPosition      = glGetAttribLocation(gProgramID, "position");
-        gNormal        = glGetAttribLocation(gProgramID, "normal");
-        gLight         = glGetUniformLocation(gProgramID, "light");
-        gModel         = glGetUniformLocation(gProgramID, "model");
-        gView          = glGetUniformLocation(gProgramID, "view");
-        gProj          = glGetUniformLocation(gProgramID, "proj");
-        gModelPosition = glGetUniformLocation(gProgramID, "modelPosition");
+        courier->addAttribute("position", glGetAttribLocation(gProgramID, "position"));
+        courier->addAttribute("normal", glGetAttribLocation(gProgramID, "normal"));
+        courier->addUniform("light", glGetUniformLocation(gProgramID, "light"));
+        courier->addUniform("model", glGetUniformLocation(gProgramID, "model"));
+        courier->addUniform("view", glGetUniformLocation(gProgramID, "view"));
+        courier->addUniform("proj", glGetUniformLocation(gProgramID, "proj"));
+        courier->addUniform("modelPosition", glGetUniformLocation(gProgramID, "modelPosition"));
 
         // fragment shader variables
-        gColour   = glGetAttribLocation(gProgramID, "colour");
-        gAmbient  = glGetUniformLocation(gProgramID, "ambient");
+        courier->addAttribute("diffuse", glGetAttribLocation(gProgramID, "diffuse"));
+        courier->addAttribute("specular", glGetAttribLocation(gProgramID, "specular"));
+        courier->addUniform("ambient", glGetAttribLocation(gProgramID, "ambient"));
 
         return success;
     }
@@ -152,84 +148,22 @@ public:
                                      *camera->getFocus(),
                                      *camera->getTop());
 
-        glm::mat4 proj = glm::perspective(45.0f, SCREEN_WIDTH / SCREEN_HEIGHT, 0.1f, 100.0f);
+        glm::mat4 proj = glm::perspective(45.5f, SCREEN_WIDTH / SCREEN_HEIGHT, 0.1f, 100.0f);
 
-        glUniformMatrix4fv(gModel, 1, GL_FALSE, &model[0][0]);
-        glUniformMatrix4fv(gView, 1, GL_FALSE, &view[0][0]);
-        glUniformMatrix4fv(gProj, 1, GL_FALSE, &proj[0][0]);
+        glUniformMatrix4fv(courier->getUniform(("model")), 1, GL_FALSE, &model[0][0]);
+        glUniformMatrix4fv(courier->getUniform(("view")), 1, GL_FALSE, &view[0][0]);
+        glUniformMatrix4fv(courier->getUniform(("proj")), 1, GL_FALSE, &proj[0][0]);
 
         /* fragment shader stuff */
         glm::vec4 lightDir = glm::vec4(0.1);
-        glUniform4fv(gAmbient, 1, &lightDir[0]);
-        glUniform3fv(gLight, 1, &light[0]);
+        glUniform4fv(courier->getUniform(("ambient")), 1, &lightDir[0]);
+        glUniform3fv(courier->getUniform(("light")), 1, &light[0]);
 
         glUseProgram(gProgramID);
 
         glBindVertexArray(gVAO);
 
-        drawModel(mesh1);
-    }
-
-    void drawModel(Model *model)
-    {
-        // create VBO
-        GLuint vbo, cbo, nbo, ibo;
-        glGenBuffers(1, &vbo);
-        glGenBuffers(1, &cbo);
-        glGenBuffers(1, &nbo);
-        glGenBuffers(1, &ibo);
-
-        // set model position
-        glm::vec3 modelPlace = glm::vec3(model->getX(),
-                                         model->getY(),
-                                         model->getZ());
-        glUniform3fv(gModelPosition, 1, &modelPlace[0]);
-
-        // set index data
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER,
-                     model->getNumIndexVerts() * sizeof(GLuint),
-                     model->getIndexVerts(),
-                     GL_STATIC_DRAW);
-
-
-        // set vertex data
-        glBindBuffer(GL_ARRAY_BUFFER, vbo);
-        glBufferData(GL_ARRAY_BUFFER,
-                     model->getNumPositionVerts() * sizeof(GLfloat),
-                     model->getPositionVerts(),
-                     GL_STATIC_DRAW);
-        glVertexAttribPointer(gPosition, 3, GL_FLOAT, GL_FALSE, 0, 0);
-
-        // set normal data
-        glBindBuffer(GL_ARRAY_BUFFER, nbo);
-        glBufferData(GL_ARRAY_BUFFER,
-                     model->getNumNormalVerts() * sizeof(GLfloat),
-                     model->getNormalVerts(),
-                     GL_STATIC_DRAW);
-        glVertexAttribPointer(gNormal, 3, GL_FLOAT, GL_FALSE, 0, 0);
-
-        // set diffuse colour data
-        glBindBuffer(GL_ARRAY_BUFFER, cbo);
-        glBufferData(GL_ARRAY_BUFFER,
-                     model->getNumColourVerts() * sizeof(GLfloat),
-                     model->getColourVerts(),
-                     GL_STATIC_DRAW);
-        glVertexAttribPointer(gColour, 4, GL_FLOAT, GL_FALSE, 0, 0);
-
-        // enable variables within shader pipeline
-        glEnableVertexAttribArray(gPosition);
-        glEnableVertexAttribArray(gColour);
-        glEnableVertexAttribArray(gNormal);
-
-        // set index data and render
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
-        glDrawElements(GL_TRIANGLES, model->getNumIndexVerts(), GL_UNSIGNED_INT, 0);
-
-        // free shader variables
-        glDisableVertexAttribArray(gPosition);
-        glDisableVertexAttribArray(gColour);
-        glDisableVertexAttribArray(gNormal);
+        courier->sendBuffers();
     }
 
     void close() {
@@ -322,6 +256,8 @@ public:
     }
 
     int start() {
+        courier = new Courier();
+
         //Start up SDL and create window
         if (!init()) {
             printf("Failed to initialize!\n");
@@ -336,12 +272,14 @@ public:
             //Enable text input
             SDL_StartTextInput();
 
-            // create camera 1
+            // create Camera 1
             camera = new Camera();
 
             ObjLoader loader;
-            obj_data objModel = loader.import("res/models/obj/hiSphere.obj");
+            obj_data objModel = loader.import("res/models/obj/house_4.obj");
             mesh1 =  new Model(0, 0, 0, objModel);
+
+            courier->addModel(mesh1);
 
             light = glm::vec3(0.0, 1.0, -1.0);
             std::cout << "vSize: " << mesh1->getNumPositionVerts() <<
