@@ -12,7 +12,7 @@ in vec4 colour;
 in vec3 normal;
 
 out vec4 fragmentColour;
-out vec3 fragmentNormal;
+flat out vec3 fragmentNormal;
 out vec3 fragmentLight;
 
 void main()

@@ -1,5 +1,4 @@
 #include "Camera.h"
-#include <iostream>
 Camera::Camera()
 {
     eye   = new glm::vec3(0.0, 0.0, 5.0);

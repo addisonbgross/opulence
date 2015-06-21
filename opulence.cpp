@@ -33,6 +33,9 @@ private:
     GLuint gProgramID = 0;
     GLuint gVAO;
 
+    bool wire = false;
+    bool vboSent = false;
+
     glm::vec3 zoom = glm::vec3(0.0f, 1.0f, 0.0f);
 
     Camera *camera;
@@ -92,14 +95,15 @@ public:
         // enable z-buffer face culling
         glEnable(GL_DEPTH_TEST);
         glDepthFunc(GL_LEQUAL);
+        glShadeModel(GL_FLAT);
 
         // enable vsync rate
         if (SDL_GL_SetSwapInterval(1) < 0)
             std::cout << "Swap Interval could not be set!" << std::endl;
 
         // vertex & fragment
-        vertexShader   = loadShader("/home/champ/Git/crows/opulence/shaders/shader1.vert", gProgramID);
-        fragmentShader = loadShader("/home/champ/Git/crows/opulence/shaders/shader1.frag", gProgramID);
+        vertexShader   = loadShader("/home/champ/Git/crows/opulence/shaders/lambertDiffuse.vert", gProgramID);
+        fragmentShader = loadShader("/home/champ/Git/crows/opulence/shaders/lambertDiffuse.frag", gProgramID);
 
         // create VAO
         glGenVertexArrays(1, &gVAO);
@@ -163,9 +167,7 @@ public:
 
         glBindVertexArray(gVAO);
 
-        drawModel(mesh);
         drawModel(mesh1);
-        drawModel(mesh2);
     }
 
     void drawModel(Model *model)
@@ -190,6 +192,7 @@ public:
                      model->getIndexVerts(),
                      GL_STATIC_DRAW);
 
+
         // set vertex data
         glBindBuffer(GL_ARRAY_BUFFER, vbo);
         glBufferData(GL_ARRAY_BUFFER,
@@ -197,14 +200,6 @@ public:
                      model->getPositionVerts(),
                      GL_STATIC_DRAW);
         glVertexAttribPointer(gPosition, 3, GL_FLOAT, GL_FALSE, 0, 0);
-
-        // set colour data
-        glBindBuffer(GL_ARRAY_BUFFER, cbo);
-        glBufferData(GL_ARRAY_BUFFER,
-                     model->getNumColourVerts() * sizeof(GLfloat),
-                     model->getColourVerts(),
-                     GL_STATIC_DRAW);
-        glVertexAttribPointer(gColour, 4, GL_FLOAT, GL_FALSE, 0, 0);
 
         // set normal data
         glBindBuffer(GL_ARRAY_BUFFER, nbo);
@@ -214,6 +209,14 @@ public:
                      GL_STATIC_DRAW);
         glVertexAttribPointer(gNormal, 3, GL_FLOAT, GL_FALSE, 0, 0);
 
+        // set diffuse colour data
+        glBindBuffer(GL_ARRAY_BUFFER, cbo);
+        glBufferData(GL_ARRAY_BUFFER,
+                     model->getNumColourVerts() * sizeof(GLfloat),
+                     model->getColourVerts(),
+                     GL_STATIC_DRAW);
+        glVertexAttribPointer(gColour, 4, GL_FLOAT, GL_FALSE, 0, 0);
+
         // enable variables within shader pipeline
         glEnableVertexAttribArray(gPosition);
         glEnableVertexAttribArray(gColour);
@@ -221,7 +224,7 @@ public:
 
         // set index data and render
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
-        glDrawElements(GL_TRIANGLES, model->getNumIndexVerts(), GL_UNSIGNED_INT, (void *) 0);
+        glDrawElements(GL_TRIANGLES, model->getNumIndexVerts(), GL_UNSIGNED_INT, 0);
 
         // free shader variables
         glDisableVertexAttribArray(gPosition);
@@ -242,8 +245,9 @@ public:
     }
 
     bool doInput(SDL_Event e, Camera *camera) {
-        if (e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEMOTION) {
-            if (e.button.button == SDL_BUTTON_LEFT) {
+        GLuint button = e.button.button;
+        if (e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEMOTION || e.type == SDL_MOUSEWHEEL) {
+            if (button == SDL_BUTTON_LEFT) {
                 if (e.motion.yrel > 0) {
                     camera->rotateVertical(-0.025f);
                 } else if (e.motion.yrel < 0) {
@@ -258,34 +262,59 @@ public:
             }
         }
 
-        if (e.button.button == SDL_SCANCODE_W) {
+        if (e.type == SDL_MOUSEWHEEL) {
+            if (e.wheel.y < 0) {
+                camera->incrementZoom();
+            } else if (e.wheel.y > 0) {
+                camera->decrementZoom();
+            }
+        }
+
+        if (button == SDL_SCANCODE_W || button == SDL_SCANCODE_S ||
+                button == SDL_SCANCODE_A || button == SDL_SCANCODE_D) {
             glm::mat4 rotationMatrix = glm::mat4(1.0f);
-            rotationMatrix = glm::rotate(rotationMatrix, 0.05f, glm::vec3(1.0f, 0.0f, 0.0f));
+
+            if (button == SDL_SCANCODE_W)
+                rotationMatrix = glm::rotate(rotationMatrix, 0.05f, glm::vec3(1.0f, 0.0f, 0.0f));
+            else if (button == SDL_SCANCODE_S)
+                rotationMatrix = glm::rotate(rotationMatrix, -0.05f, glm::vec3(1.0f, 0.0f, 0.0f));
+
+            if (button == SDL_SCANCODE_A)
+                rotationMatrix = glm::rotate(rotationMatrix, 0.05f, glm::vec3(0.0f, 1.0f, 0.0f));
+            else if (button == SDL_SCANCODE_D)
+                rotationMatrix = glm::rotate(rotationMatrix, -0.05f, glm::vec3(0.0f, 1.0f, 0.0f));
+
             glm::vec4 temp = rotationMatrix * glm::vec4(light, 1.0f);
             light.x = temp.x;
             light.y = temp.y;
             light.z = temp.z;
         }
 
-        if (e.button.button == SDL_SCANCODE_PERIOD) {
+        if (button == SDL_SCANCODE_T) {
+            glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        } else if (button == SDL_SCANCODE_Y) {
+            glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+        }
+
+        if (button == SDL_SCANCODE_PERIOD) {
             camera->incrementZoom();
-        } else if (e.button.button == SDL_SCANCODE_COMMA) {
+        } else if (button == SDL_SCANCODE_COMMA) {
             camera->decrementZoom();
         }
 
-        if (e.button.button == SDL_SCANCODE_LEFT) {
+        if (button == SDL_SCANCODE_LEFT) {
             camera->moveLeft();
-        } else if (e.button.button == SDL_SCANCODE_RIGHT) {
+        } else if (button == SDL_SCANCODE_RIGHT) {
             camera->moveRight();
         }
 
-        if (e.button.button == SDL_SCANCODE_UP) {
+        if (button == SDL_SCANCODE_UP) {
             camera->moveUp();
-        } else if (e.button.button == SDL_SCANCODE_DOWN) {
+        } else if (button == SDL_SCANCODE_DOWN) {
             camera->moveDown();
         }
 
-        if (e.button.button == SDL_SCANCODE_ESCAPE || e.type == SDL_QUIT) {
+        if (button == SDL_SCANCODE_ESCAPE || e.type == SDL_QUIT) {
             return true;
         } else {
             return false;
@@ -311,15 +340,14 @@ public:
             camera = new Camera();
 
             ObjLoader loader;
-            obj_data objModel = loader.import("res/models/obj/cube.obj");
-            mesh =  new Model(-3, 0, 0, objModel);
+            obj_data objModel = loader.import("res/models/obj/hiSphere.obj");
             mesh1 =  new Model(0, 0, 0, objModel);
-            mesh2 =  new Model(3, 0, 0, objModel);
 
-            light = glm::vec3(0.0, 1.0, 0.0);
-            std::cout << "vSize: " << mesh->getNumPositionVerts() <<
-                         " - nSize: " << mesh->getNumNormalVerts() <<
-                         " - iSize: " << mesh->getNumIndexVerts() << std::endl;
+            light = glm::vec3(0.0, 1.0, -1.0);
+            std::cout << "vSize: " << mesh1->getNumPositionVerts() <<
+                      " - nSize: " << mesh1->getNumNormalVerts() <<
+                      " - iSize: " << mesh1->getNumIndexVerts() <<
+                      " - cSize: " << mesh1->getNumColourVerts() << std::endl;
 
             //While application is running
             while (!quit) {

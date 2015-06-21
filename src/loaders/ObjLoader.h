@@ -4,23 +4,29 @@
 #include <fstream>
 #include <stdio.h>
 #include <iostream>
+#include <map>
 #include <string>
 #include <vector>
+
+#include <glm/glm.hpp>
 #include <GL/gl.h>
 
 struct obj_data {
     std::vector<GLfloat> position;
     std::vector<GLfloat> normal;
-    std::vector<GLfloat> colour;
+    std::vector<GLfloat> diffuse;
+    std::vector<GLfloat> specular;
     std::vector<GLuint>  positionIndex;
     std::vector<GLuint>  uvIndex;
     std::vector<GLuint>  normalIndex;
+    std::vector<GLuint>  colourIndex;
 };
 
 struct mtl_data {
     std::string name;
-    GLfloat diffuse[3];
-    GLfloat specular[3];
+    std::vector<GLuint> faces;
+    glm::vec4 diffuse;
+    glm::vec4 specular;
 };
 
 class ObjLoader
