@@ -76,10 +76,18 @@ void Courier::sendBuffers()
         // set diffuse colour data
         glBindBuffer(GL_ARRAY_BUFFER, dcbo);
         glBufferData(GL_ARRAY_BUFFER,
-                     model->getNumColourVerts() * sizeof(GLfloat),
-                     model->getColourVerts(),
+                     model->getNumDiffuseVerts() * sizeof(GLfloat),
+                     model->getDiffuseVerts(),
                      GL_STATIC_DRAW);
         glVertexAttribPointer(bufferAttributes.at("diffuse"), 4, GL_FLOAT, GL_FALSE, 0, 0);
+
+        // set specular colour data
+        glBindBuffer(GL_ARRAY_BUFFER, scbo);
+        glBufferData(GL_ARRAY_BUFFER,
+                     model->getNumSpecularVerts() * sizeof(GLfloat),
+                     model->getSpecularVerts(),
+                     GL_STATIC_DRAW);
+        glVertexAttribPointer(bufferAttributes.at("specular"), 4, GL_FLOAT, GL_FALSE, 0, 0);
 
         // enable variables within shader pipeline
         for (auto& i : bufferAttributes) {
