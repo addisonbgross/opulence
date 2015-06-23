@@ -13,7 +13,8 @@ private:
 
     std::vector<GLfloat> positionVerts;
     std::vector<GLfloat> normalVerts;
-    std::vector<GLfloat> colourVerts;
+    std::vector<GLfloat> diffuseVerts;
+    std::vector<GLfloat> specularVerts;
     std::vector<GLuint>  indexVerts;
     std::vector<GLuint>  normalIndexVerts;
 
@@ -26,7 +27,8 @@ public:
     // set
     void setPositionVerts(std::vector<GLfloat> v);
     void setNormalVerts(std::vector<GLfloat> v);
-    void setColourVerts(std::vector<GLfloat> v);
+    void setDiffuseVerts(std::vector<GLfloat> v);
+    void setSpecularVerts(std::vector<GLfloat> v);
     void setIndexVerts(std::vector<GLuint> v);
     void setNormalIndexVerts(std::vector<GLuint> v);
     void setX(GLfloat x);
@@ -36,7 +38,8 @@ public:
     // get
     GLfloat * getPositionVerts();
     GLfloat * getNormalVerts();
-    GLfloat * getColourVerts();
+    GLfloat * getDiffuseVerts();
+    GLfloat * getSpecularVerts();
     GLuint * getIndexVerts();
     GLuint * getNormalIndexVerts();
     GLfloat getX();
@@ -44,7 +47,8 @@ public:
     GLfloat getZ();
     unsigned long getNumPositionVerts();
     unsigned long getNumNormalVerts();
-    unsigned long getNumColourVerts();
+    unsigned long getNumDiffuseVerts();
+    unsigned long getNumSpecularVerts();
     unsigned long getNumIndexVerts();
     unsigned long getNumNormalIndexVerts();
 };

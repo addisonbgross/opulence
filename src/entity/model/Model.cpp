@@ -14,10 +14,11 @@ Model::Model(int x, int y, int z, obj_data objData)
     this->x = x;
     this->y = y;
     this->z = z;
-    positionVerts = objData.position;
-    normalVerts   = objData.normal;
-    colourVerts   = objData.diffuse;
-    indexVerts    = objData.positionIndex;
+    positionVerts  = objData.position;
+    normalVerts    = objData.normal;
+    diffuseVerts   = objData.diffuse;
+    specularVerts  = objData.specular;
+    indexVerts     = objData.positionIndex;
 }
 
 Model::Model(int x, int y, int z, std::vector<GLfloat> v, std::vector<GLuint> i, std::vector<GLfloat> c)
@@ -26,7 +27,7 @@ Model::Model(int x, int y, int z, std::vector<GLfloat> v, std::vector<GLuint> i,
     this->y = y;
     this->z = z;
     positionVerts = v;
-    colourVerts = c;
+    diffuseVerts = c;
     indexVerts = i;
 }
 
@@ -57,9 +58,14 @@ void Model::setNormalVerts(std::vector<GLfloat> v)
     normalVerts = v;
 }
 
-void Model::setColourVerts(std::vector<GLfloat> v)
+void Model::setDiffuseVerts(std::vector<GLfloat> v)
 {
-    colourVerts = v;
+    diffuseVerts = v;
+}
+
+void Model::setSpecularVerts(std::vector<GLfloat> v)
+{
+    specularVerts = v;
 }
 
 void Model::setIndexVerts(std::vector<GLuint> v)
@@ -99,9 +105,14 @@ GLfloat * Model::getNormalVerts()
     return normalVerts.data();
 }
 
-GLfloat * Model::getColourVerts()
+GLfloat * Model::getDiffuseVerts()
 {
-    return colourVerts.data();
+    return diffuseVerts.data();
+}
+
+GLfloat * Model::getSpecularVerts()
+{
+    return specularVerts.data();
 }
 
 GLuint * Model::getIndexVerts()
@@ -124,9 +135,14 @@ unsigned long Model::getNumNormalVerts()
     return normalVerts.size();
 }
 
-unsigned long Model::getNumColourVerts()
+unsigned long Model::getNumDiffuseVerts()
 {
-    return colourVerts.size();
+    return diffuseVerts.size();
+}
+
+unsigned long Model::getNumSpecularVerts()
+{
+    return specularVerts.size();
 }
 
 unsigned long Model::getNumIndexVerts()

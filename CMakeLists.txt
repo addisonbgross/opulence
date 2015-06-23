@@ -35,8 +35,8 @@ add_executable(opulence ${SOURCE_FILES}
                src/loaders/ObjLoader.h
                src/entity/camera/Camera.cpp
                src/entity/camera/Camera.h
-               src/infrastructure/Courier.cpp
-               src/infrastructure/Courier.h)
+               src/service/Courier.cpp
+               src/service/Courier.h)
 
 target_link_libraries(opulence
                       ${SDL2_LIBRARY}
