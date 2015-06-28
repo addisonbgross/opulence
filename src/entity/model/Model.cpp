@@ -9,14 +9,7 @@ Model::Model(int x, int y, int z)
     this->z = z;
 }
 
-Model::~Model()
-{
-    delete &positionVerts;
-    delete &normalVerts;
-    delete &diffuseVerts;
-    delete &specularVerts;
-    delete &indexVerts;
-}
+Model::~Model() {}
 
 Model::Model(int x, int y, int z, obj_data objData)
 {

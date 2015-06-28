@@ -5,18 +5,7 @@ Courier::Courier()
     bufferAttributes= std::map<std::string, GLint>();
 }
 
-Courier::~Courier()
-{
-    delete &bufferAttributes;
-    delete &bufferUniforms;
-
-    int i, size = activeModels.size();
-    for (i = 0; i < size; ++i) {
-        delete &activeModels.at(i);
-    }
-
-    delete &activeModels;
-}
+Courier::~Courier() {}
 
 void Courier::addAttribute(std::string name, GLint attrib)
 {
