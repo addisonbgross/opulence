@@ -19,7 +19,11 @@ void main()
     if (diffuseIntensity > 0.0) {
         vec3 halfReflection = normalize(directionalLight + fCamera);
         float specularAngle = max(dot(halfReflection, fNormal), 0.0);
-        specularIntensity = pow(specularAngle, 50);
+        specularIntensity = pow(specularAngle, 100);
+    }
+
+    if (diffuseIntensity >= 0.0 && diffuseIntensity <= ambientIntensity) {
+        diffuseIntensity = ambientIntensity;
     }
 
     outColour = (diffuseIntensity * fDiffuse) + (ambientIntensity * ambientColour) + (specularIntensity * fSpecular);
