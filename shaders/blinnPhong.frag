@@ -26,5 +26,5 @@ void main()
         diffuseIntensity = ambientIntensity;
     }
 
-    outColour = (diffuseIntensity * fDiffuse) + (ambientIntensity * ambientColour) + (specularIntensity * fSpecular);
+    outColour = (ambientIntensity * ambientColour) + (diffuseIntensity * fDiffuse) + (specularIntensity * fSpecular);
 }

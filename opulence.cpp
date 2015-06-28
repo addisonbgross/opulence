@@ -11,7 +11,7 @@
 
 #include "src/entity/model/Model.h"
 #include "src/entity/camera/Camera.h"
-#include "src/service/Courier.h"
+#include "src/service/BufferCourier.h"
 #include "src/loaders/ShaderLoader.h"
 
 class Opulence
@@ -32,9 +32,14 @@ private:
     glm::vec3 zoom = glm::vec3(0.0f, 1.0f, 0.0f);
 
     Camera camera;
-    Courier courier;
-    Model mesh, *mesh1, *mesh2, *mesh3;
-    glm::vec3 light;
+    BufferCourier bufferCourier;
+    Model mesh, mesh1, mesh2, mesh3;
+    ObjLoader loader;
+
+    // lighting
+    float sunIntensity;
+    glm::vec3 pointLight = glm::vec3(-5.0, 0.0, 0.0);
+    glm::vec3 sunLight;
 
 public:
     bool init() {
@@ -96,16 +101,29 @@ public:
             std::cout << "Swap Interval could not be set!" << std::endl;
 
         // vertex & fragment
-        vertexShader   = loadShader("/home/champ/Git/crows/opulence/shaders/blinnPhong.vert", gProgramID);
-        fragmentShader = loadShader("/home/champ/Git/crows/opulence/shaders/blinnPhong.frag", gProgramID);
+        vertexShader   = loadShader("/home/champ/Git/crows/opulence/shaders/phongAttenuation.vert", gProgramID);
+        fragmentShader = loadShader("/home/champ/Git/crows/opulence/shaders/phongAttenuation.frag", gProgramID);
 
+        // TODO fix this mess
+        int failCount = 0;
         while (vertexShader == 0) {
+            ++failCount;
             std::cout << "Loading vertexShader failed!" << std::endl;
-            vertexShader = loadShader("/home/champ/Git/crows/opulence/shaders/blinnPhong.vert", gProgramID);
+            vertexShader = loadShader("/home/champ/Git/crows/opulence/shaders/phongAttenuation.vert", gProgramID);
+
+            if (failCount == 10) {
+                failCount = 0;
+                break;
+            }
         }
         while (fragmentShader == 0) {
+            ++failCount;
             std::cout << "Loading fragmentShader failed!" << std::endl;
-            fragmentShader = loadShader("/home/champ/Git/crows/opulence/shaders/blinnPhong.frag", gProgramID);
+            fragmentShader = loadShader("/home/champ/Git/crows/opulence/shaders/phongAttenuation.frag", gProgramID);
+            if (failCount == 10) {
+                failCount = 0;
+                break;
+            }
         }
 
         // create VAO
@@ -117,20 +135,22 @@ public:
         glClearColor(0.0, 0.0, 0.0, 1.0f);
 
         // vertex shader variables
-        courier.addAttribute("position", glGetAttribLocation(gProgramID, "position"));
-        courier.addAttribute("normal", glGetAttribLocation(gProgramID, "normal"));
-        courier.addUniform("model", glGetUniformLocation(gProgramID, "model"));
-        courier.addUniform("view", glGetUniformLocation(gProgramID, "view"));
-        courier.addUniform("proj", glGetUniformLocation(gProgramID, "proj"));
-        courier.addUniform("modelPosition", glGetUniformLocation(gProgramID, "modelPosition"));
-        courier.addUniform("cameraPosition", glGetUniformLocation(gProgramID, "cameraPosition"));
+        bufferCourier.addAttribute("position", glGetAttribLocation(gProgramID, "position"));
+        bufferCourier.addAttribute("normal", glGetAttribLocation(gProgramID, "normal"));
+        bufferCourier.addUniform("model", glGetUniformLocation(gProgramID, "model"));
+        bufferCourier.addUniform("view", glGetUniformLocation(gProgramID, "view"));
+        bufferCourier.addUniform("proj", glGetUniformLocation(gProgramID, "proj"));
+        bufferCourier.addUniform("modelPosition", glGetUniformLocation(gProgramID, "modelPosition"));
+        bufferCourier.addUniform("cameraPosition", glGetUniformLocation(gProgramID, "cameraPosition"));
+        bufferCourier.addUniform("pointLight", glGetUniformLocation(gProgramID, "pointLight"));
 
         // fragment shader variables
-        courier.addAttribute("diffuse", glGetAttribLocation(gProgramID, "diffuse"));
-        courier.addAttribute("specular", glGetAttribLocation(gProgramID, "specular"));
-        courier.addUniform("directionalLight", glGetUniformLocation(gProgramID, "directionalLight"));
-        courier.addUniform("ambientIntensity", glGetUniformLocation(gProgramID, "ambientIntensity"));
-        courier.addUniform("ambientColour", glGetUniformLocation(gProgramID, "ambientColour"));
+        bufferCourier.addAttribute("diffuse", glGetAttribLocation(gProgramID, "diffuse"));
+        bufferCourier.addAttribute("specular", glGetAttribLocation(gProgramID, "specular"));
+        bufferCourier.addUniform("ambientIntensity", glGetUniformLocation(gProgramID, "ambientIntensity"));
+        bufferCourier.addUniform("ambientColour", glGetUniformLocation(gProgramID, "ambientColour"));
+        bufferCourier.addUniform("sunIntensity", glGetUniformLocation(gProgramID, "sunIntensity"));
+        bufferCourier.addUniform("sunLight", glGetUniformLocation(gProgramID, "sunLight"));
 
         return success;
     }
@@ -160,21 +180,23 @@ public:
 
         glm::mat4 proj = glm::perspective(45.5f, SCREEN_WIDTH / SCREEN_HEIGHT, 0.1f, 100.0f);
 
-        glUniformMatrix4fv(courier.getUniform(("model")), 1, GL_FALSE, &model[0][0]);
-        glUniformMatrix4fv(courier.getUniform(("view")), 1, GL_FALSE, &view[0][0]);
-        glUniformMatrix4fv(courier.getUniform(("proj")), 1, GL_FALSE, &proj[0][0]);
+        /* vertex shader stuff */
+        GLfloat pointIntensity = 0.1;
+        glUniformMatrix4fv(bufferCourier.getUniform(("model")), 1, GL_FALSE, &model[0][0]);
+        glUniformMatrix4fv(bufferCourier.getUniform(("view")), 1, GL_FALSE, &view[0][0]);
+        glUniformMatrix4fv(bufferCourier.getUniform(("proj")), 1, GL_FALSE, &proj[0][0]);
+        glUniform3fv(bufferCourier.getUniform("pointLight"), 1, &pointLight[0]);
 
         /* fragment shader stuff */
-        GLfloat ambientIntensity = 0.1;
+        GLfloat ambientIntensity = 0.05;
         glm::vec4 ambientColour = glm::vec4(1.0);
-        glUniform1fv(courier.getUniform("ambientIntensity"), 1, &ambientIntensity);
-        glUniform4fv(courier.getUniform("ambientColour"), 1, &ambientColour[0]);
-        glUniform3fv(courier.getUniform("directionalLight"), 1, &light[0]);
-        glUniform3fv(courier.getUniform("cameraPosition"), 1, &camera.getEye()->x);
+        glUniform1fv(bufferCourier.getUniform("ambientIntensity"), 1, &ambientIntensity);
+        glUniform4fv(bufferCourier.getUniform("ambientColour"), 1, &ambientColour[0]);
+        glUniform1fv(bufferCourier.getUniform("sunIntensity"), 1, &sunIntensity);
+        glUniform3fv(bufferCourier.getUniform("sunLight"), 1, &sunLight[0]);
+        glUniform3fv(bufferCourier.getUniform("cameraPosition"), 1, &camera.getEye()->x);
 
-        glBindVertexArray(gVAO);
-
-        courier.sendBuffers();
+        bufferCourier.render();
     }
 
     void close() {
@@ -220,6 +242,26 @@ public:
             }
         }
 
+        if (button == SDL_SCANCODE_UP || button == SDL_SCANCODE_DOWN ||
+            button == SDL_SCANCODE_LEFT || button == SDL_SCANCODE_RIGHT) {
+            glm::mat4 rotationMatrix = glm::mat4(1.0f);
+
+            if (button == SDL_SCANCODE_UP)
+                rotationMatrix = glm::rotate(rotationMatrix, 0.05f, glm::vec3(1.0f, 0.0f, 0.0f));
+            else if (button == SDL_SCANCODE_DOWN)
+                rotationMatrix = glm::rotate(rotationMatrix, -0.05f, glm::vec3(1.0f, 0.0f, 0.0f));
+
+            if (button == SDL_SCANCODE_LEFT)
+                rotationMatrix = glm::rotate(rotationMatrix, 0.05f, glm::vec3(0.0f, 1.0f, 0.0f));
+            else if (button == SDL_SCANCODE_RIGHT)
+                rotationMatrix = glm::rotate(rotationMatrix, -0.05f, glm::vec3(0.0f, 1.0f, 0.0f));
+
+            glm::vec4 temp = rotationMatrix * glm::vec4(sunLight, 1.0f);
+            sunLight.x = temp.x;
+            sunLight.y = temp.y;
+            sunLight.z = temp.z;
+        }
+
         if (button == SDL_SCANCODE_W || button == SDL_SCANCODE_S ||
                 button == SDL_SCANCODE_A || button == SDL_SCANCODE_D) {
             glm::mat4 rotationMatrix = glm::mat4(1.0f);
@@ -234,10 +276,10 @@ public:
             else if (button == SDL_SCANCODE_D)
                 rotationMatrix = glm::rotate(rotationMatrix, -0.05f, glm::vec3(0.0f, 1.0f, 0.0f));
 
-            glm::vec4 temp = rotationMatrix * glm::vec4(light, 1.0f);
-            light.x = temp.x;
-            light.y = temp.y;
-            light.z = temp.z;
+            glm::vec4 temp = rotationMatrix * glm::vec4(pointLight, 1.0f);
+            pointLight.x = temp.x;
+            pointLight.y = temp.y;
+            pointLight.z = temp.z;
         }
 
         if (button == SDL_SCANCODE_T) {
@@ -246,22 +288,14 @@ public:
             glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
         }
 
-        if (button == SDL_SCANCODE_PERIOD) {
-            camera->incrementZoom();
-        } else if (button == SDL_SCANCODE_COMMA) {
-            camera->decrementZoom();
-        }
-
-        if (button == SDL_SCANCODE_LEFT) {
-            camera->moveLeft();
-        } else if (button == SDL_SCANCODE_RIGHT) {
-            camera->moveRight();
-        }
-
-        if (button == SDL_SCANCODE_UP) {
-            camera->moveUp();
-        } else if (button == SDL_SCANCODE_DOWN) {
-            camera->moveDown();
+        if (button == SDL_SCANCODE_C) {
+            if (bufferCourier.getNumModels() > 0) {
+                bufferCourier.removeModel(0);
+            }
+        } else if (button == SDL_SCANCODE_V) {
+            if (bufferCourier.getNumModels()  == 0) {
+                bufferCourier.addModel(&mesh);
+            }
         }
 
         return button == SDL_SCANCODE_ESCAPE || e.type == SDL_QUIT;
@@ -276,19 +310,25 @@ public:
             // link opengl context
             glUseProgram(gProgramID);
 
+            // enable vertex array object
+            glBindVertexArray(gVAO);
+
             // event handler
             SDL_Event e;
 
             // enable text input
             SDL_StartTextInput();
 
-            ObjLoader loader;
-            obj_data objModel = loader.import("res/models/obj/hiMonkey.obj");
-            mesh = Model(0, 0, 0, objModel);
+            sunIntensity = 1.0;
+            sunLight = glm::vec3(-1.0, -1.0, -1.0);
 
-            courier.addModel(&mesh);
+            obj_data house_5_obj = loader.import("res/models/obj/house_5.obj");
+            obj_data house_4_obj = loader.import("res/models/obj/house_4.obj");
+            mesh = Model(0, 0, 0, house_5_obj);
+            mesh1 = Model(0, 0, 10, house_4_obj);
 
-            light = glm::vec3(0.0, 1.0, -1.0);
+            bufferCourier.addModel(&mesh);
+            //bufferCourier.addModel(&mesh1);
 
             /*** MAIN LOOP ***/
             bool quit = false;
@@ -297,10 +337,10 @@ public:
                     quit = doInput(e, &camera);
                 }
 
-                //Render quad
+                // gather attributes/uniforms and render buffers
                 render();
 
-                //Update screen
+                // update screen
                 SDL_GL_SwapWindow(gWindow);
             }
         }

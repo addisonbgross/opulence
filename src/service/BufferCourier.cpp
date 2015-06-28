@@ -1,47 +1,66 @@
-#include "Courier.h"
+#include "BufferCourier.h"
 
-Courier::Courier()
+BufferCourier::BufferCourier()
 {
-    bufferAttributes= std::map<std::string, GLint>();
+    bufferAttributes = std::map<std::string, GLint>();
 }
 
-Courier::~Courier() {}
+BufferCourier::~BufferCourier() {}
 
-void Courier::addAttribute(std::string name, GLint attrib)
+void BufferCourier::addAttribute(std::string name, GLint attrib)
 {
     bufferAttributes.insert({name, attrib});
 }
 
-void Courier::addUniform(std::string name, GLint unif)
+void BufferCourier::addUniform(std::string name, GLint unif)
 {
     bufferUniforms.insert({name, unif});
 }
 
-GLint Courier::getAttribute(std::string name)
+GLint BufferCourier::getAttribute(std::string name)
 {
     return bufferAttributes.at(name);
 }
 
-GLint Courier::getUniform(std::string name)
+GLint BufferCourier::getUniform(std::string name)
 {
     return bufferUniforms.at(name);
 }
 
-void Courier::addModel(Model *model)
+GLuint BufferCourier::getNumModels()
 {
-    activeModels.push_back(model);
+    return activeModels.size();
 }
 
-void Courier::sendBuffers()
+void BufferCourier::addModel(Model *model)
 {
-    GLuint numModels = activeModels.size();
+    model->setId((GLuint) activeModels.size());
+    activeModels.push_back(model);
+    sendBuffers();
+}
+
+void BufferCourier::removeModel(GLuint id)
+{
+    activeModels.erase(activeModels.begin() + (double) id);
+    update();
+}
+
+void BufferCourier::sendBuffers()
+{
+    GLuint numModels = (GLuint) activeModels.size();
+    numIndexVerts = 0;
+
+    std::cout << "# Active Models: " << numModels << std::endl;
+
+    // enable variables within shader pipeline
+    for (auto &i : bufferAttributes) {
+        glEnableVertexAttribArray(bufferAttributes.at(i.first));
+    }
 
     GLuint i;
     for (i = 0; i < numModels; ++i) {
         Model *model = activeModels[i];
 
-        // create VBO
-        GLuint ibo, vbo, nbo, dcbo, scbo;;
         glGenBuffers(1, &ibo);
         glGenBuffers(1, &vbo);
         glGenBuffers(1, &nbo);
@@ -60,6 +79,8 @@ void Courier::sendBuffers()
                      model->getNumIndexVerts() * sizeof(GLuint),
                      model->getIndexVerts(),
                      GL_STATIC_DRAW);
+
+        numIndexVerts += model->getNumIndexVerts();
 
         // set vertex data
         glBindBuffer(GL_ARRAY_BUFFER, vbo);
@@ -92,25 +113,23 @@ void Courier::sendBuffers()
                      model->getSpecularVerts(),
                      GL_STATIC_DRAW);
         glVertexAttribPointer(bufferAttributes.at("specular"), 4, GL_FLOAT, GL_FALSE, 0, 0);
-
-        // enable variables within shader pipeline
-        for (auto& i : bufferAttributes) {
-            glEnableVertexAttribArray(bufferAttributes.at(i.first));
-        }
-
-        // set index data and render
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
-        glDrawElements(GL_TRIANGLES, model->getNumIndexVerts(), GL_UNSIGNED_INT, 0);
-
-        glDeleteBuffers(1, &ibo);
-        glDeleteBuffers(1, &vbo);
-        glDeleteBuffers(1, &nbo);
-        glDeleteBuffers(1, &dcbo);
-        glDeleteBuffers(1, &scbo);
-
-        // free shader variables
-        for (auto& i : bufferAttributes) {
-            glDisableVertexAttribArray(bufferAttributes.at(i.first));
-        }
     }
+}
+
+void BufferCourier::update()
+{
+    glDeleteBuffers(1, &ibo);
+    glDeleteBuffers(1, &vbo);
+    glDeleteBuffers(1, &nbo);
+    glDeleteBuffers(1, &dcbo);
+    glDeleteBuffers(1, &scbo);
+
+    sendBuffers();
+}
+
+void BufferCourier::render()
+{
+    // set index data and render
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+    glDrawElements(GL_TRIANGLES, numIndexVerts, GL_UNSIGNED_INT, 0);
 }
