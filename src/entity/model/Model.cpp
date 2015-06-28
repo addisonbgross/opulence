@@ -35,6 +35,11 @@ Model::Model(int x, int y, int z, std::vector<GLfloat> v, std::vector<GLuint> i,
 
 /*** setters ***/
 
+void Model::setId(GLuint id)
+{
+    this->id = id;
+}
+
 void Model::setX(GLfloat x)
 {
     this->x = x;

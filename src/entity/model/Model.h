@@ -9,6 +9,7 @@
 class Model
 {
 private:
+    GLuint id;
     GLfloat x, y, z;
 
     std::vector<GLfloat> positionVerts;
@@ -32,6 +33,7 @@ public:
     void setSpecularVerts(std::vector<GLfloat> v);
     void setIndexVerts(std::vector<GLuint> v);
     void setNormalIndexVerts(std::vector<GLuint> v);
+    void setId(GLuint id);
     void setX(GLfloat x);
     void setY(GLfloat y);
     void setZ(GLfloat z);
@@ -43,6 +45,7 @@ public:
     GLfloat * getSpecularVerts();
     GLuint * getIndexVerts();
     GLuint * getNormalIndexVerts();
+    GLuint getId();
     GLfloat getX();
     GLfloat getY();
     GLfloat getZ();
