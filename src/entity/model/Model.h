@@ -20,6 +20,7 @@ private:
 
 public:
     Model();
+    ~Model();
     Model(int x, int y, int z);
     Model(int x, int y, int z, obj_data objData);
     Model(int x, int y, int z, std::vector<GLfloat> v, std::vector<GLuint> i, std::vector<GLfloat> c);

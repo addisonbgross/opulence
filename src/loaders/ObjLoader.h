@@ -34,6 +34,7 @@ private:
 
 public:
     ObjLoader();
+    ~ObjLoader();
     obj_data import(std::string filePath);
     std::vector<mtl_data> importMtl(std::string fliePath);
     void checkHighMark(GLuint high, GLuint a, GLuint b, GLuint c);

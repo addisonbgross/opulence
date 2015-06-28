@@ -13,7 +13,6 @@
 #include "src/entity/camera/Camera.h"
 #include "src/service/Courier.h"
 #include "src/loaders/ShaderLoader.h"
-#include "src/loaders/ObjLoader.h"
 
 class Opulence
 {
@@ -100,6 +99,15 @@ public:
         vertexShader   = loadShader("/home/champ/Git/crows/opulence/shaders/blinnPhong.vert", gProgramID);
         fragmentShader = loadShader("/home/champ/Git/crows/opulence/shaders/blinnPhong.frag", gProgramID);
 
+        while (vertexShader == 0) {
+            std::cout << "Loading vertexShader failed!" << std::endl;
+            vertexShader = loadShader("/home/champ/Git/crows/opulence/shaders/blinnPhong.vert", gProgramID);
+        }
+        while (fragmentShader == 0) {
+            std::cout << "Loading fragmentShader failed!" << std::endl;
+            fragmentShader = loadShader("/home/champ/Git/crows/opulence/shaders/blinnPhong.frag", gProgramID);
+        }
+
         // create VAO
         glGenVertexArrays(1, &gVAO);
 
@@ -157,14 +165,12 @@ public:
         glUniformMatrix4fv(courier->getUniform(("proj")), 1, GL_FALSE, &proj[0][0]);
 
         /* fragment shader stuff */
-        GLfloat ambientIntensity = 0.3;
+        GLfloat ambientIntensity = 0.8;
         glm::vec4 ambientColour = glm::vec4(0.2, 0.2, 0.2, 1.0);
         glUniform1fv(courier->getUniform("ambientIntensity"), 1, &ambientIntensity);
         glUniform4fv(courier->getUniform("ambientColour"), 1, &ambientColour[0]);
         glUniform3fv(courier->getUniform("directionalLight"), 1, &light[0]);
         glUniform3fv(courier->getUniform("cameraPosition"), 1, &camera->getEye()->x);
-
-        glUseProgram(gProgramID);
 
         glBindVertexArray(gVAO);
 
@@ -174,6 +180,8 @@ public:
     void close() {
         //Deallocate program
         glDeleteProgram(gProgramID);
+        glDeleteShader(vertexShader);
+        glDeleteShader(fragmentShader);
 
         //Destroy window
         SDL_DestroyWindow(gWindow);
@@ -262,38 +270,43 @@ public:
 
     int start() {
         courier = new Courier();
+        camera = new Camera();
 
         //Start up SDL and create window
         if (!init()) {
             printf("Failed to initialize!\n");
 
         } else {
-            //Main loop flag
-            bool quit = false;
+            // link opengl context
+            glUseProgram(gProgramID);
 
-            //Event handler
+            // event handler
             SDL_Event e;
 
-            //Enable text input
+            // enable text input
             SDL_StartTextInput();
 
-            // create Camera 1
-            camera = new Camera();
-
             ObjLoader loader;
-            obj_data objModel = loader.import("res/models/obj/dreamer.obj");
+            obj_data objModel = loader.import("res/models/obj/house_5.obj");
+            mesh = new Model(0, 0, -10, objModel);
             mesh1 =  new Model(0, 0, 0, objModel);
+            mesh2 =  new Model(0, 0, 10, objModel);
+            mesh3 =  new Model(0, 0, 20, objModel);
 
+            courier->addModel(mesh);
             courier->addModel(mesh1);
+            courier->addModel(mesh2);
+            courier->addModel(mesh3);
 
             light = glm::vec3(0.0, 1.0, -1.0);
-            std::cout << "vSize: " << mesh1->getNumPositionVerts() <<
-                      " - nSize: " << mesh1->getNumNormalVerts() <<
-                      " - iSize: " << mesh1->getNumIndexVerts() <<
-                      " - dSize: " << mesh1->getNumDiffuseVerts() <<
-                      " - sSize: " << mesh1->getNumSpecularVerts() << std::endl;
+            //std::cout << "vSize: " << mesh1->getNumPositionVerts() <<
+            //          " - nSize: " << mesh1->getNumNormalVerts() <<
+            //         " - iSize: " << mesh1->getNumIndexVerts() <<
+            //          " - dSize: " << mesh1->getNumDiffuseVerts() <<
+            //          " - sSize: " << mesh1->getNumSpecularVerts() << std::endl;
 
-            //While application is running
+            /*** MAIN LOOP ***/
+            bool quit = false;
             while (!quit) {
                 while (SDL_PollEvent(&e) != 0) {
                     quit = doInput(e, camera);
@@ -312,6 +325,10 @@ public:
 
         //Free resources and close SDL
         close();
+
+        delete courier;
+        delete mesh1;
+        delete camera;
 
         return 0;
     }

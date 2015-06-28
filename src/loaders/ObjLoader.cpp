@@ -4,6 +4,8 @@
 
 ObjLoader::ObjLoader() {}
 
+ObjLoader::~ObjLoader() {}
+
 std::vector<mtl_data> ObjLoader::importMtl(std::string filePath)
 {
     std::string mtlPath = filePath.substr(0, filePath.find_last_of(".")) + ".mtl";
@@ -45,6 +47,8 @@ std::vector<mtl_data> ObjLoader::importMtl(std::string filePath)
         }
     }
     materials.push_back(mtl);
+
+    fileStream.close();
 
     return materials;
 }

@@ -111,29 +111,197 @@ opulence/fast:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/build
 .PHONY : opulence/fast
 
-opulence.o: opulence.c.o
+home/champ/Git/crows/main.o: home/champ/Git/crows/main.c.o
+.PHONY : home/champ/Git/crows/main.o
+
+# target to build an object file
+home/champ/Git/crows/main.c.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o
+.PHONY : home/champ/Git/crows/main.c.o
+
+home/champ/Git/crows/main.i: home/champ/Git/crows/main.c.i
+.PHONY : home/champ/Git/crows/main.i
+
+# target to preprocess a source file
+home/champ/Git/crows/main.c.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.i
+.PHONY : home/champ/Git/crows/main.c.i
+
+home/champ/Git/crows/main.s: home/champ/Git/crows/main.c.s
+.PHONY : home/champ/Git/crows/main.s
+
+# target to generate assembly for a file
+home/champ/Git/crows/main.c.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.s
+.PHONY : home/champ/Git/crows/main.c.s
+
+opulence.o: opulence.cpp.o
 .PHONY : opulence.o
 
 # target to build an object file
-opulence.c.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/opulence.c.o
-.PHONY : opulence.c.o
+opulence.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/opulence.cpp.o
+.PHONY : opulence.cpp.o
 
-opulence.i: opulence.c.i
+opulence.i: opulence.cpp.i
 .PHONY : opulence.i
 
 # target to preprocess a source file
-opulence.c.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/opulence.c.i
-.PHONY : opulence.c.i
+opulence.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/opulence.cpp.i
+.PHONY : opulence.cpp.i
 
-opulence.s: opulence.c.s
+opulence.s: opulence.cpp.s
 .PHONY : opulence.s
 
 # target to generate assembly for a file
-opulence.c.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/opulence.c.s
-.PHONY : opulence.c.s
+opulence.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/opulence.cpp.s
+.PHONY : opulence.cpp.s
+
+src/entity/Entity.o: src/entity/Entity.cpp.o
+.PHONY : src/entity/Entity.o
+
+# target to build an object file
+src/entity/Entity.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/Entity.cpp.o
+.PHONY : src/entity/Entity.cpp.o
+
+src/entity/Entity.i: src/entity/Entity.cpp.i
+.PHONY : src/entity/Entity.i
+
+# target to preprocess a source file
+src/entity/Entity.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/Entity.cpp.i
+.PHONY : src/entity/Entity.cpp.i
+
+src/entity/Entity.s: src/entity/Entity.cpp.s
+.PHONY : src/entity/Entity.s
+
+# target to generate assembly for a file
+src/entity/Entity.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/Entity.cpp.s
+.PHONY : src/entity/Entity.cpp.s
+
+src/entity/camera/Camera.o: src/entity/camera/Camera.cpp.o
+.PHONY : src/entity/camera/Camera.o
+
+# target to build an object file
+src/entity/camera/Camera.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/camera/Camera.cpp.o
+.PHONY : src/entity/camera/Camera.cpp.o
+
+src/entity/camera/Camera.i: src/entity/camera/Camera.cpp.i
+.PHONY : src/entity/camera/Camera.i
+
+# target to preprocess a source file
+src/entity/camera/Camera.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/camera/Camera.cpp.i
+.PHONY : src/entity/camera/Camera.cpp.i
+
+src/entity/camera/Camera.s: src/entity/camera/Camera.cpp.s
+.PHONY : src/entity/camera/Camera.s
+
+# target to generate assembly for a file
+src/entity/camera/Camera.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/camera/Camera.cpp.s
+.PHONY : src/entity/camera/Camera.cpp.s
+
+src/entity/model/Model.o: src/entity/model/Model.cpp.o
+.PHONY : src/entity/model/Model.o
+
+# target to build an object file
+src/entity/model/Model.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/model/Model.cpp.o
+.PHONY : src/entity/model/Model.cpp.o
+
+src/entity/model/Model.i: src/entity/model/Model.cpp.i
+.PHONY : src/entity/model/Model.i
+
+# target to preprocess a source file
+src/entity/model/Model.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/model/Model.cpp.i
+.PHONY : src/entity/model/Model.cpp.i
+
+src/entity/model/Model.s: src/entity/model/Model.cpp.s
+.PHONY : src/entity/model/Model.s
+
+# target to generate assembly for a file
+src/entity/model/Model.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/model/Model.cpp.s
+.PHONY : src/entity/model/Model.cpp.s
+
+src/loaders/ObjLoader.o: src/loaders/ObjLoader.cpp.o
+.PHONY : src/loaders/ObjLoader.o
+
+# target to build an object file
+src/loaders/ObjLoader.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/loaders/ObjLoader.cpp.o
+.PHONY : src/loaders/ObjLoader.cpp.o
+
+src/loaders/ObjLoader.i: src/loaders/ObjLoader.cpp.i
+.PHONY : src/loaders/ObjLoader.i
+
+# target to preprocess a source file
+src/loaders/ObjLoader.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/loaders/ObjLoader.cpp.i
+.PHONY : src/loaders/ObjLoader.cpp.i
+
+src/loaders/ObjLoader.s: src/loaders/ObjLoader.cpp.s
+.PHONY : src/loaders/ObjLoader.s
+
+# target to generate assembly for a file
+src/loaders/ObjLoader.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/loaders/ObjLoader.cpp.s
+.PHONY : src/loaders/ObjLoader.cpp.s
+
+src/loaders/ShaderLoader.o: src/loaders/ShaderLoader.cpp.o
+.PHONY : src/loaders/ShaderLoader.o
+
+# target to build an object file
+src/loaders/ShaderLoader.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/loaders/ShaderLoader.cpp.o
+.PHONY : src/loaders/ShaderLoader.cpp.o
+
+src/loaders/ShaderLoader.i: src/loaders/ShaderLoader.cpp.i
+.PHONY : src/loaders/ShaderLoader.i
+
+# target to preprocess a source file
+src/loaders/ShaderLoader.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/loaders/ShaderLoader.cpp.i
+.PHONY : src/loaders/ShaderLoader.cpp.i
+
+src/loaders/ShaderLoader.s: src/loaders/ShaderLoader.cpp.s
+.PHONY : src/loaders/ShaderLoader.s
+
+# target to generate assembly for a file
+src/loaders/ShaderLoader.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/loaders/ShaderLoader.cpp.s
+.PHONY : src/loaders/ShaderLoader.cpp.s
+
+src/service/Courier.o: src/service/Courier.cpp.o
+.PHONY : src/service/Courier.o
+
+# target to build an object file
+src/service/Courier.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/Courier.cpp.o
+.PHONY : src/service/Courier.cpp.o
+
+src/service/Courier.i: src/service/Courier.cpp.i
+.PHONY : src/service/Courier.i
+
+# target to preprocess a source file
+src/service/Courier.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/Courier.cpp.i
+.PHONY : src/service/Courier.cpp.i
+
+src/service/Courier.s: src/service/Courier.cpp.s
+.PHONY : src/service/Courier.s
+
+# target to generate assembly for a file
+src/service/Courier.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/Courier.cpp.s
+.PHONY : src/service/Courier.cpp.s
 
 # Help Target
 help:
@@ -144,9 +312,30 @@ help:
 	@echo "... edit_cache"
 	@echo "... opulence"
 	@echo "... rebuild_cache"
+	@echo "... home/champ/Git/crows/main.o"
+	@echo "... home/champ/Git/crows/main.i"
+	@echo "... home/champ/Git/crows/main.s"
 	@echo "... opulence.o"
 	@echo "... opulence.i"
 	@echo "... opulence.s"
+	@echo "... src/entity/Entity.o"
+	@echo "... src/entity/Entity.i"
+	@echo "... src/entity/Entity.s"
+	@echo "... src/entity/camera/Camera.o"
+	@echo "... src/entity/camera/Camera.i"
+	@echo "... src/entity/camera/Camera.s"
+	@echo "... src/entity/model/Model.o"
+	@echo "... src/entity/model/Model.i"
+	@echo "... src/entity/model/Model.s"
+	@echo "... src/loaders/ObjLoader.o"
+	@echo "... src/loaders/ObjLoader.i"
+	@echo "... src/loaders/ObjLoader.s"
+	@echo "... src/loaders/ShaderLoader.o"
+	@echo "... src/loaders/ShaderLoader.i"
+	@echo "... src/loaders/ShaderLoader.s"
+	@echo "... src/service/Courier.o"
+	@echo "... src/service/Courier.i"
+	@echo "... src/service/Courier.s"
 .PHONY : help
 
 

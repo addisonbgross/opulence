@@ -1,6 +1,22 @@
 #include "Courier.h"
 
-Courier::Courier() { bufferAttributes= std::map<std::string, GLint>(); }
+Courier::Courier()
+{
+    bufferAttributes= std::map<std::string, GLint>();
+}
+
+Courier::~Courier()
+{
+    delete &bufferAttributes;
+    delete &bufferUniforms;
+
+    int i, size = activeModels.size();
+    for (i = 0; i < size; ++i) {
+        delete &activeModels.at(i);
+    }
+
+    delete &activeModels;
+}
 
 void Courier::addAttribute(std::string name, GLint attrib)
 {
@@ -34,10 +50,9 @@ void Courier::sendBuffers()
     GLuint i;
     for (i = 0; i < numModels; ++i) {
         Model *model = activeModels[i];
-        GLuint numAttributes = bufferAttributes.size();
 
         // create VBO
-        GLuint ibo, vbo, nbo, dcbo, scbo;
+        GLuint ibo, vbo, nbo, dcbo, scbo;;
         glGenBuffers(1, &ibo);
         glGenBuffers(1, &vbo);
         glGenBuffers(1, &nbo);
@@ -97,6 +112,12 @@ void Courier::sendBuffers()
         // set index data and render
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
         glDrawElements(GL_TRIANGLES, model->getNumIndexVerts(), GL_UNSIGNED_INT, 0);
+
+        glDeleteBuffers(1, &ibo);
+        glDeleteBuffers(1, &vbo);
+        glDeleteBuffers(1, &nbo);
+        glDeleteBuffers(1, &dcbo);
+        glDeleteBuffers(1, &scbo);
 
         // free shader variables
         for (auto& i : bufferAttributes) {
