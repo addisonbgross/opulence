@@ -15,7 +15,7 @@ private:
 
 public:
     Courier();
-    ~Courier() = default;
+    ~Courier();
     void addAttribute(std::string name, GLint attrib);
     void addUniform(std::string name, GLint unif);
     GLint getAttribute(std::string name);

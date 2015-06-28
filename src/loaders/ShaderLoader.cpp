@@ -20,6 +20,7 @@ std::string readFile(const char *filePath) {
     }
 
     fileStream.close();
+
     return content;
 }
 
@@ -32,10 +33,10 @@ GLuint loadShader(const char *shaderPath, GLuint program) {
                                              glCreateShader(GL_FRAGMENT_SHADER);
 
     //Get vertex source
-    const GLchar *shaderSource[] = { readFile(shaderPath).c_str() };
+    const GLchar *shaderSource = { readFile(shaderPath).c_str() };
 
     //Set vertex source
-    glShaderSource(shader, 1, shaderSource, NULL);
+    glShaderSource(shader, 1, &shaderSource, NULL);
 
     //Compile vertex source
     glCompileShader(shader);
@@ -44,7 +45,6 @@ GLuint loadShader(const char *shaderPath, GLuint program) {
     GLint isCompiled = GL_FALSE;
     glGetShaderiv(shader, GL_COMPILE_STATUS, &isCompiled);
     if (isCompiled != GL_TRUE) {
-        printf("Unable to compile shader from %s!\n", shaderPath);
         return 0;
     } else {
         glAttachShader(program, shader);
