@@ -43,12 +43,12 @@ void BufferCourier::removeModel(GLuint id)
 {
     activeModels.erase(activeModels.begin() + (double) id);
     update();
+    sendBuffers();
 }
 
 void BufferCourier::sendBuffers()
 {
     GLuint numModels = (GLuint) activeModels.size();
-    numIndexVerts = 0;
 
     std::cout << "# Active Models: " << numModels << std::endl;
 
@@ -57,10 +57,11 @@ void BufferCourier::sendBuffers()
         glEnableVertexAttribArray(bufferAttributes.at(i.first));
     }
 
-    GLuint i;
+    GLint i;
     for (i = 0; i < numModels; ++i) {
         Model *model = activeModels[i];
 
+        // initialize buffer objects
         glGenBuffers(1, &ibo);
         glGenBuffers(1, &vbo);
         glGenBuffers(1, &nbo);
@@ -80,7 +81,7 @@ void BufferCourier::sendBuffers()
                      model->getIndexVerts(),
                      GL_STATIC_DRAW);
 
-        numIndexVerts += model->getNumIndexVerts();
+        numIndexVerts = model->getNumIndexVerts();
 
         // set vertex data
         glBindBuffer(GL_ARRAY_BUFFER, vbo);
@@ -113,6 +114,9 @@ void BufferCourier::sendBuffers()
                      model->getSpecularVerts(),
                      GL_STATIC_DRAW);
         glVertexAttribPointer(bufferAttributes.at("specular"), 4, GL_FLOAT, GL_FALSE, 0, 0);
+
+        render();
+        update();
     }
 }
 
@@ -123,8 +127,6 @@ void BufferCourier::update()
     glDeleteBuffers(1, &nbo);
     glDeleteBuffers(1, &dcbo);
     glDeleteBuffers(1, &scbo);
-
-    sendBuffers();
 }
 
 void BufferCourier::render()

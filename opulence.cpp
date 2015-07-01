@@ -38,7 +38,7 @@ private:
 
     // lighting
     float sunIntensity;
-    glm::vec3 pointLight = glm::vec3(-5.0, 0.0, 0.0);
+    glm::vec3 pointLight = glm::vec3(0.0, 0.0, -8.0);
     glm::vec3 sunLight;
 
 public:
@@ -196,7 +196,7 @@ public:
         glUniform3fv(bufferCourier.getUniform("sunLight"), 1, &sunLight[0]);
         glUniform3fv(bufferCourier.getUniform("cameraPosition"), 1, &camera.getEye()->x);
 
-        bufferCourier.render();
+        bufferCourier.sendBuffers();
     }
 
     void close() {
@@ -293,7 +293,7 @@ public:
                 bufferCourier.removeModel(0);
             }
         } else if (button == SDL_SCANCODE_V) {
-            if (bufferCourier.getNumModels()  == 0) {
+            if (bufferCourier.getNumModels() == 0) {
                 bufferCourier.addModel(&mesh);
             }
         }
@@ -323,12 +323,12 @@ public:
             sunLight = glm::vec3(-1.0, -1.0, -1.0);
 
             obj_data house_5_obj = loader.import("res/models/obj/house_5.obj");
-            obj_data house_4_obj = loader.import("res/models/obj/house_4.obj");
-            mesh = Model(0, 0, 0, house_5_obj);
-            mesh1 = Model(0, 0, 10, house_4_obj);
+            obj_data house_4_obj = loader.import("res/models/obj/house_6.obj");
+            mesh = Model(0, 0, 10, house_5_obj);
+            mesh1 = Model(0, 0, 0, house_4_obj);
 
             bufferCourier.addModel(&mesh);
-            //bufferCourier.addModel(&mesh1);
+            bufferCourier.addModel(&mesh1);
 
             /*** MAIN LOOP ***/
             bool quit = false;
