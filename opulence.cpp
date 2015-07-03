@@ -196,7 +196,7 @@ public:
         glUniform3fv(bufferCourier.getUniform("sunLight"), 1, &sunLight[0]);
         glUniform3fv(bufferCourier.getUniform("cameraPosition"), 1, &camera.getEye()->x);
 
-        bufferCourier.sendBuffers();
+        bufferCourier.render();
     }
 
     void close() {
@@ -323,12 +323,16 @@ public:
             sunLight = glm::vec3(-1.0, -1.0, -1.0);
 
             obj_data house_5_obj = loader.import("res/models/obj/house_5.obj");
-            obj_data house_4_obj = loader.import("res/models/obj/house_6.obj");
-            mesh = Model(0, 0, 10, house_5_obj);
-            mesh1 = Model(0, 0, 0, house_4_obj);
+            obj_data house_6_obj = loader.import("res/models/obj/house_6.obj");
+            mesh = Model(0, 0, 18, house_5_obj);
+            mesh1 = Model(0, 0, 0, house_6_obj);
+            mesh2 = Model(0, 0, -15, house_6_obj);
+            mesh3 = Model(0, 0, -30, house_6_obj);
 
             bufferCourier.addModel(&mesh);
             bufferCourier.addModel(&mesh1);
+            bufferCourier.addModel(&mesh2);
+            bufferCourier.addModel(&mesh3);
 
             /*** MAIN LOOP ***/
             bool quit = false;

@@ -2,6 +2,7 @@
 #define OPULENCE_MODEL_H
 
 #include <vector>
+#include <GL/glew.h>
 #include <GL/gl.h>
 
 #include "../../loaders/ObjLoader.h"
@@ -20,6 +21,12 @@ private:
     std::vector<GLuint>  normalIndexVerts;
 
 public:
+    GLuint positionBuffer,
+            normalBuffer,
+            diffuseBuffer,
+            specularBuffer,
+            indexBuffer;
+
     Model();
     ~Model();
     Model(int x, int y, int z);

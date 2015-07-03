@@ -26,7 +26,9 @@ void main()
 
     // diffuse
     float diffuseIntensity = 0.0;
-    //diffuseIntensity = max(dot(normalize(fNormal), -sunLight), 0.0);
+    float sunDiffuseIntensity = max(dot(normalize(fNormal), -sunLight), 0.0);
+    float pointDiffuseIntensity = max(dot(normalize(fNormal), -normalize(fPoint)), 0.0);
+    diffuseIntensity = clamp(sunDiffuseIntensity + pointDiffuseIntensity, 0.0, 1.0);
 
     // specular
     float specularIntensity = 0.0;
@@ -37,7 +39,6 @@ void main()
     }
 
     // point light
-    diffuseIntensity = max(dot(normalize(fNormal), -normalize(fPoint)), 0.0);
     if (diffuseIntensity > 0.0) {
         diffuseIntensity = clamp(diffuseIntensity + att, 0.0, 1.0);
     }
