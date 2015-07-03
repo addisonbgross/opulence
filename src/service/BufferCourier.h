@@ -28,8 +28,8 @@ public:
     void addModel(Model *model);
     void removeModel(GLuint id);
 
-    void sendBuffers();
-    void update();
+    void sendBuffer(Model *model);
+    void clearBuffer(Model *model);
     void render();
 };
 

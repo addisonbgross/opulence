@@ -36,21 +36,79 @@ void BufferCourier::addModel(Model *model)
 {
     model->setId((GLuint) activeModels.size());
     activeModels.push_back(model);
-    sendBuffers();
+    sendBuffer(model);
 }
 
 void BufferCourier::removeModel(GLuint id)
 {
     activeModels.erase(activeModels.begin() + (double) id);
-    update();
+    clearBuffer(activeModels[id]);
 }
 
-void BufferCourier::sendBuffers()
+void BufferCourier::sendBuffer(Model *model)
 {
-    GLuint numModels = (GLuint) activeModels.size();
-    numIndexVerts = 0;
+    std::cout << "# Active Models: " << activeModels.size() << std::endl;
 
-    std::cout << "# Active Models: " << numModels << std::endl;
+    // initialize buffer objects
+    glGenBuffers(1, &model->indexBuffer);
+    glGenBuffers(1, &model->positionBuffer);
+    glGenBuffers(1, &model->normalBuffer);
+    glGenBuffers(1, &model->diffuseBuffer);
+    glGenBuffers(1, &model->specularBuffer);
+
+    // set index data
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, model->indexBuffer);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER,
+                 model->getNumIndexVerts() * sizeof(GLuint),
+                 model->getIndexVerts(),
+                 GL_STATIC_DRAW);
+
+    // set vertex data
+    glBindBuffer(GL_ARRAY_BUFFER, model->positionBuffer);
+    glBufferData(GL_ARRAY_BUFFER,
+                 model->getNumPositionVerts() * sizeof(GLfloat),
+                 model->getPositionVerts(),
+                 GL_STATIC_DRAW);
+    glVertexAttribPointer(bufferAttributes.at("position"), 3, GL_FLOAT, GL_FALSE, 0, 0);
+
+    // set normal data
+    glBindBuffer(GL_ARRAY_BUFFER, model->normalBuffer);
+    glBufferData(GL_ARRAY_BUFFER,
+                 model->getNumNormalVerts() * sizeof(GLfloat),
+                 model->getNormalVerts(),
+                 GL_STATIC_DRAW);
+    glVertexAttribPointer(bufferAttributes.at("normal"), 3, GL_FLOAT, GL_FALSE, 0, 0);
+
+    // set diffuse colour data
+    glBindBuffer(GL_ARRAY_BUFFER, model->diffuseBuffer);
+    glBufferData(GL_ARRAY_BUFFER,
+                 model->getNumDiffuseVerts() * sizeof(GLfloat),
+                 model->getDiffuseVerts(),
+                 GL_STATIC_DRAW);
+    glVertexAttribPointer(bufferAttributes.at("diffuse"), 4, GL_FLOAT, GL_FALSE, 0, 0);
+
+    // set specular colour data
+    glBindBuffer(GL_ARRAY_BUFFER, model->specularBuffer);
+    glBufferData(GL_ARRAY_BUFFER,
+                 model->getNumSpecularVerts() * sizeof(GLfloat),
+                 model->getSpecularVerts(),
+                 GL_STATIC_DRAW);
+    glVertexAttribPointer(bufferAttributes.at("specular"), 4, GL_FLOAT, GL_FALSE, 0, 0);
+}
+
+void BufferCourier::clearBuffer(Model *model)
+{
+    glDeleteBuffers(1, &model->positionBuffer);
+    glDeleteBuffers(1, &model->normalBuffer);
+    glDeleteBuffers(1, &model->diffuseBuffer);
+    glDeleteBuffers(1, &model->specularBuffer);
+    glDeleteBuffers(1, &model->indexBuffer);
+}
+
+void BufferCourier::render()
+{
+    // set index data and render
+    GLuint numModels = (GLuint) activeModels.size();
 
     // enable variables within shader pipeline
     for (auto &i : bufferAttributes) {
@@ -60,76 +118,25 @@ void BufferCourier::sendBuffers()
     GLuint i;
     for (i = 0; i < numModels; ++i) {
         Model *model = activeModels[i];
-
-        glGenBuffers(1, &ibo);
-        glGenBuffers(1, &vbo);
-        glGenBuffers(1, &nbo);
-        glGenBuffers(1, &dcbo);
-        glGenBuffers(1, &scbo);
-
         // set model position
         glm::vec3 modelPlace = glm::vec3(model->getX(),
                                          model->getY(),
                                          model->getZ());
         glUniform3fv(bufferUniforms.at("modelPosition"), 1, &modelPlace[0]);
 
-        // set index data
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER,
-                     model->getNumIndexVerts() * sizeof(GLuint),
-                     model->getIndexVerts(),
-                     GL_STATIC_DRAW);
-
-        numIndexVerts += model->getNumIndexVerts();
-
-        // set vertex data
-        glBindBuffer(GL_ARRAY_BUFFER, vbo);
-        glBufferData(GL_ARRAY_BUFFER,
-                     model->getNumPositionVerts() * sizeof(GLfloat),
-                     model->getPositionVerts(),
-                     GL_STATIC_DRAW);
+        glBindBuffer(GL_ARRAY_BUFFER, model->positionBuffer);
         glVertexAttribPointer(bufferAttributes.at("position"), 3, GL_FLOAT, GL_FALSE, 0, 0);
 
-        // set normal data
-        glBindBuffer(GL_ARRAY_BUFFER, nbo);
-        glBufferData(GL_ARRAY_BUFFER,
-                     model->getNumNormalVerts() * sizeof(GLfloat),
-                     model->getNormalVerts(),
-                     GL_STATIC_DRAW);
+        glBindBuffer(GL_ARRAY_BUFFER, model->normalBuffer);
         glVertexAttribPointer(bufferAttributes.at("normal"), 3, GL_FLOAT, GL_FALSE, 0, 0);
 
-        // set diffuse colour data
-        glBindBuffer(GL_ARRAY_BUFFER, dcbo);
-        glBufferData(GL_ARRAY_BUFFER,
-                     model->getNumDiffuseVerts() * sizeof(GLfloat),
-                     model->getDiffuseVerts(),
-                     GL_STATIC_DRAW);
+        glBindBuffer(GL_ARRAY_BUFFER, model->diffuseBuffer);
         glVertexAttribPointer(bufferAttributes.at("diffuse"), 4, GL_FLOAT, GL_FALSE, 0, 0);
 
-        // set specular colour data
-        glBindBuffer(GL_ARRAY_BUFFER, scbo);
-        glBufferData(GL_ARRAY_BUFFER,
-                     model->getNumSpecularVerts() * sizeof(GLfloat),
-                     model->getSpecularVerts(),
-                     GL_STATIC_DRAW);
+        glBindBuffer(GL_ARRAY_BUFFER, model->specularBuffer);
         glVertexAttribPointer(bufferAttributes.at("specular"), 4, GL_FLOAT, GL_FALSE, 0, 0);
+
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, model->indexBuffer);
+        glDrawElements(GL_TRIANGLES, (GLsizei) model->getNumIndexVerts(), GL_UNSIGNED_INT, 0);
     }
-}
-
-void BufferCourier::update()
-{
-    glDeleteBuffers(1, &ibo);
-    glDeleteBuffers(1, &vbo);
-    glDeleteBuffers(1, &nbo);
-    glDeleteBuffers(1, &dcbo);
-    glDeleteBuffers(1, &scbo);
-
-    sendBuffers();
-}
-
-void BufferCourier::render()
-{
-    // set index data and render
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
-    glDrawElements(GL_TRIANGLES, numIndexVerts, GL_UNSIGNED_INT, 0);
 }
