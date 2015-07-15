@@ -2,7 +2,6 @@
 #include <vector>
 
 #include <SDL.h>
-#include <GL/glew.h>
 
 #define GLM_FORCE_RADIANS
 #include <glm/glm.hpp>
@@ -12,22 +11,14 @@
 #include "src/entity/model/Model.h"
 #include "src/entity/camera/Camera.h"
 #include "src/service/BufferCourier.h"
-#include "src/loaders/ShaderLoader.h"
+#include "src/service/GLManager.h"
 
 class Opulence
 {
 private:
     //Screen dimension constants
-    const GLfloat SCREEN_WIDTH = 1024.0;
-    const GLfloat SCREEN_HEIGHT = 600.0;
-
-    SDL_Window *gWindow = NULL; //The window we'll be rendering to
-    SDL_GLContext gContext; //OpenGL context
-
-    //Graphics program
-    GLuint vertexShader = 0, fragmentShader = 0;
-    GLuint gProgramID = 0;
-    GLuint gVAO = 0;
+    const GLfloat SCREEN_WIDTH = 1024.0f;
+    const GLfloat SCREEN_HEIGHT = 600.0f;
 
     glm::vec3 zoom = glm::vec3(0.0f, 1.0f, 0.0f);
 
@@ -35,136 +26,20 @@ private:
     BufferCourier bufferCourier;
     Model mesh, mesh1, mesh2, mesh3;
     ObjLoader loader;
+    GLManager glMan;
 
     // lighting
     float sunIntensity;
-    glm::vec3 pointLight = glm::vec3(0.0, 0.0, -8.0);
+    glm::vec3 pointLight = glm::vec3(0.0, 0.0, 10.0);
     glm::vec3 sunLight;
 
 public:
-    bool init() {
-        bool success = true;    //Initialization flag
-
-        //Initialize SDL
-        if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-            printf("SDL could not initialize! SDL Error: %s\n", SDL_GetError());
-            success = false;
-
-        //Use OpenGL 3.3 core
-        } else {
-            SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-            SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
-            SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-            SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-
-            //Create window
-            gWindow = SDL_CreateWindow("opulence v1.0",
-                                       SDL_WINDOWPOS_UNDEFINED,
-                                       SDL_WINDOWPOS_UNDEFINED,
-                                       SCREEN_WIDTH, SCREEN_HEIGHT,
-                                       SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN); // full screen --> SDL_WINDOW_FULLSCREEN
-
-            SDL_GLContext glcontext(SDL_GL_CreateContext(gWindow));
-
-            glewExperimental = GL_TRUE;
-            GLenum glewError = glewInit();
-
-            //Use Vsync
-            if (SDL_GL_SetSwapInterval(1) < 0) {
-                printf("Warning: Unable to set VSync! SDL Error: %s\n", SDL_GetError());
-            }
-
-            //Initialize OpenGL
-            if (!initGL()) {
-                printf("Unable to initialize OpenGL!\n");
-                success = false;
-            }
-        }
-
-        return success;
-    }
-
-    bool initGL() {
-        // success flag
-        bool success = true;
-
-        // generate program
-        gProgramID = glCreateProgram();
-
-        // enable z-buffer face culling
-        glEnable(GL_DEPTH_TEST);
-        glDepthFunc(GL_LEQUAL);
-        glShadeModel(GL_FLAT);
-
-        // enable vsync rate
-        if (SDL_GL_SetSwapInterval(1) < 0)
-            std::cout << "Swap Interval could not be set!" << std::endl;
-
-        // vertex & fragment
-        vertexShader   = loadShader("/home/champ/Git/crows/opulence/shaders/phongAttenuation.vert", gProgramID);
-        fragmentShader = loadShader("/home/champ/Git/crows/opulence/shaders/phongAttenuation.frag", gProgramID);
-
-        // TODO fix this mess
-        int failCount = 0;
-        while (vertexShader == 0) {
-            ++failCount;
-            std::cout << "Loading vertexShader failed!" << std::endl;
-            vertexShader = loadShader("/home/champ/Git/crows/opulence/shaders/phongAttenuation.vert", gProgramID);
-
-            if (failCount == 10) {
-                failCount = 0;
-                break;
-            }
-        }
-        while (fragmentShader == 0) {
-            ++failCount;
-            std::cout << "Loading fragmentShader failed!" << std::endl;
-            fragmentShader = loadShader("/home/champ/Git/crows/opulence/shaders/phongAttenuation.frag", gProgramID);
-            if (failCount == 10) {
-                failCount = 0;
-                break;
-            }
-        }
-
-        // create VAO
-        glGenVertexArrays(1, &gVAO);
-
-        glLinkProgram(gProgramID);
-
-        //Initialize clear color
-        glClearColor(0.0, 0.0, 0.0, 1.0f);
-
-        // vertex shader variables
-        bufferCourier.addAttribute("position", glGetAttribLocation(gProgramID, "position"));
-        bufferCourier.addAttribute("normal", glGetAttribLocation(gProgramID, "normal"));
-        bufferCourier.addUniform("model", glGetUniformLocation(gProgramID, "model"));
-        bufferCourier.addUniform("view", glGetUniformLocation(gProgramID, "view"));
-        bufferCourier.addUniform("proj", glGetUniformLocation(gProgramID, "proj"));
-        bufferCourier.addUniform("modelPosition", glGetUniformLocation(gProgramID, "modelPosition"));
-        bufferCourier.addUniform("cameraPosition", glGetUniformLocation(gProgramID, "cameraPosition"));
-        bufferCourier.addUniform("pointLight", glGetUniformLocation(gProgramID, "pointLight"));
-
-        // fragment shader variables
-        bufferCourier.addAttribute("diffuse", glGetAttribLocation(gProgramID, "diffuse"));
-        bufferCourier.addAttribute("specular", glGetAttribLocation(gProgramID, "specular"));
-        bufferCourier.addUniform("ambientIntensity", glGetUniformLocation(gProgramID, "ambientIntensity"));
-        bufferCourier.addUniform("ambientColour", glGetUniformLocation(gProgramID, "ambientColour"));
-        bufferCourier.addUniform("sunIntensity", glGetUniformLocation(gProgramID, "sunIntensity"));
-        bufferCourier.addUniform("sunLight", glGetUniformLocation(gProgramID, "sunLight"));
-
-        return success;
-    }
-
     void setZoom(float z) {
         zoom.z += z;
     }
 
     void setClearColour(glm::vec4 colour) {
         glClearColor(colour.r, colour.g, colour.b, colour.a);
-    }
-
-    void update() {
-        //No per frame update needed
     }
 
     void render() {
@@ -197,23 +72,6 @@ public:
         glUniform3fv(bufferCourier.getUniform("cameraPosition"), 1, &camera.getEye()->x);
 
         bufferCourier.render();
-    }
-
-    void close() {
-        //Deallocate program
-        glDeleteProgram(gProgramID);
-        glDeleteShader(vertexShader);
-        glDeleteShader(fragmentShader);
-
-        //Destroy window
-        SDL_DestroyWindow(gWindow);
-        gWindow = NULL;
-
-        //Disable text input
-        SDL_StopTextInput();
-
-        //Quit SDL subsystems
-        SDL_Quit();
     }
 
     bool doInput(SDL_Event e, Camera *camera) {
@@ -302,55 +160,82 @@ public:
     }
 
     int start() {
-        //Start up SDL and create window
-        if (!init()) {
-            printf("Failed to initialize!\n");
+        glMan.setScreenSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
-        } else {
-            // link opengl context
-            glUseProgram(gProgramID);
+        // initialize SDL
+        if (!glMan.initSDL()) {
+            printf("Unable to initialize SDL!\n");
+        }
 
-            // enable vertex array object
-            glBindVertexArray(gVAO);
+        // initialize OpenGL
+        if (!glMan.initGL()) {
+            printf("Unable to initialize OpenGL!\n");
+        }
 
-            // event handler
-            SDL_Event e;
+        // vertex shader variables
+        GLuint gProgramID = glMan.getID();
+        bufferCourier.addAttribute("position", glGetAttribLocation(gProgramID, "position"));
+        bufferCourier.addAttribute("normal", glGetAttribLocation(gProgramID, "normal"));
+        bufferCourier.addUniform("model", glGetUniformLocation(gProgramID, "model"));
+        bufferCourier.addUniform("view", glGetUniformLocation(gProgramID, "view"));
+        bufferCourier.addUniform("proj", glGetUniformLocation(gProgramID, "proj"));
+        bufferCourier.addUniform("modelPosition", glGetUniformLocation(gProgramID, "modelPosition"));
+        bufferCourier.addUniform("cameraPosition", glGetUniformLocation(gProgramID, "cameraPosition"));
+        bufferCourier.addUniform("pointLight", glGetUniformLocation(gProgramID, "pointLight"));
 
-            // enable text input
-            SDL_StartTextInput();
+        // fragment shader variables
+        bufferCourier.addAttribute("diffuse", glGetAttribLocation(gProgramID, "diffuse"));
+        bufferCourier.addAttribute("specular", glGetAttribLocation(gProgramID, "specular"));
+        bufferCourier.addUniform("ambientIntensity", glGetUniformLocation(gProgramID, "ambientIntensity"));
+        bufferCourier.addUniform("ambientColour", glGetUniformLocation(gProgramID, "ambientColour"));
+        bufferCourier.addUniform("sunIntensity", glGetUniformLocation(gProgramID, "sunIntensity"));
+        bufferCourier.addUniform("sunLight", glGetUniformLocation(gProgramID, "sunLight"));
 
-            sunIntensity = 1.0;
-            sunLight = glm::vec3(-1.0, -1.0, -1.0);
+        // link opengl context
+        glUseProgram(glMan.getID());
 
-            obj_data house_5_obj = loader.import("res/models/obj/house_5.obj");
-            obj_data house_6_obj = loader.import("res/models/obj/house_6.obj");
-            mesh = Model(0, 0, 18, house_5_obj);
-            mesh1 = Model(0, 0, 0, house_6_obj);
-            mesh2 = Model(0, 0, -15, house_6_obj);
-            mesh3 = Model(0, 0, -30, house_6_obj);
+        // enable vertex array object
+        glBindVertexArray(glMan.getVAO());
 
-            bufferCourier.addModel(&mesh);
-            bufferCourier.addModel(&mesh1);
-            bufferCourier.addModel(&mesh2);
-            bufferCourier.addModel(&mesh3);
+        // event handler
+        SDL_Event e;
 
-            /*** MAIN LOOP ***/
-            bool quit = false;
-            while (!quit) {
-                while (SDL_PollEvent(&e) != 0) {
-                    quit = doInput(e, &camera);
-                }
+        // enable text input
+        SDL_StartTextInput();
 
-                // gather attributes/uniforms and render buffers
-                render();
+        sunIntensity = 0.0;
+        sunLight = glm::vec3(-1.0, -1.0, -1.0);
 
-                // update screen
-                SDL_GL_SwapWindow(gWindow);
+        obj_data hiMonkey_data = loader.import("res/models/obj/hiMonkey.obj");
+        obj_data house_5_obj = loader.import("res/models/obj/house_5.obj");
+        obj_data house_6_obj = loader.import("res/models/obj/house_6.obj");
+        mesh = Model(0, 0, 10, hiMonkey_data);
+        mesh1 = Model(0, 0, 0, house_5_obj);
+        mesh2 = Model(0, 0, -15, house_6_obj);
+        mesh3 = Model(0, 0, -30, hiMonkey_data);
+
+        bufferCourier.addModel(&mesh);
+        bufferCourier.addModel(&mesh1);
+        bufferCourier.addModel(&mesh2);
+        bufferCourier.addModel(&mesh3);
+
+        SDL_Window *gWindow = glMan.getWindow();
+        /*** MAIN LOOP ***/
+        bool quit = false;
+        while (!quit) {
+            while (SDL_PollEvent(&e) != 0) {
+                quit = doInput(e, &camera);
             }
+
+            // gather attributes/uniforms and render buffers
+            render();
+
+            // update screen
+            SDL_GL_SwapWindow(gWindow);
         }
 
         //Free resources and close SDL
-        close();
+        glMan.shutDown();
 
         return 0;
     }
