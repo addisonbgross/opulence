@@ -35,6 +35,7 @@ void main()
     // get distance to light source
     dist = length(pointLight - (position + modelPosition));
 
+    float pointIntensity = 1.0;
     // poor attenuation values
     if (dist < 7.0) {
         linearAttenuation = 0.7;
@@ -67,6 +68,7 @@ void main()
         quadraticAttenuation = 0.0075;
     }
 
-    constantAttenuation = 1.0;
+    constantAttenuation = 0.1;
+
     gl_Position = proj * view * model * vec4(position + modelPosition, 1.0);
 }

@@ -22,25 +22,30 @@ void main()
 {
     // point light attenuation
     float att = constantAttenuation /
-                            ((1 + linearAttenuation * dist * 2) * (1 + quadraticAttenuation * pow(dist, 2) * 2));
+                            ((linearAttenuation * dist) * (quadraticAttenuation * pow(dist, 2)));
 
     // diffuse
     float diffuseIntensity = 0.0;
-    float sunDiffuseIntensity = max(dot(normalize(fNormal), -sunLight), 0.0);
-    float pointDiffuseIntensity = max(dot(normalize(fNormal), -normalize(fPoint)), 0.0);
+    float sunDiffuseIntensity = sunIntensity * max(dot(normalize(fNormal), -sunLight), 0.0);
+    float pointDiffuseIntensity = att * max(dot(normalize(fNormal), -normalize(fPoint)), 0.0);
     diffuseIntensity = clamp(sunDiffuseIntensity + pointDiffuseIntensity, 0.0, 1.0);
+
+    // cell shading
+    int cellShadingFactor = 10;
+    diffuseIntensity = ceil(diffuseIntensity * cellShadingFactor) / cellShadingFactor;
 
     // specular
     float specularIntensity = 0.0;
     if (diffuseIntensity > 0.0) {
-        vec3 halfReflection = normalize(sunLight + fCamera);
-        float specularAngle = max(dot(halfReflection, fNormal), 0.0);
+        vec3 reflection = normalize(sunLight + fCamera);
+        float specularAngle = max(dot(reflection, fNormal), 0.0);
         specularIntensity = pow(specularAngle, 100);
+        specularIntensity = ceil(specularIntensity * cellShadingFactor) / cellShadingFactor; // cell shading
     }
 
     // point light
     if (diffuseIntensity > 0.0) {
-        diffuseIntensity = clamp(diffuseIntensity + att, 0.0, 1.0);
+        diffuseIntensity = clamp(diffuseIntensity, 0.0, 1.0);
     }
 
     // ambient light is the darkest possible

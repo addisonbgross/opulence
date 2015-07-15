@@ -36,7 +36,9 @@ add_executable(opulence ${SOURCE_FILES}
                src/entity/camera/Camera.cpp
                src/entity/camera/Camera.h
                src/service/BufferCourier.cpp
-               src/service/BufferCourier.h)
+               src/service/BufferCourier.h
+               src/service/GLManager.cpp
+               src/service/GLManager.h)
 
 target_link_libraries(opulence
                       ${SDL2_LIBRARY}
