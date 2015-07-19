@@ -1,13 +1,14 @@
-#Opulence Graphics Engine
+# Opulence Graphics Engine
 
-##Dependencies:
+## Dependencies:
 * OpenGL 3.3
 * GLSL 1.3
 * OpenGL Extension Wrangler Library 1.6 (GLEW)
 * OpenGL Mathematics Library 0.9.6 (GLM)
 
-##Usage:
-```C++
+## Usage:
+
+```c++
 #include "opulence/opulence.cpp"
 
 // wherever you decide to begin
