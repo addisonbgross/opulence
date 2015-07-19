@@ -11,23 +11,7 @@
 #include <glm/glm.hpp>
 #include <GL/gl.h>
 
-struct obj_data {
-    std::vector<GLfloat> position;
-    std::vector<GLfloat> normal;
-    std::vector<GLfloat> diffuse;
-    std::vector<GLfloat> specular;
-    std::vector<GLuint>  positionIndex;
-    std::vector<GLuint>  uvIndex;
-    std::vector<GLuint>  normalIndex;
-    std::vector<GLuint>  colourIndex;
-};
-
-struct mtl_data {
-    std::string name;
-    std::vector<GLuint> faces;
-    glm::vec4 diffuse;
-    glm::vec4 specular;
-};
+#include "../container/obj_data.h"
 
 class ObjLoader {
 private:

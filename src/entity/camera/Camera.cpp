@@ -49,12 +49,14 @@ glm::vec3 * Camera::getTop()
 
 void Camera::incrementZoom()
 {
-    eye->z += zoomInertia;
+    glm::vec3 eyeToTarget = *eye - *focus;
+    *eye = eyeToTarget * 1.1f;
 }
 
 void Camera::decrementZoom()
 {
-    eye->z -= zoomInertia;
+    glm::vec3 eyeToTarget = *eye - *focus;
+    *eye = eyeToTarget * 0.9f;
 }
 
 void Camera::moveLeft()

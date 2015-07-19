@@ -1,4 +1,6 @@
+#include <SDL_syswm.h>
 #include "BufferCourier.h"
+#include "GLManager.h"
 
 BufferCourier::BufferCourier()
 {
@@ -107,6 +109,9 @@ void BufferCourier::clearBuffer(Model *model)
 
 void BufferCourier::render()
 {
+    //Clear color buffer
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+
     // set index data and render
     GLuint numModels = (GLuint) activeModels.size();
 

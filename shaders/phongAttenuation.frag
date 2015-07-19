@@ -11,6 +11,8 @@ in vec4 fSpecular;
 in vec3 fCamera;
 in vec3 fPoint;
 
+in vec2 UV;
+
 in float dist;
 in float constantAttenuation;
 in float linearAttenuation;

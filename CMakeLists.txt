@@ -38,7 +38,7 @@ add_executable(opulence ${SOURCE_FILES}
                src/service/BufferCourier.cpp
                src/service/BufferCourier.h
                src/service/GLManager.cpp
-               src/service/GLManager.h)
+               src/service/GLManager.h src/factory/ModelFactory.cpp src/factory/ModelFactory.h src/container/obj_data.h)
 
 target_link_libraries(opulence
                       ${SDL2_LIBRARY}
