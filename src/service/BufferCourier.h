@@ -6,6 +6,7 @@
 #include <vector>
 
 #include "../entity/model/Model.h"
+#include "../loaders/ShaderLoader.h"
 
 class BufferCourier {
 private:
@@ -16,6 +17,7 @@ private:
 
     // buffer objects
     GLuint ibo, vbo, nbo, dcbo, scbo;
+    GLuint renderedTexture;
 
 public:
     BufferCourier();

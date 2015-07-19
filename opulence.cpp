@@ -10,6 +10,7 @@
 
 #include "src/entity/model/Model.h"
 #include "src/entity/camera/Camera.h"
+#include "src/factory/ModelFactory.h"
 #include "src/service/BufferCourier.h"
 #include "src/service/GLManager.h"
 
@@ -24,8 +25,7 @@ private:
 
     Camera camera;
     BufferCourier bufferCourier;
-    Model mesh, mesh1, mesh2, mesh3;
-    ObjLoader loader;
+    ModelFactory *modelFactory;
     GLManager glMan;
 
     // lighting
@@ -42,10 +42,12 @@ public:
         glClearColor(colour.r, colour.g, colour.b, colour.a);
     }
 
-    void render() {
-        //Clear color buffer
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    ModelFactory * getModelFactory()
+    {
+        return modelFactory;
+    }
 
+    void render() {
         /* vertex shader stuff */
         glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0, 0.0, 0.0));
 
@@ -72,6 +74,9 @@ public:
         glUniform3fv(bufferCourier.getUniform("cameraPosition"), 1, &camera.getEye()->x);
 
         bufferCourier.render();
+
+        // update screen
+        SDL_GL_SwapWindow(glMan.getWindow());
     }
 
     bool doInput(SDL_Event e, Camera *camera) {
@@ -146,16 +151,6 @@ public:
             glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
         }
 
-        if (button == SDL_SCANCODE_C) {
-            if (bufferCourier.getNumModels() > 0) {
-                bufferCourier.removeModel(0);
-            }
-        } else if (button == SDL_SCANCODE_V) {
-            if (bufferCourier.getNumModels() == 0) {
-                bufferCourier.addModel(&mesh);
-            }
-        }
-
         return button == SDL_SCANCODE_ESCAPE || e.type == SDL_QUIT;
     }
 
@@ -197,29 +192,22 @@ public:
         // enable vertex array object
         glBindVertexArray(glMan.getVAO());
 
-        // event handler
-        SDL_Event e;
-
         // enable text input
         SDL_StartTextInput();
 
-        sunIntensity = 0.0;
+        sunIntensity = 0.1;
         sunLight = glm::vec3(-1.0, -1.0, -1.0);
 
-        obj_data hiMonkey_data = loader.import("res/models/obj/hiMonkey.obj");
-        obj_data house_5_obj = loader.import("res/models/obj/house_5.obj");
-        obj_data house_6_obj = loader.import("res/models/obj/house_6.obj");
-        mesh = Model(0, 0, 10, hiMonkey_data);
-        mesh1 = Model(0, 0, 0, house_5_obj);
-        mesh2 = Model(0, 0, -15, house_6_obj);
-        mesh3 = Model(0, 0, -30, hiMonkey_data);
+        modelFactory = new ModelFactory();
+        modelFactory->setBufferCourier(&bufferCourier);
 
-        bufferCourier.addModel(&mesh);
-        bufferCourier.addModel(&mesh1);
-        bufferCourier.addModel(&mesh2);
-        bufferCourier.addModel(&mesh3);
+        return 0;
+    }
 
-        SDL_Window *gWindow = glMan.getWindow();
+    int loop() {
+        // event handler
+        SDL_Event e;
+
         /*** MAIN LOOP ***/
         bool quit = false;
         while (!quit) {
@@ -229,13 +217,12 @@ public:
 
             // gather attributes/uniforms and render buffers
             render();
-
-            // update screen
-            SDL_GL_SwapWindow(gWindow);
         }
 
         //Free resources and close SDL
         glMan.shutDown();
+
+        delete modelFactory;
 
         return 0;
     }

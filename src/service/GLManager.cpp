@@ -15,7 +15,6 @@ bool GLManager::initGL()
     // enable z-buffer face culling
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LEQUAL);
-    glShadeModel(GL_FLAT);
 
     // enable vsync rate
     if (SDL_GL_SetSwapInterval(1) < 0)
@@ -97,7 +96,7 @@ bool GLManager::initSDL()
 
     }
 
-        return success;
+    return success;
 }
 
 GLuint GLManager::getID()
