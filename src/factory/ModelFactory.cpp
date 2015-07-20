@@ -7,7 +7,7 @@ void ModelFactory::setObjSource(std::string source)
 
 void ModelFactory::addObj(std::string name)
 {
-    if (objSource == "noSourceSet") {
+    if (objSource == "") {
         std::cout << "Cannot make the Model [" + name + "] - no objSource set! Try the setObjSource() function" << std::endl;
     } else {
         ObjLoader objLoader;

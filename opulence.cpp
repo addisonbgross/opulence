@@ -11,7 +11,7 @@
 #include "src/entity/model/Model.h"
 #include "src/entity/camera/Camera.h"
 #include "src/factory/ModelFactory.h"
-#include "src/service/BufferCourier.h"
+#include "src/factory/CameraFactory.h"
 #include "src/service/GLManager.h"
 
 class Opulence
@@ -23,13 +23,15 @@ private:
 
     glm::vec3 zoom = glm::vec3(0.0f, 1.0f, 0.0f);
 
-    Camera camera;
+    //Camera camera;
     BufferCourier bufferCourier;
     ModelFactory *modelFactory;
+    CameraFactory *cameraFactory;
     GLManager glMan;
 
     // lighting
     float sunIntensity;
+    std::vector<glm::vec3> pointLights;
     glm::vec3 pointLight = glm::vec3(0.0, 0.0, 10.0);
     glm::vec3 sunLight;
 
@@ -47,13 +49,18 @@ public:
         return modelFactory;
     }
 
+    CameraFactory * getCameraFactory()
+    {
+        return cameraFactory;
+    }
+
     void render() {
         /* vertex shader stuff */
         glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0, 0.0, 0.0));
 
-        glm::mat4 view = glm::lookAt(*camera.getEye(),
-                                     *camera.getFocus(),
-                                     *camera.getTop());
+        glm::mat4 view = glm::lookAt(*cameraFactory->getMainCamera()->getEye(),
+                                     *cameraFactory->getMainCamera()->getFocus(),
+                                     *cameraFactory->getMainCamera()->getTop());
 
         glm::mat4 proj = glm::perspective(45.5f, SCREEN_WIDTH / SCREEN_HEIGHT, 0.1f, 100.0f);
 
@@ -62,7 +69,7 @@ public:
         glUniformMatrix4fv(bufferCourier.getUniform(("model")), 1, GL_FALSE, &model[0][0]);
         glUniformMatrix4fv(bufferCourier.getUniform(("view")), 1, GL_FALSE, &view[0][0]);
         glUniformMatrix4fv(bufferCourier.getUniform(("proj")), 1, GL_FALSE, &proj[0][0]);
-        glUniform3fv(bufferCourier.getUniform("pointLight"), 1, &pointLight[0]);
+        glUniform3fv(bufferCourier.getUniform("pointLight"), pointLights.size(), reinterpret_cast<GLfloat *>(&pointLights[0]));
 
         /* fragment shader stuff */
         GLfloat ambientIntensity = 0.05;
@@ -71,7 +78,7 @@ public:
         glUniform4fv(bufferCourier.getUniform("ambientColour"), 1, &ambientColour[0]);
         glUniform1fv(bufferCourier.getUniform("sunIntensity"), 1, &sunIntensity);
         glUniform3fv(bufferCourier.getUniform("sunLight"), 1, &sunLight[0]);
-        glUniform3fv(bufferCourier.getUniform("cameraPosition"), 1, &camera.getEye()->x);
+        glUniform3fv(bufferCourier.getUniform("cameraPosition"), 1, &cameraFactory->getMainCamera()->getEye()->x);
 
         bufferCourier.render();
 
@@ -139,10 +146,10 @@ public:
             else if (button == SDL_SCANCODE_D)
                 rotationMatrix = glm::rotate(rotationMatrix, -0.05f, glm::vec3(0.0f, 1.0f, 0.0f));
 
-            glm::vec4 temp = rotationMatrix * glm::vec4(pointLight, 1.0f);
-            pointLight.x = temp.x;
-            pointLight.y = temp.y;
-            pointLight.z = temp.z;
+            glm::vec4 temp = rotationMatrix * glm::vec4(pointLights[0], 1.0f);
+            pointLights[0].x = temp.x;
+            pointLights[0].y = temp.y;
+            pointLights[0].z = temp.z;
         }
 
         if (button == SDL_SCANCODE_T) {
@@ -156,6 +163,8 @@ public:
 
     int start() {
         glMan.setScreenSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+
+        pointLights.push_back(glm::vec3(0, 5, 8));
 
         // initialize SDL
         if (!glMan.initSDL()) {
@@ -198,8 +207,11 @@ public:
         sunIntensity = 0.1;
         sunLight = glm::vec3(-1.0, -1.0, -1.0);
 
+        // factories
         modelFactory = new ModelFactory();
         modelFactory->setBufferCourier(&bufferCourier);
+
+        cameraFactory = new CameraFactory();
 
         return 0;
     }
@@ -212,7 +224,7 @@ public:
         bool quit = false;
         while (!quit) {
             while (SDL_PollEvent(&e) != 0) {
-                quit = doInput(e, &camera);
+                quit = doInput(e, cameraFactory->getMainCamera());
             }
 
             // gather attributes/uniforms and render buffers
@@ -223,6 +235,7 @@ public:
         glMan.shutDown();
 
         delete modelFactory;
+        delete cameraFactory;
 
         return 0;
     }

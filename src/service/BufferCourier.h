@@ -4,9 +4,10 @@
 #include <GL/glew.h>
 #include <GL/gl.h>
 #include <vector>
+#include <map>
 
 #include "../entity/model/Model.h"
-#include "../loaders/ShaderLoader.h"
+#include "../loader/ShaderLoader.h"
 
 class BufferCourier {
 private:

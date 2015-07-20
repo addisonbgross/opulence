@@ -6,6 +6,13 @@ Camera::Camera()
     top   = new glm::vec3(0.0, 1.0, 0.0);
 }
 
+Camera::Camera(float x, float y, float z)
+{
+    eye   = new glm::vec3(x, y, z);
+    focus = new glm::vec3(0.0, 0.0, 0.0);
+    top   = new glm::vec3(0.0, 1.0, 0.0);
+}
+
 Camera::~Camera()
 {
     delete eye;

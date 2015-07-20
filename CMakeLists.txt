@@ -23,22 +23,31 @@ set(SOURCE_FILES
     opulence.cpp)
 
 set(HEADER_FILES)
-set_source_files_properties(../main.c opulence.cpp PROPERTIES LANGUAGE CXX )
+set_source_files_properties(../main.c opulence.cpp PROPERTIES LANGUAGE CXX)
 add_executable(opulence ${SOURCE_FILES}
                src/entity/Entity.cpp
                src/entity/Entity.h
-               src/loaders/ShaderLoader.cpp
-               src/loaders/ShaderLoader.h
                src/entity/model/Model.cpp
                src/entity/model/Model.h
-               src/loaders/ObjLoader.cpp
-               src/loaders/ObjLoader.h
                src/entity/camera/Camera.cpp
                src/entity/camera/Camera.h
+
+               src/loader/ShaderLoader.cpp
+               src/loader/ShaderLoader.h
+               src/loader/ObjLoader.cpp
+               src/loader/ObjLoader.h
+
                src/service/BufferCourier.cpp
                src/service/BufferCourier.h
                src/service/GLManager.cpp
-               src/service/GLManager.h src/factory/ModelFactory.cpp src/factory/ModelFactory.h src/container/obj_data.h)
+               src/service/GLManager.h
+
+               src/factory/ModelFactory.cpp
+               src/factory/ModelFactory.h
+               src/factory/CameraFactory.cpp
+               src/factory/CameraFactory.h
+
+               src/container/obj_data.h)
 
 target_link_libraries(opulence
                       ${SDL2_LIBRARY}

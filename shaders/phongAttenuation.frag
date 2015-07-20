@@ -11,8 +11,6 @@ in vec4 fSpecular;
 in vec3 fCamera;
 in vec3 fPoint;
 
-in vec2 UV;
-
 in float dist;
 in float constantAttenuation;
 in float linearAttenuation;
@@ -33,7 +31,7 @@ void main()
     diffuseIntensity = clamp(sunDiffuseIntensity + pointDiffuseIntensity, 0.0, 1.0);
 
     // cell shading
-    int cellShadingFactor = 10;
+    int cellShadingFactor = 15;
     diffuseIntensity = ceil(diffuseIntensity * cellShadingFactor) / cellShadingFactor;
 
     // specular
