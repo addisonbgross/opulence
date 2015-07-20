@@ -1,6 +1,9 @@
 #ifndef OPULENCE_OBJ_DATA_H
 #define OPULENCE_OBJ_DATA_H
 
+#include <iostream>
+#include <glm/glm.hpp>
+
 struct obj_data {
     std::vector<GLfloat> position;
     std::vector<GLfloat> normal;

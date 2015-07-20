@@ -2,7 +2,7 @@
 #define OPULENCE_MODELFACTORY_H
 
 #include "../entity/model/Model.h"
-#include "../loaders/ObjLoader.h"
+#include "../loader/ObjLoader.h"
 #include "../service/BufferCourier.h"
 #include "../container/obj_data.h"
 
@@ -13,7 +13,7 @@ private:
 
     // obj
     std::map<std::string, obj_data> objMap;
-    std::string objSource = "noSourceSet";
+    std::string objSource = "";
 
 public:
     Model* makeModel(float x, float y, float z, std::string name);

@@ -6,7 +6,7 @@ uniform mat4 proj;
 
 uniform vec3 modelPosition;
 uniform vec3 cameraPosition;
-uniform vec3 pointLight;
+uniform vec3 pointLight[];
 
 in vec3 position;
 in vec3 normal;
@@ -30,20 +30,23 @@ void main()
     fDiffuse = diffuse;
     fSpecular = specular;
     fNormal = normalize(gl_NormalMatrix * normal);
-    fPoint = pointLight;
+    fPoint = pointLight[0];
 
     // get distance to light source
-    dist = length(pointLight - (position + modelPosition));
+    dist = length(pointLight[0] - (position + modelPosition));
 
-    float pointIntensity = 1.0;
     // poor attenuation values
     if (dist < 7.0) {
         linearAttenuation = 0.7;
         quadraticAttenuation = 1.8;
-    } else if (dist < 13.0) {
+    }
+
+    if (dist < 13.0) {
         linearAttenuation = 0.35;
         quadraticAttenuation = 0.44;
-    } else if (dist < 20.0) {
+    }
+
+    if (dist < 20.0) {
         linearAttenuation = 0.22;
         quadraticAttenuation = 0.20;
     }

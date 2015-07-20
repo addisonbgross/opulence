@@ -10,7 +10,7 @@
 #include <SDL.h>
 #include <GL/glew.h>
 
-#include "../loaders/ShaderLoader.h"
+#include "../loader/ShaderLoader.h"
 
 class GLManager {
 private:

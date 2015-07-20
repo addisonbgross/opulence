@@ -5,7 +5,7 @@
 #include <GL/glew.h>
 #include <GL/gl.h>
 
-#include "../../loaders/ObjLoader.h"
+#include "../../container/obj_data.h"
 
 class Model
 {
