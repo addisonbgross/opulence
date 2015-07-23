@@ -204,7 +204,7 @@ public:
         // enable text input
         SDL_StartTextInput();
 
-        sunIntensity = 0.1;
+        sunIntensity = 0.5;
         sunLight = glm::vec3(-1.0, -1.0, -1.0);
 
         // factories

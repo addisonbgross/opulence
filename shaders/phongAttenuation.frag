@@ -31,17 +31,17 @@ void main()
     diffuseIntensity = clamp(sunDiffuseIntensity + pointDiffuseIntensity, 0.0, 1.0);
 
     // cell shading
-    int cellShadingFactor = 15;
+    int cellShadingFactor = 10;
     diffuseIntensity = ceil(diffuseIntensity * cellShadingFactor) / cellShadingFactor;
 
     // specular
     float specularIntensity = 0.0;
-    if (diffuseIntensity > 0.0) {
+    //if (diffuseIntensity > 0.0) {
         vec3 reflection = normalize(sunLight + fCamera);
         float specularAngle = max(dot(reflection, fNormal), 0.0);
         specularIntensity = pow(specularAngle, 100);
         specularIntensity = ceil(specularIntensity * cellShadingFactor) / cellShadingFactor; // cell shading
-    }
+    //}
 
     // point light
     if (diffuseIntensity > 0.0) {
