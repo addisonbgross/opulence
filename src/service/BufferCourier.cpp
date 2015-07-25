@@ -123,6 +123,7 @@ void BufferCourier::render()
     GLuint i;
     for (i = 0; i < numModels; ++i) {
         Model *model = activeModels[i];
+
         // set model position
         glm::vec3 modelPlace = glm::vec3(model->getX(),
                                          model->getY(),

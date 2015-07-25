@@ -1,19 +1,18 @@
 #ifndef OPULENCE_ENTITY_H
 #define OPULENCE_ENTITY_H
 
-#include "model/Model.h"
+#include <glm/detail/type_vec3.hpp>
 
 class Entity {
-private:
-    std::vector<Model> models;
+public:
+    float x, y, z;
     glm::vec3 position;
 
-public:
-    Entity(glm::vec3 position);
-    Entity(glm::vec3 position, Model models...);
-    Model getModel();
-    std::vector<Model> getAllModels();
+    Entity();
+    ~Entity();
 
+    // get
+    glm::vec3 * getPosition();
 };
 
-#endif //OPULENCE_ENTITY_H
+#endif

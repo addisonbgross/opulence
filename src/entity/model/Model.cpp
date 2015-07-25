@@ -2,9 +2,8 @@
 
 Model::Model() {}
 
-Model::Model(int x, int y, int z)
+Model::Model(float x, float y, float z)
 {
-
     this->x = x;
     this->y = y;
     this->z = z;
@@ -12,7 +11,7 @@ Model::Model(int x, int y, int z)
 
 Model::~Model() {}
 
-Model::Model(int x, int y, int z, obj_data objData)
+Model::Model(float x, float y, float z, obj_data objData)
 {
     this->x = x;
     this->y = y;
@@ -24,7 +23,7 @@ Model::Model(int x, int y, int z, obj_data objData)
     indexVerts     = objData.positionIndex;
 }
 
-Model::Model(int x, int y, int z, std::vector<GLfloat> v, std::vector<GLuint> i, std::vector<GLfloat> c)
+Model::Model(float x, float y, float z, std::vector<GLfloat> v, std::vector<GLuint> i, std::vector<GLfloat> c)
 {
     this->x = x;
     this->y = y;

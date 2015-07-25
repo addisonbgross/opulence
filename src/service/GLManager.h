@@ -1,7 +1,3 @@
-//
-// Created by champ on 14/07/15.
-//
-
 #ifndef OPULENCE_GLMANAGER_H
 #define OPULENCE_GLMANAGER_H
 
