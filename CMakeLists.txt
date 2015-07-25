@@ -31,6 +31,10 @@ add_executable(opulence ${SOURCE_FILES}
                src/entity/model/Model.h
                src/entity/camera/Camera.cpp
                src/entity/camera/Camera.h
+               src/entity/light/Light.cpp
+               src/entity/light/Light.h
+               src/entity/light/PointLight.cpp
+               src/entity/light/PointLight.h
 
                src/loader/ShaderLoader.cpp
                src/loader/ShaderLoader.h
@@ -42,10 +46,12 @@ add_executable(opulence ${SOURCE_FILES}
                src/service/GLManager.cpp
                src/service/GLManager.h
 
-               src/factory/ModelFactory.cpp
-               src/factory/ModelFactory.h
                src/factory/CameraFactory.cpp
                src/factory/CameraFactory.h
+               src/factory/LightFactory.cpp
+               src/factory/LightFactory.h
+               src/factory/ModelFactory.cpp
+               src/factory/ModelFactory.h
 
                src/container/obj_data.h)
 

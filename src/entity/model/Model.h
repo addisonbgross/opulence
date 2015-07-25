@@ -6,12 +6,11 @@
 #include <GL/gl.h>
 
 #include "../../container/obj_data.h"
+#include "../Entity.h"
 
-class Model
-{
+class Model : Entity {
 private:
     GLuint id;
-    GLfloat x, y, z;
 
     std::vector<GLfloat> positionVerts;
     std::vector<GLfloat> normalVerts;
@@ -29,9 +28,9 @@ public:
 
     Model();
     ~Model();
-    Model(int x, int y, int z);
-    Model(int x, int y, int z, obj_data objData);
-    Model(int x, int y, int z, std::vector<GLfloat> v, std::vector<GLuint> i, std::vector<GLfloat> c);
+    Model(float x, float y, float z);
+    Model(float x, float y, float z, obj_data objData);
+    Model(float x, float y, float z, std::vector<GLfloat> v, std::vector<GLuint> i, std::vector<GLfloat> c);
 
     // set
     void setPositionVerts(std::vector<GLfloat> v);

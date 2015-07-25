@@ -1,7 +1,3 @@
-//
-// Created by champ on 14/07/15.
-//
-
 #include "GLManager.h"
 
 bool GLManager::initGL()
