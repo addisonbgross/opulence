@@ -1,9 +1,6 @@
 #ifndef OPULENCE_COURIER_H
 #define OPULENCE_COURIER_H
 
-#include <GL/glew.h>
-#include <GL/gl.h>
-#include <vector>
 #include <map>
 
 #include "../entity/model/Model.h"

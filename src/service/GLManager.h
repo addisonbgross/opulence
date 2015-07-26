@@ -1,19 +1,17 @@
 #ifndef OPULENCE_GLMANAGER_H
 #define OPULENCE_GLMANAGER_H
 
-#include <iostream>
-
 #include <SDL.h>
-#include <GL/glew.h>
 
 #include "../loader/ShaderLoader.h"
 
 class GLManager {
 private:
     GLuint programID;
-    GLuint vertexShader, fragmentShader;
+    GLuint vertexShader, geometryShader, fragmentShader;
     GLuint VAO;
     SDL_Window *window;
+    SDL_DisplayMode mode;
 
     GLfloat screenWidth, screenHeight;
 
@@ -25,6 +23,7 @@ public:
     bool initSDL();
     GLuint getID();
     GLuint getVertexShader();
+    GLuint getGeometryShader();
     GLuint getFragmentShader();
     GLuint getVAO();
     SDL_Window *getWindow();

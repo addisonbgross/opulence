@@ -8,6 +8,10 @@ uniform vec3 modelPosition;
 uniform vec3 cameraPosition;
 uniform vec3 pointLight;
 
+// point light attenuation
+uniform float linearAtt;
+uniform float quadraticAtt;
+
 in vec3 position;
 in vec3 normal;
 in vec4 diffuse;
@@ -35,43 +39,10 @@ void main()
     // get distance to light source
     dist = length(pointLight - (position + modelPosition));
 
-    // poor attenuation values
-    if (dist < 7.0) {
-        linearAttenuation = 0.7;
-        quadraticAttenuation = 1.8;
-    }
-
-    if (dist < 13.0) {
-        linearAttenuation = 0.35;
-        quadraticAttenuation = 0.44;
-    }
-
-    if (dist < 20.0) {
-        linearAttenuation = 0.22;
-        quadraticAttenuation = 0.20;
-    }
-
-    if (dist < 32.0) {
-        linearAttenuation = 0.14;
-        quadraticAttenuation = 0.07;
-    }
-
-    if (dist < 50.0) {
-        linearAttenuation = 0.09;
-        quadraticAttenuation = 0.32;
-    }
-
-    if (dist < 65.0) {
-        linearAttenuation = 0.07;
-        quadraticAttenuation = 0.017;
-    }
-
-    if (dist < 100.0) {
-        linearAttenuation = 0.045;
-        quadraticAttenuation = 0.0075;
-    }
-
-    constantAttenuation = 0.1;
+    // point lighting constants
+    linearAttenuation = linearAtt;
+    quadraticAttenuation = quadraticAtt;
+    constantAttenuation = 0.1;  // its constant
 
     gl_Position = proj * view * model * vec4(position + modelPosition, 1.0);
 }

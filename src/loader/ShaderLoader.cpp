@@ -28,9 +28,15 @@ std::string readFile(const char *filePath) {
 GLuint loadShader(const char *shaderPath, GLuint program) {
     GLchar fileExtension = shaderPath[strlen(shaderPath) - 4];
 
-    //Create vertex shader
-    GLuint shader = (fileExtension == 'v') ? glCreateShader(GL_VERTEX_SHADER) :
-                                             glCreateShader(GL_FRAGMENT_SHADER);
+    // create appropriate shader handle
+    GLuint shader;
+    if (fileExtension == 'v') {
+        shader = glCreateShader(GL_VERTEX_SHADER);
+    } else if (fileExtension == 'f') {
+        shader = glCreateShader(GL_FRAGMENT_SHADER);
+    } else if (fileExtension == 'g') {
+        shader = glCreateShader(GL_GEOMETRY_SHADER);
+    }
 
     //Get vertex source
     const GLchar *shaderSource = { readFile(shaderPath).c_str() };

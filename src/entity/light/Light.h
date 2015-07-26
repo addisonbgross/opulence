@@ -8,17 +8,21 @@
 
 class Light : public Entity {
 private:
+    GLfloat intensity;
     glm::vec4 *colour;
 
 public:
+    Light();
     Light(GLfloat x, GLfloat y, GLfloat z);
     Light(GLfloat x, GLfloat y, GLfloat z, glm::vec4 *colour);
     ~Light();
 
     // set
+    void setIntensity(GLfloat intensity);
     void setColour(glm::vec4 *colour);
 
     // get
+    GLfloat * getIntensity();
     glm::vec4 * getColour();
 };
 
