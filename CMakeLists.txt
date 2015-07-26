@@ -35,6 +35,8 @@ add_executable(opulence ${SOURCE_FILES}
                src/entity/light/Light.h
                src/entity/light/PointLight.cpp
                src/entity/light/PointLight.h
+               src/entity/light/DirectionalLight.cpp
+               src/entity/light/DirectionalLight.h
 
                src/loader/ShaderLoader.cpp
                src/loader/ShaderLoader.h

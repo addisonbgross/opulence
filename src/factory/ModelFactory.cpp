@@ -17,7 +17,7 @@ void ModelFactory::addObj(std::string name)
 
 Model * ModelFactory::makeModel(float x, float y, float z, std::string name)
 {
-    Model *model = new Model(x, y, z, objMap.at(name));
+    Model *model = new Model(x, y, z, &objMap.at(name));
     activeModels.push_back(model);
     bufferCourier->addModel(activeModels.at(activeModels.size() - 1));
 }

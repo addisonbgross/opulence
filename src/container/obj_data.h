@@ -9,8 +9,8 @@ struct obj_data {
     std::vector<GLfloat> normal;
     std::vector<GLfloat> diffuse;
     std::vector<GLfloat> specular;
+    std::vector<GLfloat> uvTexture;
     std::vector<GLuint>  positionIndex;
-    std::vector<GLuint>  uvIndex;
     std::vector<GLuint>  normalIndex;
     std::vector<GLuint>  colourIndex;
 };

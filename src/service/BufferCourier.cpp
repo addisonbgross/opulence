@@ -1,6 +1,4 @@
-#include <SDL_syswm.h>
 #include "BufferCourier.h"
-#include "GLManager.h"
 
 BufferCourier::BufferCourier()
 {
@@ -36,7 +34,6 @@ GLuint BufferCourier::getNumModels()
 
 void BufferCourier::addModel(Model *model)
 {
-    model->setId((GLuint) activeModels.size());
     activeModels.push_back(model);
     sendBuffer(model);
 }
@@ -125,9 +122,9 @@ void BufferCourier::render()
         Model *model = activeModels[i];
 
         // set model position
-        glm::vec3 modelPlace = glm::vec3(model->getX(),
-                                         model->getY(),
-                                         model->getZ());
+        glm::vec3 modelPlace = glm::vec3(model->position.x,
+                                         model->position.y,
+                                         model->position.z);
         glUniform3fv(bufferUniforms.at("modelPosition"), 1, &modelPlace[0]);
 
         glBindBuffer(GL_ARRAY_BUFFER, model->positionBuffer);
@@ -143,6 +140,6 @@ void BufferCourier::render()
         glVertexAttribPointer(bufferAttributes.at("specular"), 4, GL_FLOAT, GL_FALSE, 0, 0);
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, model->indexBuffer);
-        glDrawElements(GL_TRIANGLES, (GLsizei) model->getNumIndexVerts(), GL_UNSIGNED_INT, 0);
+        glDrawElements(GL_TRIANGLES, model->getNumIndexVerts(), GL_UNSIGNED_INT, 0);
     }
 }

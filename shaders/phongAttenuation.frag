@@ -2,8 +2,8 @@
 
 uniform float ambientIntensity;
 uniform vec4 ambientColour;
-uniform float sunIntensity;
-uniform vec3 sunLight;
+uniform float directionalIntensity;
+uniform vec3 directionalLight;
 
 flat in vec3 fNormal;
 in vec4 fDiffuse;
@@ -26,9 +26,9 @@ void main()
 
     // diffuse
     float diffuseIntensity = 0.0;
-    float sunDiffuseIntensity = sunIntensity * max(dot(normalize(fNormal), -sunLight), 0.0);
-    float pointDiffuseIntensity = att * max(dot(normalize(fNormal), -normalize(fPoint)), 0.0);
-    diffuseIntensity = clamp(sunDiffuseIntensity + pointDiffuseIntensity, 0.0, 1.0);
+    float directionalDiffuseIntensity = directionalIntensity * max(dot(normalize(fNormal), -normalize(directionalLight)), 0.0);
+    float pointDiffuseIntensity = att * max(dot(normalize(fNormal), -fPoint), 0.0);
+    diffuseIntensity = clamp(directionalDiffuseIntensity + pointDiffuseIntensity, 0.0, 1.0);
 
     // cell shading
     int cellShadingFactor = 10;
@@ -37,11 +37,11 @@ void main()
     // specular
     float specularIntensity = 0.0;
     if (diffuseIntensity > 0.0) {
-        vec3 reflection = normalize(sunLight + fCamera);
+        vec3 reflection = normalize(directionalLight + fCamera);
         float specularAngle = max(dot(reflection, fNormal), 0.0);
         specularIntensity = pow(specularAngle, 100);
         specularIntensity = ceil(specularIntensity * cellShadingFactor) / cellShadingFactor; // cell shading
-        specularIntensity = clamp(specularIntensity, 0.0, 0.3);
+        specularIntensity = clamp(specularIntensity, 0.0, 0.5);
     }
 
     // point light

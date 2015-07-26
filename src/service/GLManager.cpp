@@ -16,27 +16,39 @@ bool GLManager::initGL()
     if (SDL_GL_SetSwapInterval(1) < 0)
         std::cout << "Swap Interval could not be set!" << std::endl;
 
-    // vertex & fragment
+    // vertex, geometry & fragment
     vertexShader   = loadShader("/home/champ/Git/crows/opulence/shaders/phongAttenuation.vert", programID);
+    geometryShader = loadShader("/home/champ/Git/crows/opulence/shaders/phongAttenuation.geom", programID);
     fragmentShader = loadShader("/home/champ/Git/crows/opulence/shaders/phongAttenuation.frag", programID);
 
     // TODO fix this mess
     int failCount = 0;
     while (vertexShader == 0) {
         ++failCount;
-        std::cout << "Loading vertexShader failed!" << std::endl;
         vertexShader = loadShader("/home/champ/Git/crows/opulence/shaders/phongAttenuation.vert", programID);
 
         if (failCount == 10) {
+            std::cout << "Loading vertexShader failed!" << std::endl;
+            failCount = 0;
+            break;
+        }
+    }
+    while (geometryShader == 0) {
+        ++failCount;
+        geometryShader = loadShader("/home/champ/Git/crows/opulence/shaders/phongAttenuation.geom", programID);
+
+        if (failCount == 10) {
+            std::cout << "Loading geometryShader failed!" << std::endl;
             failCount = 0;
             break;
         }
     }
     while (fragmentShader == 0) {
         ++failCount;
-        std::cout << "Loading fragmentShader failed!" << std::endl;
         fragmentShader = loadShader("/home/champ/Git/crows/opulence/shaders/phongAttenuation.frag", programID);
+
         if (failCount == 10) {
+            std::cout << "Loading fragmentShader failed!" << std::endl;
             failCount = 0;
             break;
         }
@@ -58,7 +70,7 @@ bool GLManager::initSDL()
     bool success = true;
 
     //Initialize SDL
-    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+    if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
         printf("SDL could not initialize! SDL Error: %s\n", SDL_GetError());
         success = false;
 
@@ -74,10 +86,11 @@ bool GLManager::initSDL()
         glEnable(GL_MULTISAMPLE);
 
         //Create window
+        SDL_GetDesktopDisplayMode(0, &this->mode);
         window = SDL_CreateWindow("opulence v1.0",
                                    SDL_WINDOWPOS_UNDEFINED,
                                    SDL_WINDOWPOS_UNDEFINED,
-                                   screenWidth, screenHeight,
+                                   this->mode.w, this->mode.h,
                                    SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN); // full screen --> SDL_WINDOW_FULLSCREEN
 
         SDL_GLContext glcontext(SDL_GL_CreateContext(window));
@@ -103,6 +116,11 @@ GLuint GLManager::getID()
 GLuint GLManager::getVertexShader()
 {
     return vertexShader;
+}
+
+GLuint GLManager::getGeometryShader()
+{
+    return geometryShader;
 }
 
 GLuint GLManager::getFragmentShader()

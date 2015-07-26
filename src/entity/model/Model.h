@@ -8,19 +8,17 @@
 #include "../../container/obj_data.h"
 #include "../Entity.h"
 
-class Model : Entity {
+class Model : public Entity {
 private:
-    GLuint id;
-
-    std::vector<GLfloat> positionVerts;
-    std::vector<GLfloat> normalVerts;
-    std::vector<GLfloat> diffuseVerts;
-    std::vector<GLfloat> specularVerts;
-    std::vector<GLuint>  indexVerts;
-    std::vector<GLuint>  normalIndexVerts;
+    std::vector<GLfloat> *positionVerts;
+    std::vector<GLfloat> *normalVerts;
+    std::vector<GLfloat> *diffuseVerts;
+    std::vector<GLfloat> *specularVerts;
+    std::vector<GLuint>  *indexVerts;
+    std::vector<GLuint>  *normalIndexVerts;
 
 public:
-    GLuint positionBuffer,
+    GLuint  positionBuffer,
             normalBuffer,
             diffuseBuffer,
             specularBuffer,
@@ -29,20 +27,15 @@ public:
     Model();
     ~Model();
     Model(float x, float y, float z);
-    Model(float x, float y, float z, obj_data objData);
-    Model(float x, float y, float z, std::vector<GLfloat> v, std::vector<GLuint> i, std::vector<GLfloat> c);
+    Model(float x, float y, float z, obj_data *objData);
 
     // set
-    void setPositionVerts(std::vector<GLfloat> v);
-    void setNormalVerts(std::vector<GLfloat> v);
-    void setDiffuseVerts(std::vector<GLfloat> v);
-    void setSpecularVerts(std::vector<GLfloat> v);
-    void setIndexVerts(std::vector<GLuint> v);
-    void setNormalIndexVerts(std::vector<GLuint> v);
-    void setId(GLuint id);
-    void setX(GLfloat x);
-    void setY(GLfloat y);
-    void setZ(GLfloat z);
+    void setPositionVerts(std::vector<GLfloat> *v);
+    void setNormalVerts(std::vector<GLfloat> *v);
+    void setDiffuseVerts(std::vector<GLfloat> *v);
+    void setSpecularVerts(std::vector<GLfloat> *v);
+    void setIndexVerts(std::vector<GLuint> *v);
+    void setNormalIndexVerts(std::vector<GLuint> *v);
 
     // get
     GLfloat * getPositionVerts();
@@ -51,10 +44,6 @@ public:
     GLfloat * getSpecularVerts();
     GLuint * getIndexVerts();
     GLuint * getNormalIndexVerts();
-    GLuint getId();
-    GLfloat getX();
-    GLfloat getY();
-    GLfloat getZ();
     unsigned long getNumPositionVerts();
     unsigned long getNumNormalVerts();
     unsigned long getNumDiffuseVerts();
@@ -63,4 +52,4 @@ public:
     unsigned long getNumNormalIndexVerts();
 };
 
-#endif //OPULENCE_MODEL_H
+#endif

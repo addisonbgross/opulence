@@ -79,7 +79,7 @@ obj_data ObjLoader::import(std::string filePath)
             g, h, i,
             j, k, l;
 
-    std::vector<GLfloat> tempNormals, tempPosition;
+    std::vector<GLfloat> tempPosition, tempUv, tempNormals;
     GLuint count;
     while(!fileStream.eof()) {
         std::getline(fileStream, line);
@@ -102,6 +102,10 @@ obj_data ObjLoader::import(std::string filePath)
                 line[0] = ' ';
                 if (line.c_str()[1] == 't') {
                     hasTextures = true;
+                    line[1] = ' ';
+                    tempUv.push_back(a);
+                    tempUv.push_back(b);
+                    tempUv.push_back(c);
                 } else if (line.c_str()[1] == 'n') {
                     line[1] = ' ';
                     sscanf(line.c_str(), "%f %f %f ", &a, &b, &c);
@@ -132,6 +136,19 @@ obj_data ObjLoader::import(std::string filePath)
 
                 if (hasTextures) {
                     sscanf(line.c_str(), "%i/%i/%i %i/%i/%i %i/%i/%i ", &d, &j, &e, &f, &k, &g, &h, &l, &i);
+
+                    // texture mapping
+                    objData.uvTexture.push_back( tempUv[3 * (j - 1)] );
+                    objData.uvTexture.push_back( tempUv[3 * (j - 1) + 1] );
+                    objData.uvTexture.push_back( tempUv[3 * (j - 1) + 2] );
+
+                    objData.uvTexture.push_back( tempUv[3 * (k - 1)] );
+                    objData.uvTexture.push_back( tempUv[3 * (k - 1) + 1] );
+                    objData.uvTexture.push_back( tempUv[3 * (k - 1) + 2] );
+
+                    objData.uvTexture.push_back( tempUv[3 * (l - 1)] );
+                    objData.uvTexture.push_back( tempUv[3 * (l - 1) + 1] );
+                    objData.uvTexture.push_back( tempUv[3 * (l - 1) + 2] );
                 } else {
                     sscanf(line.c_str(), "%i//%i %i//%i %i//%i ", &d, &e, &f, &g, &h, &i);
                 }

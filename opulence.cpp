@@ -1,12 +1,8 @@
-#include <iostream>
-#include <vector>
-
-#include <SDL.h>
-
 #define GLM_FORCE_RADIANS
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <SDL_video.h>
 
 #include "src/entity/model/Model.h"
 #include "src/entity/camera/Camera.h"
@@ -25,34 +21,40 @@
 class Opulence {
 private:
     //Screen dimension constants
-    const GLfloat SCREEN_WIDTH = 1024.0f;
-    const GLfloat SCREEN_HEIGHT = 600.0f;
+    GLfloat SCREEN_WIDTH = 1024.0f;
+    GLfloat SCREEN_HEIGHT = 600.0f;
 
-    glm::vec3 zoom = glm::vec3(0.0f, 1.0f, 0.0f);
-
-    // camera;
+    // Memory Buffers
     BufferCourier bufferCourier;
 
     // factory
     CameraFactory *cameraFactory;
     ModelFactory *modelFactory;
     LightFactory *lightFactory;
-    GLManager glMan;
-
-    // lighting
-    float sunIntensity;
-    PointLight *pointLight = new PointLight(20.0, 5.0, 5.0);
-    glm::vec3 sunLight;
+    GLManager *glMan;
 
 public:
-    void setZoom(float z)
+    Opulence()
     {
-        zoom.z += z;
+        // factory constructors
+        cameraFactory = new CameraFactory();
+        lightFactory = new LightFactory();
+        modelFactory = new ModelFactory();
+        modelFactory->setBufferCourier(&bufferCourier);
+        glMan = new GLManager();
     }
 
-    void setClearColour(glm::vec4 colour)
+    ~Opulence()
     {
-        glClearColor(colour.r, colour.g, colour.b, colour.a);
+        delete cameraFactory;
+        delete lightFactory;
+        delete modelFactory;
+        delete glMan;
+    }
+
+    void setClearColour(glm::vec4 *colour)
+    {
+        glClearColor(colour->r, colour->g, colour->b, colour->a);
     }
 
     CameraFactory * getCameraFactory()
@@ -87,38 +89,40 @@ public:
         glUniformMatrix4fv(bufferCourier.getUniform(("view")), 1, GL_FALSE, &view[0][0]);
         glUniformMatrix4fv(bufferCourier.getUniform(("proj")), 1, GL_FALSE, &proj[0][0]);
         glUniform3fv(bufferCourier.getUniform("pointLight"), 1, &lightFactory->getPointLight()->position[0]);
+        glUniform1fv(bufferCourier.getUniform("linearAtt"), 1, lightFactory->getPointLight()->getLinearAttenuation());
+        glUniform1fv(bufferCourier.getUniform("quadraticAtt"), 1, lightFactory->getPointLight()->getQuadraticAttenuation());
 
         /* fragment shader stuff */
         GLfloat ambientIntensity = 0.05;
         glm::vec4 ambientColour = glm::vec4(1.0);
         glUniform1fv(bufferCourier.getUniform("ambientIntensity"), 1, &ambientIntensity);
         glUniform4fv(bufferCourier.getUniform("ambientColour"), 1, &ambientColour[0]);
-        glUniform1fv(bufferCourier.getUniform("sunIntensity"), 1, &sunIntensity);
-        glUniform3fv(bufferCourier.getUniform("sunLight"), 1, &sunLight[0]);
+        glUniform1fv(bufferCourier.getUniform("directionalIntensity"), 1, lightFactory->getDirectionalLight()->getIntensity());
+        glUniform3fv(bufferCourier.getUniform("directionalLight"), 1, &lightFactory->getDirectionalLight()->getDirection()->x);
         glUniform3fv(bufferCourier.getUniform("cameraPosition"), 1, &cameraFactory->getMainCamera()->getEye()->x);
 
         bufferCourier.render();
 
         // update screen
-        SDL_GL_SwapWindow(glMan.getWindow());
+        SDL_GL_SwapWindow(glMan->getWindow());
     }
 
     int start()
     {
-        glMan.setScreenSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+        glMan->setScreenSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
         // initialize SDL
-        if (!glMan.initSDL()) {
+        if (!glMan->initSDL()) {
             printf("Unable to initialize SDL!\n");
         }
 
         // initialize OpenGL
-        if (!glMan.initGL()) {
+        if (!glMan->initGL()) {
             printf("Unable to initialize OpenGL!\n");
         }
 
         // vertex shader variables
-        GLuint gProgramID = glMan.getID();
+        GLuint gProgramID = glMan->getID();
         bufferCourier.addAttribute("position", glGetAttribLocation(gProgramID, "position"));
         bufferCourier.addAttribute("normal", glGetAttribLocation(gProgramID, "normal"));
         bufferCourier.addUniform("model", glGetUniformLocation(gProgramID, "model"));
@@ -127,33 +131,22 @@ public:
         bufferCourier.addUniform("modelPosition", glGetUniformLocation(gProgramID, "modelPosition"));
         bufferCourier.addUniform("cameraPosition", glGetUniformLocation(gProgramID, "cameraPosition"));
         bufferCourier.addUniform("pointLight", glGetUniformLocation(gProgramID, "pointLight"));
+        bufferCourier.addUniform("linearAtt", glGetUniformLocation(gProgramID, "linearAtt"));
+        bufferCourier.addUniform("quadraticAtt", glGetUniformLocation(gProgramID, "quadraticAtt"));
 
         // fragment shader variables
         bufferCourier.addAttribute("diffuse", glGetAttribLocation(gProgramID, "diffuse"));
         bufferCourier.addAttribute("specular", glGetAttribLocation(gProgramID, "specular"));
         bufferCourier.addUniform("ambientIntensity", glGetUniformLocation(gProgramID, "ambientIntensity"));
         bufferCourier.addUniform("ambientColour", glGetUniformLocation(gProgramID, "ambientColour"));
-        bufferCourier.addUniform("sunIntensity", glGetUniformLocation(gProgramID, "sunIntensity"));
-        bufferCourier.addUniform("sunLight", glGetUniformLocation(gProgramID, "sunLight"));
+        bufferCourier.addUniform("directionalIntensity", glGetUniformLocation(gProgramID, "directionalIntensity"));
+        bufferCourier.addUniform("directionalLight", glGetUniformLocation(gProgramID, "directionalLight"));
 
         // link opengl context
-        glUseProgram(glMan.getID());
+        glUseProgram(glMan->getID());
 
         // enable vertex array object
-        glBindVertexArray(glMan.getVAO());
-
-        // enable text input
-        SDL_StartTextInput();
-
-        sunIntensity = 0.1;
-        sunLight = glm::vec3(-1.0, -1.0, -1.0);
-        pointLight->setColour(new glm::vec4(1.0, 1.0, 1.0, 1.0));
-
-        // factory constructors
-        cameraFactory = new CameraFactory();
-        lightFactory = new LightFactory();
-        modelFactory = new ModelFactory();
-        modelFactory->setBufferCourier(&bufferCourier);
+        glBindVertexArray(glMan->getVAO());
 
         return 0;
     }
