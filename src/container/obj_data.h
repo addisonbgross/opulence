@@ -13,13 +13,7 @@ struct obj_data {
     std::vector<GLuint>  positionIndex;
     std::vector<GLuint>  normalIndex;
     std::vector<GLuint>  colourIndex;
-};
-
-struct mtl_data {
-    std::string name;
-    std::vector<GLuint> faces;
-    glm::vec4 diffuse;
-    glm::vec4 specular;
+    std::vector<GLuint>  textureIndex;
 };
 
 #endif

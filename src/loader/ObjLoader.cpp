@@ -71,8 +71,8 @@ obj_data ObjLoader::import(std::string filePath)
     bool hasTextures = false;
     bool firstObject = true;
     GLuint newObject = 0;
-    GLuint highFace = 0, highNormal = 0;
-    GLint faceOffset = 0, normalOffset = 0;
+    GLuint highFace = 0, highTexture = 0, highNormal = 0;
+    GLint faceOffset = 0, textureOffset = 0, normalOffset = 0;
 
     GLfloat a, b, c;
     GLuint  d, e, f,
@@ -93,8 +93,10 @@ obj_data ObjLoader::import(std::string filePath)
                 } else if (newObject == 2) {
                     newObject = 0;
                     faceOffset = highFace;
+                    textureOffset = highTexture;
                     normalOffset = highNormal;
                     std::cout << "face " << faceOffset << std::endl;
+                    std::cout << "texture" << textureOffset << std::endl;
                     std::cout << "normal " << normalOffset << std::endl;
                 }
 
@@ -136,6 +138,12 @@ obj_data ObjLoader::import(std::string filePath)
 
                 if (hasTextures) {
                     sscanf(line.c_str(), "%i/%i/%i %i/%i/%i %i/%i/%i ", &d, &j, &e, &f, &k, &g, &h, &l, &i);
+                    /*                      d/j/e    f/k/g    h/l/i                                      */
+
+                    checkHighMark(highTexture, j, k, i);
+                    j -= textureOffset;
+                    k -= textureOffset;
+                    l -= textureOffset;
 
                     // texture mapping
                     objData.uvTexture.push_back( tempUv[3 * (j - 1)] );
@@ -151,6 +159,7 @@ obj_data ObjLoader::import(std::string filePath)
                     objData.uvTexture.push_back( tempUv[3 * (l - 1) + 2] );
                 } else {
                     sscanf(line.c_str(), "%i//%i %i//%i %i//%i ", &d, &e, &f, &g, &h, &i);
+                    /*                     d//e   f//g   h//i                           */
                 }
 
                 checkHighMark(highFace, d, f, h);

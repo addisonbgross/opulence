@@ -12,6 +12,7 @@
 #include <GL/gl.h>
 
 #include "../container/obj_data.h"
+#include "../container/mtl_data.h"
 
 class ObjLoader {
 private:

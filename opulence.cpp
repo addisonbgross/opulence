@@ -2,7 +2,6 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-#include <SDL_video.h>
 
 #include "src/entity/model/Model.h"
 #include "src/entity/camera/Camera.h"
@@ -20,9 +19,7 @@
  */
 class Opulence {
 private:
-    //Screen dimension constants
-    GLfloat SCREEN_WIDTH = 1024.0f;
-    GLfloat SCREEN_HEIGHT = 600.0f;
+    glm::mat4 model, view, proj;
 
     // Memory Buffers
     BufferCourier bufferCourier;
@@ -34,14 +31,21 @@ private:
     GLManager *glMan;
 
 public:
+    //Screen dimension constants
+    GLfloat SCREEN_WIDTH = 1024.0f;
+    GLfloat SCREEN_HEIGHT = 600.0f;
+
     Opulence()
     {
+        // construct default OpenGL context details
+        glMan = new GLManager();
+        glMan->setScreenSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+
         // factory constructors
         cameraFactory = new CameraFactory();
         lightFactory = new LightFactory();
         modelFactory = new ModelFactory();
         modelFactory->setBufferCourier(&bufferCourier);
-        glMan = new GLManager();
     }
 
     ~Opulence()
@@ -75,13 +79,13 @@ public:
     void render()
     {
         /* vertex shader stuff */
-        glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0, 0.0, 0.0));
+        model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0, 0.0, 0.0));
 
-        glm::mat4 view = glm::lookAt(*cameraFactory->getMainCamera()->getEye(),
-                                     *cameraFactory->getMainCamera()->getFocus(),
-                                     *cameraFactory->getMainCamera()->getTop());
+        view = glm::lookAt(*cameraFactory->getMainCamera()->getEye(),
+                           *cameraFactory->getMainCamera()->getFocus(),
+                           *cameraFactory->getMainCamera()->getTop());
 
-        glm::mat4 proj = glm::perspective(45.5f, SCREEN_WIDTH / SCREEN_HEIGHT, 0.1f, 1000.0f);
+        proj = glm::perspective(45.5f, SCREEN_WIDTH / SCREEN_HEIGHT, 0.1f, 10000.0f);
 
         /* vertex shader stuff */
         GLfloat pointIntensity = 0.05;
@@ -107,10 +111,21 @@ public:
         SDL_GL_SwapWindow(glMan->getWindow());
     }
 
+    glm::vec3 getClickTranslation(int x, int y)
+    {
+        GLfloat winX = (float)x;
+        GLfloat winY = SCREEN_HEIGHT - (float)y;
+        GLfloat winZ = 0;
+        glReadPixels(winX, winY, 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &winZ);
+        glm::vec3 click = glm::vec3(winX, winY, winZ);
+        glm::vec4 viewPort = glm::vec4(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        glm::vec3 pix = glm::unProject(click, view, proj, viewPort);
+
+        return pix;
+    }
+
     int start()
     {
-        glMan->setScreenSize(SCREEN_WIDTH, SCREEN_HEIGHT);
-
         // initialize SDL
         if (!glMan->initSDL()) {
             printf("Unable to initialize SDL!\n");
