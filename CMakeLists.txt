@@ -31,6 +31,8 @@ add_executable(opulence ${SOURCE_FILES}
                src/entity/model/Model.h
                src/entity/camera/Camera.cpp
                src/entity/camera/Camera.h
+               src/entity/camera/RtsCamera.cpp
+               src/entity/camera/RtsCamera.h
                src/entity/light/Light.cpp
                src/entity/light/Light.h
                src/entity/light/PointLight.cpp
@@ -55,7 +57,8 @@ add_executable(opulence ${SOURCE_FILES}
                src/factory/ModelFactory.cpp
                src/factory/ModelFactory.h
 
-               src/container/obj_data.h src/container/mtl_data.h)
+               src/container/obj_data.h
+               src/container/mtl_data.h)
 
 target_link_libraries(opulence
                       ${SDL2_LIBRARY}
