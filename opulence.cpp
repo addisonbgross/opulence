@@ -98,10 +98,8 @@ public:
         glUniform1fv(bufferCourier.getUniform("quadraticAtt"), 1, lightFactory->getPointLight()->getQuadraticAttenuation());
 
         /* fragment shader stuff */
-        GLfloat ambientIntensity = 0.05;
-        glm::vec4 ambientColour = glm::vec4(1.0);
-        glUniform1fv(bufferCourier.getUniform("ambientIntensity"), 1, &ambientIntensity);
-        glUniform4fv(bufferCourier.getUniform("ambientColour"), 1, &ambientColour[0]);
+        glUniform1fv(bufferCourier.getUniform("ambientIntensity"), 1, lightFactory->getAmbientIntensity());
+        glUniform4fv(bufferCourier.getUniform("ambientColour"), 1, &lightFactory->getAmbientColour()->x);
         glUniform1fv(bufferCourier.getUniform("directionalIntensity"), 1, lightFactory->getDirectionalLight()->getIntensity());
         glUniform3fv(bufferCourier.getUniform("directionalLight"), 1, &lightFactory->getDirectionalLight()->getDirection()->x);
         glUniform3fv(bufferCourier.getUniform("cameraPosition"), 1, &cameraFactory->getMainCamera()->getEye()->x);

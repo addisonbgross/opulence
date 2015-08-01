@@ -11,15 +11,26 @@
 class LightFactory {
 private:
     std::vector<Light *> activeLights;
+    glm::vec4 *ambientColour;
+    float ambientIntensity;
     DirectionalLight *directionalLight;
     PointLight *pointLight;
 
 public:
+    LightFactory();
+    ~LightFactory();
+
     DirectionalLight * makeDirectionalLight(glm::vec4 *colour);
     DirectionalLight * makeDirectionalLight(glm::vec4 *colour, glm::vec3 *direction);
     PointLight * makePointLight(float x, float y, float z);
 
+    // set
+    void setAmbientColour(glm::vec4 *colour);
+    void setAmbientIntensity(float i);
+
     // get
+    glm::vec4 * getAmbientColour();
+    float * getAmbientIntensity();
     DirectionalLight * getDirectionalLight();
     PointLight * getPointLight();
 };
