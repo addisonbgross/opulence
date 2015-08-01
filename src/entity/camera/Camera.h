@@ -10,19 +10,23 @@
 #include "../Entity.h"
 
 class Camera {
-private:
+protected:
     glm::vec3 *eye;    // position of camera's view point
     glm::vec3 *focus;  // target of view
     glm::vec3 *top;    // relative up direction of camera
-
-    glm::vec3 *rtsDirection;
-
-    GLfloat zoomInertia = 0.2;
 
 public:
     Camera();
     Camera(float x, float y, float z);
     ~Camera();
+
+    // move
+    virtual void moveForward(float n) {};
+    virtual void moveLeft(float n) {};
+    virtual void moveRight(float n) {};
+    virtual void moveBack(float n) {};
+    virtual void rotateVertical(float deg) {};
+    virtual void rotateHorizontal(float deg) {};
 
     // set
     void setEye(glm::vec3 *newEye);
@@ -36,8 +40,6 @@ public:
 
     void incrementZoom();
     void decrementZoom();
-    void rotateVertical(GLfloat deg);
-    void rotateHorizontal(GLfloat deg);
 };
 
-#endif //OPULENCE_CAMERA_H
+#endif

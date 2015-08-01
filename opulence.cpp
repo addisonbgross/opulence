@@ -5,6 +5,7 @@
 
 #include "src/entity/model/Model.h"
 #include "src/entity/camera/Camera.h"
+#include "src/entity/camera/RtsCamera.h"
 #include "src/entity/light/PointLight.h"
 
 #include "src/factory/CameraFactory.h"

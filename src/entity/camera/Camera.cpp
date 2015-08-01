@@ -57,29 +57,11 @@ glm::vec3 * Camera::getTop()
 void Camera::incrementZoom()
 {
     *eye *= 0.9f;
+    //*focus *= 0.9f;
 }
 
 void Camera::decrementZoom()
 {
     *eye *= 1.1f;
-}
-
-void Camera::rotateVertical(GLfloat deg)
-{
-    //glm::vec3 camFocus = *eye - *focus;
-    glm::mat4 rotationMatrix = glm::rotate(glm::mat4(1.0f), deg, glm::vec3(1.0f, 0.0f, 0.0f));
-    glm::vec4 temp = rotationMatrix * glm::vec4(*eye, 1.0f);
-    eye->x = temp.x;
-    eye->y = temp.y;
-    eye->z = temp.z;
-}
-
-void Camera::rotateHorizontal(GLfloat deg)
-{
-    glm::vec3 camFocus = *eye - *focus;
-    glm::mat4 rotationMatrix = glm::rotate(glm::mat4(1.0f), deg, glm::vec3(0.0f, 1.0f, 0.0f));
-    glm::vec4 temp = rotationMatrix * glm::vec4(*eye, 1.0f);
-    eye->x = temp.x;
-    eye->y = temp.y;
-    eye->z = temp.z;
+    //*focus *= 1.1f;
 }
