@@ -55,7 +55,7 @@ add_executable(opulence ${SOURCE_FILES}
                src/factory/ModelFactory.cpp
                src/factory/ModelFactory.h
 
-               src/container/obj_data.h)
+               src/container/obj_data.h src/container/mtl_data.h)
 
 target_link_libraries(opulence
                       ${SDL2_LIBRARY}

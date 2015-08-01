@@ -7,12 +7,15 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <GL/gl.h>
 
-class Camera
-{
+#include "../Entity.h"
+
+class Camera {
 private:
     glm::vec3 *eye;    // position of camera's view point
     glm::vec3 *focus;  // target of view
     glm::vec3 *top;    // relative up direction of camera
+
+    glm::vec3 *rtsDirection;
 
     GLfloat zoomInertia = 0.2;
 
@@ -33,10 +36,6 @@ public:
 
     void incrementZoom();
     void decrementZoom();
-    void moveLeft();
-    void moveRight();
-    void moveUp();
-    void moveDown();
     void rotateVertical(GLfloat deg);
     void rotateHorizontal(GLfloat deg);
 };

@@ -17,32 +17,32 @@ in vec3 normal;
 in vec4 diffuse;
 in vec4 specular;
 
-flat out vec3 fNormal;
-out vec4 fDiffuse;
-out vec4 fSpecular;
-out vec3 fCamera;
-out vec3 fPoint;
+out vec3 f_normal;
+out vec4 f_diffuse;
+out vec4 f_specular;
+out vec3 f_camera;
+out vec3 f_point;
 
-out float dist;
-out float constantAttenuation;
-out float linearAttenuation;
-out float quadraticAttenuation;
+out float f_dist;
+out float f_constantAttenuation;
+out float f_linearAttenuation;
+out float f_quadraticAttenuation;
 
 void main()
 {
-    fCamera = cameraPosition;
-    fDiffuse = diffuse;
-    fSpecular = specular;
-    fNormal = normalize(gl_NormalMatrix * normal);
-    fPoint = pointLight;
+    f_camera = cameraPosition;
+    f_diffuse = diffuse;
+    f_specular = specular;
+    f_normal = normalize(gl_NormalMatrix * normal);
+    f_point = pointLight;
 
     // get distance to light source
-    dist = length(pointLight - (position + modelPosition));
+    f_dist = length(pointLight - (position + modelPosition));
 
     // point lighting constants
-    linearAttenuation = linearAtt;
-    quadraticAttenuation = quadraticAtt;
-    constantAttenuation = 0.1;  // its constant
+    f_linearAttenuation = linearAtt;
+    f_quadraticAttenuation = quadraticAtt;
+    f_constantAttenuation = 0.1;  // its constant
 
     gl_Position = proj * view * model * vec4(position + modelPosition, 1.0);
 }

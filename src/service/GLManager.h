@@ -8,10 +8,10 @@
 class GLManager {
 private:
     GLuint programID;
-    GLuint vertexShader, geometryShader, fragmentShader;
+    GLuint vertexShader, fragmentShader;
     GLuint VAO;
     SDL_Window *window;
-    SDL_DisplayMode mode;
+    SDL_Surface *surface;
 
     GLfloat screenWidth, screenHeight;
 
@@ -23,14 +23,13 @@ public:
     bool initSDL();
     GLuint getID();
     GLuint getVertexShader();
-    GLuint getGeometryShader();
     GLuint getFragmentShader();
     GLuint getVAO();
     SDL_Window *getWindow();
+    SDL_Surface *getSurface();
 
     void setScreenSize(GLfloat w, GLfloat h);
     void shutDown();
 };
 
-
-#endif //OPULENCE_GLMANAGER_H
+#endif

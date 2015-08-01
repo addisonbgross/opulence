@@ -5,29 +5,27 @@ uniform vec4 ambientColour;
 uniform float directionalIntensity;
 uniform vec3 directionalLight;
 
-flat in vec3 fNormal;
-in vec4 fDiffuse;
-in vec4 fSpecular;
-in vec3 fCamera;
-in vec3 fPoint;
+in vec3 f_normal;
+in vec4 f_diffuse;
+in vec4 f_specular;
+in vec3 f_camera;
+in vec3 f_point;
 
-in float dist;
-in float constantAttenuation;
-in float linearAttenuation;
-in float quadraticAttenuation;
-
-out vec4 outColour;
+in float f_dist;
+in float f_constantAttenuation;
+in float f_linearAttenuation;
+in float f_quadraticAttenuation;
 
 void main()
 {
     // point light attenuation
-    float att = constantAttenuation /
-                            ((linearAttenuation * dist) * (quadraticAttenuation * pow(dist, 2)));
+    float att = f_constantAttenuation /
+                            ((f_linearAttenuation * f_dist) * (f_quadraticAttenuation * pow(f_dist, 2)));
 
     // diffuse
     float diffuseIntensity = 0.0;
-    float directionalDiffuseIntensity = directionalIntensity * max(dot(normalize(fNormal), -normalize(directionalLight)), 0.0);
-    float pointDiffuseIntensity = att * max(dot(normalize(fNormal), -fPoint), 0.0);
+    float directionalDiffuseIntensity = directionalIntensity * max(dot(normalize(f_normal), -normalize(directionalLight)), 0.0);
+    float pointDiffuseIntensity = att * max(dot(normalize(f_normal), -f_point), 0.0);
     diffuseIntensity = clamp(directionalDiffuseIntensity + pointDiffuseIntensity, 0.0, 1.0);
 
     // cell shading
@@ -37,8 +35,8 @@ void main()
     // specular
     float specularIntensity = 0.0;
     if (diffuseIntensity > 0.0) {
-        vec3 reflection = normalize(directionalLight + fCamera);
-        float specularAngle = max(dot(reflection, fNormal), 0.0);
+        vec3 reflection = normalize(directionalLight + f_camera);
+        float specularAngle = max(dot(reflection, f_normal), 0.0);
         specularIntensity = pow(specularAngle, 100);
         specularIntensity = ceil(specularIntensity * cellShadingFactor) / cellShadingFactor; // cell shading
         specularIntensity = clamp(specularIntensity, 0.0, 0.5);
@@ -54,5 +52,5 @@ void main()
         diffuseIntensity = ambientIntensity;
     }
 
-    outColour = (ambientIntensity * fDiffuse) + (diffuseIntensity * fDiffuse) + (specularIntensity * fSpecular);
+    gl_FragColor = (ambientIntensity * f_diffuse) + (diffuseIntensity * f_diffuse) + (specularIntensity * f_specular);
 }
