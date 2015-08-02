@@ -3,7 +3,7 @@
 #### Travis CI ####
 [![Build Status](https://travis-ci.org/addisonbgross/opulence.svg?branch=master)](https://travis-ci.org/addisonbgross/opulence)
 
-## Dependencies:
+## Dependencies ##
 * CMake 2.8
 * Google Test 1.7.0
 * SDL 2.0
@@ -12,7 +12,7 @@
 * OpenGL Extension Wrangler Library 1.6 (GLEW)
 * OpenGL Mathematics Library 0.9.6 (GLM)
 
-## Usage:
+## Usage
 
 ###Google Test Installation
 #### Ubuntu
