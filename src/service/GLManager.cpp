@@ -1,5 +1,10 @@
 #include "GLManager.h"
 
+/**
+ * initGL() - create and configure OpenGL resources
+ *
+ * @return bool true if initialization is a success
+ */
 bool GLManager::initGL()
 {
     // success flag
@@ -20,7 +25,7 @@ bool GLManager::initGL()
     vertexShader   = 0;
     fragmentShader = 0;
 
-    // load the shaders poorly
+    // load vertex shader
     int failCount = 0;
     while (vertexShader == 0) {
         vertexShader = loadShader("/home/champ/Git/crows/opulence/shaders/phongAttenuation.vert", programID);
@@ -32,6 +37,7 @@ bool GLManager::initGL()
         }
     }
 
+    // load fragment shader
     while (fragmentShader == 0) {
         fragmentShader = loadShader("/home/champ/Git/crows/opulence/shaders/phongAttenuation.frag", programID);
         ++failCount;
@@ -44,6 +50,7 @@ bool GLManager::initGL()
     // create VAO
     glGenVertexArrays(1, &VAO);
 
+    // link OpenGL program
     glLinkProgram(programID);
 
     //Initialize clear color
@@ -52,6 +59,11 @@ bool GLManager::initGL()
     return success;
 }
 
+/**
+ * initSDL() - create and configure native windowing system
+ *
+ * @return bool true if initialization is a success
+ */
 bool GLManager::initSDL()
 {
     bool success = true;
@@ -71,6 +83,7 @@ bool GLManager::initSDL()
         SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
         SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 8);
 
+        // allow for multisampling of frame buffer
         glEnable(GL_MULTISAMPLE);
 
         //Create window
@@ -82,8 +95,9 @@ bool GLManager::initSDL()
 
         surface = SDL_GetWindowSurface(window);
 
-        SDL_GLContext glcontext(SDL_GL_CreateContext(window));
+        SDL_GL_CreateContext(window);
 
+        // initialize GLEW system independence
         glewExperimental = GL_TRUE;
         GLenum glewError = glewInit();
 
@@ -97,42 +111,10 @@ bool GLManager::initSDL()
     return success;
 }
 
-GLuint GLManager::getID()
-{
-    return programID;
-}
-
-GLuint GLManager::getVertexShader()
-{
-    return vertexShader;
-}
-
-GLuint GLManager::getFragmentShader()
-{
-    return fragmentShader;
-}
-
-GLuint GLManager::getVAO()
-{
-    return VAO;
-}
-
-SDL_Window * GLManager::getWindow()
-{
-    return window;
-}
-
-SDL_Surface * GLManager::getSurface()
-{
-    return surface;
-}
-
-void GLManager::setScreenSize(GLfloat w, GLfloat h)
-{
-    screenWidth = w;
-    screenHeight = h;
-}
-
+/**
+ * shutDown() - free resources maintaining OpenGL context
+ *              and free event handlers
+ */
 void GLManager::shutDown()
 {
     //Deallocate program
@@ -148,4 +130,76 @@ void GLManager::shutDown()
 
     //Quit SDL subsystems
     SDL_Quit();
+}
+
+/**
+ * getID() - get OpenGL context's id
+ *
+ * @return GLuint current OpenGL context
+ */
+GLuint GLManager::getID()
+{
+    return programID;
+}
+
+/**
+ * getVertexShader() - get current vertex shader's handle in the OpenGL context
+ *
+ * @return GLuint current vertex shader in use
+ */
+GLuint GLManager::getVertexShader()
+{
+    return vertexShader;
+}
+
+/**
+ * getFragmentShader() - get current fragment shader's handle in the OpenGL context
+ *
+ * @return GLuint current fragment shader in use
+ */
+GLuint GLManager::getFragmentShader()
+{
+    return fragmentShader;
+}
+
+/**
+ * getVAO() - get current vertex array object's handle in the OpenGL context
+ *
+ * @return GLuint current vertex array object in use
+ */
+GLuint GLManager::getVAO()
+{
+    return VAO;
+}
+
+/**
+ * getWindow() - get current SDL window containing the current
+ *               frame buffer and native windowing system settings
+ *
+ * @return SDL_Window* current SDL window in use
+ */
+SDL_Window * GLManager::getWindow()
+{
+    return window;
+}
+
+/**
+ * getSurface() - get current SDL window's frame buffer
+ *
+ * @return SDL_Surface* current SDL window's frame buffer
+ */
+SDL_Surface * GLManager::getSurface()
+{
+    return surface;
+}
+
+/**
+ * setScreenSize() - set resolution of opulence window
+ *
+ * @params w,h width and height in pixels
+ */
+void GLManager::setScreenSize(GLfloat w, GLfloat h)
+{
+    screenWidth = w;
+    screenHeight = h;
 }

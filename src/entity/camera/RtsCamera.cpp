@@ -1,6 +1,14 @@
 #include "RtsCamera.h"
 
-RtsCamera::RtsCamera(float x, float y, float z) : Camera(x, y, z) {}
+RtsCamera::RtsCamera(float x, float y, float z) : Camera(x, y, z)
+{
+    bearing = new glm::vec4(1.0f);
+
+    glm::vec3 camFocus = *eye - *focus;
+    glm::mat4 rotationMatrix = glm::rotate(glm::mat4(1.0f), 5.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+    rotationMatrix = glm::rotate(glm::mat4(1.0f), glm::radians(90.f), glm::vec3(0.0f, 1.0f, 0.0f));
+    *bearing = rotationMatrix * glm::vec4(camFocus, 1.0f);
+}
 
 void RtsCamera::moveForward(float n)
 {
@@ -15,26 +23,20 @@ void RtsCamera::moveForward(float n)
 
 void RtsCamera::moveLeft(float n)
 {
-    glm::vec3 camFocus = *eye - *focus;
-    float rotationAngle = glm::radians(90.f);
-    glm::mat4 rotationMatrix = glm::rotate(glm::mat4(1.0f), rotationAngle, glm::vec3(0.0f, 1.0f, 0.0f));
-    glm::vec4 temp = glm::vec4(*eye, 1.0f) - (n * (rotationMatrix * glm::vec4(camFocus, 1.0f)));
+    glm::vec4 temp = glm::vec4(*eye, 1.0f) - (n * *bearing);
     eye->x = temp.x;
     eye->z = temp.z;
-    temp = glm::vec4(*focus, 1.0f) - (n * (rotationMatrix * glm::vec4(camFocus, 1.0f)));
+    temp = glm::vec4(*focus, 1.0f) - (n * *bearing);
     focus->x = temp.x;
     focus->z = temp.z;
 }
 
 void RtsCamera::moveRight(float n)
 {
-    glm::vec3 camFocus = *eye - *focus;
-    float rotationAngle = glm::radians(90.f);
-    glm::mat4 rotationMatrix = glm::rotate(glm::mat4(1.0f), rotationAngle, glm::vec3(0.0f, 1.0f, 0.0f));
-    glm::vec4 temp = glm::vec4(*eye, 1.0f) + (n * (rotationMatrix * glm::vec4(camFocus, 1.0f)));
+    glm::vec4 temp = glm::vec4(*eye, 1.0f) + (n * *bearing);
     eye->x = temp.x;
     eye->z = temp.z;
-    temp = glm::vec4(*focus, 1.0f) + (n * (rotationMatrix * glm::vec4(camFocus, 1.0f)));
+    temp = glm::vec4(*focus, 1.0f) + (n * *bearing);
     focus->x = temp.x;
     focus->z = temp.z;
 }
@@ -68,4 +70,7 @@ void RtsCamera::rotateHorizontal(float deg)
     eye->x = temp.x;
     eye->y = temp.y;
     eye->z = temp.z;
+
+    rotationMatrix = glm::rotate(glm::mat4(1.0f), glm::radians(90.f), glm::vec3(0.0f, 1.0f, 0.0f));
+    *bearing = rotationMatrix * glm::vec4(camFocus, 1.0f);
 }

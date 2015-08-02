@@ -1,7 +1,4 @@
-#define GLM_FORCE_RADIANS
 #include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 
 #include "src/entity/model/Model.h"
 #include "src/entity/camera/Camera.h"
@@ -75,6 +72,11 @@ public:
     ModelFactory * getModelFactory()
     {
         return modelFactory;
+    }
+
+    void getStats()
+    {
+        bufferCourier.reportStats();
     }
 
     void render()
@@ -163,5 +165,10 @@ public:
         glBindVertexArray(glMan->getVAO());
 
         return 0;
+    }
+
+    void shutDown()
+    {
+        glMan->shutDown();
     }
 };

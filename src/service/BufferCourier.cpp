@@ -7,47 +7,15 @@ BufferCourier::BufferCourier()
 
 BufferCourier::~BufferCourier() {}
 
-void BufferCourier::addAttribute(std::string name, GLint attrib)
+void BufferCourier::reportStats()
 {
-    bufferAttributes.insert({name, attrib});
-}
-
-void BufferCourier::addUniform(std::string name, GLint unif)
-{
-    bufferUniforms.insert({name, unif});
-}
-
-GLint BufferCourier::getAttribute(std::string name)
-{
-    return bufferAttributes.at(name);
-}
-
-GLint BufferCourier::getUniform(std::string name)
-{
-    return bufferUniforms.at(name);
-}
-
-GLuint BufferCourier::getNumModels()
-{
-    return activeModels.size();
-}
-
-void BufferCourier::addModel(Model *model)
-{
-    activeModels.push_back(model);
-    sendBuffer(model);
-}
-
-void BufferCourier::removeModel(GLuint id)
-{
-    activeModels.erase(activeModels.begin() + (double) id);
-    clearBuffer(activeModels[id]);
+    std::cout.imbue(std::locale(""));
+    std::cout << "Total Triangles: " << totalTriangles << std::endl;
+    std::cout << "Active Models: " << activeModels.size() << std::endl;
 }
 
 void BufferCourier::sendBuffer(Model *model)
 {
-    std::cout << "# Active Models: " << activeModels.size() << std::endl;
-
     // initialize buffer objects
     glGenBuffers(1, &model->indexBuffer);
     glGenBuffers(1, &model->positionBuffer);
@@ -117,6 +85,8 @@ void BufferCourier::render()
         glEnableVertexAttribArray(bufferAttributes.at(i.first));
     }
 
+    totalTriangles = 0;
+
     GLuint i;
     for (i = 0; i < numModels; ++i) {
         Model *model = activeModels[i];
@@ -141,5 +111,47 @@ void BufferCourier::render()
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, model->indexBuffer);
         glDrawElements(GL_TRIANGLES, model->getNumIndexVerts(), GL_UNSIGNED_INT, 0);
+
+        totalTriangles += (model->getNumIndexVerts() / 3);
     }
 }
+
+void BufferCourier::addAttribute(std::string name, GLint attrib)
+{
+    bufferAttributes.insert({name, attrib});
+}
+
+void BufferCourier::addUniform(std::string name, GLint unif)
+{
+    bufferUniforms.insert({name, unif});
+}
+
+void BufferCourier::addModel(Model *model)
+{
+    activeModels.push_back(model);
+    sendBuffer(model);
+}
+
+void BufferCourier::removeModel(GLuint id)
+{
+    totalTriangles -= (activeModels[id]->getNumIndexVerts() / 3);
+    clearBuffer(activeModels[id]);
+    activeModels.erase(activeModels.begin() + (double) id);
+}
+
+GLint BufferCourier::getAttribute(std::string name)
+{
+    return bufferAttributes.at(name);
+}
+
+GLint BufferCourier::getUniform(std::string name)
+{
+    return bufferUniforms.at(name);
+}
+
+GLuint BufferCourier::getNumModels()
+{
+    return activeModels.size();
+}
+
+
