@@ -2,6 +2,7 @@
 
 ## Dependencies:
 * CMake 2.8
+* Google Test 1.7.0
 * SDL 2.0
 * OpenGL 3.3
 * GLSL 1.3
@@ -9,6 +10,14 @@
 * OpenGL Mathematics Library 0.9.6 (GLM)
 
 ## Usage:
+
+###Google Test Installation
+#### Ubuntu
+* cd /test/gtest-(version number)
+* sudo cmake .
+* sudo make
+* sudo mv libg* /usr/lib
+* sudo apt-get install libgtest-dev
 
 ```c++
 #include "opulence/opulence.cpp"
@@ -30,21 +39,23 @@ int main()
 }
 ```
 
-In the file CMakeLists.txt in yor opulence folder
-```
+In the file CMakeLists.txt in your opulence folder
+```CMake
 // change the line with this
 set_source_files_properties(../main.c opulence.cpp PROPERTIES LANGUAGE CXX )
+
 // put the main file that you are using when including opulence by replacing yourMainFile.c
 set_source_files_properties(../yourMainFile.c opulence.c PROPERTIES LANGUAGE CXX)
 
 // also change the line
 set(SOURCE_FILES
 	../main.c
-	opulence.c
+	opulence.c)
+
 // do the same change again
 set(SOURCE_FILES
 	../youMainFile.c
-	opulence.c
+	opulence.c)
 ```
 
 ###### Please note that this engine is changing fast; thus, this 'usage' section will change frequently

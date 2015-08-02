@@ -9,14 +9,19 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${opulence_SOURCE_DIR}/CMakeFiles")
 # Set an output directory for our binaries
 set(BIN_DIR ${opulence_SOURCE_DIR}/opulence/bin)
 
+enable_testing()
+find_package (Threads)
+
 find_package(SDL2 REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(GLEW REQUIRED)
+find_package(GTest REQUIRED)
 
 include_directories(${PROJECT_BINARY_DIR}
                     ${OPENGL_INCLUDE_DIR}
                     ${SDL2_INCLUDE_DIR}
-                    ${GLEW_INCLUDE_DIRS})
+                    ${GLEW_INCLUDE_DIRS}
+                    ${GTEST_INCLUDE_DIRS})
 
 set(SOURCE_FILES
     ../main.c
@@ -63,4 +68,6 @@ add_executable(opulence ${SOURCE_FILES}
 target_link_libraries(opulence
                       ${SDL2_LIBRARY}
                       ${OPENGL_LIBRARIES}
-                      ${GLEW_LIBRARIES})
+                      ${GLEW_LIBRARIES}
+                      ${GTEST_BOTH_LIBRARIES}
+                      ${CMAKE_THREAD_LIBS_INIT})
