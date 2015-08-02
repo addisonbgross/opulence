@@ -5,5 +5,9 @@ addons:
         packages:
             - cmake
 script:
-    -  wget http://www.libsdl.org/download-2.0.php/SDL2-2.0.0.tar.gz
-    - ls -al
+    - wget http://www.libsdl.org/download-2.0.php/SDL2-2.0.0.tar.gz
+    - tar xzvf SDL-2.0.0.tar.gz
+    - cd ./SDL-2.0.0.tar.gz
+    - ./configure
+    - make
+    - make install
