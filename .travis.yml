@@ -5,4 +5,5 @@ before_install:
 	- sudo apt-get install libgtest-dev
 install: 
 	- make get-deps
-script: ls -al
+script: 
+	- ls -al
