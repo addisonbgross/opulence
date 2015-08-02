@@ -1,9 +1,10 @@
 language: cpp
-sudo: required
-before_install:
-    - sudo apt-get install cmake
-    - sudo apt-get install libgtest-dev
-install: 
-    - make get-deps
+sudo: false
+addons:
+    apt:
+        sources:
+            - libgtest-dev
+        packages:
+            - cmake
 script: 
     - ls -al
