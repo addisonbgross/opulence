@@ -1,5 +1,6 @@
 # Opulence Graphics Engine
 
+Travis CI
 [![Build Status](https://travis-ci.org/addisonbgross/opulence.svg?branch=master)](https://travis-ci.org/addisonbgross/opulence)
 
 ## Dependencies:
