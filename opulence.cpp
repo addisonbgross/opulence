@@ -1,19 +1,20 @@
+// glm
 #include <glm/glm.hpp>
 
+// opulence
 #include "src/entity/model/Model.h"
 #include "src/entity/camera/Camera.h"
 #include "src/entity/camera/RtsCamera.h"
 #include "src/entity/light/PointLight.h"
-
 #include "src/factory/CameraFactory.h"
 #include "src/factory/LightFactory.h"
 #include "src/factory/ModelFactory.h"
-
 #include "src/service/GLManager.h"
 
 /**
- * opulence: An OpenGL graphics renderer.
- * Written by Addison Bellamy-Gross 2015
+ * opulence - An OpenGL graphics renderer
+ *
+ * @author Addison Bellamy-Gross 2015
  */
 class Opulence {
 private:
