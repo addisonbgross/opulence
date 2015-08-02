@@ -2,8 +2,7 @@ language: cpp
 sudo: false
 addons:
     apt:
-        sources:
-            - libgtest-dev
-            - mercurial
         packages:
             - cmake
+script:
+    -  wget http://www.libsdl.org/download-2.0.php/SDL2-2.0.0.tar.gz
