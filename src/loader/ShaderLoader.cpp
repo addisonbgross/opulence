@@ -1,11 +1,13 @@
-#include <fstream>
-#include <vector>
-#include <cstring>
-
 #include "ShaderLoader.h"
 
-std::string readFile(const char *filePath) {
-    std::string content;
+/**
+ * readFile() - read in GLSL shader from flie path
+ *
+ * @params *filePath relative to opulence root folder
+ * @return std::string the entire GLSL file as a string
+ */
+std::string ShaderLoader::readFile(const char *filePath) {
+    // open shader file
     std::ifstream fileStream(filePath, std::ios::in);
 
     if(!fileStream.is_open()) {
@@ -13,19 +15,25 @@ std::string readFile(const char *filePath) {
         return "";
     }
 
+    // read in shader
+    std::string shaderString;
     std::string line = "";
     while(!fileStream.eof()) {
         std::getline(fileStream, line);
-        content.append(line + "\n");
+        shaderString.append(line + "\n");
     }
 
     fileStream.close();
 
-    return content;
+    return shaderString;
 }
 
-
-GLuint loadShader(const char *shaderPath, GLuint program) {
+/**
+ * loadShader() - parse a GLSL shader and attach it to OpenGL context
+ *
+ * @return GLuint handle for GLSL shader in video card
+ */
+GLuint ShaderLoader::loadShader(const char *shaderPath, GLuint program) {
     GLchar fileExtension = shaderPath[strlen(shaderPath) - 4];
 
     // create appropriate shader handle
