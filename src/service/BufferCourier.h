@@ -1,36 +1,43 @@
 #ifndef OPULENCE_COURIER_H
 #define OPULENCE_COURIER_H
 
+// general
 #include <map>
 
+// opulence
 #include "../entity/model/Model.h"
 #include "../loader/ShaderLoader.h"
 
+/**
+ * BufferCourier - transfers data to and from video card
+ */
 class BufferCourier {
 private:
-    std::map<std::string, GLint> bufferAttributes;
-    std::map<std::string, GLint> bufferUniforms;
-    std::vector<Model *> activeModels;
-    GLuint numIndexVerts;
-
-    // buffer objects
-    GLuint ibo, vbo, nbo, dcbo, scbo;
-    GLuint renderedTexture;
+    std::map<std::string, GLint> bufferAttributes;  // maps names to GLSL attributes
+    std::map<std::string, GLint> bufferUniforms;    // maps names to GLSL uniforms
+    std::vector<Model *> activeModels;              // all currently existing models
+    int totalTriangles;                             // sum of all triangles from all models
 
 public:
     BufferCourier();
     ~BufferCourier();
-    void addAttribute(std::string name, GLint attrib);
-    void addUniform(std::string name, GLint unif);
+    void reportStats();                                 // print # triangles and # models
+    void sendBuffer(Model *model);                      // send buffers async to video card
+    void clearBuffer(Model *model);                     // remove handles related to model
+    void render();                                      // draw to current frame buffer
+
+    // add
+    void addAttribute(std::string name, GLint attrib);  // add to active GLSL attributes
+    void addUniform(std::string name, GLint unif);      // add to active GLSL uniform
+    void addModel(Model *model);                        // add model to buffer system
+
+    // remove
+    void removeModel(GLuint id);                        // remove model from buffer system
+
+    // get
     GLint getAttribute(std::string name);
     GLint getUniform(std::string name);
     GLuint getNumModels();
-    void addModel(Model *model);
-    void removeModel(GLuint id);
-
-    void sendBuffer(Model *model);
-    void clearBuffer(Model *model);
-    void render();
 };
 
-#endif //OPULENCE_COURIER_H
+#endif

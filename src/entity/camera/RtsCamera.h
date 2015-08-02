@@ -8,6 +8,9 @@
 #include "Camera.h"
 
 class RtsCamera : public Camera {
+private:
+    glm::vec4 *bearing;
+
 public:
     RtsCamera(float x, float y, float z);
 
