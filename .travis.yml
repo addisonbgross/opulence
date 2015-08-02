@@ -1,7 +1,8 @@
-language: c++
+language: cpp
 sudo: required
 before_install:
 	- sudo apt-get install cmake
 	- sudo apt-get install libgtest-dev
-install: make get-deps
+install: 
+	- make get-deps
 script: ls -al
