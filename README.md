@@ -1,5 +1,7 @@
 # Opulence Graphics Engine
 
+[![Build Status](https://travis-ci.org/addisonbgross/opulence.svg?branch=master)](https://travis-ci.org/addisonbgross/opulence)
+
 ## Dependencies:
 * CMake 2.8
 * Google Test 1.7.0
