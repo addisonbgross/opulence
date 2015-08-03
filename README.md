@@ -27,6 +27,7 @@ int main()
 	Opulence opulence;
 	opulence.start();
 
+    // responsible for memory management
 	ModelFactory *mf = opulence.getModelFactory();
 	CameraFactory *cf = opulence.getCameraFactory();
 
@@ -34,8 +35,29 @@ int main()
 	mf->addObj(/*** obj file name without file extension (eg: hello.obj => hello) ***/);
 	mf->makeModel(0, 0, 0, /*** obj file name without the file extension ***/);
 
-	cf->setMainCamera( cf->makeCamera(glm::vec3(0.0, 0.0, 5.0) );
-	opulence.loop();
+    // the only available camera is RtsCamera currently
+    RtsCamera *camera;
+    cf->setMainCamera(cf->makeCamera(glm::vec3(0.0, 3.0, 10.0), camera));
+
+    // main loop
+    while (!quit) {
+        // get input
+
+        // do whatever else
+
+        opulence.render();
+
+    }
+
+    // to run all of opulence's unit tests
+    if (you want to run tests) {
+        // run all them tests
+        ::testing::InitGoogleTest(&argc, argv);
+        return RUN_ALL_TESTS();
+    } else {
+        // return as usual
+        return 0;
+    }
 }
 ```
 

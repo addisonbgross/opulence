@@ -6,8 +6,6 @@
 #include <GL/glew.h>
 #include <GL/gl.h>
 
-#include "gtest/gtest.h"
-
 #include "../../container/obj_data.h"
 #include "../Entity.h"
 

@@ -113,8 +113,3 @@ unsigned long Model::getNumNormalIndexVerts()
 {
     return normalIndexVerts->size();
 }
-
-TEST(FooTest, MethodBarDoesAbc) {
-    int answer = 1+ 3;
-    EXPECT_EQ(4, answer);
-}
