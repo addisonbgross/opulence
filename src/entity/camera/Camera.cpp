@@ -56,12 +56,12 @@ glm::vec3 * Camera::getTop()
 
 void Camera::incrementZoom()
 {
-    *eye *= 0.9f;
-    //*focus *= 0.9f;
+    eye->y += 0.5;
 }
 
 void Camera::decrementZoom()
 {
-    *eye *= 1.1f;
-    //*focus *= 1.1f;
+    if (eye->y > 5) {
+        eye->y -= 0.5;
+    }
 }

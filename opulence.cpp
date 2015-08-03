@@ -11,6 +11,9 @@
 #include "src/factory/ModelFactory.h"
 #include "src/service/GLManager.h"
 
+// Google Test
+#include "gtest/gtest.h"
+
 /**
  * opulence - An OpenGL graphics renderer
  *

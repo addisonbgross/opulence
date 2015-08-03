@@ -4,7 +4,8 @@ project(opulence)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 # Use our modified FindSDL2* modules
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${opulence_SOURCE_DIR}/CMakeFiles")
+set(CMAKE_MODULE_PATH
+    ${CMAKE_MODULE_PATH} "${opulence_SOURCE_DIR}/CMakeFiles")
 
 # Set an output directory for our binaries
 set(BIN_DIR ${opulence_SOURCE_DIR}/opulence/bin)
@@ -28,8 +29,12 @@ set(SOURCE_FILES
     opulence.cpp)
 
 set(HEADER_FILES)
-set_source_files_properties(../main.c opulence.cpp PROPERTIES LANGUAGE CXX)
-add_executable(opulence ${SOURCE_FILES}
+set_source_files_properties(../main.c
+                            opulence.cpp
+                            PROPERTIES
+                            LANGUAGE CXX)
+add_executable(opulence
+               ${SOURCE_FILES}
                src/entity/Entity.cpp
                src/entity/Entity.h
                src/entity/model/Model.cpp
@@ -63,7 +68,9 @@ add_executable(opulence ${SOURCE_FILES}
                src/factory/ModelFactory.h
 
                src/container/obj_data.h
-               src/container/mtl_data.h)
+               src/container/mtl_data.h
+
+               test/entity/ModelTest.cpp)
 
 target_link_libraries(opulence
                       ${SDL2_LIBRARY}
