@@ -397,3 +397,139 @@ make[2]: Leaving directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
 make[1]: Leaving directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
 
 
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec708239769/fast"
+make[1]: Entering directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec708239769.dir/build.make CMakeFiles/cmTryCompileExec708239769.dir/build
+make[2]: Entering directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec708239769.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec708239769.dir/CheckIncludeFiles.c.o   -c /home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec708239769
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec708239769.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec708239769.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec708239769 -rdynamic 
+make[2]: Leaving directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3310358684/fast"
+make[1]: Entering directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3310358684.dir/build.make CMakeFiles/cmTryCompileExec3310358684.dir/build
+make[2]: Entering directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3310358684.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec3310358684.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3310358684
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3310358684.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec3310358684.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3310358684 -rdynamic -lpthread 
+make[2]: Leaving directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+
+
+Determining if the function XOpenDisplay exists in the /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so passed with the following output:
+Change Dir: /home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2958023016/fast"
+make[1]: Entering directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2958023016.dir/build.make CMakeFiles/cmTryCompileExec2958023016.dir/build
+make[2]: Entering directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2958023016.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTryCompileExec2958023016.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2958023016
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2958023016.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay    CMakeFiles/cmTryCompileExec2958023016.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2958023016 -rdynamic -lX11 -lXext 
+make[2]: Leaving directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+
+
+Determining if the function gethostbyname exists passed with the following output:
+Change Dir: /home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1894189318/fast"
+make[1]: Entering directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1894189318.dir/build.make CMakeFiles/cmTryCompileExec1894189318.dir/build
+make[2]: Entering directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1894189318.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTryCompileExec1894189318.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1894189318
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1894189318.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname    CMakeFiles/cmTryCompileExec1894189318.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1894189318 -rdynamic 
+make[2]: Leaving directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+
+
+Determining if the function connect exists passed with the following output:
+Change Dir: /home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3544443574/fast"
+make[1]: Entering directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3544443574.dir/build.make CMakeFiles/cmTryCompileExec3544443574.dir/build
+make[2]: Entering directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3544443574.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTryCompileExec3544443574.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3544443574
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3544443574.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect    CMakeFiles/cmTryCompileExec3544443574.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3544443574 -rdynamic 
+make[2]: Leaving directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+
+
+Determining if the function remove exists passed with the following output:
+Change Dir: /home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec294583081/fast"
+make[1]: Entering directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec294583081.dir/build.make CMakeFiles/cmTryCompileExec294583081.dir/build
+make[2]: Entering directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec294583081.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTryCompileExec294583081.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec294583081
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec294583081.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove    CMakeFiles/cmTryCompileExec294583081.dir/CheckFunctionExists.c.o  -o cmTryCompileExec294583081 -rdynamic 
+make[2]: Leaving directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+
+
+Determining if the function shmat exists passed with the following output:
+Change Dir: /home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2633871676/fast"
+make[1]: Entering directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2633871676.dir/build.make CMakeFiles/cmTryCompileExec2633871676.dir/build
+make[2]: Entering directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2633871676.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTryCompileExec2633871676.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2633871676
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2633871676.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat    CMakeFiles/cmTryCompileExec2633871676.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2633871676 -rdynamic 
+make[2]: Leaving directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+
+
+Determining if the function IceConnectionNumber exists in the ICE passed with the following output:
+Change Dir: /home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3173492574/fast"
+make[1]: Entering directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3173492574.dir/build.make CMakeFiles/cmTryCompileExec3173492574.dir/build
+make[2]: Entering directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3173492574.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber   -o CMakeFiles/cmTryCompileExec3173492574.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3173492574
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3173492574.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber    CMakeFiles/cmTryCompileExec3173492574.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3173492574 -rdynamic -lICE 
+make[2]: Leaving directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/champ/Git/crows/opulence/CMakeFiles/CMakeTmp'
+
+

@@ -1,8 +1,21 @@
-language: cpp
-sudo: required
+language: 
+    - cpp
+
+compiler:
+    - gcc
+
 before_install:
-	- sudo apt-get install cmake
-	- sudo apt-get install libgtest-dev
-install: 
-	- make get-deps
-script: ls -al
+    - "pwd"
+    - sudo apt-get update
+    - sudo apt-get install libgtest-dev
+
+install:
+    - "cd /usr/src/gtest && sudo cmake . && sudo cmake --build . && sudo mv libg* /usr/local/lib/"
+    - "pwd"
+    - "cd $TRAVIS_BUILD_DIR"
+    - "pwd"
+    - "sudo cmake --build . --clean-first --target all && sudo make"
+
+script:
+    - pwd
+    - ls -al
