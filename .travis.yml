@@ -5,11 +5,12 @@ compiler:
     - gcc
 
 before_install:
+    - "pwd"
     - sudo apt-get update
     - sudo apt-get install libgtest-dev
 
 install:
-    - "cd /usr/src/gtest && sudo cmake . && sudo cmake --build . && sudo mv libg* /usr/local/lib/ ;"
+    - "cd /usr/src/gtest && sudo cmake . && sudo cmake --build . && sudo mv libg* /usr/local/lib/"
     - "pwd && sudo cmake --build . && sudo make"
 
 script:
