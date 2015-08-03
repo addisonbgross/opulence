@@ -7,9 +7,4 @@ before_install:
  - "cd /usr/src/gtest && sudo cmake . && sudo cmake --build . && sudo mv libg* /usr/local/lib/ ; cd -"
 
 script:
-    - wget http://www.libsdl.org/download-2.0.php/SDL2-2.0.0.tar.gz
-    - tar xzvf SDL2-2.0.0.tar.gz
-    - cd ./SDL2-2.0.0.tar.gz
-    - ./configure
-    - make
-    - make install
+    - ls -al
