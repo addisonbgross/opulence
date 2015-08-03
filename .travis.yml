@@ -14,7 +14,7 @@ install:
     - "pwd"
     - "cd $TRAVIS_BUILD_DIR"
     - "pwd"
-    - "sudo cmake --build . --target-all && sudo make"
+    - "sudo cmake --build . --clean-first --target all && sudo make"
 
 script:
     - pwd
