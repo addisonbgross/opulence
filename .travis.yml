@@ -11,7 +11,10 @@ before_install:
 
 install:
     - "cd /usr/src/gtest && sudo cmake . && sudo cmake --build . && sudo mv libg* /usr/local/lib/"
-    - "pwd && sudo cmake --build . && sudo make"
+    - "pwd"
+    - "cd $TRAVIS_BUILD_DIR"
+    - "pwd"
+    - "sudo cmake --build . && sudo make"
 
 script:
     - pwd
