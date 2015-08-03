@@ -46,7 +46,6 @@ int main()
         // do whatever else
 
         opulence.render();
-
     }
 
     // to run all of opulence's unit tests
