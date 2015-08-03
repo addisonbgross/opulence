@@ -136,6 +136,42 @@ void BufferCourier::render()
         // update total triangles being drawn in scene
         totalTriangles += (model->getNumIndexVerts() / 3);
     }
+
+    totalTriangles = 0;
+    GLuint numAnimations = (GLuint) activeAnimations.size();
+    for (i = 0; i < numAnimations; ++i) {
+        Model *model = activeAnimations.at(i)->getCurrentFrame();
+
+        // set model position
+        glm::vec3 modelPlace = glm::vec3(model->position.x,
+                                         model->position.y,
+                                         model->position.z);
+        glUniform3fv(bufferUniforms.at("modelPosition"), 1, &modelPlace[0]);
+
+        // push vertex positions
+        glBindBuffer(GL_ARRAY_BUFFER, model->positionBuffer);
+        glVertexAttribPointer(bufferAttributes.at("position"), 3, GL_FLOAT, GL_FALSE, 0, 0);
+
+        // push vertex normals
+        glBindBuffer(GL_ARRAY_BUFFER, model->normalBuffer);
+        glVertexAttribPointer(bufferAttributes.at("normal"), 3, GL_FLOAT, GL_FALSE, 0, 0);
+
+        // push diffuse colour
+        glBindBuffer(GL_ARRAY_BUFFER, model->diffuseBuffer);
+        glVertexAttribPointer(bufferAttributes.at("diffuse"), 4, GL_FLOAT, GL_FALSE, 0, 0);
+
+        // push specular colour
+        glBindBuffer(GL_ARRAY_BUFFER, model->specularBuffer);
+        glVertexAttribPointer(bufferAttributes.at("specular"), 4, GL_FLOAT, GL_FALSE, 0, 0);
+
+        // push vertex indexes
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, model->indexBuffer);
+        glDrawElements(GL_TRIANGLES, model->getNumIndexVerts(), GL_UNSIGNED_INT, 0);
+
+        // update total triangles being drawn in scene
+        totalTriangles += (model->getNumIndexVerts() / 3);
+
+    }
 }
 
 /**
@@ -167,6 +203,17 @@ void BufferCourier::addModel(Model *model)
 {
     activeModels.push_back(model);
     sendBuffer(model);
+}
+
+void BufferCourier::addAnimation(Animation *animation)
+{
+    activeAnimations.push_back(animation);
+    sendBuffer(animation->getFrame(0));
+    sendBuffer(animation->getFrame(1));
+    sendBuffer(animation->getFrame(2));
+    sendBuffer(animation->getFrame(3));
+    sendBuffer(animation->getFrame(4));
+    sendBuffer(animation->getFrame(5));
 }
 
 /**

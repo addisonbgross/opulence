@@ -5,6 +5,9 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/vector_angle.hpp>
 
+// general
+#include <iostream>
+
 #include "Camera.h"
 
 class RtsCamera : public Camera {
@@ -12,6 +15,7 @@ private:
     glm::vec4 *bearing;
 
 public:
+    RtsCamera();
     RtsCamera(float x, float y, float z);
 
     // move

@@ -39,6 +39,8 @@ add_executable(opulence
                src/entity/Entity.h
                src/entity/model/Model.cpp
                src/entity/model/Model.h
+               src/entity/animation/Animation.cpp
+               src/entity/animation/Animation.h
                src/entity/camera/Camera.cpp
                src/entity/camera/Camera.h
                src/entity/camera/RtsCamera.cpp

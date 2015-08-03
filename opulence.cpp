@@ -3,6 +3,7 @@
 
 // opulence
 #include "src/entity/model/Model.h"
+#include "src/entity/animation/Animation.h"
 #include "src/entity/camera/Camera.h"
 #include "src/entity/camera/RtsCamera.h"
 #include "src/entity/light/PointLight.h"
@@ -81,6 +82,7 @@ public:
     void getStats()
     {
         bufferCourier.reportStats();
+        modelFactory->reportStats();
     }
 
     void render()

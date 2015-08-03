@@ -1,5 +1,10 @@
 #include "RtsCamera.h"
 
+RtsCamera::RtsCamera() : Camera()
+{
+    bearing = new glm::vec4(1.0f);
+}
+
 RtsCamera::RtsCamera(float x, float y, float z) : Camera(x, y, z)
 {
     bearing = new glm::vec4(1.0f);
@@ -54,11 +59,14 @@ void RtsCamera::moveBack(float n)
 
 void RtsCamera::rotateVertical(float deg)
 {
-    glm::vec3 camFocus = *eye - *focus;
     glm::mat4 rotationMatrix = glm::rotate(glm::mat4(1.0f), deg, glm::vec3(1.0f, 0.0f, 0.0f));
     glm::vec4 temp = rotationMatrix * glm::vec4(*eye, 1.0f);
     eye->x = temp.x;
-    eye->y = temp.y;
+    if (temp.y > 3) {
+        eye->y = temp.y;
+    } else {
+        eye->y = 3;
+    }
     eye->z = temp.z;
 }
 

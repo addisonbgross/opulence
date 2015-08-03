@@ -1,7 +1,7 @@
 #include "Camera.h"
 Camera::Camera()
 {
-    eye   = new glm::vec3(0.0, 5.0, 10.0);
+    eye   = new glm::vec3(10.0, 30.0, 10.0);
     focus = new glm::vec3(0.0, 0.0, 0.0);
     top   = new glm::vec3(0.0, 1.0, 0.0);
 }
@@ -56,12 +56,12 @@ glm::vec3 * Camera::getTop()
 
 void Camera::incrementZoom()
 {
-    eye->y += 0.5;
+    eye->y += 1;
 }
 
 void Camera::decrementZoom()
 {
-    if (eye->y > 5) {
-        eye->y -= 0.5;
+    if (eye->y > 3) {
+        eye->y -= 1;
     }
 }

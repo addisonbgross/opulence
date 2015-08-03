@@ -3,6 +3,7 @@
 
 #include <algorithm>
 #include <vector>
+#include <iostream>
 #include "../entity/camera/Camera.h"
 
 class CameraFactory {
@@ -18,12 +19,21 @@ public:
     Camera * getMainCamera();
 
     template<typename T>
+    T * makeCamera(T *cam)
+    {
+        cam = new T();
+        activeCameras.push_back(cam);
+
+        if (activeCameras.size() < 1) {
+            setMainCamera(cam);
+        }
+        return cam;
+    }
+
+    template<typename T>
     T * makeCamera(glm::vec3 position, T *cam)
     {
         cam = new T(position.x, position.y, position.z);
-        Camera *newCamera = new Camera(position.x,
-                                       position.y,
-                                       position.z);
         activeCameras.push_back(cam);
 
         if (activeCameras.size() < 1) {
@@ -35,4 +45,4 @@ public:
 };
 
 
-#endif //OPULENCE_CAMERAFACTORY_H
+#endif
