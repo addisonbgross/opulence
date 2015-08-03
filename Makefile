@@ -67,6 +67,16 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/champ/Git/crows/opulence/CMakeFiles /home/champ/Git/crows/opulence/CMakeFiles/progress.marks
@@ -207,6 +217,102 @@ src/entity/camera/Camera.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/camera/Camera.cpp.s
 .PHONY : src/entity/camera/Camera.cpp.s
 
+src/entity/camera/RtsCamera.o: src/entity/camera/RtsCamera.cpp.o
+.PHONY : src/entity/camera/RtsCamera.o
+
+# target to build an object file
+src/entity/camera/RtsCamera.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/camera/RtsCamera.cpp.o
+.PHONY : src/entity/camera/RtsCamera.cpp.o
+
+src/entity/camera/RtsCamera.i: src/entity/camera/RtsCamera.cpp.i
+.PHONY : src/entity/camera/RtsCamera.i
+
+# target to preprocess a source file
+src/entity/camera/RtsCamera.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/camera/RtsCamera.cpp.i
+.PHONY : src/entity/camera/RtsCamera.cpp.i
+
+src/entity/camera/RtsCamera.s: src/entity/camera/RtsCamera.cpp.s
+.PHONY : src/entity/camera/RtsCamera.s
+
+# target to generate assembly for a file
+src/entity/camera/RtsCamera.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/camera/RtsCamera.cpp.s
+.PHONY : src/entity/camera/RtsCamera.cpp.s
+
+src/entity/light/DirectionalLight.o: src/entity/light/DirectionalLight.cpp.o
+.PHONY : src/entity/light/DirectionalLight.o
+
+# target to build an object file
+src/entity/light/DirectionalLight.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/light/DirectionalLight.cpp.o
+.PHONY : src/entity/light/DirectionalLight.cpp.o
+
+src/entity/light/DirectionalLight.i: src/entity/light/DirectionalLight.cpp.i
+.PHONY : src/entity/light/DirectionalLight.i
+
+# target to preprocess a source file
+src/entity/light/DirectionalLight.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/light/DirectionalLight.cpp.i
+.PHONY : src/entity/light/DirectionalLight.cpp.i
+
+src/entity/light/DirectionalLight.s: src/entity/light/DirectionalLight.cpp.s
+.PHONY : src/entity/light/DirectionalLight.s
+
+# target to generate assembly for a file
+src/entity/light/DirectionalLight.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/light/DirectionalLight.cpp.s
+.PHONY : src/entity/light/DirectionalLight.cpp.s
+
+src/entity/light/Light.o: src/entity/light/Light.cpp.o
+.PHONY : src/entity/light/Light.o
+
+# target to build an object file
+src/entity/light/Light.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/light/Light.cpp.o
+.PHONY : src/entity/light/Light.cpp.o
+
+src/entity/light/Light.i: src/entity/light/Light.cpp.i
+.PHONY : src/entity/light/Light.i
+
+# target to preprocess a source file
+src/entity/light/Light.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/light/Light.cpp.i
+.PHONY : src/entity/light/Light.cpp.i
+
+src/entity/light/Light.s: src/entity/light/Light.cpp.s
+.PHONY : src/entity/light/Light.s
+
+# target to generate assembly for a file
+src/entity/light/Light.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/light/Light.cpp.s
+.PHONY : src/entity/light/Light.cpp.s
+
+src/entity/light/PointLight.o: src/entity/light/PointLight.cpp.o
+.PHONY : src/entity/light/PointLight.o
+
+# target to build an object file
+src/entity/light/PointLight.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/light/PointLight.cpp.o
+.PHONY : src/entity/light/PointLight.cpp.o
+
+src/entity/light/PointLight.i: src/entity/light/PointLight.cpp.i
+.PHONY : src/entity/light/PointLight.i
+
+# target to preprocess a source file
+src/entity/light/PointLight.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/light/PointLight.cpp.i
+.PHONY : src/entity/light/PointLight.cpp.i
+
+src/entity/light/PointLight.s: src/entity/light/PointLight.cpp.s
+.PHONY : src/entity/light/PointLight.s
+
+# target to generate assembly for a file
+src/entity/light/PointLight.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/light/PointLight.cpp.s
+.PHONY : src/entity/light/PointLight.cpp.s
+
 src/entity/model/Model.o: src/entity/model/Model.cpp.o
 .PHONY : src/entity/model/Model.o
 
@@ -231,77 +337,173 @@ src/entity/model/Model.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/model/Model.cpp.s
 .PHONY : src/entity/model/Model.cpp.s
 
-src/loaders/ObjLoader.o: src/loaders/ObjLoader.cpp.o
-.PHONY : src/loaders/ObjLoader.o
+src/factory/CameraFactory.o: src/factory/CameraFactory.cpp.o
+.PHONY : src/factory/CameraFactory.o
 
 # target to build an object file
-src/loaders/ObjLoader.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/loaders/ObjLoader.cpp.o
-.PHONY : src/loaders/ObjLoader.cpp.o
+src/factory/CameraFactory.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/factory/CameraFactory.cpp.o
+.PHONY : src/factory/CameraFactory.cpp.o
 
-src/loaders/ObjLoader.i: src/loaders/ObjLoader.cpp.i
-.PHONY : src/loaders/ObjLoader.i
+src/factory/CameraFactory.i: src/factory/CameraFactory.cpp.i
+.PHONY : src/factory/CameraFactory.i
 
 # target to preprocess a source file
-src/loaders/ObjLoader.cpp.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/loaders/ObjLoader.cpp.i
-.PHONY : src/loaders/ObjLoader.cpp.i
+src/factory/CameraFactory.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/factory/CameraFactory.cpp.i
+.PHONY : src/factory/CameraFactory.cpp.i
 
-src/loaders/ObjLoader.s: src/loaders/ObjLoader.cpp.s
-.PHONY : src/loaders/ObjLoader.s
+src/factory/CameraFactory.s: src/factory/CameraFactory.cpp.s
+.PHONY : src/factory/CameraFactory.s
 
 # target to generate assembly for a file
-src/loaders/ObjLoader.cpp.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/loaders/ObjLoader.cpp.s
-.PHONY : src/loaders/ObjLoader.cpp.s
+src/factory/CameraFactory.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/factory/CameraFactory.cpp.s
+.PHONY : src/factory/CameraFactory.cpp.s
 
-src/loaders/ShaderLoader.o: src/loaders/ShaderLoader.cpp.o
-.PHONY : src/loaders/ShaderLoader.o
+src/factory/LightFactory.o: src/factory/LightFactory.cpp.o
+.PHONY : src/factory/LightFactory.o
 
 # target to build an object file
-src/loaders/ShaderLoader.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/loaders/ShaderLoader.cpp.o
-.PHONY : src/loaders/ShaderLoader.cpp.o
+src/factory/LightFactory.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.o
+.PHONY : src/factory/LightFactory.cpp.o
 
-src/loaders/ShaderLoader.i: src/loaders/ShaderLoader.cpp.i
-.PHONY : src/loaders/ShaderLoader.i
+src/factory/LightFactory.i: src/factory/LightFactory.cpp.i
+.PHONY : src/factory/LightFactory.i
 
 # target to preprocess a source file
-src/loaders/ShaderLoader.cpp.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/loaders/ShaderLoader.cpp.i
-.PHONY : src/loaders/ShaderLoader.cpp.i
+src/factory/LightFactory.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.i
+.PHONY : src/factory/LightFactory.cpp.i
 
-src/loaders/ShaderLoader.s: src/loaders/ShaderLoader.cpp.s
-.PHONY : src/loaders/ShaderLoader.s
+src/factory/LightFactory.s: src/factory/LightFactory.cpp.s
+.PHONY : src/factory/LightFactory.s
 
 # target to generate assembly for a file
-src/loaders/ShaderLoader.cpp.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/loaders/ShaderLoader.cpp.s
-.PHONY : src/loaders/ShaderLoader.cpp.s
+src/factory/LightFactory.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.s
+.PHONY : src/factory/LightFactory.cpp.s
 
-src/service/Courier.o: src/service/Courier.cpp.o
-.PHONY : src/service/Courier.o
+src/factory/ModelFactory.o: src/factory/ModelFactory.cpp.o
+.PHONY : src/factory/ModelFactory.o
 
 # target to build an object file
-src/service/Courier.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/Courier.cpp.o
-.PHONY : src/service/Courier.cpp.o
+src/factory/ModelFactory.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o
+.PHONY : src/factory/ModelFactory.cpp.o
 
-src/service/Courier.i: src/service/Courier.cpp.i
-.PHONY : src/service/Courier.i
+src/factory/ModelFactory.i: src/factory/ModelFactory.cpp.i
+.PHONY : src/factory/ModelFactory.i
 
 # target to preprocess a source file
-src/service/Courier.cpp.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/Courier.cpp.i
-.PHONY : src/service/Courier.cpp.i
+src/factory/ModelFactory.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.i
+.PHONY : src/factory/ModelFactory.cpp.i
 
-src/service/Courier.s: src/service/Courier.cpp.s
-.PHONY : src/service/Courier.s
+src/factory/ModelFactory.s: src/factory/ModelFactory.cpp.s
+.PHONY : src/factory/ModelFactory.s
 
 # target to generate assembly for a file
-src/service/Courier.cpp.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/Courier.cpp.s
-.PHONY : src/service/Courier.cpp.s
+src/factory/ModelFactory.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.s
+.PHONY : src/factory/ModelFactory.cpp.s
+
+src/loader/ObjLoader.o: src/loader/ObjLoader.cpp.o
+.PHONY : src/loader/ObjLoader.o
+
+# target to build an object file
+src/loader/ObjLoader.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/loader/ObjLoader.cpp.o
+.PHONY : src/loader/ObjLoader.cpp.o
+
+src/loader/ObjLoader.i: src/loader/ObjLoader.cpp.i
+.PHONY : src/loader/ObjLoader.i
+
+# target to preprocess a source file
+src/loader/ObjLoader.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/loader/ObjLoader.cpp.i
+.PHONY : src/loader/ObjLoader.cpp.i
+
+src/loader/ObjLoader.s: src/loader/ObjLoader.cpp.s
+.PHONY : src/loader/ObjLoader.s
+
+# target to generate assembly for a file
+src/loader/ObjLoader.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/loader/ObjLoader.cpp.s
+.PHONY : src/loader/ObjLoader.cpp.s
+
+src/loader/ShaderLoader.o: src/loader/ShaderLoader.cpp.o
+.PHONY : src/loader/ShaderLoader.o
+
+# target to build an object file
+src/loader/ShaderLoader.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/loader/ShaderLoader.cpp.o
+.PHONY : src/loader/ShaderLoader.cpp.o
+
+src/loader/ShaderLoader.i: src/loader/ShaderLoader.cpp.i
+.PHONY : src/loader/ShaderLoader.i
+
+# target to preprocess a source file
+src/loader/ShaderLoader.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/loader/ShaderLoader.cpp.i
+.PHONY : src/loader/ShaderLoader.cpp.i
+
+src/loader/ShaderLoader.s: src/loader/ShaderLoader.cpp.s
+.PHONY : src/loader/ShaderLoader.s
+
+# target to generate assembly for a file
+src/loader/ShaderLoader.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/loader/ShaderLoader.cpp.s
+.PHONY : src/loader/ShaderLoader.cpp.s
+
+src/service/BufferCourier.o: src/service/BufferCourier.cpp.o
+.PHONY : src/service/BufferCourier.o
+
+# target to build an object file
+src/service/BufferCourier.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.o
+.PHONY : src/service/BufferCourier.cpp.o
+
+src/service/BufferCourier.i: src/service/BufferCourier.cpp.i
+.PHONY : src/service/BufferCourier.i
+
+# target to preprocess a source file
+src/service/BufferCourier.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.i
+.PHONY : src/service/BufferCourier.cpp.i
+
+src/service/BufferCourier.s: src/service/BufferCourier.cpp.s
+.PHONY : src/service/BufferCourier.s
+
+# target to generate assembly for a file
+src/service/BufferCourier.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.s
+.PHONY : src/service/BufferCourier.cpp.s
+
+src/service/GLManager.o: src/service/GLManager.cpp.o
+.PHONY : src/service/GLManager.o
+
+# target to build an object file
+src/service/GLManager.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/GLManager.cpp.o
+.PHONY : src/service/GLManager.cpp.o
+
+src/service/GLManager.i: src/service/GLManager.cpp.i
+.PHONY : src/service/GLManager.i
+
+# target to preprocess a source file
+src/service/GLManager.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/GLManager.cpp.i
+.PHONY : src/service/GLManager.cpp.i
+
+src/service/GLManager.s: src/service/GLManager.cpp.s
+.PHONY : src/service/GLManager.s
+
+# target to generate assembly for a file
+src/service/GLManager.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/GLManager.cpp.s
+.PHONY : src/service/GLManager.cpp.s
 
 # Help Target
 help:
@@ -312,6 +514,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... opulence"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... home/champ/Git/crows/main.o"
 	@echo "... home/champ/Git/crows/main.i"
 	@echo "... home/champ/Git/crows/main.s"
@@ -324,18 +527,42 @@ help:
 	@echo "... src/entity/camera/Camera.o"
 	@echo "... src/entity/camera/Camera.i"
 	@echo "... src/entity/camera/Camera.s"
+	@echo "... src/entity/camera/RtsCamera.o"
+	@echo "... src/entity/camera/RtsCamera.i"
+	@echo "... src/entity/camera/RtsCamera.s"
+	@echo "... src/entity/light/DirectionalLight.o"
+	@echo "... src/entity/light/DirectionalLight.i"
+	@echo "... src/entity/light/DirectionalLight.s"
+	@echo "... src/entity/light/Light.o"
+	@echo "... src/entity/light/Light.i"
+	@echo "... src/entity/light/Light.s"
+	@echo "... src/entity/light/PointLight.o"
+	@echo "... src/entity/light/PointLight.i"
+	@echo "... src/entity/light/PointLight.s"
 	@echo "... src/entity/model/Model.o"
 	@echo "... src/entity/model/Model.i"
 	@echo "... src/entity/model/Model.s"
-	@echo "... src/loaders/ObjLoader.o"
-	@echo "... src/loaders/ObjLoader.i"
-	@echo "... src/loaders/ObjLoader.s"
-	@echo "... src/loaders/ShaderLoader.o"
-	@echo "... src/loaders/ShaderLoader.i"
-	@echo "... src/loaders/ShaderLoader.s"
-	@echo "... src/service/Courier.o"
-	@echo "... src/service/Courier.i"
-	@echo "... src/service/Courier.s"
+	@echo "... src/factory/CameraFactory.o"
+	@echo "... src/factory/CameraFactory.i"
+	@echo "... src/factory/CameraFactory.s"
+	@echo "... src/factory/LightFactory.o"
+	@echo "... src/factory/LightFactory.i"
+	@echo "... src/factory/LightFactory.s"
+	@echo "... src/factory/ModelFactory.o"
+	@echo "... src/factory/ModelFactory.i"
+	@echo "... src/factory/ModelFactory.s"
+	@echo "... src/loader/ObjLoader.o"
+	@echo "... src/loader/ObjLoader.i"
+	@echo "... src/loader/ObjLoader.s"
+	@echo "... src/loader/ShaderLoader.o"
+	@echo "... src/loader/ShaderLoader.i"
+	@echo "... src/loader/ShaderLoader.s"
+	@echo "... src/service/BufferCourier.o"
+	@echo "... src/service/BufferCourier.i"
+	@echo "... src/service/BufferCourier.s"
+	@echo "... src/service/GLManager.o"
+	@echo "... src/service/GLManager.i"
+	@echo "... src/service/GLManager.s"
 .PHONY : help
 
 

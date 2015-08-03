@@ -3,11 +3,22 @@
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: /home/champ/Git/crows/main.c
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: opulence.cpp
+CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: src/container/mtl_data.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: src/container/obj_data.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: src/entity/Entity.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: src/entity/camera/Camera.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: src/entity/camera/RtsCamera.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: src/entity/light/DirectionalLight.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: src/entity/light/Light.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: src/entity/light/PointLight.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: src/entity/model/Model.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: src/loaders/ObjLoader.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: src/loaders/ShaderLoader.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: src/service/Courier.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: src/factory/CameraFactory.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: src/factory/LightFactory.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: src/factory/ModelFactory.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: src/loader/ObjLoader.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: src/loader/ShaderLoader.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: src/service/BufferCourier.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: src/service/GLManager.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: /usr/include/SDL2/SDL.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: /usr/include/SDL2/SDL_assert.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: /usr/include/SDL2/SDL_atomic.h
@@ -53,11 +64,22 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: /usr/include/SDL2/begin_c
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o: /usr/include/SDL2/close_code.h
 
 CMakeFiles/opulence.dir/opulence.cpp.o: opulence.cpp
+CMakeFiles/opulence.dir/opulence.cpp.o: src/container/mtl_data.h
+CMakeFiles/opulence.dir/opulence.cpp.o: src/container/obj_data.h
+CMakeFiles/opulence.dir/opulence.cpp.o: src/entity/Entity.h
 CMakeFiles/opulence.dir/opulence.cpp.o: src/entity/camera/Camera.h
+CMakeFiles/opulence.dir/opulence.cpp.o: src/entity/camera/RtsCamera.h
+CMakeFiles/opulence.dir/opulence.cpp.o: src/entity/light/DirectionalLight.h
+CMakeFiles/opulence.dir/opulence.cpp.o: src/entity/light/Light.h
+CMakeFiles/opulence.dir/opulence.cpp.o: src/entity/light/PointLight.h
 CMakeFiles/opulence.dir/opulence.cpp.o: src/entity/model/Model.h
-CMakeFiles/opulence.dir/opulence.cpp.o: src/loaders/ObjLoader.h
-CMakeFiles/opulence.dir/opulence.cpp.o: src/loaders/ShaderLoader.h
-CMakeFiles/opulence.dir/opulence.cpp.o: src/service/Courier.h
+CMakeFiles/opulence.dir/opulence.cpp.o: src/factory/CameraFactory.h
+CMakeFiles/opulence.dir/opulence.cpp.o: src/factory/LightFactory.h
+CMakeFiles/opulence.dir/opulence.cpp.o: src/factory/ModelFactory.h
+CMakeFiles/opulence.dir/opulence.cpp.o: src/loader/ObjLoader.h
+CMakeFiles/opulence.dir/opulence.cpp.o: src/loader/ShaderLoader.h
+CMakeFiles/opulence.dir/opulence.cpp.o: src/service/BufferCourier.h
+CMakeFiles/opulence.dir/opulence.cpp.o: src/service/GLManager.h
 CMakeFiles/opulence.dir/opulence.cpp.o: /usr/include/SDL2/SDL.h
 CMakeFiles/opulence.dir/opulence.cpp.o: /usr/include/SDL2/SDL_assert.h
 CMakeFiles/opulence.dir/opulence.cpp.o: /usr/include/SDL2/SDL_atomic.h
@@ -104,24 +126,116 @@ CMakeFiles/opulence.dir/opulence.cpp.o: /usr/include/SDL2/close_code.h
 
 CMakeFiles/opulence.dir/src/entity/Entity.cpp.o: src/entity/Entity.cpp
 CMakeFiles/opulence.dir/src/entity/Entity.cpp.o: src/entity/Entity.h
-CMakeFiles/opulence.dir/src/entity/Entity.cpp.o: src/entity/model/Model.h
-CMakeFiles/opulence.dir/src/entity/Entity.cpp.o: src/loaders/ObjLoader.h
 
+CMakeFiles/opulence.dir/src/entity/camera/Camera.cpp.o: src/entity/Entity.h
 CMakeFiles/opulence.dir/src/entity/camera/Camera.cpp.o: src/entity/camera/Camera.cpp
 CMakeFiles/opulence.dir/src/entity/camera/Camera.cpp.o: src/entity/camera/Camera.h
 
+CMakeFiles/opulence.dir/src/entity/camera/RtsCamera.cpp.o: src/entity/Entity.h
+CMakeFiles/opulence.dir/src/entity/camera/RtsCamera.cpp.o: src/entity/camera/Camera.h
+CMakeFiles/opulence.dir/src/entity/camera/RtsCamera.cpp.o: src/entity/camera/RtsCamera.cpp
+CMakeFiles/opulence.dir/src/entity/camera/RtsCamera.cpp.o: src/entity/camera/RtsCamera.h
+
+CMakeFiles/opulence.dir/src/entity/light/DirectionalLight.cpp.o: src/entity/Entity.h
+CMakeFiles/opulence.dir/src/entity/light/DirectionalLight.cpp.o: src/entity/light/DirectionalLight.cpp
+CMakeFiles/opulence.dir/src/entity/light/DirectionalLight.cpp.o: src/entity/light/DirectionalLight.h
+CMakeFiles/opulence.dir/src/entity/light/DirectionalLight.cpp.o: src/entity/light/Light.h
+
+CMakeFiles/opulence.dir/src/entity/light/Light.cpp.o: src/entity/Entity.h
+CMakeFiles/opulence.dir/src/entity/light/Light.cpp.o: src/entity/light/Light.cpp
+CMakeFiles/opulence.dir/src/entity/light/Light.cpp.o: src/entity/light/Light.h
+
+CMakeFiles/opulence.dir/src/entity/light/PointLight.cpp.o: src/entity/Entity.h
+CMakeFiles/opulence.dir/src/entity/light/PointLight.cpp.o: src/entity/light/Light.h
+CMakeFiles/opulence.dir/src/entity/light/PointLight.cpp.o: src/entity/light/PointLight.cpp
+CMakeFiles/opulence.dir/src/entity/light/PointLight.cpp.o: src/entity/light/PointLight.h
+
+CMakeFiles/opulence.dir/src/entity/model/Model.cpp.o: src/container/obj_data.h
+CMakeFiles/opulence.dir/src/entity/model/Model.cpp.o: src/entity/Entity.h
 CMakeFiles/opulence.dir/src/entity/model/Model.cpp.o: src/entity/model/Model.cpp
 CMakeFiles/opulence.dir/src/entity/model/Model.cpp.o: src/entity/model/Model.h
-CMakeFiles/opulence.dir/src/entity/model/Model.cpp.o: src/loaders/ObjLoader.h
 
-CMakeFiles/opulence.dir/src/loaders/ObjLoader.cpp.o: src/loaders/ObjLoader.cpp
-CMakeFiles/opulence.dir/src/loaders/ObjLoader.cpp.o: src/loaders/ObjLoader.h
+CMakeFiles/opulence.dir/src/factory/CameraFactory.cpp.o: src/entity/Entity.h
+CMakeFiles/opulence.dir/src/factory/CameraFactory.cpp.o: src/entity/camera/Camera.h
+CMakeFiles/opulence.dir/src/factory/CameraFactory.cpp.o: src/factory/CameraFactory.cpp
+CMakeFiles/opulence.dir/src/factory/CameraFactory.cpp.o: src/factory/CameraFactory.h
 
-CMakeFiles/opulence.dir/src/loaders/ShaderLoader.cpp.o: src/loaders/ShaderLoader.cpp
-CMakeFiles/opulence.dir/src/loaders/ShaderLoader.cpp.o: src/loaders/ShaderLoader.h
+CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.o: src/entity/Entity.h
+CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.o: src/entity/light/DirectionalLight.h
+CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.o: src/entity/light/Light.h
+CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.o: src/entity/light/PointLight.h
+CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.o: src/factory/LightFactory.cpp
+CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.o: src/factory/LightFactory.h
 
-CMakeFiles/opulence.dir/src/service/Courier.cpp.o: src/entity/model/Model.h
-CMakeFiles/opulence.dir/src/service/Courier.cpp.o: src/loaders/ObjLoader.h
-CMakeFiles/opulence.dir/src/service/Courier.cpp.o: src/service/Courier.cpp
-CMakeFiles/opulence.dir/src/service/Courier.cpp.o: src/service/Courier.h
+CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o: src/container/mtl_data.h
+CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o: src/container/obj_data.h
+CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o: src/entity/Entity.h
+CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o: src/entity/model/Model.h
+CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o: src/factory/ModelFactory.cpp
+CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o: src/factory/ModelFactory.h
+CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o: src/loader/ObjLoader.h
+CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o: src/loader/ShaderLoader.h
+CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o: src/service/BufferCourier.h
+
+CMakeFiles/opulence.dir/src/loader/ObjLoader.cpp.o: src/container/mtl_data.h
+CMakeFiles/opulence.dir/src/loader/ObjLoader.cpp.o: src/container/obj_data.h
+CMakeFiles/opulence.dir/src/loader/ObjLoader.cpp.o: src/loader/ObjLoader.cpp
+CMakeFiles/opulence.dir/src/loader/ObjLoader.cpp.o: src/loader/ObjLoader.h
+
+CMakeFiles/opulence.dir/src/loader/ShaderLoader.cpp.o: src/loader/ShaderLoader.cpp
+CMakeFiles/opulence.dir/src/loader/ShaderLoader.cpp.o: src/loader/ShaderLoader.h
+
+CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.o: src/container/obj_data.h
+CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.o: src/entity/Entity.h
+CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.o: src/entity/model/Model.h
+CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.o: src/loader/ShaderLoader.h
+CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.o: src/service/BufferCourier.cpp
+CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.o: src/service/BufferCourier.h
+
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: src/loader/ShaderLoader.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: src/service/GLManager.cpp
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: src/service/GLManager.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_assert.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_atomic.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_audio.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_blendmode.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_clipboard.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_config.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_cpuinfo.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_endian.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_error.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_events.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_filesystem.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_gamecontroller.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_gesture.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_haptic.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_hints.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_joystick.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_keyboard.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_keycode.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_loadso.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_log.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_main.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_messagebox.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_mouse.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_mutex.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_pixels.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_platform.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_power.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_quit.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_rect.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_render.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_rwops.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_scancode.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_stdinc.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_surface.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_system.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_thread.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_timer.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_touch.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_version.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/SDL_video.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/begin_code.h
+CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: /usr/include/SDL2/close_code.h
 
