@@ -1,9 +1,11 @@
 language: cpp
-sudo: false
-addons:
-    apt:
-        packages:
-            - cmake
+compiler:
+  - gcc
+before_install:
+ - sudo apt-get update
+ - sudo apt-get install libgtest-dev
+ - "cd /usr/src/gtest && sudo cmake . && sudo cmake --build . && sudo mv libg* /usr/local/lib/ ; cd -"
+
 script:
     - wget http://www.libsdl.org/download-2.0.php/SDL2-2.0.0.tar.gz
     - tar xzvf SDL2-2.0.0.tar.gz
