@@ -1,5 +1,5 @@
-# Compiled executables
-/bin
+# Caching
+CMakeCache.txt
 
 # IntelliJ cLion settings
 /.idea
