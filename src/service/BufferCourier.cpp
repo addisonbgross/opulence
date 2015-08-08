@@ -87,8 +87,8 @@ void BufferCourier::clearBuffer(Model *model)
 }
 
 /**
- * render() - draws every model's buffers to the screen. Updates
- *            totalTriangles
+ * render() - draws every model and animations frame buffer to the
+ *            screen. Updates totalTriangles
  */
 void BufferCourier::render()
 {
@@ -112,6 +112,7 @@ void BufferCourier::render()
                                          model->position.y,
                                          model->position.z);
         glUniform3fv(bufferUniforms.at("modelPosition"), 1, &modelPlace[0]);
+        glUniform1fv(bufferUniforms.at("scale"), 1, &model->scale);
 
         // push vertex positions
         glBindBuffer(GL_ARRAY_BUFFER, model->positionBuffer);
@@ -137,7 +138,7 @@ void BufferCourier::render()
         totalTriangles += (model->getNumIndexVerts() / 3);
     }
 
-    totalTriangles = 0;
+    // render the current frame of each animation
     GLuint numAnimations = (GLuint) activeAnimations.size();
     for (i = 0; i < numAnimations; ++i) {
         Model *model = activeAnimations.at(i)->getCurrentFrame();
@@ -147,6 +148,7 @@ void BufferCourier::render()
                                          model->position.y,
                                          model->position.z);
         glUniform3fv(bufferUniforms.at("modelPosition"), 1, &modelPlace[0]);
+        glUniform1fv(bufferUniforms.at("scale"), 1, &model->scale);
 
         // push vertex positions
         glBindBuffer(GL_ARRAY_BUFFER, model->positionBuffer);
@@ -170,7 +172,6 @@ void BufferCourier::render()
 
         // update total triangles being drawn in scene
         totalTriangles += (model->getNumIndexVerts() / 3);
-
     }
 }
 
@@ -205,15 +206,19 @@ void BufferCourier::addModel(Model *model)
     sendBuffer(model);
 }
 
+/**
+ * addAnimation() - adds an opulence animation to collection
+ *
+ * @params *animation being added
+ */
 void BufferCourier::addAnimation(Animation *animation)
 {
     activeAnimations.push_back(animation);
-    sendBuffer(animation->getFrame(0));
-    sendBuffer(animation->getFrame(1));
-    sendBuffer(animation->getFrame(2));
-    sendBuffer(animation->getFrame(3));
-    sendBuffer(animation->getFrame(4));
-    sendBuffer(animation->getFrame(5));
+
+    for (int i = 0; i < animation->getNumFrames(); ++i) {
+        animation->getFrame(i)->scale = 0.1;
+        sendBuffer(animation->getFrame(i));
+    }
 }
 
 /**
@@ -258,6 +263,16 @@ GLint BufferCourier::getUniform(std::string name)
 GLuint BufferCourier::getNumModels()
 {
     return activeModels.size();
+}
+
+/**
+ * getNumAnimations() - total animations in current opulence scene
+ *
+ * @return GLuint total animations being rendered
+ */
+GLuint BufferCourier::getNumAnimations()
+{
+    return activeAnimations.size();
 }
 
 

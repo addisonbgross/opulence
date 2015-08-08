@@ -42,6 +42,7 @@ public:
     GLint getAttribute(std::string name);
     GLint getUniform(std::string name);
     GLuint getNumModels();
+    GLuint getNumAnimations();
 };
 
 #endif

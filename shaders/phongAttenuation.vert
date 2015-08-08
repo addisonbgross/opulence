@@ -12,6 +12,8 @@ uniform vec3 pointLight;
 uniform float linearAtt;
 uniform float quadraticAtt;
 
+uniform float scale;
+
 in vec3 position;
 in vec3 normal;
 in vec4 diffuse;
@@ -44,5 +46,5 @@ void main()
     f_quadraticAttenuation = quadraticAtt;
     f_constantAttenuation = 0.1;  // its constant
 
-    gl_Position = proj * view * model * vec4(position + modelPosition, 1.0);
+    gl_Position = proj * view * model * vec4(scale * (position + modelPosition), 1.0);
 }

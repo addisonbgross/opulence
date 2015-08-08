@@ -3,16 +3,13 @@
 RtsCamera::RtsCamera() : Camera()
 {
     bearing = new glm::vec4(1.0f);
+    updateBearing();
 }
 
 RtsCamera::RtsCamera(float x, float y, float z) : Camera(x, y, z)
 {
     bearing = new glm::vec4(1.0f);
-
-    glm::vec3 camFocus = *eye - *focus;
-    glm::mat4 rotationMatrix = glm::rotate(glm::mat4(1.0f), 5.0f, glm::vec3(0.0f, 1.0f, 0.0f));
-    rotationMatrix = glm::rotate(glm::mat4(1.0f), glm::radians(90.f), glm::vec3(0.0f, 1.0f, 0.0f));
-    *bearing = rotationMatrix * glm::vec4(camFocus, 1.0f);
+    updateBearing();
 }
 
 void RtsCamera::moveForward(float n)
@@ -79,6 +76,12 @@ void RtsCamera::rotateHorizontal(float deg)
     eye->y = temp.y;
     eye->z = temp.z;
 
-    rotationMatrix = glm::rotate(glm::mat4(1.0f), glm::radians(90.f), glm::vec3(0.0f, 1.0f, 0.0f));
+    updateBearing();
+}
+
+void RtsCamera::updateBearing()
+{
+    glm::vec3 camFocus = *eye - *focus;
+    glm::mat4 rotationMatrix = glm::rotate(glm::mat4(1.0f), glm::radians(90.f), glm::vec3(0.0f, 1.0f, 0.0f));
     *bearing = rotationMatrix * glm::vec4(camFocus, 1.0f);
 }

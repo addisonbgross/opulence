@@ -23,6 +23,7 @@ public:
     // get
     Model * getFrame(int i);
     Model * getCurrentFrame();
+    int getNumFrames();
 };
 
 

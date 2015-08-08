@@ -25,6 +25,7 @@ public:
     void moveBack(float n);
     void rotateVertical(float deg);
     void rotateHorizontal(float deg);
+    void updateBearing();
 };
 
 #endif

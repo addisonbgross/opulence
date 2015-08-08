@@ -14,6 +14,11 @@ Model * Animation::getFrame(int i)
     return frames->at(i);
 }
 
+int Animation::getNumFrames()
+{
+    return frames->size();
+}
+
 Model * Animation::getCurrentFrame()
 {
     Model *currentModel;
