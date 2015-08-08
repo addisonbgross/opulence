@@ -3,8 +3,10 @@
 
 #include <iostream>
 #include <glm/glm.hpp>
+#include <GL/gl.h>
 
 struct obj_data {
+    std::string name;
     std::vector<GLfloat> position;
     std::vector<GLfloat> normal;
     std::vector<GLfloat> diffuse;

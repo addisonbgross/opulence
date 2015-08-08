@@ -13,7 +13,9 @@ private:
     std::vector<Light *> activeLights;
     glm::vec4 *ambientColour;
     float ambientIntensity;
+    glm::vec4 *directionalColour;
     DirectionalLight *directionalLight;
+    float directionalIntensity;
     PointLight *pointLight;
 
 public:
@@ -27,6 +29,8 @@ public:
     // set
     void setAmbientColour(glm::vec4 *colour);
     void setAmbientIntensity(float i);
+    void setDirectionalColour(glm::vec4 *colour);
+    void setDirectionalIntensity(float i);
 
     // get
     glm::vec4 * getAmbientColour();

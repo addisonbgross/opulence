@@ -19,6 +19,7 @@ private:
     std::vector<GLuint>  *normalIndexVerts;
 
 public:
+    GLfloat scale = 1.0f;
     GLuint  positionBuffer,
             normalBuffer,
             diffuseBuffer,

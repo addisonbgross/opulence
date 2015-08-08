@@ -87,8 +87,8 @@ void BufferCourier::clearBuffer(Model *model)
 }
 
 /**
- * render() - draws every model's buffers to the screen. Updates
- *            totalTriangles
+ * render() - draws every model and animations frame buffer to the
+ *            screen. Updates totalTriangles
  */
 void BufferCourier::render()
 {
@@ -112,6 +112,43 @@ void BufferCourier::render()
                                          model->position.y,
                                          model->position.z);
         glUniform3fv(bufferUniforms.at("modelPosition"), 1, &modelPlace[0]);
+        glUniform1fv(bufferUniforms.at("scale"), 1, &model->scale);
+
+        // push vertex positions
+        glBindBuffer(GL_ARRAY_BUFFER, model->positionBuffer);
+        glVertexAttribPointer(bufferAttributes.at("position"), 3, GL_FLOAT, GL_FALSE, 0, 0);
+
+        // push vertex normals
+        glBindBuffer(GL_ARRAY_BUFFER, model->normalBuffer);
+        glVertexAttribPointer(bufferAttributes.at("normal"), 3, GL_FLOAT, GL_FALSE, 0, 0);
+
+        // push diffuse colour
+        glBindBuffer(GL_ARRAY_BUFFER, model->diffuseBuffer);
+        glVertexAttribPointer(bufferAttributes.at("diffuse"), 4, GL_FLOAT, GL_FALSE, 0, 0);
+
+        // push specular colour
+        glBindBuffer(GL_ARRAY_BUFFER, model->specularBuffer);
+        glVertexAttribPointer(bufferAttributes.at("specular"), 4, GL_FLOAT, GL_FALSE, 0, 0);
+
+        // push vertex indexes
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, model->indexBuffer);
+        glDrawElements(GL_TRIANGLES, model->getNumIndexVerts(), GL_UNSIGNED_INT, 0);
+
+        // update total triangles being drawn in scene
+        totalTriangles += (model->getNumIndexVerts() / 3);
+    }
+
+    // render the current frame of each animation
+    GLuint numAnimations = (GLuint) activeAnimations.size();
+    for (i = 0; i < numAnimations; ++i) {
+        Model *model = activeAnimations.at(i)->getCurrentFrame();
+
+        // set model position
+        glm::vec3 modelPlace = glm::vec3(model->position.x,
+                                         model->position.y,
+                                         model->position.z);
+        glUniform3fv(bufferUniforms.at("modelPosition"), 1, &modelPlace[0]);
+        glUniform1fv(bufferUniforms.at("scale"), 1, &model->scale);
 
         // push vertex positions
         glBindBuffer(GL_ARRAY_BUFFER, model->positionBuffer);
@@ -170,6 +207,21 @@ void BufferCourier::addModel(Model *model)
 }
 
 /**
+ * addAnimation() - adds an opulence animation to collection
+ *
+ * @params *animation being added
+ */
+void BufferCourier::addAnimation(Animation *animation)
+{
+    activeAnimations.push_back(animation);
+
+    for (int i = 0; i < animation->getNumFrames(); ++i) {
+        animation->getFrame(i)->scale = 0.1;
+        sendBuffer(animation->getFrame(i));
+    }
+}
+
+/**
  * removeModel() - removes model from both opulence and the video card
  *
  * @params id the specific model which is to be deleted
@@ -211,6 +263,16 @@ GLint BufferCourier::getUniform(std::string name)
 GLuint BufferCourier::getNumModels()
 {
     return activeModels.size();
+}
+
+/**
+ * getNumAnimations() - total animations in current opulence scene
+ *
+ * @return GLuint total animations being rendered
+ */
+GLuint BufferCourier::getNumAnimations()
+{
+    return activeAnimations.size();
 }
 
 

@@ -16,5 +16,5 @@ void CameraFactory::setMainCamera(Camera *c)
 
 Camera * CameraFactory::getMainCamera()
 {
-    return activeCameras.at(0);
+    return mainCamera;
 }

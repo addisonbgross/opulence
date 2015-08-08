@@ -44,6 +44,16 @@ void LightFactory::setAmbientIntensity(float i)
     ambientIntensity = i;
 }
 
+void LightFactory::setDirectionalColour(glm::vec4 *colour)
+{
+    directionalLight->setColour(colour);
+}
+
+void LightFactory::setDirectionalIntensity(float i)
+{
+    directionalLight->setIntensity(i);
+}
+
 /*** getters ***/
 
 glm::vec4 * LightFactory::getAmbientColour()
