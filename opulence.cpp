@@ -66,6 +66,11 @@ public:
         return &modelFactory;
     }
 
+    GLManager * getGLManager()
+    {
+        return &glMan;
+    }
+
     void getStats()
     {
         bufferCourier.reportStats();

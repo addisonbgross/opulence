@@ -4,6 +4,7 @@
 * CMake 2.8
 * Google Test 1.7.0
 * SDL 2.0
+* FreeType 2.0
 * OpenGL 3.3
 * GLSL 1.3
 * OpenGL Extension Wrangler Library 1.6 (GLEW)
@@ -12,12 +13,16 @@
 ## Usage
 
 ###Google Test Installation
-#### Ubuntu
+#### Linux
 * cd /test/gtest-(version number)
 * sudo cmake .
 * sudo make
 * sudo mv libg* /usr/lib
 * sudo apt-get install libgtest-dev
+
+###FreeType 2.0 Insallation
+#### Linux
+* sudo apt-get install libsdl-ttf2.0-0.dev
 
 ```c++
 #include "opulence/opulence.cpp"
