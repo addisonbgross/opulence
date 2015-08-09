@@ -13,6 +13,9 @@ Model::Model(float x, float y, float z) : Entity()
 
 Model::Model(float x, float y, float z, obj_data *objData) : Model(x, y, z)
 {
+    width = objData->width;
+    height = objData->height;
+    depth = objData->depth;
     positionVerts  = &objData->position;
     normalVerts    = &objData->normal;
     diffuseVerts   = &objData->diffuse;

@@ -107,12 +107,9 @@ obj_data ObjLoader::import(std::string filePath)
             j, k, l;
 
     // temps for getting the dimensions of the obj model
-    GLfloat minWidth,
-          maxWidth,
-          minHeight,
-          maxHeight,
-          minDepth,
-          maxDepth;
+    GLfloat minWidth, maxWidth,
+            minHeight, maxHeight,
+            minDepth, maxDepth;
     // temp containers for vertex data
     std::vector<GLfloat> tempPosition, tempUv, tempNormals;
     // generic counter for iteration
@@ -169,6 +166,7 @@ obj_data ObjLoader::import(std::string filePath)
                     tempPosition.push_back(b);
                     tempPosition.push_back(c);
 
+                    // update model temp dimensions
                     if (a <= minWidth) {
                         minWidth = a;
                     } else if (a > maxWidth) {
@@ -324,7 +322,7 @@ obj_data ObjLoader::import(std::string filePath)
         }
     }
 
-    // derive model dimensions
+    // assign model dimensions
     objData.width = maxWidth - minWidth;
     objData.height = maxHeight - minHeight;
     objData.depth = maxDepth - minDepth;

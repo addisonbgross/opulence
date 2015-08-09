@@ -19,6 +19,9 @@ private:
     std::vector<GLuint>  *normalIndexVerts;
 
 public:
+    GLfloat width = 0,
+            height = 0,
+            depth = 0;
     GLuint  positionBuffer,
             normalBuffer,
             diffuseBuffer,
