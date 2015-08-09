@@ -6,6 +6,7 @@
 class Entity {
 public:
     float x, y, z;
+    float scale = 1.0f;
     glm::vec3 position;
 
     Entity();

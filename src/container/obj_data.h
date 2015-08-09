@@ -7,6 +7,7 @@
 
 struct obj_data {
     std::string name;
+    GLfloat width, height, depth;
     std::vector<GLfloat> position;
     std::vector<GLfloat> normal;
     std::vector<GLfloat> diffuse;
