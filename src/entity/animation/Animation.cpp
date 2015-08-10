@@ -4,14 +4,21 @@ Animation::Animation() {}
 
 Animation::~Animation() {}
 
-Animation::Animation(float x, float y, float z, std::vector<Model*> *frames) : Entity()
+Animation::Animation(float x, float y, float z, std::vector<Model*> *frames) : Entity(x, y, z)
 {
     this->frames = frames;
 }
 
+/*** get ***/
+
 Model * Animation::getFrame(int i)
 {
     return frames->at(i);
+}
+
+bool Animation::getPingPong()
+{
+    return isPingPong;
 }
 
 int Animation::getNumFrames()
@@ -22,9 +29,12 @@ int Animation::getNumFrames()
 Model * Animation::getCurrentFrame()
 {
     Model *currentModel;
+    int numFrames = frames->size();
+
+    // ping-pong mode
     if (isPingPong) {
         if (pingPongAscending) {
-            if (frameCounter < 6) {
+            if (frameCounter < numFrames) {
                 currentModel = frames->at(frameCounter);
                 ++frameCounter;
             } else {
@@ -43,7 +53,35 @@ Model * Animation::getCurrentFrame()
                 currentModel = frames->at(frameCounter);
             }
         }
+
+    // standard linear mode
+    } else {
+        if (frameCounter < numFrames) {
+            currentModel = frames->at(frameCounter);
+            ++frameCounter;
+        } else {
+            --frameCounter;
+            currentModel = frames->at(frameCounter);
+        }
     }
+
+    currentModel->position.x = this->position.x;
+    currentModel->position.y = this->position.y;
+    currentModel->position.z = this->position.z;
+
     return currentModel;
 }
 
+/*** set ***/
+
+void Animation::setScale(float scale)
+{
+    for (int i = 0; i < frames->size(); ++i) {
+        frames->at(i)->setScale(scale);
+    }
+}
+
+void Animation::setPingPong(bool pong)
+{
+    isPingPong = pong;
+}

@@ -112,7 +112,7 @@ void BufferCourier::render()
                                          model->position.y,
                                          model->position.z);
         glUniform3fv(bufferUniforms.at("modelPosition"), 1, &modelPlace[0]);
-        glUniform1fv(bufferUniforms.at("scale"), 1, &model->scale);
+        glUniform1fv(bufferUniforms.at("scale"), 1, model->getScale());
 
         // push vertex positions
         glBindBuffer(GL_ARRAY_BUFFER, model->positionBuffer);
@@ -148,7 +148,7 @@ void BufferCourier::render()
                                          model->position.y,
                                          model->position.z);
         glUniform3fv(bufferUniforms.at("modelPosition"), 1, &modelPlace[0]);
-        glUniform1fv(bufferUniforms.at("scale"), 1, &model->scale);
+        glUniform1fv(bufferUniforms.at("scale"), 1, model->getScale());
 
         // push vertex positions
         glBindBuffer(GL_ARRAY_BUFFER, model->positionBuffer);
@@ -216,7 +216,6 @@ void BufferCourier::addAnimation(Animation *animation)
     activeAnimations.push_back(animation);
 
     for (int i = 0; i < animation->getNumFrames(); ++i) {
-        animation->getFrame(i)->scale = 0.1;
         sendBuffer(animation->getFrame(i));
     }
 }

@@ -43,6 +43,12 @@ std::vector<mtl_data> ObjLoader::importMtl(std::string filePath)
             }
             mtl.name = line;
 
+        // transparency
+        } else if (line.c_str()[0] == 'd') {
+            line = line.substr(2, line.length() - 1);
+            sscanf(line.c_str(), "%f", &a);
+            mtl.transparency = a;
+
         // diffuse colour
         } else if (line.c_str()[1] == 'd') {
             line = line.substr(2, line.length() - 1);
@@ -107,12 +113,9 @@ obj_data ObjLoader::import(std::string filePath)
             j, k, l;
 
     // temps for getting the dimensions of the obj model
-    GLfloat minWidth,
-          maxWidth,
-          minHeight,
-          maxHeight,
-          minDepth,
-          maxDepth;
+    GLfloat minWidth, maxWidth,
+            minHeight, maxHeight,
+            minDepth, maxDepth;
     // temp containers for vertex data
     std::vector<GLfloat> tempPosition, tempUv, tempNormals;
     // generic counter for iteration
@@ -169,6 +172,7 @@ obj_data ObjLoader::import(std::string filePath)
                     tempPosition.push_back(b);
                     tempPosition.push_back(c);
 
+                    // update model temp dimensions
                     if (a <= minWidth) {
                         minWidth = a;
                     } else if (a > maxWidth) {
@@ -248,26 +252,26 @@ obj_data ObjLoader::import(std::string filePath)
                 g -= normalOffset;
                 i -= normalOffset;
 
-                // diffuse colour for one face (transparency not implemented)
+                // diffuse colour for one face
                 pushThree(objData.diffuse,
                           currentMtl.diffuse.x,
                           currentMtl.diffuse.y,
                           currentMtl.diffuse.z);
-                objData.diffuse.push_back(1.0f);
+                objData.diffuse.push_back(currentMtl.transparency);
 
                 pushThree(objData.diffuse,
                           currentMtl.diffuse.x,
                           currentMtl.diffuse.y,
                           currentMtl.diffuse.z);
-                objData.diffuse.push_back(1.0f);
+                objData.diffuse.push_back(currentMtl.transparency);
 
                 pushThree(objData.diffuse,
                           currentMtl.diffuse.x,
                           currentMtl.diffuse.y,
                           currentMtl.diffuse.z);
-                objData.diffuse.push_back(1.0f);
+                objData.diffuse.push_back(currentMtl.transparency);
 
-                // specular colour for one face (transparency not implemented)
+                // specular colour for one face
                 pushThree(objData.specular,
                           currentMtl.specular.x,
                           currentMtl.specular.y,
@@ -324,7 +328,7 @@ obj_data ObjLoader::import(std::string filePath)
         }
     }
 
-    // derive model dimensions
+    // assign model dimensions
     objData.width = maxWidth - minWidth;
     objData.height = maxHeight - minHeight;
     objData.depth = maxDepth - minDepth;

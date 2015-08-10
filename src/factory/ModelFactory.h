@@ -17,7 +17,9 @@ private:
 
 public:
     Model * makeModel(float x, float y, float z, std::string name);
+    Model * makeModel(float x, float y, float z, std::string name, float scale);
     Animation * makeAnimation(float x, float y, float z, std::string name);
+    Animation * makeAnimation(float x, float y, float z, std::string name, float scale);
     void setBufferCourier(BufferCourier *buff);
 
     void reportStats();

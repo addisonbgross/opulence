@@ -11,6 +11,7 @@
 
 class Model : public Entity {
 private:
+    GLfloat scale = 1.0;
     std::vector<GLfloat> *positionVerts;
     std::vector<GLfloat> *normalVerts;
     std::vector<GLfloat> *diffuseVerts;
@@ -19,6 +20,9 @@ private:
     std::vector<GLuint>  *normalIndexVerts;
 
 public:
+    GLfloat width = 0,
+            height = 0,
+            depth = 0;
     GLuint  positionBuffer,
             normalBuffer,
             diffuseBuffer,
@@ -27,10 +31,10 @@ public:
 
     Model();
     ~Model();
-    Model(float x, float y, float z);
     Model(float x, float y, float z, obj_data *objData);
 
     // set
+    void setScale(GLfloat scale);
     void setPositionVerts(std::vector<GLfloat> *v);
     void setNormalVerts(std::vector<GLfloat> *v);
     void setDiffuseVerts(std::vector<GLfloat> *v);
@@ -39,6 +43,7 @@ public:
     void setNormalIndexVerts(std::vector<GLuint> *v);
 
     // get
+    GLfloat * getScale();
     GLfloat * getPositionVerts();
     GLfloat * getNormalVerts();
     GLfloat * getDiffuseVerts();

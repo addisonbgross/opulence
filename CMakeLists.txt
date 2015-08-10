@@ -66,6 +66,8 @@ add_executable(opulence
                src/service/BufferCourier.h
                src/service/GLManager.cpp
                src/service/GLManager.h
+               src/service/TimeManager.cpp
+               src/service/TimeManager.h
 
                src/factory/CameraFactory.cpp
                src/factory/CameraFactory.h
