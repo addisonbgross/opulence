@@ -10,6 +10,7 @@
 #include "src/factory/LightFactory.h"
 #include "src/factory/ModelFactory.h"
 #include "src/service/GLManager.h"
+#include "src/service/TimeManager.h"
 
 /**
  * opulence - An OpenGL graphics renderer
@@ -28,6 +29,7 @@ private:
     ModelFactory modelFactory;
     LightFactory lightFactory;
     GLManager glMan;
+    TimeManager timeMan;
 
 public:
     // default screen dimension constants
@@ -71,22 +73,27 @@ public:
         return &glMan;
     }
 
+    TimeManager * getTimeManager()
+    {
+        return &timeMan;
+    }
+
     void getStats()
     {
         bufferCourier.reportStats();
         //modelFactory->reportStats();
+        timeMan.reportStats();
     }
 
     void render()
     {
-        /* vertex shader stuff */
         model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0, 0.0, 0.0));
 
         view = glm::lookAt(*cameraFactory.getMainCamera()->getEye(),
                            *cameraFactory.getMainCamera()->getFocus(),
                            *cameraFactory.getMainCamera()->getTop());
 
-        proj = glm::perspective(45.0f, SCREEN_WIDTH / SCREEN_HEIGHT, 0.1f, 10000.0f);
+        proj = glm::perspective(45.0f, SCREEN_WIDTH / SCREEN_HEIGHT, 1.0f, 10000.0f);
 
         /* vertex shader stuff */
         glUniformMatrix4fv(bufferCourier.getUniform(("model")), 1, GL_FALSE, &model[0][0]);

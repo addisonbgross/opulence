@@ -17,6 +17,10 @@ bool GLManager::initGL()
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LEQUAL);
 
+    // transparency
+    //glEnable(GL_BLEND);
+    //glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
     // enable vsync rate
     if (SDL_GL_SetSwapInterval(1) < 0)
         std::cout << "Swap Interval could not be set!" << std::endl;

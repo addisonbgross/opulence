@@ -24,6 +24,18 @@ Model * ModelFactory::makeModel(float x, float y, float z, std::string name)
     }
 }
 
+Model * ModelFactory::makeModel(float x, float y, float z, std::string name, float scale)
+{
+    if (objMap.count(name) > 0) {
+        Model *model = new Model(x, y, z, &objMap.at(name));
+        model->setScale(scale);
+        bufferCourier->addModel(model);
+        return model;
+    } else {
+        std::cout << "ERR: Could not find obj model -> " << name << ".obj" << std::endl;
+    }
+}
+
 Animation * ModelFactory::makeAnimation(float x, float y, float z, std::string name)
 {
     std::vector<Model*> *frames;
@@ -34,6 +46,26 @@ Animation * ModelFactory::makeAnimation(float x, float y, float z, std::string n
         for (int i = 0; i < 6; ++i) {
             frameName = name + "_" + std::to_string(i);
             model = new Model(x, y, z, &objMap.at(frameName));
+            frames->push_back(model);
+        }
+        Animation *animation = new Animation(x, y, z, frames);
+        bufferCourier->addAnimation(animation);
+    } else {
+        std::cout << "ERR: Could not find obj animation -> " << name << ".obj" << std::endl;
+    }
+}
+
+Animation * ModelFactory::makeAnimation(float x, float y, float z, std::string name, float scale)
+{
+    std::vector<Model*> *frames;
+    std::string frameName;
+    Model *model;
+    if (objMap.count(name + "_0") > 0) {
+        frames = new std::vector<Model*>();
+        for (int i = 0; i < 6; ++i) {
+            frameName = name + "_" + std::to_string(i);
+            model = new Model(x, y, z, &objMap.at(frameName));
+            model->setScale(scale);
             frames->push_back(model);
         }
         Animation *animation = new Animation(x, y, z, frames);

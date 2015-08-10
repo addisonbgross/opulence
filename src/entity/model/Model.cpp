@@ -4,15 +4,11 @@ Model::Model() {}
 
 Model::~Model() {}
 
-Model::Model(float x, float y, float z) : Entity()
+Model::Model(float x, float y, float z, obj_data *objData)
 {
-    this->position.x = x;
-    this->position.y = y;
-    this->position.z = z;
-}
-
-Model::Model(float x, float y, float z, obj_data *objData) : Model(x, y, z)
-{
+    position.x = x;
+    position.y = y;
+    position.z = z;
     width = objData->width;
     height = objData->height;
     depth = objData->depth;
@@ -24,6 +20,14 @@ Model::Model(float x, float y, float z, obj_data *objData) : Model(x, y, z)
 }
 
 /*** set ***/
+
+void Model::setScale(GLfloat scale)
+{
+    width *= scale;
+    height *= scale;
+    depth *= scale;
+    this->scale = scale;
+}
 
 void Model::setPositionVerts(std::vector<GLfloat> *v)
 {
@@ -56,6 +60,11 @@ void Model::setNormalIndexVerts(std::vector<GLuint> *v)
 }
 
 /*** get ***/
+
+GLfloat * Model::getScale()
+{
+    return &scale;
+}
 
 GLfloat * Model::getPositionVerts()
 {

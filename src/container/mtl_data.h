@@ -6,6 +6,7 @@ struct mtl_data {
     std::vector<GLuint> faces;
     glm::vec4 diffuse;
     glm::vec4 specular;
+    GLfloat transparency;
 };
 
 #endif

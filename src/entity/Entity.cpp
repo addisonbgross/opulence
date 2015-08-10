@@ -6,9 +6,9 @@ Entity::Entity()
     this->position = glm::vec3(0, 0, 0);
 }
 
-Entity::~Entity() {}
-
-glm::vec3 * Entity::getPosition()
+Entity::Entity(float x, float y, float z)
 {
-    return &this->position;
+    this->position = glm::vec3(x, y, z);
 }
+
+Entity::~Entity() {}

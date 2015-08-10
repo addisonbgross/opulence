@@ -43,6 +43,12 @@ std::vector<mtl_data> ObjLoader::importMtl(std::string filePath)
             }
             mtl.name = line;
 
+        // transparency
+        } else if (line.c_str()[0] == 'd') {
+            line = line.substr(2, line.length() - 1);
+            sscanf(line.c_str(), "%f", &a);
+            mtl.transparency = a;
+
         // diffuse colour
         } else if (line.c_str()[1] == 'd') {
             line = line.substr(2, line.length() - 1);
@@ -246,26 +252,26 @@ obj_data ObjLoader::import(std::string filePath)
                 g -= normalOffset;
                 i -= normalOffset;
 
-                // diffuse colour for one face (transparency not implemented)
+                // diffuse colour for one face
                 pushThree(objData.diffuse,
                           currentMtl.diffuse.x,
                           currentMtl.diffuse.y,
                           currentMtl.diffuse.z);
-                objData.diffuse.push_back(1.0f);
+                objData.diffuse.push_back(currentMtl.transparency);
 
                 pushThree(objData.diffuse,
                           currentMtl.diffuse.x,
                           currentMtl.diffuse.y,
                           currentMtl.diffuse.z);
-                objData.diffuse.push_back(1.0f);
+                objData.diffuse.push_back(currentMtl.transparency);
 
                 pushThree(objData.diffuse,
                           currentMtl.diffuse.x,
                           currentMtl.diffuse.y,
                           currentMtl.diffuse.z);
-                objData.diffuse.push_back(1.0f);
+                objData.diffuse.push_back(currentMtl.transparency);
 
-                // specular colour for one face (transparency not implemented)
+                // specular colour for one face
                 pushThree(objData.specular,
                           currentMtl.specular.x,
                           currentMtl.specular.y,

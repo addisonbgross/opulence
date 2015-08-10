@@ -44,7 +44,7 @@ void main()
     // point lighting constants
     f_linearAttenuation = linearAtt;
     f_quadraticAttenuation = quadraticAtt;
-    f_constantAttenuation = 0.1;  // its constant
+    f_constantAttenuation = 0.05;  // its constant
 
-    gl_Position = proj * view * model * vec4(scale * (position + modelPosition), 1.0);
+    gl_Position = proj * view * model * vec4(scale * position + modelPosition, 1.0);
 }
