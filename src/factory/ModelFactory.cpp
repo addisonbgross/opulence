@@ -50,6 +50,8 @@ Animation * ModelFactory::makeAnimation(float x, float y, float z, std::string n
         }
         Animation *animation = new Animation(x, y, z, frames);
         bufferCourier->addAnimation(animation);
+
+        return animation;
     } else {
         std::cout << "ERR: Could not find obj animation -> " << name << ".obj" << std::endl;
     }
@@ -70,6 +72,8 @@ Animation * ModelFactory::makeAnimation(float x, float y, float z, std::string n
         }
         Animation *animation = new Animation(x, y, z, frames);
         bufferCourier->addAnimation(animation);
+
+        return animation;
     } else {
         std::cout << "ERR: Could not find obj animation -> " << name << ".obj" << std::endl;
     }

@@ -17,14 +17,12 @@ find_package(SDL2 REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(GLEW REQUIRED)
 find_package(GTest REQUIRED)
-find_package(Freetype REQUIRED)
 
 include_directories(${PROJECT_BINARY_DIR}
                     ${OPENGL_INCLUDE_DIR}
                     ${SDL2_INCLUDE_DIR}
                     ${GLEW_INCLUDE_DIRS}
-                    ${GTEST_INCLUDE_DIRS}
-                    ${FREETYPE_INCLUDE_DIRS})
+                    ${GTEST_INCLUDE_DIRS})
 
 set(SOURCE_FILES
     ../main.c
@@ -37,8 +35,6 @@ set_source_files_properties(../main.c
                             LANGUAGE CXX)
 add_executable(opulence
                ${SOURCE_FILES}
-               src/SDL_ttf.c
-               src/SDL_ttf.h
 
                src/entity/Entity.cpp
                src/entity/Entity.h
@@ -87,5 +83,4 @@ target_link_libraries(opulence
                       ${OPENGL_LIBRARIES}
                       ${GLEW_LIBRARIES}
                       ${GTEST_BOTH_LIBRARIES}
-                      ${CMAKE_THREAD_LIBS_INIT}
-                      ${FREETYPE_LIBRARIES})
+                      ${CMAKE_THREAD_LIBS_INIT})
