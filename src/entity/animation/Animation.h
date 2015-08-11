@@ -3,6 +3,7 @@
 
 // general
 #include <vector>
+#include <math.h>
 
 // opulence
 #include "../model/Model.h"
@@ -11,24 +12,26 @@
 class Animation : public Entity {
 private:
     std::vector<Model*> *frames;
-    int frameCounter = 0;
+    float frameCounter = 0;
+    float rate = 1.0;
 
     // ping pong animation mode
     bool isPingPong = true, pingPongAscending = true;
 
 public:
-    Animation();
     ~Animation();
     Animation(float x, float y, float z, std::vector<Model*> *frames);
 
     // get
-    GLfloat * getScale();
+    float getRate();
+    float * getScale();
     bool getPingPong();
     Model * getFrame(int i);
     Model * getCurrentFrame();
     int getNumFrames();
 
     // set
+    void setRate(float rate);
     void setScale(float scale);
     void setPingPong(bool pong);
 };
