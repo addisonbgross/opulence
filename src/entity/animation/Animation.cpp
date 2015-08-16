@@ -7,6 +7,11 @@ Animation::Animation(float x, float y, float z, std::vector<Model*> *frames) : E
     this->frames = frames;
 }
 
+void Animation::runOnce()
+{
+    isOnce = true;
+}
+
 /*** get ***/
 
 float Animation::getRate()
@@ -31,41 +36,49 @@ Model * Animation::getFrame(int i)
 
 Model * Animation::getCurrentFrame()
 {
-    Model *currentModel;
-    int numFrames = frames->size();
+    int numFrames = frames->size() - 1;
 
-    // ping-pong mode
-    if (isPingPong) {
-        if (pingPongAscending) {
+    if (isRunning) {
+        // ping-pong mode
+        if (isPingPong) {
+            if (pingPongAscending) {
+                if (frameCounter < numFrames) {
+                    currentModel = frames->at(floor(frameCounter));
+                    frameCounter += rate;
+                } else {
+                    pingPongAscending = false;
+                    frameCounter -= rate;
+                    currentModel = frames->at(floor(frameCounter));
+                }
+
+            } else {
+                if (frameCounter > 0) {
+                    currentModel = frames->at(floor(frameCounter));
+                    frameCounter -= rate;
+                } else {
+                    pingPongAscending = true;
+                    frameCounter += rate;
+                    currentModel = frames->at(floor(frameCounter));
+                }
+            }
+
+        // standard linear mode
+        } else {
             if (frameCounter < numFrames) {
                 currentModel = frames->at(floor(frameCounter));
                 frameCounter += rate;
             } else {
-                pingPongAscending = false;
-                frameCounter -= rate;
-                currentModel = frames->at(floor(frameCounter));
-            }
-
-        } else {
-            if (frameCounter > 0) {
-                currentModel = frames->at(floor(frameCounter));
-                frameCounter -= rate;
-            } else {
-                pingPongAscending = true;
-                frameCounter += rate;
-                currentModel = frames->at(floor(frameCounter));
+                if (isOnce) {
+                    currentModel = frames->at(6);
+                    isRunning = false;
+                } else {
+                    frameCounter = 0.0;
+                    currentModel = frames->at(floor(frameCounter));
+                }
             }
         }
-
-    // standard linear mode
     } else {
-        if (frameCounter < numFrames) {
-            currentModel = frames->at(frameCounter);
-            ++frameCounter;
-        } else {
-            --frameCounter;
-            currentModel = frames->at(frameCounter);
-        }
+        currentModel = frames->at(6);
     }
 
     currentModel->position.x = this->position.x;

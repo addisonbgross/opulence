@@ -12,15 +12,18 @@
 class Animation : public Entity {
 private:
     std::vector<Model*> *frames;
+    Model *currentModel;
     float frameCounter = 0;
     float rate = 1.0;
 
     // ping pong animation mode
-    bool isPingPong = true, pingPongAscending = true;
+    bool isPingPong = false, pingPongAscending = true;
+    bool isRunning = true, isOnce = false;
 
 public:
     ~Animation();
     Animation(float x, float y, float z, std::vector<Model*> *frames);
+    void runOnce();
 
     // get
     float getRate();

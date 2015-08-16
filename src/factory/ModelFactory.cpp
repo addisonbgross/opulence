@@ -11,6 +11,12 @@ void ModelFactory::addObj(std::string name)
     obj_data obj = objLoader.import(objSource + name + ".obj");
     obj.name = name;
     objMap.insert(std::pair<std::string, obj_data>(name, obj));
+
+    // create blank frame for animation hiding
+    if (!isBlankSet) {
+        isBlankSet = true;
+        addObj("blank");
+    }
 }
 
 Model * ModelFactory::makeModel(float x, float y, float z, std::string name)
@@ -48,6 +54,7 @@ Animation * ModelFactory::makeAnimation(float x, float y, float z, std::string n
             model = new Model(x, y, z, &objMap.at(frameName));
             frames->push_back(model);
         }
+        frames->push_back(new Model(x, y, z, &objMap.at("blank")));
         Animation *animation = new Animation(x, y, z, frames);
         bufferCourier->addAnimation(animation);
 
@@ -70,6 +77,7 @@ Animation * ModelFactory::makeAnimation(float x, float y, float z, std::string n
             model->setScale(scale);
             frames->push_back(model);
         }
+        frames->push_back(new Model(x, y, z, &objMap.at("blank")));
         Animation *animation = new Animation(x, y, z, frames);
         bufferCourier->addAnimation(animation);
 
