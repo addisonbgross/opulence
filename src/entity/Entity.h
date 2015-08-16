@@ -5,6 +5,7 @@
 
 class Entity {
 public:
+    int id;
     glm::vec3 position;
 
     Entity();

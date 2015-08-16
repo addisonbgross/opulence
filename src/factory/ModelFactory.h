@@ -13,6 +13,8 @@ private:
 
     // obj
     std::map<std::string, obj_data> objMap;
+    obj_data blank;
+    bool isBlankSet = false;
     std::string objSource = "";
 
 public:
