@@ -26,6 +26,7 @@ public:
     void runOnce();
 
     // get
+    bool getIsRunning();
     float getRate();
     float * getScale();
     bool getPingPong();

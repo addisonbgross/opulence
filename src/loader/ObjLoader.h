@@ -9,6 +9,7 @@
 #include <glm/glm.hpp>
 
 // gl
+#include <GL/glew.h>
 #include <GL/gl.h>
 
 // opulence

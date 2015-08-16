@@ -3,6 +3,7 @@
 BufferCourier::BufferCourier()
 {
     bufferAttributes = std::map<std::string, GLint>();
+    idSeq = 0;
 }
 
 BufferCourier::~BufferCourier() {}
@@ -16,6 +17,7 @@ void BufferCourier::reportStats()
     std::cout.imbue(std::locale(""));  // ensures that totals are comma separated numbers
     std::cout << "Total Triangles: " << totalTriangles << std::endl;
     std::cout << "Active Models: " << activeModels.size() << std::endl;
+    std::cout << "Acitve Animations: " << activeAnimations.size() << std::endl;
 }
 
 /**
@@ -202,6 +204,9 @@ void BufferCourier::addUniform(std::string name, GLint unif)
  */
 void BufferCourier::addModel(Model *model)
 {
+    model->id = activeModels.size();
+    ++idSeq;
+
     activeModels.push_back(model);
     sendBuffer(model);
 }
@@ -221,15 +226,21 @@ void BufferCourier::addAnimation(Animation *animation)
 }
 
 /**
- * removeModel() - removes model from both opulence and the video card
+ * removeModel() - removes model from the video card
  *
  * @params id the specific model which is to be deleted
  */
-void BufferCourier::removeModel(GLuint id)
+void BufferCourier::removeModel(int id)
 {
-    totalTriangles -= (activeModels[id]->getNumIndexVerts() / 3);
     clearBuffer(activeModels[id]);
     activeModels.erase(activeModels.begin() + (double) id);
+}
+
+void BufferCourier::removeAnimation(Animation *animation)
+{
+    for (int i = 0; i < animation->getNumFrames(); ++i) {
+        clearBuffer(animation->getFrame(i));
+    }
 }
 
 /**

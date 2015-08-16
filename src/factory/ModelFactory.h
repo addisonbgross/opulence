@@ -1,8 +1,6 @@
 #ifndef OPULENCE_MODELFACTORY_H
 #define OPULENCE_MODELFACTORY_H
 
-#include "../entity/model/Model.h"
-#include "../entity/animation/Animation.h"
 #include "../loader/ObjLoader.h"
 #include "../service/BufferCourier.h"
 #include "../container/obj_data.h"
@@ -26,9 +24,17 @@ public:
 
     void reportStats();
 
-    //obj
+    // remove
+    void destroyModel(int id);
+    void destroyModel(Model *model);
+    void destroyAnimation(Animation *animation);
+
+    // obj
     void setObjSource(std::string source);
     void addObj(std::string sourceFile);
+
+    // get
+    Model * getModel(std::string name);
 };
 
 

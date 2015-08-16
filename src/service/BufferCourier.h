@@ -6,7 +6,6 @@
 #include <typeinfo>
 
 // opulence
-#include "../entity/model/Model.h"
 #include "../entity/animation/Animation.h"
 #include "../loader/ShaderLoader.h"
 
@@ -20,6 +19,7 @@ private:
     std::vector<Model *> activeModels;              // all currently existing models
     std::vector<Animation *> activeAnimations;      // all currently existing animations
     int totalTriangles;                             // sum of all triangles from all models
+    int idSeq;                                      // id sequence for all models
 
 public:
     BufferCourier();
@@ -36,7 +36,8 @@ public:
     void addAnimation(Animation *animation);            // add animation to buffer system
 
     // remove
-    void removeModel(GLuint id);                        // remove model from buffer system
+    void removeModel(int id);                           // remove model from buffer system by id
+    void removeAnimation(Animation *animation);         // remove animation and models from buffer system
 
     // get
     GLint getAttribute(std::string name);

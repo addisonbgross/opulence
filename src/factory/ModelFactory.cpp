@@ -103,3 +103,15 @@ void ModelFactory::reportStats()
         std::cout << "* " << iter->first << std::endl;
     }
 }
+
+/*** remove ***/
+
+void ModelFactory::destroyModel(int id)
+{
+    bufferCourier->removeModel(id);
+}
+
+void ModelFactory::destroyModel(Model *model)
+{
+    bufferCourier->removeModel(model->id);
+}

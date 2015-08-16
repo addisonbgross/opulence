@@ -1,13 +1,15 @@
 #ifndef OPULENCE_MODEL_H
 #define OPULENCE_MODEL_H
 
+// general
 #include <vector>
 #include <pthread.h>
 #include <GL/glew.h>
 #include <GL/gl.h>
 
-#include "../../container/obj_data.h"
+// opulence
 #include "../Entity.h"
+#include "../../container/obj_data.h"
 
 class Model : public Entity {
 private:
@@ -20,6 +22,7 @@ private:
     std::vector<GLuint>  *normalIndexVerts;
 
 public:
+    int id;
     GLfloat width = 0,
             height = 0,
             depth = 0;
@@ -29,8 +32,6 @@ public:
             specularBuffer,
             indexBuffer;
 
-    Model();
-    ~Model();
     Model(float x, float y, float z, obj_data *objData);
 
     // set
