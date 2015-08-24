@@ -21,11 +21,15 @@ private:
     bool isRunning = true, isOnce = false;
 
 public:
+    int id;
+
     ~Animation();
     Animation(float x, float y, float z, std::vector<Model*> *frames);
     void runOnce();
 
     // get
+    bool getIsRunning();
+    bool getIsOnce();
     float getRate();
     float * getScale();
     bool getPingPong();

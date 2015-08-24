@@ -1,9 +1,5 @@
 #include "Model.h"
 
-Model::Model() {}
-
-Model::~Model() {}
-
 Model::Model(float x, float y, float z, obj_data *objData)
 {
     position.x = x;

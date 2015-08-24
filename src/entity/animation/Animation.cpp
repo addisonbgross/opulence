@@ -14,6 +14,16 @@ void Animation::runOnce()
 
 /*** get ***/
 
+bool Animation::getIsRunning()
+{
+    return isRunning;
+}
+
+bool Animation::getIsOnce()
+{
+    return isOnce;
+}
+
 float Animation::getRate()
 {
     return rate;

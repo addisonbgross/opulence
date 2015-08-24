@@ -1,9 +1,8 @@
 #include "TimeManager.h"
 
-TimeManager::TimeManager() {}
-
-TimeManager::~TimeManager() {}
-
+/**
+ * start() - start current timer
+ */
 void TimeManager::start()
 {
     if (!running) {
@@ -12,12 +11,20 @@ void TimeManager::start()
     }
 }
 
-void TimeManager::stop()
+/**
+ * pause() - pause current timer
+ */
+void TimeManager::pause()
 {
     running = false;
     paused = SDL_GetTicks() - origin;
 }
 
+/**
+ * reportStats() - print out informational string
+ *
+ * @modify std::cout
+ */
 void TimeManager::reportStats()
 {
     std::cout << "Time Elapsed: " << getTime() << " ms" << std::endl;
@@ -25,6 +32,11 @@ void TimeManager::reportStats()
 
 /*** get ***/
 
+/**
+ * getTime() - get current time elapsed
+ *
+ * @return current time in milliseconds
+ */
 float TimeManager::getTime()
 {
     if (!running) {

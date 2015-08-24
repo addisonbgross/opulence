@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <glm/glm.hpp>
-#include <GL/gl.h>
 
 struct obj_data {
     std::string name;
