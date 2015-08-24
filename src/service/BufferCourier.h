@@ -19,7 +19,6 @@ private:
     std::vector<Model *> activeModels;              // all currently existing models
     std::vector<Animation *> activeAnimations;      // all currently existing animations
     int totalTriangles;                             // sum of all triangles from all models
-    int idSeq;                                      // id sequence for all models
 
 public:
     BufferCourier();

@@ -25,7 +25,6 @@ public:
     void reportStats();
 
     // remove
-    void destroyModel(int id);
     void destroyModel(Model *model);
     void destroyAnimation(Animation *animation);
 

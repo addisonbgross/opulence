@@ -5,26 +5,22 @@
 #include <iostream>
 #include <SDL_timer.h>
 
+/**
+ * TimeManager - acts as a stopwatch
+ */
 class TimeManager {
 private:
+    float origin = 0;     // the beginning time of the current time framge
+    float paused = 0;     // the saved time when paused
+    bool running = true;  // the timer start/stop flag
 
 public:
-    //The timer starting time
-    float origin = 0;
-    float paused = 0;
-
-    //The timer start/stop flag
-    bool running = true;
-
-    TimeManager();
-    ~TimeManager();
-    void start();
-    void stop();
-    void reportStats();
+    void start();         // start current timer
+    void pause();         // pause current timer
+    void reportStats();   // print informational string to std::cout
 
     // get
-    float getTime();
+    float getTime();      // get current time elapsed
 };
-
 
 #endif

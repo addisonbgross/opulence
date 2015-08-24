@@ -3,7 +3,6 @@
 BufferCourier::BufferCourier()
 {
     bufferAttributes = std::map<std::string, GLint>();
-    idSeq = 0;
 }
 
 BufferCourier::~BufferCourier() {}
@@ -205,7 +204,6 @@ void BufferCourier::addUniform(std::string name, GLint unif)
 void BufferCourier::addModel(Model *model)
 {
     model->id = activeModels.size();
-    ++idSeq;
 
     activeModels.push_back(model);
     sendBuffer(model);
@@ -218,6 +216,8 @@ void BufferCourier::addModel(Model *model)
  */
 void BufferCourier::addAnimation(Animation *animation)
 {
+    animation->id = activeAnimations.size();
+
     activeAnimations.push_back(animation);
 
     for (int i = 0; i < animation->getNumFrames(); ++i) {
@@ -236,15 +236,32 @@ void BufferCourier::removeModel(int id)
     activeModels.erase(activeModels.begin() + (double) id);
 }
 
+/**
+ * removeAnimation() - removes animation from the video card
+ *
+ * @params animation the specific animation which is to be deleted
+ */
 void BufferCourier::removeAnimation(Animation *animation)
 {
-    for (int i = 0; i < animation->getNumFrames(); ++i) {
+    for (int i = 0; i < animation->getNumFrames() - 1; ++i) {
         clearBuffer(animation->getFrame(i));
+    }
+
+    int id = animation->id;
+    activeAnimations.erase(activeAnimations.begin() + (double) animation->id);
+    activeAnimations.shrink_to_fit();
+
+    // ensure all that the id's of all activeAnimations are also shrunk
+    // to fit the vector correctly
+    for (int i = 0; i < activeAnimations.size(); ++i) {
+        if (activeAnimations[i]->id > id) {
+            activeAnimations[i]->id -= 1;
+        }
     }
 }
 
 /**
- * getAttribte() - gets the handle of the specified attribute in the video card
+ * getAttribute() - gets the handle of the specified attribute in the video card
  *
  * @params name the name of the attribute in opulence
  * @return GLint handle of the attribute in the video card
