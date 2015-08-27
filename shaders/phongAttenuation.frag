@@ -25,7 +25,7 @@ void main()
     // diffuse
     float diffuseIntensity = 0.0;
     float directionalDiffuseIntensity = directionalIntensity * max(dot(normalize(f_normal), -normalize(directionalLight)), 0.0);
-    float pointDiffuseIntensity = att * max(dot(normalize(f_normal), -f_point), 0.0);
+    float pointDiffuseIntensity = att * max(dot(normalize(f_normal), f_point), 0.0);
     diffuseIntensity = clamp(directionalDiffuseIntensity + pointDiffuseIntensity, 0.0, 1.0);
 
     // cell shading

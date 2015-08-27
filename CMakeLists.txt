@@ -4,25 +4,30 @@ project(opulence)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 # Use our modified FindSDL2* modules
-set(CMAKE_MODULE_PATH
+set(CMAKE_MODULE_PATH 
     ${CMAKE_MODULE_PATH} "${opulence_SOURCE_DIR}/CMakeFiles")
 
 # Set an output directory for our binaries
 set(BIN_DIR ${opulence_SOURCE_DIR}/opulence/bin)
 
+###############
+# Google Test #
+###############
+ADD_SUBDIRECTORY(test/gtest-1.7.0)
 enable_testing()
-find_package (Threads)
+find_package(GTest REQUIRED)
+include_directories(${GTEST_INCLUDE_DIRS})
+include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
+find_package(Threads)
 find_package(SDL2 REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(GLEW REQUIRED)
-find_package(GTest REQUIRED)
 
 include_directories(${PROJECT_BINARY_DIR}
                     ${OPENGL_INCLUDE_DIR}
                     ${SDL2_INCLUDE_DIR}
-                    ${GLEW_INCLUDE_DIRS}
-                    ${GTEST_INCLUDE_DIRS})
+                    ${GLEW_INCLUDE_DIRS})
 
 set(SOURCE_FILES
     ../main.c

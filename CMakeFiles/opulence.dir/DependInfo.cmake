@@ -7,6 +7,7 @@ SET(CMAKE_DEPENDS_CHECK_CXX
   "/home/champ/Git/crows/main.c" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o"
   "/home/champ/Git/crows/opulence/opulence.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/opulence.cpp.o"
   "/home/champ/Git/crows/opulence/src/entity/Entity.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/entity/Entity.cpp.o"
+  "/home/champ/Git/crows/opulence/src/entity/animation/Animation.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.o"
   "/home/champ/Git/crows/opulence/src/entity/camera/Camera.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/entity/camera/Camera.cpp.o"
   "/home/champ/Git/crows/opulence/src/entity/camera/RtsCamera.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/entity/camera/RtsCamera.cpp.o"
   "/home/champ/Git/crows/opulence/src/entity/light/DirectionalLight.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/entity/light/DirectionalLight.cpp.o"
@@ -20,6 +21,8 @@ SET(CMAKE_DEPENDS_CHECK_CXX
   "/home/champ/Git/crows/opulence/src/loader/ShaderLoader.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/loader/ShaderLoader.cpp.o"
   "/home/champ/Git/crows/opulence/src/service/BufferCourier.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.o"
   "/home/champ/Git/crows/opulence/src/service/GLManager.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/service/GLManager.cpp.o"
+  "/home/champ/Git/crows/opulence/src/service/TimeManager.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o"
+  "/home/champ/Git/crows/opulence/test/entity/ModelTest.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -29,6 +32,8 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
+  "test/gtest-1.7.0/include"
+  "test/gtest-1.7.0"
   "."
   "/usr/include/SDL2"
   )

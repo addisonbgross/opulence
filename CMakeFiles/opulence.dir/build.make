@@ -141,9 +141,32 @@ CMakeFiles/opulence.dir/src/entity/model/Model.cpp.o.provides: CMakeFiles/opulen
 
 CMakeFiles/opulence.dir/src/entity/model/Model.cpp.o.provides.build: CMakeFiles/opulence.dir/src/entity/model/Model.cpp.o
 
+CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.o: CMakeFiles/opulence.dir/flags.make
+CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.o: src/entity/animation/Animation.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_5)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.o -c /home/champ/Git/crows/opulence/src/entity/animation/Animation.cpp
+
+CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/champ/Git/crows/opulence/src/entity/animation/Animation.cpp > CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.i
+
+CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/champ/Git/crows/opulence/src/entity/animation/Animation.cpp -o CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.s
+
+CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.o.requires:
+.PHONY : CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.o.requires
+
+CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.o.provides: CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.o.requires
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.o.provides.build
+.PHONY : CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.o.provides
+
+CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.o.provides.build: CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.o
+
 CMakeFiles/opulence.dir/src/entity/camera/Camera.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/src/entity/camera/Camera.cpp.o: src/entity/camera/Camera.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/src/entity/camera/Camera.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/src/entity/camera/Camera.cpp.o -c /home/champ/Git/crows/opulence/src/entity/camera/Camera.cpp
 
@@ -166,7 +189,7 @@ CMakeFiles/opulence.dir/src/entity/camera/Camera.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/opulence.dir/src/entity/camera/RtsCamera.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/src/entity/camera/RtsCamera.cpp.o: src/entity/camera/RtsCamera.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/src/entity/camera/RtsCamera.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/src/entity/camera/RtsCamera.cpp.o -c /home/champ/Git/crows/opulence/src/entity/camera/RtsCamera.cpp
 
@@ -189,7 +212,7 @@ CMakeFiles/opulence.dir/src/entity/camera/RtsCamera.cpp.o.provides.build: CMakeF
 
 CMakeFiles/opulence.dir/src/entity/light/Light.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/src/entity/light/Light.cpp.o: src/entity/light/Light.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_7)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/src/entity/light/Light.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/src/entity/light/Light.cpp.o -c /home/champ/Git/crows/opulence/src/entity/light/Light.cpp
 
@@ -212,7 +235,7 @@ CMakeFiles/opulence.dir/src/entity/light/Light.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/opulence.dir/src/entity/light/PointLight.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/src/entity/light/PointLight.cpp.o: src/entity/light/PointLight.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_8)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_9)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/src/entity/light/PointLight.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/src/entity/light/PointLight.cpp.o -c /home/champ/Git/crows/opulence/src/entity/light/PointLight.cpp
 
@@ -235,7 +258,7 @@ CMakeFiles/opulence.dir/src/entity/light/PointLight.cpp.o.provides.build: CMakeF
 
 CMakeFiles/opulence.dir/src/entity/light/DirectionalLight.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/src/entity/light/DirectionalLight.cpp.o: src/entity/light/DirectionalLight.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_9)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_10)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/src/entity/light/DirectionalLight.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/src/entity/light/DirectionalLight.cpp.o -c /home/champ/Git/crows/opulence/src/entity/light/DirectionalLight.cpp
 
@@ -258,7 +281,7 @@ CMakeFiles/opulence.dir/src/entity/light/DirectionalLight.cpp.o.provides.build: 
 
 CMakeFiles/opulence.dir/src/loader/ShaderLoader.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/src/loader/ShaderLoader.cpp.o: src/loader/ShaderLoader.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_10)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_11)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/src/loader/ShaderLoader.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/src/loader/ShaderLoader.cpp.o -c /home/champ/Git/crows/opulence/src/loader/ShaderLoader.cpp
 
@@ -281,7 +304,7 @@ CMakeFiles/opulence.dir/src/loader/ShaderLoader.cpp.o.provides.build: CMakeFiles
 
 CMakeFiles/opulence.dir/src/loader/ObjLoader.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/src/loader/ObjLoader.cpp.o: src/loader/ObjLoader.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_11)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_12)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/src/loader/ObjLoader.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/src/loader/ObjLoader.cpp.o -c /home/champ/Git/crows/opulence/src/loader/ObjLoader.cpp
 
@@ -304,7 +327,7 @@ CMakeFiles/opulence.dir/src/loader/ObjLoader.cpp.o.provides.build: CMakeFiles/op
 
 CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.o: src/service/BufferCourier.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_12)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_13)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.o -c /home/champ/Git/crows/opulence/src/service/BufferCourier.cpp
 
@@ -327,7 +350,7 @@ CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.o.provides.build: CMakeFil
 
 CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/src/service/GLManager.cpp.o: src/service/GLManager.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_13)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_14)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/src/service/GLManager.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/src/service/GLManager.cpp.o -c /home/champ/Git/crows/opulence/src/service/GLManager.cpp
 
@@ -348,9 +371,32 @@ CMakeFiles/opulence.dir/src/service/GLManager.cpp.o.provides: CMakeFiles/opulenc
 
 CMakeFiles/opulence.dir/src/service/GLManager.cpp.o.provides.build: CMakeFiles/opulence.dir/src/service/GLManager.cpp.o
 
+CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o: CMakeFiles/opulence.dir/flags.make
+CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o: src/service/TimeManager.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_15)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o -c /home/champ/Git/crows/opulence/src/service/TimeManager.cpp
+
+CMakeFiles/opulence.dir/src/service/TimeManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opulence.dir/src/service/TimeManager.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/champ/Git/crows/opulence/src/service/TimeManager.cpp > CMakeFiles/opulence.dir/src/service/TimeManager.cpp.i
+
+CMakeFiles/opulence.dir/src/service/TimeManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opulence.dir/src/service/TimeManager.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/champ/Git/crows/opulence/src/service/TimeManager.cpp -o CMakeFiles/opulence.dir/src/service/TimeManager.cpp.s
+
+CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o.requires:
+.PHONY : CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o.requires
+
+CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o.provides: CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o.requires
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o.provides.build
+.PHONY : CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o.provides
+
+CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o.provides.build: CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o
+
 CMakeFiles/opulence.dir/src/factory/CameraFactory.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/src/factory/CameraFactory.cpp.o: src/factory/CameraFactory.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_14)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_16)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/src/factory/CameraFactory.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/src/factory/CameraFactory.cpp.o -c /home/champ/Git/crows/opulence/src/factory/CameraFactory.cpp
 
@@ -373,7 +419,7 @@ CMakeFiles/opulence.dir/src/factory/CameraFactory.cpp.o.provides.build: CMakeFil
 
 CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.o: src/factory/LightFactory.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_15)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_17)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.o -c /home/champ/Git/crows/opulence/src/factory/LightFactory.cpp
 
@@ -396,7 +442,7 @@ CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o: src/factory/ModelFactory.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_16)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_18)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o -c /home/champ/Git/crows/opulence/src/factory/ModelFactory.cpp
 
@@ -417,12 +463,36 @@ CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o.provides: CMakeFiles/opul
 
 CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o.provides.build: CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o
 
+CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o: CMakeFiles/opulence.dir/flags.make
+CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o: test/entity/ModelTest.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_19)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o -c /home/champ/Git/crows/opulence/test/entity/ModelTest.cpp
+
+CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/champ/Git/crows/opulence/test/entity/ModelTest.cpp > CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.i
+
+CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/champ/Git/crows/opulence/test/entity/ModelTest.cpp -o CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.s
+
+CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o.requires:
+.PHONY : CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o.requires
+
+CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o.provides: CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o.requires
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o.provides.build
+.PHONY : CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o.provides
+
+CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o.provides.build: CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o
+
 # Object files for target opulence
 opulence_OBJECTS = \
 "CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o" \
 "CMakeFiles/opulence.dir/opulence.cpp.o" \
 "CMakeFiles/opulence.dir/src/entity/Entity.cpp.o" \
 "CMakeFiles/opulence.dir/src/entity/model/Model.cpp.o" \
+"CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.o" \
 "CMakeFiles/opulence.dir/src/entity/camera/Camera.cpp.o" \
 "CMakeFiles/opulence.dir/src/entity/camera/RtsCamera.cpp.o" \
 "CMakeFiles/opulence.dir/src/entity/light/Light.cpp.o" \
@@ -432,9 +502,11 @@ opulence_OBJECTS = \
 "CMakeFiles/opulence.dir/src/loader/ObjLoader.cpp.o" \
 "CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.o" \
 "CMakeFiles/opulence.dir/src/service/GLManager.cpp.o" \
+"CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o" \
 "CMakeFiles/opulence.dir/src/factory/CameraFactory.cpp.o" \
 "CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.o" \
-"CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o"
+"CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o" \
+"CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o"
 
 # External object files for target opulence
 opulence_EXTERNAL_OBJECTS =
@@ -443,6 +515,7 @@ opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o
 opulence: CMakeFiles/opulence.dir/opulence.cpp.o
 opulence: CMakeFiles/opulence.dir/src/entity/Entity.cpp.o
 opulence: CMakeFiles/opulence.dir/src/entity/model/Model.cpp.o
+opulence: CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.o
 opulence: CMakeFiles/opulence.dir/src/entity/camera/Camera.cpp.o
 opulence: CMakeFiles/opulence.dir/src/entity/camera/RtsCamera.cpp.o
 opulence: CMakeFiles/opulence.dir/src/entity/light/Light.cpp.o
@@ -452,11 +525,23 @@ opulence: CMakeFiles/opulence.dir/src/loader/ShaderLoader.cpp.o
 opulence: CMakeFiles/opulence.dir/src/loader/ObjLoader.cpp.o
 opulence: CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.o
 opulence: CMakeFiles/opulence.dir/src/service/GLManager.cpp.o
+opulence: CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o
 opulence: CMakeFiles/opulence.dir/src/factory/CameraFactory.cpp.o
 opulence: CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.o
 opulence: CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o
+opulence: CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o
 opulence: CMakeFiles/opulence.dir/build.make
+opulence: /usr/lib/x86_64-linux-gnu/libSDL2main.a
 opulence: /usr/lib/x86_64-linux-gnu/libSDL2.so
+opulence: /usr/lib/x86_64-linux-gnu/libGLU.so
+opulence: /usr/lib/x86_64-linux-gnu/libGL.so
+opulence: /usr/lib/x86_64-linux-gnu/libSM.so
+opulence: /usr/lib/x86_64-linux-gnu/libICE.so
+opulence: /usr/lib/x86_64-linux-gnu/libX11.so
+opulence: /usr/lib/x86_64-linux-gnu/libXext.so
+opulence: /usr/lib/x86_64-linux-gnu/libGLEW.so
+opulence: /usr/lib/libgtest.a
+opulence: /usr/lib/libgtest_main.a
 opulence: /usr/lib/x86_64-linux-gnu/libGLU.so
 opulence: /usr/lib/x86_64-linux-gnu/libGL.so
 opulence: /usr/lib/x86_64-linux-gnu/libSM.so
@@ -478,6 +563,7 @@ CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/m
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/opulence.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/src/entity/Entity.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/src/entity/model/Model.cpp.o.requires
+CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/src/entity/camera/Camera.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/src/entity/camera/RtsCamera.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/src/entity/light/Light.cpp.o.requires
@@ -487,9 +573,11 @@ CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/src/loader/ShaderLoade
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/src/loader/ObjLoader.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/src/service/GLManager.cpp.o.requires
+CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/src/factory/CameraFactory.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o.requires
+CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o.requires
 .PHONY : CMakeFiles/opulence.dir/requires
 
 CMakeFiles/opulence.dir/clean:

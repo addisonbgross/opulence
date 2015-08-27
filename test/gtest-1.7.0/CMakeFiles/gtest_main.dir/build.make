@@ -35,42 +35,42 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/champ/Git/crows/opulence/test/gtest-1.7.0
+CMAKE_SOURCE_DIR = /home/champ/Git/crows/opulence
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/champ/Git/crows/opulence/test/gtest-1.7.0
+CMAKE_BINARY_DIR = /home/champ/Git/crows/opulence
 
 # Include any dependencies generated for this target.
-include CMakeFiles/gtest_main.dir/depend.make
+include test/gtest-1.7.0/CMakeFiles/gtest_main.dir/depend.make
 
 # Include the progress variables for this target.
-include CMakeFiles/gtest_main.dir/progress.make
+include test/gtest-1.7.0/CMakeFiles/gtest_main.dir/progress.make
 
 # Include the compile flags for this target's objects.
-include CMakeFiles/gtest_main.dir/flags.make
+include test/gtest-1.7.0/CMakeFiles/gtest_main.dir/flags.make
 
-CMakeFiles/gtest_main.dir/src/gtest_main.cc.o: CMakeFiles/gtest_main.dir/flags.make
-CMakeFiles/gtest_main.dir/src/gtest_main.cc.o: src/gtest_main.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/test/gtest-1.7.0/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/gtest_main.dir/src/gtest_main.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /home/champ/Git/crows/opulence/test/gtest-1.7.0/src/gtest_main.cc
+test/gtest-1.7.0/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o: test/gtest-1.7.0/CMakeFiles/gtest_main.dir/flags.make
+test/gtest-1.7.0/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o: test/gtest-1.7.0/src/gtest_main.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object test/gtest-1.7.0/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o"
+	cd /home/champ/Git/crows/opulence/test/gtest-1.7.0 && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /home/champ/Git/crows/opulence/test/gtest-1.7.0/src/gtest_main.cc
 
-CMakeFiles/gtest_main.dir/src/gtest_main.cc.i: cmake_force
+test/gtest-1.7.0/CMakeFiles/gtest_main.dir/src/gtest_main.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gtest_main.dir/src/gtest_main.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/champ/Git/crows/opulence/test/gtest-1.7.0/src/gtest_main.cc > CMakeFiles/gtest_main.dir/src/gtest_main.cc.i
+	cd /home/champ/Git/crows/opulence/test/gtest-1.7.0 && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/champ/Git/crows/opulence/test/gtest-1.7.0/src/gtest_main.cc > CMakeFiles/gtest_main.dir/src/gtest_main.cc.i
 
-CMakeFiles/gtest_main.dir/src/gtest_main.cc.s: cmake_force
+test/gtest-1.7.0/CMakeFiles/gtest_main.dir/src/gtest_main.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gtest_main.dir/src/gtest_main.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/champ/Git/crows/opulence/test/gtest-1.7.0/src/gtest_main.cc -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.s
+	cd /home/champ/Git/crows/opulence/test/gtest-1.7.0 && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/champ/Git/crows/opulence/test/gtest-1.7.0/src/gtest_main.cc -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.s
 
-CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.requires:
-.PHONY : CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.requires
+test/gtest-1.7.0/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.requires:
+.PHONY : test/gtest-1.7.0/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.requires
 
-CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.provides: CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.requires
-	$(MAKE) -f CMakeFiles/gtest_main.dir/build.make CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.provides.build
-.PHONY : CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.provides
+test/gtest-1.7.0/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.provides: test/gtest-1.7.0/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.requires
+	$(MAKE) -f test/gtest-1.7.0/CMakeFiles/gtest_main.dir/build.make test/gtest-1.7.0/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.provides.build
+.PHONY : test/gtest-1.7.0/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.provides
 
-CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.provides.build: CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+test/gtest-1.7.0/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.provides.build: test/gtest-1.7.0/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
 
 # Object files for target gtest_main
 gtest_main_OBJECTS = \
@@ -79,25 +79,25 @@ gtest_main_OBJECTS = \
 # External object files for target gtest_main
 gtest_main_EXTERNAL_OBJECTS =
 
-libgtest_main.a: CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
-libgtest_main.a: CMakeFiles/gtest_main.dir/build.make
-libgtest_main.a: CMakeFiles/gtest_main.dir/link.txt
+test/gtest-1.7.0/libgtest_main.a: test/gtest-1.7.0/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+test/gtest-1.7.0/libgtest_main.a: test/gtest-1.7.0/CMakeFiles/gtest_main.dir/build.make
+test/gtest-1.7.0/libgtest_main.a: test/gtest-1.7.0/CMakeFiles/gtest_main.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX static library libgtest_main.a"
-	$(CMAKE_COMMAND) -P CMakeFiles/gtest_main.dir/cmake_clean_target.cmake
-	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gtest_main.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/champ/Git/crows/opulence/test/gtest-1.7.0 && $(CMAKE_COMMAND) -P CMakeFiles/gtest_main.dir/cmake_clean_target.cmake
+	cd /home/champ/Git/crows/opulence/test/gtest-1.7.0 && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gtest_main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/gtest_main.dir/build: libgtest_main.a
-.PHONY : CMakeFiles/gtest_main.dir/build
+test/gtest-1.7.0/CMakeFiles/gtest_main.dir/build: test/gtest-1.7.0/libgtest_main.a
+.PHONY : test/gtest-1.7.0/CMakeFiles/gtest_main.dir/build
 
-CMakeFiles/gtest_main.dir/requires: CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.requires
-.PHONY : CMakeFiles/gtest_main.dir/requires
+test/gtest-1.7.0/CMakeFiles/gtest_main.dir/requires: test/gtest-1.7.0/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.requires
+.PHONY : test/gtest-1.7.0/CMakeFiles/gtest_main.dir/requires
 
-CMakeFiles/gtest_main.dir/clean:
-	$(CMAKE_COMMAND) -P CMakeFiles/gtest_main.dir/cmake_clean.cmake
-.PHONY : CMakeFiles/gtest_main.dir/clean
+test/gtest-1.7.0/CMakeFiles/gtest_main.dir/clean:
+	cd /home/champ/Git/crows/opulence/test/gtest-1.7.0 && $(CMAKE_COMMAND) -P CMakeFiles/gtest_main.dir/cmake_clean.cmake
+.PHONY : test/gtest-1.7.0/CMakeFiles/gtest_main.dir/clean
 
-CMakeFiles/gtest_main.dir/depend:
-	cd /home/champ/Git/crows/opulence/test/gtest-1.7.0 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/champ/Git/crows/opulence/test/gtest-1.7.0 /home/champ/Git/crows/opulence/test/gtest-1.7.0 /home/champ/Git/crows/opulence/test/gtest-1.7.0 /home/champ/Git/crows/opulence/test/gtest-1.7.0 /home/champ/Git/crows/opulence/test/gtest-1.7.0/CMakeFiles/gtest_main.dir/DependInfo.cmake --color=$(COLOR)
-.PHONY : CMakeFiles/gtest_main.dir/depend
+test/gtest-1.7.0/CMakeFiles/gtest_main.dir/depend:
+	cd /home/champ/Git/crows/opulence && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/champ/Git/crows/opulence /home/champ/Git/crows/opulence/test/gtest-1.7.0 /home/champ/Git/crows/opulence /home/champ/Git/crows/opulence/test/gtest-1.7.0 /home/champ/Git/crows/opulence/test/gtest-1.7.0/CMakeFiles/gtest_main.dir/DependInfo.cmake --color=$(COLOR)
+.PHONY : test/gtest-1.7.0/CMakeFiles/gtest_main.dir/depend
 
