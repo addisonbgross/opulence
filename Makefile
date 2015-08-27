@@ -121,6 +121,32 @@ opulence/fast:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/build
 .PHONY : opulence/fast
 
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) -f test/gtest-1.7.0/CMakeFiles/gtest.dir/build.make test/gtest-1.7.0/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) -f test/gtest-1.7.0/CMakeFiles/gtest_main.dir/build.make test/gtest-1.7.0/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
 home/champ/Git/crows/main.o: home/champ/Git/crows/main.c.o
 .PHONY : home/champ/Git/crows/main.o
 
@@ -192,6 +218,30 @@ src/entity/Entity.s: src/entity/Entity.cpp.s
 src/entity/Entity.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/Entity.cpp.s
 .PHONY : src/entity/Entity.cpp.s
+
+src/entity/animation/Animation.o: src/entity/animation/Animation.cpp.o
+.PHONY : src/entity/animation/Animation.o
+
+# target to build an object file
+src/entity/animation/Animation.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.o
+.PHONY : src/entity/animation/Animation.cpp.o
+
+src/entity/animation/Animation.i: src/entity/animation/Animation.cpp.i
+.PHONY : src/entity/animation/Animation.i
+
+# target to preprocess a source file
+src/entity/animation/Animation.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.i
+.PHONY : src/entity/animation/Animation.cpp.i
+
+src/entity/animation/Animation.s: src/entity/animation/Animation.cpp.s
+.PHONY : src/entity/animation/Animation.s
+
+# target to generate assembly for a file
+src/entity/animation/Animation.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.s
+.PHONY : src/entity/animation/Animation.cpp.s
 
 src/entity/camera/Camera.o: src/entity/camera/Camera.cpp.o
 .PHONY : src/entity/camera/Camera.o
@@ -505,6 +555,54 @@ src/service/GLManager.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/GLManager.cpp.s
 .PHONY : src/service/GLManager.cpp.s
 
+src/service/TimeManager.o: src/service/TimeManager.cpp.o
+.PHONY : src/service/TimeManager.o
+
+# target to build an object file
+src/service/TimeManager.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o
+.PHONY : src/service/TimeManager.cpp.o
+
+src/service/TimeManager.i: src/service/TimeManager.cpp.i
+.PHONY : src/service/TimeManager.i
+
+# target to preprocess a source file
+src/service/TimeManager.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/TimeManager.cpp.i
+.PHONY : src/service/TimeManager.cpp.i
+
+src/service/TimeManager.s: src/service/TimeManager.cpp.s
+.PHONY : src/service/TimeManager.s
+
+# target to generate assembly for a file
+src/service/TimeManager.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/TimeManager.cpp.s
+.PHONY : src/service/TimeManager.cpp.s
+
+test/entity/ModelTest.o: test/entity/ModelTest.cpp.o
+.PHONY : test/entity/ModelTest.o
+
+# target to build an object file
+test/entity/ModelTest.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o
+.PHONY : test/entity/ModelTest.cpp.o
+
+test/entity/ModelTest.i: test/entity/ModelTest.cpp.i
+.PHONY : test/entity/ModelTest.i
+
+# target to preprocess a source file
+test/entity/ModelTest.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.i
+.PHONY : test/entity/ModelTest.cpp.i
+
+test/entity/ModelTest.s: test/entity/ModelTest.cpp.s
+.PHONY : test/entity/ModelTest.s
+
+# target to generate assembly for a file
+test/entity/ModelTest.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.s
+.PHONY : test/entity/ModelTest.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -515,6 +613,8 @@ help:
 	@echo "... opulence"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... gtest"
+	@echo "... gtest_main"
 	@echo "... home/champ/Git/crows/main.o"
 	@echo "... home/champ/Git/crows/main.i"
 	@echo "... home/champ/Git/crows/main.s"
@@ -524,6 +624,9 @@ help:
 	@echo "... src/entity/Entity.o"
 	@echo "... src/entity/Entity.i"
 	@echo "... src/entity/Entity.s"
+	@echo "... src/entity/animation/Animation.o"
+	@echo "... src/entity/animation/Animation.i"
+	@echo "... src/entity/animation/Animation.s"
 	@echo "... src/entity/camera/Camera.o"
 	@echo "... src/entity/camera/Camera.i"
 	@echo "... src/entity/camera/Camera.s"
@@ -563,6 +666,12 @@ help:
 	@echo "... src/service/GLManager.o"
 	@echo "... src/service/GLManager.i"
 	@echo "... src/service/GLManager.s"
+	@echo "... src/service/TimeManager.o"
+	@echo "... src/service/TimeManager.i"
+	@echo "... src/service/TimeManager.s"
+	@echo "... test/entity/ModelTest.o"
+	@echo "... test/entity/ModelTest.i"
+	@echo "... test/entity/ModelTest.s"
 .PHONY : help
 
 
