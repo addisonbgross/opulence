@@ -57,6 +57,21 @@ void Model::setNormalIndexVerts(std::vector<GLuint> *v)
 
 /*** get ***/
 
+float Model::getWidth()
+{
+    return width;
+}
+
+float Model::getHeight()
+{
+    return height;
+}
+
+float Model::getDepth()
+{
+    return depth;
+}
+
 GLfloat * Model::getScale()
 {
     return &scale;

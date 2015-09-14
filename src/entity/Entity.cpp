@@ -12,3 +12,7 @@ Entity::Entity(float x, float y, float z)
 }
 
 Entity::~Entity() {}
+
+float Entity::getWidth() { return 0; }
+float Entity::getHeight() { return 0; }
+float Entity::getDepth() { return 0; }

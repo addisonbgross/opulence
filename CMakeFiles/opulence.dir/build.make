@@ -532,6 +532,29 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/omnicontroller/OmniC
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.o.provides.build: CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.o
 
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o: CMakeFiles/opulence.dir/flags.make
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o: /home/champ/Git/crows/src/service/SpriteFinder.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_22)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o -c /home/champ/Git/crows/src/service/SpriteFinder.cpp
+
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/champ/Git/crows/src/service/SpriteFinder.cpp > CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.i
+
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/champ/Git/crows/src/service/SpriteFinder.cpp -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.s
+
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o.requires:
+.PHONY : CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o.requires
+
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o.provides: CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o.requires
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o.provides.build
+.PHONY : CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o.provides
+
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o.provides.build: CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o
+
 # Object files for target opulence
 opulence_OBJECTS = \
 "CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o" \
@@ -554,7 +577,8 @@ opulence_OBJECTS = \
 "CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o" \
 "CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o" \
 "CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.o" \
-"CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.o"
+"CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.o" \
+"CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o"
 
 # External object files for target opulence
 opulence_EXTERNAL_OBJECTS =
@@ -580,6 +604,7 @@ opulence: CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o
 opulence: CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o
 opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.o
 opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.o
+opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o
 opulence: CMakeFiles/opulence.dir/build.make
 opulence: /usr/lib/x86_64-linux-gnu/libSDL2main.a
 opulence: /usr/lib/x86_64-linux-gnu/libSDL2.so
@@ -630,6 +655,7 @@ CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/src/factory/ModelFacto
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.o.requires
+CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o.requires
 .PHONY : CMakeFiles/opulence.dir/requires
 
 CMakeFiles/opulence.dir/clean:

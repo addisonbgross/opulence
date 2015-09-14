@@ -20,6 +20,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o"
   "CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.o"
   "CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.o"
+  "CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o"
   "opulence.pdb"
   "opulence"
 )

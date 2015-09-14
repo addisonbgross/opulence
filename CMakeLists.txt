@@ -99,7 +99,11 @@ add_executable(opulence
             # controllers
             ../src/controller/Controller.h
             ../src/controller/omnicontroller/OmniController.h
-            ../src/controller/omnicontroller/OmniController.cpp)
+            ../src/controller/omnicontroller/OmniController.cpp
+
+            # services
+            ../src/service/SpriteFinder.h
+            ../src/service/SpriteFinder.cpp)
 
 target_link_libraries(opulence
                     ${SDL2_LIBRARY}

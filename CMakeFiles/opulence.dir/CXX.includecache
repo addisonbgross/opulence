@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/champ/Git/crows/main.cpp
+/home/champ/Git/crows/CrowGame.h
 opulence/opulence.cpp
 /home/champ/Git/crows/opulence/opulence.cpp
 src/sprite/Sprite.h
@@ -15,8 +15,14 @@ src/controller/Controller.h
 /home/champ/Git/crows/src/controller/Controller.h
 src/controller/omnicontroller/OmniController.h
 /home/champ/Git/crows/src/controller/omnicontroller/OmniController.h
+src/service/SpriteFinder.h
+/home/champ/Git/crows/src/service/SpriteFinder.h
 gtest/gtest.h
 /home/champ/Git/crows/gtest/gtest.h
+
+/home/champ/Git/crows/main.cpp
+CrowGame.h
+/home/champ/Git/crows/CrowGame.h
 
 /home/champ/Git/crows/opulence/opulence.cpp
 glm/glm.hpp
@@ -177,6 +183,8 @@ map
 -
 typeinfo
 -
+../entity/model/Model.h
+/home/champ/Git/crows/opulence/src/entity/model/Model.h
 ../entity/animation/Animation.h
 /home/champ/Git/crows/opulence/src/entity/animation/Animation.h
 ../loader/ShaderLoader.h
@@ -197,6 +205,8 @@ SDL_timer.h
 /home/champ/Git/crows/src/controller/Controller.h
 SDL.h
 -
+../sprite/Sprite.h
+/home/champ/Git/crows/src/sprite/Sprite.h
 
 /home/champ/Git/crows/src/controller/omnicontroller/OmniController.h
 iostream
@@ -205,7 +215,9 @@ deque
 -
 ../Controller.h
 /home/champ/Git/crows/src/controller/Controller.h
-../../sprite/Sprite.h
+
+/home/champ/Git/crows/src/service/SpriteFinder.h
+../sprite/Sprite.h
 /home/champ/Git/crows/src/sprite/Sprite.h
 
 /home/champ/Git/crows/src/sprite/Sprite.h
@@ -213,12 +225,16 @@ iostream
 -
 vector
 -
+../../opulence/src/entity/Entity.h
+/home/champ/Git/crows/opulence/src/entity/Entity.h
 ../../opulence/src/entity/model/Model.h
 /home/champ/Git/crows/opulence/src/entity/model/Model.h
 ../../opulence/src/entity/animation/Animation.h
 /home/champ/Git/crows/opulence/src/entity/animation/Animation.h
 ../../opulence/src/entity/camera/Camera.h
 /home/champ/Git/crows/opulence/src/entity/camera/Camera.h
+../../opulence/src/factory/ModelFactory.h
+/home/champ/Git/crows/opulence/src/factory/ModelFactory.h
 
 /usr/include/SDL2/SDL.h
 SDL_main.h

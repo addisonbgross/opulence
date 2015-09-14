@@ -23,6 +23,7 @@ private:
 
 public:
     int id;
+
     GLfloat width = 0,
             height = 0,
             depth = 0;
@@ -44,6 +45,9 @@ public:
     void setNormalIndexVerts(std::vector<GLuint> *v);
 
     // get
+    float getWidth();
+    float getHeight();
+    float getDepth();
     GLfloat * getScale();
     GLfloat * getPositionVerts();
     GLfloat * getNormalVerts();
