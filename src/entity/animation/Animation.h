@@ -28,6 +28,9 @@ public:
     void runOnce();
 
     // get
+    float getWidth();
+    float getHeight();
+    float getDepth();
     bool getIsRunning();
     bool getIsOnce();
     float getRate();

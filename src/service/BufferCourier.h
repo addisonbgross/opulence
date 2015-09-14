@@ -6,6 +6,7 @@
 #include <typeinfo>
 
 // opulence
+#include "../entity/model/Model.h"
 #include "../entity/animation/Animation.h"
 #include "../loader/ShaderLoader.h"
 

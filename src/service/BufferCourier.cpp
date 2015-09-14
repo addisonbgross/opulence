@@ -234,6 +234,13 @@ void BufferCourier::removeModel(int id)
 {
     clearBuffer(activeModels[id]);
     activeModels.erase(activeModels.begin() + (double) id);
+    activeModels.shrink_to_fit();
+
+    for (int i = 0; i < activeModels.size(); ++i) {
+        if (activeModels[i]->id > id) {
+            activeModels[i]->id -= 1;
+        }
+    }
 }
 
 /**

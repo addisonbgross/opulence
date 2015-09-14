@@ -11,6 +11,10 @@ public:
     Entity();
     Entity(float x, float y, float z);
     ~Entity();
+
+    float getWidth();
+    float getHeight();
+    float getDepth();
 };
 
 #endif

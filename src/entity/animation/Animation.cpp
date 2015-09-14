@@ -14,6 +14,21 @@ void Animation::runOnce()
 
 /*** get ***/
 
+float Animation::getWidth()
+{
+    return currentModel->width;
+}
+
+float Animation::getHeight()
+{
+    return currentModel->height;
+}
+
+float Animation::getDepth()
+{
+    return currentModel->depth;
+}
+
 bool Animation::getIsRunning()
 {
     return isRunning;

@@ -147,29 +147,101 @@ gtest_main/fast:
 	$(MAKE) -f test/gtest-1.7.0/CMakeFiles/gtest_main.dir/build.make test/gtest-1.7.0/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
-home/champ/Git/crows/main.o: home/champ/Git/crows/main.c.o
+home/champ/Git/crows/main.o: home/champ/Git/crows/main.cpp.o
 .PHONY : home/champ/Git/crows/main.o
 
 # target to build an object file
-home/champ/Git/crows/main.c.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.o
-.PHONY : home/champ/Git/crows/main.c.o
+home/champ/Git/crows/main.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o
+.PHONY : home/champ/Git/crows/main.cpp.o
 
-home/champ/Git/crows/main.i: home/champ/Git/crows/main.c.i
+home/champ/Git/crows/main.i: home/champ/Git/crows/main.cpp.i
 .PHONY : home/champ/Git/crows/main.i
 
 # target to preprocess a source file
-home/champ/Git/crows/main.c.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.i
-.PHONY : home/champ/Git/crows/main.c.i
+home/champ/Git/crows/main.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.i
+.PHONY : home/champ/Git/crows/main.cpp.i
 
-home/champ/Git/crows/main.s: home/champ/Git/crows/main.c.s
+home/champ/Git/crows/main.s: home/champ/Git/crows/main.cpp.s
 .PHONY : home/champ/Git/crows/main.s
 
 # target to generate assembly for a file
-home/champ/Git/crows/main.c.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/main.c.s
-.PHONY : home/champ/Git/crows/main.c.s
+home/champ/Git/crows/main.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.s
+.PHONY : home/champ/Git/crows/main.cpp.s
+
+home/champ/Git/crows/src/controller/omnicontroller/OmniController.o: home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.o
+.PHONY : home/champ/Git/crows/src/controller/omnicontroller/OmniController.o
+
+# target to build an object file
+home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.o
+.PHONY : home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.o
+
+home/champ/Git/crows/src/controller/omnicontroller/OmniController.i: home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.i
+.PHONY : home/champ/Git/crows/src/controller/omnicontroller/OmniController.i
+
+# target to preprocess a source file
+home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.i
+.PHONY : home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.i
+
+home/champ/Git/crows/src/controller/omnicontroller/OmniController.s: home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.s
+.PHONY : home/champ/Git/crows/src/controller/omnicontroller/OmniController.s
+
+# target to generate assembly for a file
+home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.s
+.PHONY : home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.s
+
+home/champ/Git/crows/src/service/SpriteFinder.o: home/champ/Git/crows/src/service/SpriteFinder.cpp.o
+.PHONY : home/champ/Git/crows/src/service/SpriteFinder.o
+
+# target to build an object file
+home/champ/Git/crows/src/service/SpriteFinder.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o
+.PHONY : home/champ/Git/crows/src/service/SpriteFinder.cpp.o
+
+home/champ/Git/crows/src/service/SpriteFinder.i: home/champ/Git/crows/src/service/SpriteFinder.cpp.i
+.PHONY : home/champ/Git/crows/src/service/SpriteFinder.i
+
+# target to preprocess a source file
+home/champ/Git/crows/src/service/SpriteFinder.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.i
+.PHONY : home/champ/Git/crows/src/service/SpriteFinder.cpp.i
+
+home/champ/Git/crows/src/service/SpriteFinder.s: home/champ/Git/crows/src/service/SpriteFinder.cpp.s
+.PHONY : home/champ/Git/crows/src/service/SpriteFinder.s
+
+# target to generate assembly for a file
+home/champ/Git/crows/src/service/SpriteFinder.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.s
+.PHONY : home/champ/Git/crows/src/service/SpriteFinder.cpp.s
+
+home/champ/Git/crows/src/sprite/Sprite.o: home/champ/Git/crows/src/sprite/Sprite.cpp.o
+.PHONY : home/champ/Git/crows/src/sprite/Sprite.o
+
+# target to build an object file
+home/champ/Git/crows/src/sprite/Sprite.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.o
+.PHONY : home/champ/Git/crows/src/sprite/Sprite.cpp.o
+
+home/champ/Git/crows/src/sprite/Sprite.i: home/champ/Git/crows/src/sprite/Sprite.cpp.i
+.PHONY : home/champ/Git/crows/src/sprite/Sprite.i
+
+# target to preprocess a source file
+home/champ/Git/crows/src/sprite/Sprite.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.i
+.PHONY : home/champ/Git/crows/src/sprite/Sprite.cpp.i
+
+home/champ/Git/crows/src/sprite/Sprite.s: home/champ/Git/crows/src/sprite/Sprite.cpp.s
+.PHONY : home/champ/Git/crows/src/sprite/Sprite.s
+
+# target to generate assembly for a file
+home/champ/Git/crows/src/sprite/Sprite.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.s
+.PHONY : home/champ/Git/crows/src/sprite/Sprite.cpp.s
 
 opulence.o: opulence.cpp.o
 .PHONY : opulence.o
@@ -618,6 +690,15 @@ help:
 	@echo "... home/champ/Git/crows/main.o"
 	@echo "... home/champ/Git/crows/main.i"
 	@echo "... home/champ/Git/crows/main.s"
+	@echo "... home/champ/Git/crows/src/controller/omnicontroller/OmniController.o"
+	@echo "... home/champ/Git/crows/src/controller/omnicontroller/OmniController.i"
+	@echo "... home/champ/Git/crows/src/controller/omnicontroller/OmniController.s"
+	@echo "... home/champ/Git/crows/src/service/SpriteFinder.o"
+	@echo "... home/champ/Git/crows/src/service/SpriteFinder.i"
+	@echo "... home/champ/Git/crows/src/service/SpriteFinder.s"
+	@echo "... home/champ/Git/crows/src/sprite/Sprite.o"
+	@echo "... home/champ/Git/crows/src/sprite/Sprite.i"
+	@echo "... home/champ/Git/crows/src/sprite/Sprite.s"
 	@echo "... opulence.o"
 	@echo "... opulence.i"
 	@echo "... opulence.s"
