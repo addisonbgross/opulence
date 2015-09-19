@@ -1,3 +1,6 @@
+#ifndef OPULENCE_H
+#define OPULENCE_H
+
 // glm
 #include <glm/glm.hpp>
 
@@ -177,3 +180,5 @@ public:
         glMan.shutDown();
     }
 };
+
+#endif
