@@ -105,6 +105,7 @@ add_executable(opulence
             ../src/service/SpriteFinder.h
             ../src/service/SpriteFinder.cpp)
 
+
 target_link_libraries(opulence
                     ${SDL2_LIBRARY}
                     ${OPENGL_LIBRARIES}

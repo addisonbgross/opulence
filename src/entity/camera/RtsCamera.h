@@ -12,7 +12,7 @@
 
 class RtsCamera : public Camera {
 private:
-    glm::vec4 *bearing;
+    glm::vec4 *lateralAxis;
 
 public:
     RtsCamera();

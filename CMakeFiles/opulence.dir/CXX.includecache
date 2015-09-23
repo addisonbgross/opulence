@@ -17,6 +17,8 @@ src/controller/omnicontroller/OmniController.h
 /home/champ/Git/crows/src/controller/omnicontroller/OmniController.h
 src/service/SpriteFinder.h
 /home/champ/Git/crows/src/service/SpriteFinder.h
+src/service/PathFinder.h
+/home/champ/Git/crows/src/service/PathFinder.h
 gtest/gtest.h
 /home/champ/Git/crows/gtest/gtest.h
 
@@ -216,6 +218,14 @@ deque
 ../Controller.h
 /home/champ/Git/crows/src/controller/Controller.h
 
+/home/champ/Git/crows/src/service/PathFinder.h
+vector
+-
+glm/detail/type_vec3.hpp
+-
+../sprite/Sprite.h
+/home/champ/Git/crows/src/sprite/Sprite.h
+
 /home/champ/Git/crows/src/service/SpriteFinder.h
 ../sprite/Sprite.h
 /home/champ/Git/crows/src/sprite/Sprite.h
@@ -235,6 +245,8 @@ vector
 /home/champ/Git/crows/opulence/src/entity/camera/Camera.h
 ../../opulence/src/factory/ModelFactory.h
 /home/champ/Git/crows/opulence/src/factory/ModelFactory.h
+../service/PathFinder.h
+/home/champ/Git/crows/src/service/PathFinder.h
 
 /usr/include/SDL2/SDL.h
 SDL_main.h
