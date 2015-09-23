@@ -27,6 +27,7 @@ void RtsCamera::moveLeft(float n)
     eye->x -= n * lateralAxis->x;
     eye->z -= n * lateralAxis->z;
     focus->x -= n * lateralAxis->x;
+    updateBearing();
     focus->z -= n * lateralAxis->z;
     updateBearing();
 }
@@ -53,18 +54,18 @@ void RtsCamera::moveBack(float n)
 void RtsCamera::rotateVertical(float deg)
 {
     // >>> Gimbal Locked! <<<
-   //  glm::vec3 camFocus = *eye - *focus;
-   //  glm::vec3 temp = glm::rotate(camFocus, deg, glm::vec3(1.0, 0.0, 0.0));
-   //  temp = glm::rotate(temp, deg, glm::vec3(0.0, 0.0, 1.0));
-   //  temp += *focus;
-   //  if (eye->y < 3) {
-   //     eye->y = 3;
-   // } else {
-   //     eye->y = temp.y;
-   // }
-   // eye->x = temp.x;
-   // eye->z = temp.z;
-   //  updateBearing();
+    //  glm::vec3 camFocus = *eye - *focus;
+    //  glm::vec3 temp = glm::rotate(camFocus, deg, glm::vec3(1.0, 0.0, 0.0));
+    //  temp = glm::rotate(temp, deg, glm::vec3(0.0, 0.0, 1.0));
+    //  temp += *focus;
+    //  if (eye->y < 3) {
+    //     eye->y = 3;
+    // } else {
+    //     eye->y = temp.y;
+    // }
+    // eye->x = temp.x;
+    // eye->z = temp.z;
+    //  updateBearing();
 }
 
 void RtsCamera::rotateHorizontal(float deg)

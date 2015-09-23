@@ -195,6 +195,30 @@ home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.s
 .PHONY : home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.s
 
+home/champ/Git/crows/src/service/PathFinder.o: home/champ/Git/crows/src/service/PathFinder.cpp.o
+.PHONY : home/champ/Git/crows/src/service/PathFinder.o
+
+# target to build an object file
+home/champ/Git/crows/src/service/PathFinder.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.o
+.PHONY : home/champ/Git/crows/src/service/PathFinder.cpp.o
+
+home/champ/Git/crows/src/service/PathFinder.i: home/champ/Git/crows/src/service/PathFinder.cpp.i
+.PHONY : home/champ/Git/crows/src/service/PathFinder.i
+
+# target to preprocess a source file
+home/champ/Git/crows/src/service/PathFinder.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.i
+.PHONY : home/champ/Git/crows/src/service/PathFinder.cpp.i
+
+home/champ/Git/crows/src/service/PathFinder.s: home/champ/Git/crows/src/service/PathFinder.cpp.s
+.PHONY : home/champ/Git/crows/src/service/PathFinder.s
+
+# target to generate assembly for a file
+home/champ/Git/crows/src/service/PathFinder.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.s
+.PHONY : home/champ/Git/crows/src/service/PathFinder.cpp.s
+
 home/champ/Git/crows/src/service/SpriteFinder.o: home/champ/Git/crows/src/service/SpriteFinder.cpp.o
 .PHONY : home/champ/Git/crows/src/service/SpriteFinder.o
 
@@ -693,6 +717,9 @@ help:
 	@echo "... home/champ/Git/crows/src/controller/omnicontroller/OmniController.o"
 	@echo "... home/champ/Git/crows/src/controller/omnicontroller/OmniController.i"
 	@echo "... home/champ/Git/crows/src/controller/omnicontroller/OmniController.s"
+	@echo "... home/champ/Git/crows/src/service/PathFinder.o"
+	@echo "... home/champ/Git/crows/src/service/PathFinder.i"
+	@echo "... home/champ/Git/crows/src/service/PathFinder.s"
 	@echo "... home/champ/Git/crows/src/service/SpriteFinder.o"
 	@echo "... home/champ/Git/crows/src/service/SpriteFinder.i"
 	@echo "... home/champ/Git/crows/src/service/SpriteFinder.s"
