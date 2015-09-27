@@ -14,40 +14,51 @@ RtsCamera::RtsCamera(float x, float y, float z) : Camera(x, y, z)
 
 void RtsCamera::moveForward(float n)
 {
+    // height related acceleration
+    float diff = glm::abs(eye->y) * 0.025;
     glm::vec3 camFocus = glm::normalize(*eye - *focus);
-    eye->x -= n * camFocus.x;
-    eye->z -= n * camFocus.z;
-    focus->x -= n * camFocus.x;
-    focus->z -= n * camFocus.z;
+
+    eye->x -= (n + diff) * camFocus.x;
+    eye->z -= (n + diff) * camFocus.z;
+    focus->x -= (n + diff) * camFocus.x;
+    focus->z -= (n + diff) * camFocus.z;
     updateBearing();
 }
 
 void RtsCamera::moveLeft(float n)
 {
-    eye->x -= n * lateralAxis->x;
-    eye->z -= n * lateralAxis->z;
-    focus->x -= n * lateralAxis->x;
-    updateBearing();
-    focus->z -= n * lateralAxis->z;
+    // height related acceleration
+    float diff = glm::abs(eye->y) * 0.025;
+
+    eye->x -= (n + diff) * lateralAxis->x;
+    eye->z -= (n + diff) * lateralAxis->z;
+    focus->x -= (n + diff) * lateralAxis->x;
+    focus->z -= (n + diff) * lateralAxis->z;
     updateBearing();
 }
 
 void RtsCamera::moveRight(float n)
 {
-    eye->x += n * lateralAxis->x;
-    eye->z += n * lateralAxis->z;
-    focus->x += n * lateralAxis->x;
-    focus->z += n * lateralAxis->z;
+    // height related acceleration
+    float diff = glm::abs(eye->y) * 0.025;
+
+    eye->x += (n + diff) * lateralAxis->x;
+    eye->z += (n + diff) * lateralAxis->z;
+    focus->x += (n + diff) * lateralAxis->x;
+    focus->z += (n + diff) * lateralAxis->z;
     updateBearing();
 }
 
 void RtsCamera::moveBack(float n)
 {
+    // height related acceleration
+    float diff = glm::abs(eye->y) * 0.025;
     glm::vec3 camFocus = glm::normalize(*eye - *focus);
-    eye->x += n * camFocus.x;
-    eye->z += n * camFocus.z;
-    focus->x += n * camFocus.x;
-    focus->z += n * camFocus.z;
+
+    eye->x += (n + diff) * camFocus.x;
+    eye->z += (n + diff) * camFocus.z;
+    focus->x += (n + diff) * camFocus.x;
+    focus->z += (n + diff) * camFocus.z;
     updateBearing();
 }
 

@@ -19,6 +19,8 @@ src/service/SpriteFinder.h
 /home/champ/Git/crows/src/service/SpriteFinder.h
 src/service/PathFinder.h
 /home/champ/Git/crows/src/service/PathFinder.h
+src/generator/SpriteGenerator.h
+/home/champ/Git/crows/src/generator/SpriteGenerator.h
 gtest/gtest.h
 /home/champ/Git/crows/gtest/gtest.h
 
@@ -57,6 +59,8 @@ glm/glm.hpp
 -
 
 /home/champ/Git/crows/opulence/src/entity/Entity.h
+iostream
+-
 glm/detail/type_vec3.hpp
 -
 
@@ -218,6 +222,12 @@ deque
 ../Controller.h
 /home/champ/Git/crows/src/controller/Controller.h
 
+/home/champ/Git/crows/src/generator/SpriteGenerator.h
+vector
+-
+../sprite/Sprite.h
+/home/champ/Git/crows/src/sprite/Sprite.h
+
 /home/champ/Git/crows/src/service/PathFinder.h
 vector
 -
@@ -234,6 +244,8 @@ glm/detail/type_vec3.hpp
 iostream
 -
 vector
+-
+typeinfo
 -
 ../../opulence/src/entity/Entity.h
 /home/champ/Git/crows/opulence/src/entity/Entity.h

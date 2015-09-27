@@ -25,6 +25,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o
  /home/champ/Git/crows/opulence/src/service/TimeManager.h
  /home/champ/Git/crows/src/controller/Controller.h
  /home/champ/Git/crows/src/controller/omnicontroller/OmniController.h
+ /home/champ/Git/crows/src/generator/SpriteGenerator.h
  /home/champ/Git/crows/src/service/PathFinder.h
  /home/champ/Git/crows/src/service/SpriteFinder.h
  /home/champ/Git/crows/src/sprite/Sprite.h
@@ -149,6 +150,21 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/omnicontroller/OmniC
  /usr/include/SDL2/SDL_video.h
  /usr/include/SDL2/begin_code.h
  /usr/include/SDL2/close_code.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o
+ /home/champ/Git/crows/opulence/src/container/mtl_data.h
+ /home/champ/Git/crows/opulence/src/container/obj_data.h
+ /home/champ/Git/crows/opulence/src/entity/Entity.h
+ /home/champ/Git/crows/opulence/src/entity/animation/Animation.h
+ /home/champ/Git/crows/opulence/src/entity/camera/Camera.h
+ /home/champ/Git/crows/opulence/src/entity/model/Model.h
+ /home/champ/Git/crows/opulence/src/factory/ModelFactory.h
+ /home/champ/Git/crows/opulence/src/loader/ObjLoader.h
+ /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
+ /home/champ/Git/crows/opulence/src/service/BufferCourier.h
+ /home/champ/Git/crows/src/generator/SpriteGenerator.cpp
+ /home/champ/Git/crows/src/generator/SpriteGenerator.h
+ /home/champ/Git/crows/src/service/PathFinder.h
+ /home/champ/Git/crows/src/sprite/Sprite.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.o
  /home/champ/Git/crows/opulence/src/container/mtl_data.h
  /home/champ/Git/crows/opulence/src/container/obj_data.h

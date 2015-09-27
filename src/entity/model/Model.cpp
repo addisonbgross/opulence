@@ -2,6 +2,7 @@
 
 Model::Model(float x, float y, float z, obj_data *objData)
 {
+    name = objData->name;
     position.x = x;
     position.y = y;
     position.z = z;

@@ -24,6 +24,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: src/service/GLManager.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: src/service/TimeManager.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /home/champ/Git/crows/src/controller/Controller.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /home/champ/Git/crows/src/controller/omnicontroller/OmniController.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /home/champ/Git/crows/src/generator/SpriteGenerator.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /home/champ/Git/crows/src/service/PathFinder.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /home/champ/Git/crows/src/service/SpriteFinder.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /home/champ/Git/crows/src/sprite/Sprite.h
@@ -148,6 +149,21 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/omnicontroller/OmniC
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.o: /usr/include/SDL2/SDL_video.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.o: /usr/include/SDL2/begin_code.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.o: /usr/include/SDL2/close_code.h
+
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: src/container/mtl_data.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: src/container/obj_data.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: src/entity/Entity.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: src/entity/animation/Animation.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: src/entity/camera/Camera.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: src/entity/model/Model.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: src/factory/ModelFactory.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: src/loader/ObjLoader.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: src/loader/ShaderLoader.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: src/service/BufferCourier.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: /home/champ/Git/crows/src/generator/SpriteGenerator.cpp
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: /home/champ/Git/crows/src/generator/SpriteGenerator.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: /home/champ/Git/crows/src/service/PathFinder.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: /home/champ/Git/crows/src/sprite/Sprite.h
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.o: src/container/mtl_data.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.o: src/container/obj_data.h

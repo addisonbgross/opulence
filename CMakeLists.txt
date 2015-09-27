@@ -103,7 +103,13 @@ add_executable(opulence
 
             # services
             ../src/service/SpriteFinder.h
-            ../src/service/SpriteFinder.cpp)
+            ../src/service/SpriteFinder.cpp
+            ../src/service/PathFinder.h
+            ../src/service/PathFinder.cpp
+
+            # generators
+            ../src/generator/SpriteGenerator.h
+            ../src/generator/SpriteGenerator.cpp)
 
 
 target_link_libraries(opulence

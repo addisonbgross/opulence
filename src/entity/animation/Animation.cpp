@@ -4,6 +4,7 @@ Animation::~Animation() {}
 
 Animation::Animation(float x, float y, float z, std::vector<Model*> *frames) : Entity(x, y, z)
 {
+    this->name = frames->at(0)->name;
     this->frames = frames;
 }
 
