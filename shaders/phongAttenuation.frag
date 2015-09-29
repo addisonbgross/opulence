@@ -29,7 +29,7 @@ void main()
     diffuseIntensity = clamp(directionalDiffuseIntensity + pointDiffuseIntensity, 0.0, 1.0);
 
     // cell shading
-    int cellShadingFactor = 10;
+    int cellShadingFactor = 8;
     diffuseIntensity = ceil(diffuseIntensity * cellShadingFactor) / cellShadingFactor;
 
     // specular

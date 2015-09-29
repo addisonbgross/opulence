@@ -19,7 +19,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o"
   "CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o"
   "CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.o"
-  "CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.o"
+  "CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o"
   "CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o"
   "CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.o"
   "CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o"

@@ -23,8 +23,11 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o
  /home/champ/Git/crows/opulence/src/service/BufferCourier.h
  /home/champ/Git/crows/opulence/src/service/GLManager.h
  /home/champ/Git/crows/opulence/src/service/TimeManager.h
+ /home/champ/Git/crows/src/controller/./controlset/ControlSet.h
  /home/champ/Git/crows/src/controller/Controller.h
- /home/champ/Git/crows/src/controller/omnicontroller/OmniController.h
+ /home/champ/Git/crows/src/controller/controlset/ControlSet.h
+ /home/champ/Git/crows/src/controller/controlset/PlayerSet.h
+ /home/champ/Git/crows/src/controller/standardcontroller/StandardController.h
  /home/champ/Git/crows/src/generator/SpriteGenerator.h
  /home/champ/Git/crows/src/service/PathFinder.h
  /home/champ/Git/crows/src/service/SpriteFinder.h
@@ -91,7 +94,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o
  test/gtest-1.7.0/include/gtest/internal/gtest-string.h
  test/gtest-1.7.0/include/gtest/internal/gtest-tuple.h
  test/gtest-1.7.0/include/gtest/internal/gtest-type-util.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.o
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o
  /home/champ/Git/crows/opulence/src/container/mtl_data.h
  /home/champ/Git/crows/opulence/src/container/obj_data.h
  /home/champ/Git/crows/opulence/src/entity/Entity.h
@@ -102,9 +105,10 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/omnicontroller/OmniC
  /home/champ/Git/crows/opulence/src/loader/ObjLoader.h
  /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
  /home/champ/Git/crows/opulence/src/service/BufferCourier.h
+ /home/champ/Git/crows/src/controller/./controlset/ControlSet.h
  /home/champ/Git/crows/src/controller/Controller.h
- /home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp
- /home/champ/Git/crows/src/controller/omnicontroller/OmniController.h
+ /home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp
+ /home/champ/Git/crows/src/controller/standardcontroller/StandardController.h
  /home/champ/Git/crows/src/service/PathFinder.h
  /home/champ/Git/crows/src/sprite/Sprite.h
  /usr/include/SDL2/SDL.h

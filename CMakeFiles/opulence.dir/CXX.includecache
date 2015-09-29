@@ -13,14 +13,18 @@ src/sprite/Sprite.h
 /home/champ/Git/crows/src/sprite/Sprite.h
 src/controller/Controller.h
 /home/champ/Git/crows/src/controller/Controller.h
-src/controller/omnicontroller/OmniController.h
-/home/champ/Git/crows/src/controller/omnicontroller/OmniController.h
+src/controller/standardcontroller/StandardController.h
+/home/champ/Git/crows/src/controller/standardcontroller/StandardController.h
 src/service/SpriteFinder.h
 /home/champ/Git/crows/src/service/SpriteFinder.h
 src/service/PathFinder.h
 /home/champ/Git/crows/src/service/PathFinder.h
 src/generator/SpriteGenerator.h
 /home/champ/Git/crows/src/generator/SpriteGenerator.h
+src/controller/controlset/ControlSet.h
+/home/champ/Git/crows/src/controller/controlset/ControlSet.h
+src/controller/controlset/PlayerSet.h
+/home/champ/Git/crows/src/controller/controlset/PlayerSet.h
 gtest/gtest.h
 /home/champ/Git/crows/gtest/gtest.h
 
@@ -208,13 +212,27 @@ iostream
 SDL_timer.h
 -
 
+/home/champ/Git/crows/src/controller/./controlset/ControlSet.h
+map
+-
+
 /home/champ/Git/crows/src/controller/Controller.h
 SDL.h
 -
 ../sprite/Sprite.h
 /home/champ/Git/crows/src/sprite/Sprite.h
+./controlset/ControlSet.h
+/home/champ/Git/crows/src/controller/./controlset/ControlSet.h
 
-/home/champ/Git/crows/src/controller/omnicontroller/OmniController.h
+/home/champ/Git/crows/src/controller/controlset/ControlSet.h
+map
+-
+
+/home/champ/Git/crows/src/controller/controlset/PlayerSet.h
+ControlSet.h
+/home/champ/Git/crows/src/controller/controlset/ControlSet.h
+
+/home/champ/Git/crows/src/controller/standardcontroller/StandardController.h
 iostream
 -
 deque

@@ -98,8 +98,12 @@ add_executable(opulence
 
             # controllers
             ../src/controller/Controller.h
-            ../src/controller/omnicontroller/OmniController.h
-            ../src/controller/omnicontroller/OmniController.cpp
+            ../src/controller/standardcontroller/StandardController.h
+            ../src/controller/standardcontroller/StandardController.cpp
+
+                # control sets
+                ../src/controller/controlset/ControlSet.h
+                ../src/controller/controlset/PlayerSet.h
 
             # services
             ../src/service/SpriteFinder.h
@@ -110,7 +114,6 @@ add_executable(opulence
             # generators
             ../src/generator/SpriteGenerator.h
             ../src/generator/SpriteGenerator.cpp)
-
 
 target_link_libraries(opulence
                     ${SDL2_LIBRARY}

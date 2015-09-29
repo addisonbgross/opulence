@@ -171,29 +171,29 @@ home/champ/Git/crows/main.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.s
 .PHONY : home/champ/Git/crows/main.cpp.s
 
-home/champ/Git/crows/src/controller/omnicontroller/OmniController.o: home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.o
-.PHONY : home/champ/Git/crows/src/controller/omnicontroller/OmniController.o
+home/champ/Git/crows/src/controller/standardcontroller/StandardController.o: home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o
+.PHONY : home/champ/Git/crows/src/controller/standardcontroller/StandardController.o
 
 # target to build an object file
-home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.o
-.PHONY : home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.o
+home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o
+.PHONY : home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o
 
-home/champ/Git/crows/src/controller/omnicontroller/OmniController.i: home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.i
-.PHONY : home/champ/Git/crows/src/controller/omnicontroller/OmniController.i
+home/champ/Git/crows/src/controller/standardcontroller/StandardController.i: home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.i
+.PHONY : home/champ/Git/crows/src/controller/standardcontroller/StandardController.i
 
 # target to preprocess a source file
-home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.i
-.PHONY : home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.i
+home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.i
+.PHONY : home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.i
 
-home/champ/Git/crows/src/controller/omnicontroller/OmniController.s: home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.s
-.PHONY : home/champ/Git/crows/src/controller/omnicontroller/OmniController.s
+home/champ/Git/crows/src/controller/standardcontroller/StandardController.s: home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.s
+.PHONY : home/champ/Git/crows/src/controller/standardcontroller/StandardController.s
 
 # target to generate assembly for a file
-home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.s
-.PHONY : home/champ/Git/crows/src/controller/omnicontroller/OmniController.cpp.s
+home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.s
+.PHONY : home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.s
 
 home/champ/Git/crows/src/generator/SpriteGenerator.o: home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o
 .PHONY : home/champ/Git/crows/src/generator/SpriteGenerator.o
@@ -738,9 +738,9 @@ help:
 	@echo "... home/champ/Git/crows/main.o"
 	@echo "... home/champ/Git/crows/main.i"
 	@echo "... home/champ/Git/crows/main.s"
-	@echo "... home/champ/Git/crows/src/controller/omnicontroller/OmniController.o"
-	@echo "... home/champ/Git/crows/src/controller/omnicontroller/OmniController.i"
-	@echo "... home/champ/Git/crows/src/controller/omnicontroller/OmniController.s"
+	@echo "... home/champ/Git/crows/src/controller/standardcontroller/StandardController.o"
+	@echo "... home/champ/Git/crows/src/controller/standardcontroller/StandardController.i"
+	@echo "... home/champ/Git/crows/src/controller/standardcontroller/StandardController.s"
 	@echo "... home/champ/Git/crows/src/generator/SpriteGenerator.o"
 	@echo "... home/champ/Git/crows/src/generator/SpriteGenerator.i"
 	@echo "... home/champ/Git/crows/src/generator/SpriteGenerator.s"
