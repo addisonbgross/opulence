@@ -17,7 +17,6 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/opulence.dir/src/factory/CameraFactory.cpp.o"
   "CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.o"
   "CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o"
-  "CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o"
   "CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.o"
   "CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o"
   "CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o"

@@ -30,7 +30,6 @@ SET(CMAKE_DEPENDS_CHECK_CXX
   "/home/champ/Git/crows/opulence/src/service/BufferCourier.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.o"
   "/home/champ/Git/crows/opulence/src/service/GLManager.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/service/GLManager.cpp.o"
   "/home/champ/Git/crows/opulence/src/service/TimeManager.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o"
-  "/home/champ/Git/crows/opulence/test/entity/ModelTest.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -40,8 +39,6 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "test/gtest-1.7.0/include"
-  "test/gtest-1.7.0"
   "."
   "/usr/include/SDL2"
   )

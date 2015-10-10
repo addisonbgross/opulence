@@ -67,16 +67,6 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-.PHONY : test/fast
-
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/champ/Git/crows/opulence/CMakeFiles /home/champ/Git/crows/opulence/CMakeFiles/progress.marks
@@ -120,32 +110,6 @@ opulence: cmake_check_build_system
 opulence/fast:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/build
 .PHONY : opulence/fast
-
-#=============================================================================
-# Target rules for targets named gtest
-
-# Build rule for target.
-gtest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gtest
-.PHONY : gtest
-
-# fast build rule for target.
-gtest/fast:
-	$(MAKE) -f test/gtest-1.7.0/CMakeFiles/gtest.dir/build.make test/gtest-1.7.0/CMakeFiles/gtest.dir/build
-.PHONY : gtest/fast
-
-#=============================================================================
-# Target rules for targets named gtest_main
-
-# Build rule for target.
-gtest_main: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gtest_main
-.PHONY : gtest_main
-
-# fast build rule for target.
-gtest_main/fast:
-	$(MAKE) -f test/gtest-1.7.0/CMakeFiles/gtest_main.dir/build.make test/gtest-1.7.0/CMakeFiles/gtest_main.dir/build
-.PHONY : gtest_main/fast
 
 home/champ/Git/crows/main.o: home/champ/Git/crows/main.cpp.o
 .PHONY : home/champ/Git/crows/main.o
@@ -771,30 +735,6 @@ src/service/TimeManager.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/TimeManager.cpp.s
 .PHONY : src/service/TimeManager.cpp.s
 
-test/entity/ModelTest.o: test/entity/ModelTest.cpp.o
-.PHONY : test/entity/ModelTest.o
-
-# target to build an object file
-test/entity/ModelTest.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o
-.PHONY : test/entity/ModelTest.cpp.o
-
-test/entity/ModelTest.i: test/entity/ModelTest.cpp.i
-.PHONY : test/entity/ModelTest.i
-
-# target to preprocess a source file
-test/entity/ModelTest.cpp.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.i
-.PHONY : test/entity/ModelTest.cpp.i
-
-test/entity/ModelTest.s: test/entity/ModelTest.cpp.s
-.PHONY : test/entity/ModelTest.s
-
-# target to generate assembly for a file
-test/entity/ModelTest.cpp.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.s
-.PHONY : test/entity/ModelTest.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -804,9 +744,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... opulence"
 	@echo "... rebuild_cache"
-	@echo "... test"
-	@echo "... gtest"
-	@echo "... gtest_main"
 	@echo "... home/champ/Git/crows/main.o"
 	@echo "... home/champ/Git/crows/main.i"
 	@echo "... home/champ/Git/crows/main.s"
@@ -885,9 +822,6 @@ help:
 	@echo "... src/service/TimeManager.o"
 	@echo "... src/service/TimeManager.i"
 	@echo "... src/service/TimeManager.s"
-	@echo "... test/entity/ModelTest.o"
-	@echo "... test/entity/ModelTest.i"
-	@echo "... test/entity/ModelTest.s"
 .PHONY : help
 
 

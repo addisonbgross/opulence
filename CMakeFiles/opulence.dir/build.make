@@ -463,32 +463,9 @@ CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o.provides: CMakeFiles/opul
 
 CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o.provides.build: CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o
 
-CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o: CMakeFiles/opulence.dir/flags.make
-CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o: test/entity/ModelTest.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_19)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o -c /home/champ/Git/crows/opulence/test/entity/ModelTest.cpp
-
-CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/champ/Git/crows/opulence/test/entity/ModelTest.cpp > CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.i
-
-CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/champ/Git/crows/opulence/test/entity/ModelTest.cpp -o CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.s
-
-CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o.requires:
-.PHONY : CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o.requires
-
-CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o.provides: CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o.requires
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o.provides.build
-.PHONY : CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o.provides
-
-CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o.provides.build: CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o
-
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.o: /home/champ/Git/crows/src/sprite/Sprite.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_20)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_19)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.o -c /home/champ/Git/crows/src/sprite/Sprite.cpp
 
@@ -511,7 +488,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.o.provides.bu
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o: /home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_21)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_20)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o -c /home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp
 
@@ -534,7 +511,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/S
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o: /home/champ/Git/crows/src/service/SpriteFinder.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_22)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_21)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o -c /home/champ/Git/crows/src/service/SpriteFinder.cpp
 
@@ -557,7 +534,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o.prov
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.o: /home/champ/Git/crows/src/service/PathFinder.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_23)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_22)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.o -c /home/champ/Git/crows/src/service/PathFinder.cpp
 
@@ -580,7 +557,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.o.provid
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: /home/champ/Git/crows/src/generator/SpriteGenerator.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_24)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_23)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o -c /home/champ/Git/crows/src/generator/SpriteGenerator.cpp
 
@@ -603,7 +580,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.o: /home/champ/Git/crows/src/anima/character/Crow.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_25)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_24)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.o -c /home/champ/Git/crows/src/anima/character/Crow.cpp
 
@@ -626,7 +603,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.o.prov
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.o: /home/champ/Git/crows/src/anima/clock/Clock.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_26)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_25)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.o -c /home/champ/Git/crows/src/anima/clock/Clock.cpp
 
@@ -649,7 +626,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.o.provide
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o: /home/champ/Git/crows/src/anima/clock/Digit.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_27)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_26)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o -c /home/champ/Git/crows/src/anima/clock/Digit.cpp
 
@@ -690,7 +667,6 @@ opulence_OBJECTS = \
 "CMakeFiles/opulence.dir/src/factory/CameraFactory.cpp.o" \
 "CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.o" \
 "CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o" \
-"CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o" \
 "CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.o" \
 "CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o" \
 "CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o" \
@@ -721,7 +697,6 @@ opulence: CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o
 opulence: CMakeFiles/opulence.dir/src/factory/CameraFactory.cpp.o
 opulence: CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.o
 opulence: CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o
-opulence: CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o
 opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.o
 opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o
 opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o
@@ -740,17 +715,6 @@ opulence: /usr/lib/x86_64-linux-gnu/libICE.so
 opulence: /usr/lib/x86_64-linux-gnu/libX11.so
 opulence: /usr/lib/x86_64-linux-gnu/libXext.so
 opulence: /usr/lib/x86_64-linux-gnu/libGLEW.so
-opulence: /usr/lib/libgtest.a
-opulence: /usr/lib/libgtest_main.a
-opulence: /usr/lib/x86_64-linux-gnu/libGLU.so
-opulence: /usr/lib/x86_64-linux-gnu/libGL.so
-opulence: /usr/lib/x86_64-linux-gnu/libSM.so
-opulence: /usr/lib/x86_64-linux-gnu/libICE.so
-opulence: /usr/lib/x86_64-linux-gnu/libX11.so
-opulence: /usr/lib/x86_64-linux-gnu/libXext.so
-opulence: /usr/lib/x86_64-linux-gnu/libGLEW.so
-opulence: /usr/lib/libgtest.a
-opulence: /usr/lib/libgtest_main.a
 opulence: CMakeFiles/opulence.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable opulence"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/opulence.dir/link.txt --verbose=$(VERBOSE)
@@ -777,7 +741,6 @@ CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/src/service/TimeManage
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/src/factory/CameraFactory.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o.requires
-CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o.requires

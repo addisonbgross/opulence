@@ -78,25 +78,6 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /usr/include/SDL2/SDL_v
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /usr/include/SDL2/SDL_video.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /usr/include/SDL2/begin_code.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /usr/include/SDL2/close_code.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: test/gtest-1.7.0/include/gtest/gtest-death-test.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: test/gtest-1.7.0/include/gtest/gtest-message.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: test/gtest-1.7.0/include/gtest/gtest-param-test.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: test/gtest-1.7.0/include/gtest/gtest-printers.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: test/gtest-1.7.0/include/gtest/gtest-test-part.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: test/gtest-1.7.0/include/gtest/gtest-typed-test.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: test/gtest-1.7.0/include/gtest/gtest.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: test/gtest-1.7.0/include/gtest/gtest_pred_impl.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: test/gtest-1.7.0/include/gtest/gtest_prod.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: test/gtest-1.7.0/include/gtest/internal/gtest-death-test-internal.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: test/gtest-1.7.0/include/gtest/internal/gtest-filepath.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: test/gtest-1.7.0/include/gtest/internal/gtest-internal.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: test/gtest-1.7.0/include/gtest/internal/gtest-linked_ptr.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: test/gtest-1.7.0/include/gtest/internal/gtest-param-util-generated.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: test/gtest-1.7.0/include/gtest/internal/gtest-param-util.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: test/gtest-1.7.0/include/gtest/internal/gtest-port.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: test/gtest-1.7.0/include/gtest/internal/gtest-string.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: test/gtest-1.7.0/include/gtest/internal/gtest-tuple.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: test/gtest-1.7.0/include/gtest/internal/gtest-type-util.h
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.o: src/container/mtl_data.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.o: src/container/obj_data.h
@@ -476,6 +457,4 @@ CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o: /usr/include/SDL2/SDL_std
 CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o: /usr/include/SDL2/SDL_timer.h
 CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o: /usr/include/SDL2/begin_code.h
 CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o: /usr/include/SDL2/close_code.h
-
-CMakeFiles/opulence.dir/test/entity/ModelTest.cpp.o: test/entity/ModelTest.cpp
 

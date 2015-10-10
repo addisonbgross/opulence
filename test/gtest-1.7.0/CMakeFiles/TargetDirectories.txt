@@ -1,2 +1,0 @@
-/home/champ/Git/crows/opulence/test/gtest-1.7.0/CMakeFiles/gtest.dir
-/home/champ/Git/crows/opulence/test/gtest-1.7.0/CMakeFiles/gtest_main.dir

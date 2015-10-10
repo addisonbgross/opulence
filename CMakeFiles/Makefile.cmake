@@ -12,8 +12,6 @@ SET(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/2.8.12.2/CMakeSystem.cmake"
   "CMakeFiles/FindSDL2.cmake"
   "CMakeLists.txt"
-  "test/gtest-1.7.0/CMakeLists.txt"
-  "test/gtest-1.7.0/cmake/internal_utils.cmake"
   "/usr/share/cmake-2.8/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-2.8/Modules/CMakeCXXInformation.cmake"
   "/usr/share/cmake-2.8/Modules/CMakeCommonLanguageInclude.cmake"
@@ -28,11 +26,9 @@ SET(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-2.8/Modules/Compiler/GNU-CXX.cmake"
   "/usr/share/cmake-2.8/Modules/Compiler/GNU.cmake"
   "/usr/share/cmake-2.8/Modules/FindGLEW.cmake"
-  "/usr/share/cmake-2.8/Modules/FindGTest.cmake"
   "/usr/share/cmake-2.8/Modules/FindOpenGL.cmake"
   "/usr/share/cmake-2.8/Modules/FindPackageHandleStandardArgs.cmake"
   "/usr/share/cmake-2.8/Modules/FindPackageMessage.cmake"
-  "/usr/share/cmake-2.8/Modules/FindPythonInterp.cmake"
   "/usr/share/cmake-2.8/Modules/FindThreads.cmake"
   "/usr/share/cmake-2.8/Modules/FindX11.cmake"
   "/usr/share/cmake-2.8/Modules/Platform/Linux-GNU-C.cmake"
@@ -51,12 +47,9 @@ SET(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 SET(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
-  "test/gtest-1.7.0/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 SET(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/opulence.dir/DependInfo.cmake"
-  "test/gtest-1.7.0/CMakeFiles/gtest.dir/DependInfo.cmake"
-  "test/gtest-1.7.0/CMakeFiles/gtest_main.dir/DependInfo.cmake"
   )
