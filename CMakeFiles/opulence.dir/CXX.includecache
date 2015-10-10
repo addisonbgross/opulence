@@ -7,6 +7,8 @@
 #IncludeRegexTransform: 
 
 /home/champ/Git/crows/CrowGame.h
+array
+-
 opulence/opulence.cpp
 /home/champ/Git/crows/opulence/opulence.cpp
 src/sprite/Sprite.h
@@ -25,6 +27,14 @@ src/controller/controlset/ControlSet.h
 /home/champ/Git/crows/src/controller/controlset/ControlSet.h
 src/controller/controlset/PlayerSet.h
 /home/champ/Git/crows/src/controller/controlset/PlayerSet.h
+src/anima/Anima.h
+/home/champ/Git/crows/src/anima/Anima.h
+src/anima/character/Crow.h
+/home/champ/Git/crows/src/anima/character/Crow.h
+src/anima/clock/Clock.h
+/home/champ/Git/crows/src/anima/clock/Clock.h
+src/anima/clock/Digit.h
+/home/champ/Git/crows/src/anima/clock/Digit.h
 gtest/gtest.h
 /home/champ/Git/crows/gtest/gtest.h
 
@@ -211,6 +221,34 @@ iostream
 -
 SDL_timer.h
 -
+
+/home/champ/Git/crows/src/anima/Anima.h
+../sprite/Sprite.h
+/home/champ/Git/crows/src/sprite/Sprite.h
+
+/home/champ/Git/crows/src/anima/character/Crow.h
+../Anima.h
+/home/champ/Git/crows/src/anima/Anima.h
+
+/home/champ/Git/crows/src/anima/clock/Clock.h
+map
+-
+glm/glm.hpp
+-
+../../../opulence/src/service/TimeManager.h
+/home/champ/Git/crows/opulence/src/service/TimeManager.h
+../Anima.h
+/home/champ/Git/crows/src/anima/Anima.h
+Digit.h
+/home/champ/Git/crows/src/anima/clock/Digit.h
+
+/home/champ/Git/crows/src/anima/clock/Digit.h
+map
+-
+../../../opulence/src/service/TimeManager.h
+/home/champ/Git/crows/opulence/src/service/TimeManager.h
+../Anima.h
+/home/champ/Git/crows/src/anima/Anima.h
 
 /home/champ/Git/crows/src/controller/./controlset/ControlSet.h
 map

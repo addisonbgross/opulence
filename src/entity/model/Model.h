@@ -23,6 +23,7 @@ private:
 
 public:
     int id;
+    bool hidden = false;
 
     GLfloat width = 0,
             height = 0,

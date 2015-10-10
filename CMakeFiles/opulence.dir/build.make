@@ -601,6 +601,75 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o.provides.build: CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o
 
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.o: CMakeFiles/opulence.dir/flags.make
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.o: /home/champ/Git/crows/src/anima/character/Crow.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_25)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.o -c /home/champ/Git/crows/src/anima/character/Crow.cpp
+
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/champ/Git/crows/src/anima/character/Crow.cpp > CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.i
+
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/champ/Git/crows/src/anima/character/Crow.cpp -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.s
+
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.o.requires:
+.PHONY : CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.o.requires
+
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.o.provides: CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.o.requires
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.o.provides.build
+.PHONY : CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.o.provides
+
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.o.provides.build: CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.o
+
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.o: CMakeFiles/opulence.dir/flags.make
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.o: /home/champ/Git/crows/src/anima/clock/Clock.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_26)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.o -c /home/champ/Git/crows/src/anima/clock/Clock.cpp
+
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/champ/Git/crows/src/anima/clock/Clock.cpp > CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.i
+
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/champ/Git/crows/src/anima/clock/Clock.cpp -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.s
+
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.o.requires:
+.PHONY : CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.o.requires
+
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.o.provides: CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.o.requires
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.o.provides.build
+.PHONY : CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.o.provides
+
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.o.provides.build: CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.o
+
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o: CMakeFiles/opulence.dir/flags.make
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o: /home/champ/Git/crows/src/anima/clock/Digit.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_27)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o -c /home/champ/Git/crows/src/anima/clock/Digit.cpp
+
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/champ/Git/crows/src/anima/clock/Digit.cpp > CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.i
+
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/champ/Git/crows/src/anima/clock/Digit.cpp -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.s
+
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o.requires:
+.PHONY : CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o.requires
+
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o.provides: CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o.requires
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o.provides.build
+.PHONY : CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o.provides
+
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o.provides.build: CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o
+
 # Object files for target opulence
 opulence_OBJECTS = \
 "CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o" \
@@ -626,7 +695,10 @@ opulence_OBJECTS = \
 "CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o" \
 "CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o" \
 "CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.o" \
-"CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o"
+"CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o" \
+"CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.o" \
+"CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.o" \
+"CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o"
 
 # External object files for target opulence
 opulence_EXTERNAL_OBJECTS =
@@ -655,6 +727,9 @@ opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardco
 opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o
 opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.o
 opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o
+opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.o
+opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.o
+opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o
 opulence: CMakeFiles/opulence.dir/build.make
 opulence: /usr/lib/x86_64-linux-gnu/libSDL2main.a
 opulence: /usr/lib/x86_64-linux-gnu/libSDL2.so
@@ -708,6 +783,9 @@ CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/s
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o.requires
+CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.o.requires
+CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.o.requires
+CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o.requires
 .PHONY : CMakeFiles/opulence.dir/requires
 
 CMakeFiles/opulence.dir/clean:

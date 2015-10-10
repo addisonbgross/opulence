@@ -113,7 +113,17 @@ add_executable(opulence
 
             # generators
             ../src/generator/SpriteGenerator.h
-            ../src/generator/SpriteGenerator.cpp)
+            ../src/generator/SpriteGenerator.cpp
+
+            # generated includes
+            ../src/anima/Anima.h
+            ../src/anima/character/Crow.h
+            ../src/anima/character/Crow.cpp
+            ../src/anima/clock/Clock.h
+            ../src/anima/clock/Clock.cpp
+            ../src/anima/clock/Digit.h
+            ../src/anima/clock/Digit.cpp
+)
 
 target_link_libraries(opulence
                     ${SDL2_LIBRARY}

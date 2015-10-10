@@ -23,6 +23,9 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/SpriteFinder.cpp.o"
   "CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.o"
   "CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o"
+  "CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.o"
+  "CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.o"
+  "CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o"
   "opulence.pdb"
   "opulence"
 )

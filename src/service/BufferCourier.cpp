@@ -108,35 +108,37 @@ void BufferCourier::render()
     for (i = 0; i < numModels; ++i) {
         Model *model = activeModels[i];
 
-        // set model position
-        glm::vec3 modelPlace = glm::vec3(model->position.x,
-                                         model->position.y,
-                                         model->position.z);
-        glUniform3fv(bufferUniforms.at("modelPosition"), 1, &modelPlace[0]);
-        glUniform1fv(bufferUniforms.at("scale"), 1, model->getScale());
+        if (!model->hidden) {
+            // set model position
+            glm::vec3 modelPlace = glm::vec3(model->position.x,
+                                             model->position.y,
+                                             model->position.z);
+            glUniform3fv(bufferUniforms.at("modelPosition"), 1, &modelPlace[0]);
+            glUniform1fv(bufferUniforms.at("scale"), 1, model->getScale());
 
-        // push vertex positions
-        glBindBuffer(GL_ARRAY_BUFFER, model->positionBuffer);
-        glVertexAttribPointer(bufferAttributes.at("position"), 3, GL_FLOAT, GL_FALSE, 0, 0);
+            // push vertex positions
+            glBindBuffer(GL_ARRAY_BUFFER, model->positionBuffer);
+            glVertexAttribPointer(bufferAttributes.at("position"), 3, GL_FLOAT, GL_FALSE, 0, 0);
 
-        // push vertex normals
-        glBindBuffer(GL_ARRAY_BUFFER, model->normalBuffer);
-        glVertexAttribPointer(bufferAttributes.at("normal"), 3, GL_FLOAT, GL_FALSE, 0, 0);
+            // push vertex normals
+            glBindBuffer(GL_ARRAY_BUFFER, model->normalBuffer);
+            glVertexAttribPointer(bufferAttributes.at("normal"), 3, GL_FLOAT, GL_FALSE, 0, 0);
 
-        // push diffuse colour
-        glBindBuffer(GL_ARRAY_BUFFER, model->diffuseBuffer);
-        glVertexAttribPointer(bufferAttributes.at("diffuse"), 4, GL_FLOAT, GL_FALSE, 0, 0);
+            // push diffuse colour
+            glBindBuffer(GL_ARRAY_BUFFER, model->diffuseBuffer);
+            glVertexAttribPointer(bufferAttributes.at("diffuse"), 4, GL_FLOAT, GL_FALSE, 0, 0);
 
-        // push specular colour
-        glBindBuffer(GL_ARRAY_BUFFER, model->specularBuffer);
-        glVertexAttribPointer(bufferAttributes.at("specular"), 4, GL_FLOAT, GL_FALSE, 0, 0);
+            // push specular colour
+            glBindBuffer(GL_ARRAY_BUFFER, model->specularBuffer);
+            glVertexAttribPointer(bufferAttributes.at("specular"), 4, GL_FLOAT, GL_FALSE, 0, 0);
 
-        // push vertex indexes
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, model->indexBuffer);
-        glDrawElements(GL_TRIANGLES, model->getNumIndexVerts(), GL_UNSIGNED_INT, 0);
+            // push vertex indexes
+            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, model->indexBuffer);
+            glDrawElements(GL_TRIANGLES, model->getNumIndexVerts(), GL_UNSIGNED_INT, 0);
 
-        // update total triangles being drawn in scene
-        totalTriangles += (model->getNumIndexVerts() / 3);
+            // update total triangles being drawn in scene
+            totalTriangles += (model->getNumIndexVerts() / 3);
+        }
     }
 
     // render the current frame of each animation
@@ -144,35 +146,37 @@ void BufferCourier::render()
     for (i = 0; i < numAnimations; ++i) {
         Model *model = activeAnimations.at(i)->getCurrentFrame();
 
-        // set model position
-        glm::vec3 modelPlace = glm::vec3(model->position.x,
-                                         model->position.y,
-                                         model->position.z);
-        glUniform3fv(bufferUniforms.at("modelPosition"), 1, &modelPlace[0]);
-        glUniform1fv(bufferUniforms.at("scale"), 1, model->getScale());
+        if (!model->hidden) {
+            // set model position
+            glm::vec3 modelPlace = glm::vec3(model->position.x,
+                                             model->position.y,
+                                             model->position.z);
+            glUniform3fv(bufferUniforms.at("modelPosition"), 1, &modelPlace[0]);
+            glUniform1fv(bufferUniforms.at("scale"), 1, model->getScale());
 
-        // push vertex positions
-        glBindBuffer(GL_ARRAY_BUFFER, model->positionBuffer);
-        glVertexAttribPointer(bufferAttributes.at("position"), 3, GL_FLOAT, GL_FALSE, 0, 0);
+            // push vertex positions
+            glBindBuffer(GL_ARRAY_BUFFER, model->positionBuffer);
+            glVertexAttribPointer(bufferAttributes.at("position"), 3, GL_FLOAT, GL_FALSE, 0, 0);
 
-        // push vertex normals
-        glBindBuffer(GL_ARRAY_BUFFER, model->normalBuffer);
-        glVertexAttribPointer(bufferAttributes.at("normal"), 3, GL_FLOAT, GL_FALSE, 0, 0);
+            // push vertex normals
+            glBindBuffer(GL_ARRAY_BUFFER, model->normalBuffer);
+            glVertexAttribPointer(bufferAttributes.at("normal"), 3, GL_FLOAT, GL_FALSE, 0, 0);
 
-        // push diffuse colour
-        glBindBuffer(GL_ARRAY_BUFFER, model->diffuseBuffer);
-        glVertexAttribPointer(bufferAttributes.at("diffuse"), 4, GL_FLOAT, GL_FALSE, 0, 0);
+            // push diffuse colour
+            glBindBuffer(GL_ARRAY_BUFFER, model->diffuseBuffer);
+            glVertexAttribPointer(bufferAttributes.at("diffuse"), 4, GL_FLOAT, GL_FALSE, 0, 0);
 
-        // push specular colour
-        glBindBuffer(GL_ARRAY_BUFFER, model->specularBuffer);
-        glVertexAttribPointer(bufferAttributes.at("specular"), 4, GL_FLOAT, GL_FALSE, 0, 0);
+            // push specular colour
+            glBindBuffer(GL_ARRAY_BUFFER, model->specularBuffer);
+            glVertexAttribPointer(bufferAttributes.at("specular"), 4, GL_FLOAT, GL_FALSE, 0, 0);
 
-        // push vertex indexes
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, model->indexBuffer);
-        glDrawElements(GL_TRIANGLES, model->getNumIndexVerts(), GL_UNSIGNED_INT, 0);
+            // push vertex indexes
+            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, model->indexBuffer);
+            glDrawElements(GL_TRIANGLES, model->getNumIndexVerts(), GL_UNSIGNED_INT, 0);
 
-        // update total triangles being drawn in scene
-        totalTriangles += (model->getNumIndexVerts() / 3);
+            // update total triangles being drawn in scene
+            totalTriangles += (model->getNumIndexVerts() / 3);
+        }
     }
 }
 
@@ -308,5 +312,3 @@ GLuint BufferCourier::getNumAnimations()
 {
     return activeAnimations.size();
 }
-
-
