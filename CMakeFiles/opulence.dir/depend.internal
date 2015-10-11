@@ -131,19 +131,11 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o
  /home/champ/Git/crows/opulence/src/loader/ObjLoader.h
  /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
  /home/champ/Git/crows/opulence/src/service/BufferCourier.h
- /home/champ/Git/crows/opulence/src/service/TimeManager.h
  /home/champ/Git/crows/src/anima/Anima.h
  /home/champ/Git/crows/src/anima/clock/Digit.cpp
  /home/champ/Git/crows/src/anima/clock/Digit.h
  /home/champ/Git/crows/src/service/PathFinder.h
  /home/champ/Git/crows/src/sprite/Sprite.h
- /usr/include/SDL2/SDL_config.h
- /usr/include/SDL2/SDL_error.h
- /usr/include/SDL2/SDL_platform.h
- /usr/include/SDL2/SDL_stdinc.h
- /usr/include/SDL2/SDL_timer.h
- /usr/include/SDL2/begin_code.h
- /usr/include/SDL2/close_code.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o
  /home/champ/Git/crows/opulence/src/container/mtl_data.h
  /home/champ/Git/crows/opulence/src/container/obj_data.h

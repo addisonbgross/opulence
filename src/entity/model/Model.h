@@ -2,8 +2,8 @@
 #define OPULENCE_MODEL_H
 
 // general
+#define GLEW_STATIC
 #include <vector>
-#include <pthread.h>
 #include <GL/glew.h>
 #include <GL/gl.h>
 

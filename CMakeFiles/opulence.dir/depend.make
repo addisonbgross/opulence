@@ -130,19 +130,11 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o: src/fa
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o: src/loader/ObjLoader.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o: src/loader/ShaderLoader.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o: src/service/BufferCourier.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o: src/service/TimeManager.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o: /home/champ/Git/crows/src/anima/Anima.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o: /home/champ/Git/crows/src/anima/clock/Digit.cpp
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o: /home/champ/Git/crows/src/anima/clock/Digit.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o: /home/champ/Git/crows/src/service/PathFinder.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o: /home/champ/Git/crows/src/sprite/Sprite.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o: /usr/include/SDL2/SDL_config.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o: /usr/include/SDL2/SDL_error.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o: /usr/include/SDL2/SDL_platform.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o: /usr/include/SDL2/SDL_stdinc.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o: /usr/include/SDL2/SDL_timer.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o: /usr/include/SDL2/begin_code.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o: /usr/include/SDL2/close_code.h
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o: src/container/mtl_data.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o: src/container/obj_data.h

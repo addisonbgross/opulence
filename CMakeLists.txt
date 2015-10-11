@@ -4,14 +4,15 @@ project(opulence)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 # Use our modified FindSDL2* modules
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${opulence_SOURCE_DIR}/CMakeFiles")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${opulence_SOURCE_DIR}/")
 
 # Set an output directory for our binaries
 set(BIN_DIR ${opulence_SOURCE_DIR}/opulence/bin)
 
-find_package(SDL2 REQUIRED)
-find_package(OpenGL REQUIRED)
-find_package(GLEW REQUIRED)
+INCLUDE(FindPkgConfig)
+find_package(OpenGL REQUIRED opengl)
+PKG_SEARCH_MODULE(SDL2 REQUIRED sdl2)
+PKG_SEARCH_MODULE(GLEW REQUIRED glew)
 
 include_directories(${PROJECT_BINARY_DIR}
                     ${OPENGL_INCLUDE_DIR}
@@ -27,6 +28,7 @@ set_source_files_properties(../main.cpp
                             opulence.cpp
                             PROPERTIES
                             LANGUAGE CXX)
+
 add_executable(opulence
             ${SOURCE_FILES}
 

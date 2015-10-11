@@ -2,6 +2,7 @@
 #define OPULENCE_SHADERLOADER_H
 
 // glew
+#define GLEW_STATIC
 #include <GL/glew.h>
 
 // general
