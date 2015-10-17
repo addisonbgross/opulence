@@ -9,10 +9,9 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${opulence_SOURCE_DIR}/")
 # Set an output directory for our binaries
 set(BIN_DIR ${opulence_SOURCE_DIR}/opulence/bin)
 
-INCLUDE(FindPkgConfig)
-find_package(OpenGL REQUIRED opengl)
-PKG_SEARCH_MODULE(SDL2 REQUIRED sdl2)
-PKG_SEARCH_MODULE(GLEW REQUIRED glew)
+find_package(OpenGL REQUIRED)
+find_package(SDL2 REQUIRED)
+find_package(GLEW REQUIRED)
 
 include_directories(${PROJECT_BINARY_DIR}
                     ${OPENGL_INCLUDE_DIR}
@@ -30,6 +29,7 @@ set_source_files_properties(../main.cpp
                             LANGUAGE CXX)
 
 add_executable(opulence
+            WIN32
             ${SOURCE_FILES}
 
             # entities
