@@ -1,12 +1,18 @@
-# CMake
-CMakeFiles/*
-
 # Caching
 CMakeCache.txt
 test/gtest-1.7.0/*
 
 # IntelliJ cLion settings
 /.idea
+
+# CMake
+CmakeCache.txt
+CTestTestfile.cmake
+cmake_install.cmake
+install_manifest.txt
+Makefile
+CmakeScripts
+CMakeFiles
 
 # Valgrind / Valkyrie
 massif*
