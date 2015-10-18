@@ -1,7 +1,6 @@
 #ifndef OPULENCE_LIGHT_H
 #define OPULENCE_LIGHT_H
 
-#include <GL/gl.h>
 #include <glm/detail/type_vec4.hpp>
 
 #include "../Entity.h"

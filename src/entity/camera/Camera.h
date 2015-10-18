@@ -1,12 +1,6 @@
 #ifndef OPULENCE_CAMERA_H
 #define OPULENCE_CAMERA_H
 
-#define GLM_FORCE_RADIANS
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
-#include <GL/gl.h>
-
 #include "../Entity.h"
 
 class Camera {

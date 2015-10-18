@@ -64,26 +64,24 @@ void RtsCamera::moveBack(float n)
 
 void RtsCamera::rotateVertical(float deg)
 {
-    // >>> Gimbal Locked! <<<
-    //  glm::vec3 camFocus = *eye - *focus;
-    //  glm::vec3 temp = glm::rotate(camFocus, deg, glm::vec3(1.0, 0.0, 0.0));
-    //  temp = glm::rotate(temp, deg, glm::vec3(0.0, 0.0, 1.0));
-    //  temp += *focus;
-    //  if (eye->y < 3) {
-    //     eye->y = 3;
-    // } else {
-    //     eye->y = temp.y;
-    // }
-    // eye->x = temp.x;
-    // eye->z = temp.z;
-    //  updateBearing();
+    glm::vec3 camFocus = *eye - *focus;
+    glm::quat cameraLine(glm::normalize(camFocus));
+    glm::quat qRotation = glm::angleAxis(deg, glm::vec3(lateralAxis->x, 0, lateralAxis->z));
+    glm::mat4 mat = glm::toMat4( glm::mix(cameraLine, qRotation, 1.0f) );
+    glm::vec4 temp = mat * glm::vec4(camFocus, 1.0f);
+    temp += glm::vec4(*focus, 1.0f);
+    eye->x = temp.x;
+    eye->y = temp.y;
+    eye->z = temp.z;
+    updateBearing();
 }
 
 void RtsCamera::rotateHorizontal(float deg)
 {
+    glm::mat4 m = glm::toMat4( glm::angleAxis(-deg, glm::vec3(0, 1, 0)) );
     glm::vec3 camFocus = *eye - *focus;
-    glm::vec3 temp = glm::rotate(camFocus, deg, glm::vec3(0.0, 1.0, 0.0));
-    temp += *focus;
+    glm::vec4 temp = m * glm::vec4(camFocus, 1.0f);
+    temp += glm::vec4(*focus, 1.0f);
     eye->x = temp.x;
     eye->z = temp.z;
     updateBearing();

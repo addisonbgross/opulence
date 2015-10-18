@@ -34,6 +34,9 @@ private:
     GLManager glMan;
     TimeManager timeMan;
 
+    // default window title
+    std::string windowTitle = "opulence graphics engine";
+
 public:
     // default screen dimension constants
     GLfloat SCREEN_WIDTH = 800.0f;
@@ -47,6 +50,15 @@ public:
         modelFactory.setBufferCourier(&bufferCourier);
         SCREEN_WIDTH = x;
         SCREEN_HEIGHT = y;
+    }
+
+    Opulence(float x, float y, std::string title)
+    {
+        glMan.setScreenSize(x, y);
+        modelFactory.setBufferCourier(&bufferCourier);
+        SCREEN_WIDTH = x;
+        SCREEN_HEIGHT = y;
+        windowTitle = title;
     }
 
     ~Opulence() {}
@@ -96,7 +108,7 @@ public:
                            *cameraFactory.getMainCamera()->getFocus(),
                            *cameraFactory.getMainCamera()->getTop());
 
-        proj = glm::perspective(45.0f, SCREEN_WIDTH / SCREEN_HEIGHT, 1.0f, 10000.0f);
+        proj = glm::perspective(45.0f, SCREEN_WIDTH / SCREEN_HEIGHT, 1.0f, 1000.0f);
 
         /* vertex shader stuff */
         glUniformMatrix4fv(bufferCourier.getUniform(("model")), 1, GL_FALSE, &model[0][0]);
@@ -144,6 +156,9 @@ public:
             printf("Unable to initialize OpenGL!\n");
         }
 
+        // set the window title
+        SDL_SetWindowTitle(glMan.getWindow(), windowTitle.c_str());
+
         // vertex shader variables
         GLuint gProgramID = glMan.getID();
         bufferCourier.addAttribute("position", glGetAttribLocation(gProgramID, "position"));
@@ -152,6 +167,7 @@ public:
         bufferCourier.addUniform("model", glGetUniformLocation(gProgramID, "model"));
         bufferCourier.addUniform("view", glGetUniformLocation(gProgramID, "view"));
         bufferCourier.addUniform("proj", glGetUniformLocation(gProgramID, "proj"));
+        bufferCourier.addUniform("orientation", glGetUniformLocation(gProgramID, "orientation"));
         bufferCourier.addUniform("modelPosition", glGetUniformLocation(gProgramID, "modelPosition"));
         bufferCourier.addUniform("cameraPosition", glGetUniformLocation(gProgramID, "cameraPosition"));
         bufferCourier.addUniform("pointLight", glGetUniformLocation(gProgramID, "pointLight"));

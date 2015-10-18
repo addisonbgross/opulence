@@ -115,6 +115,7 @@ void BufferCourier::render()
                                              model->position.z);
             glUniform3fv(bufferUniforms.at("modelPosition"), 1, &modelPlace[0]);
             glUniform1fv(bufferUniforms.at("scale"), 1, model->getScale());
+            glUniformMatrix4fv(bufferUniforms.at("orientation"), 1, GL_FALSE, model->getOrientation());
 
             // push vertex positions
             glBindBuffer(GL_ARRAY_BUFFER, model->positionBuffer);
@@ -153,6 +154,7 @@ void BufferCourier::render()
                                              model->position.z);
             glUniform3fv(bufferUniforms.at("modelPosition"), 1, &modelPlace[0]);
             glUniform1fv(bufferUniforms.at("scale"), 1, model->getScale());
+            glUniformMatrix4fv(bufferUniforms.at("orientation"), 1, GL_FALSE, model->getOrientation());
 
             // push vertex positions
             glBindBuffer(GL_ARRAY_BUFFER, model->positionBuffer);

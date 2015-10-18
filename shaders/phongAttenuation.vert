@@ -3,6 +3,7 @@
 uniform mat4 model;
 uniform mat4 view;
 uniform mat4 proj;
+uniform mat4 orientation;
 
 uniform vec3 modelPosition;
 uniform vec3 cameraPosition;
@@ -32,19 +33,23 @@ out float f_quadraticAttenuation;
 
 void main()
 {
+    // position
+    mat4 mvp = proj * view * model;
+    vec4 prePosition = orientation * vec4(scale * position, 1.0) + vec4(modelPosition, 0.0);
+
+    gl_Position = mvp * prePosition;
+
     f_camera = cameraPosition;
     f_diffuse = diffuse;
     f_specular = specular;
-    f_normal = normalize(gl_NormalMatrix * normal);
     f_point = pointLight;
+    f_normal = vec3(orientation * vec4(normalize(gl_NormalMatrix * normal), 0.0));
 
     // get distance to light source
-    f_dist = length(pointLight - (position + modelPosition));
+    f_dist = length(pointLight - scale * (position + modelPosition));
 
     // point lighting constants
     f_linearAttenuation = linearAtt;
     f_quadraticAttenuation = quadraticAtt;
     f_constantAttenuation = 0.05;  // its constant
-
-    gl_Position = proj * view * model * vec4(scale * position + modelPosition, 1.0);
 }
