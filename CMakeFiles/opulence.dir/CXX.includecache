@@ -218,17 +218,9 @@ SDL_timer.h
 ../sprite/Sprite.h
 /home/champ/Git/crows/src/sprite/Sprite.h
 
-/home/champ/Git/crows/src/anima/character/Crow.cpp
-Crow.h
-/home/champ/Git/crows/src/anima/character/Crow.h
-
 /home/champ/Git/crows/src/anima/character/Crow.h
 ../Anima.h
 /home/champ/Git/crows/src/anima/Anima.h
-
-/home/champ/Git/crows/src/anima/clock/Clock.cpp
-Clock.h
-/home/champ/Git/crows/src/anima/clock/Clock.h
 
 /home/champ/Git/crows/src/anima/clock/Clock.h
 map
@@ -239,10 +231,6 @@ glm/glm.hpp
 /home/champ/Git/crows/opulence/src/service/TimeManager.h
 ../Anima.h
 /home/champ/Git/crows/src/anima/Anima.h
-Digit.h
-/home/champ/Git/crows/src/anima/clock/Digit.h
-
-/home/champ/Git/crows/src/anima/clock/Digit.cpp
 Digit.h
 /home/champ/Git/crows/src/anima/clock/Digit.h
 
@@ -272,10 +260,6 @@ map
 ControlSet.h
 /home/champ/Git/crows/src/controller/controlset/ControlSet.h
 
-/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp
-StandardController.h
-/home/champ/Git/crows/src/controller/standardcontroller/StandardController.h
-
 /home/champ/Git/crows/src/controller/standardcontroller/StandardController.h
 iostream
 -
@@ -284,19 +268,11 @@ deque
 ../Controller.h
 /home/champ/Git/crows/src/controller/Controller.h
 
-/home/champ/Git/crows/src/generator/SpriteGenerator.cpp
-SpriteGenerator.h
-/home/champ/Git/crows/src/generator/SpriteGenerator.h
-
 /home/champ/Git/crows/src/generator/SpriteGenerator.h
 vector
 -
 ../sprite/Sprite.h
 /home/champ/Git/crows/src/sprite/Sprite.h
-
-/home/champ/Git/crows/src/service/PathFinder.cpp
-PathFinder.h
-/home/champ/Git/crows/src/service/PathFinder.h
 
 /home/champ/Git/crows/src/service/PathFinder.h
 vector
@@ -305,10 +281,6 @@ glm/detail/type_vec3.hpp
 -
 ../sprite/Sprite.h
 /home/champ/Git/crows/src/sprite/Sprite.h
-
-/home/champ/Git/crows/src/service/SpriteFinder.cpp
-SpriteFinder.h
-/home/champ/Git/crows/src/service/SpriteFinder.h
 
 /home/champ/Git/crows/src/service/SpriteFinder.h
 ../sprite/Sprite.h
@@ -319,11 +291,17 @@ Sprite.h
 /home/champ/Git/crows/src/sprite/Sprite.h
 
 /home/champ/Git/crows/src/sprite/Sprite.h
+glm/gtx/euler_angles.hpp
+-
+glm/gtx/optimum_pow.hpp
+-
 iostream
 -
 vector
 -
 typeinfo
+-
+math.h
 -
 ../../opulence/src/entity/animation/Animation.h
 /home/champ/Git/crows/opulence/src/entity/animation/Animation.h

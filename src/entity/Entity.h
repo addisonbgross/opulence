@@ -33,6 +33,7 @@ public:
     virtual float getWidth();
     virtual float getHeight();
     virtual float getDepth();
+    glm::quat * getOrientationQuat();
     GLfloat * getOrientation();
 
     // set

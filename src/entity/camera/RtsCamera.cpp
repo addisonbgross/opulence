@@ -84,6 +84,7 @@ void RtsCamera::rotateHorizontal(float deg)
     temp += glm::vec4(*focus, 1.0f);
     eye->x = temp.x;
     eye->z = temp.z;
+
     updateBearing();
 }
 

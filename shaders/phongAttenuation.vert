@@ -43,10 +43,10 @@ void main()
     f_diffuse = diffuse;
     f_specular = specular;
     f_point = pointLight;
-    f_normal = vec3(orientation * vec4(normalize(gl_NormalMatrix * normal), 0.0));
+    f_normal = vec3(orientation * vec4(normalize(gl_NormalMatrix * normal), 1.0));
 
     // get distance to light source
-    f_dist = length(pointLight - scale * (position + modelPosition));
+    f_dist = length(vec4(pointLight, 1.0) - prePosition);
 
     // point lighting constants
     f_linearAttenuation = linearAtt;

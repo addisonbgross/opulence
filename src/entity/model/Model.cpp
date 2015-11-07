@@ -1,6 +1,6 @@
 #include "Model.h"
 
-Model::Model(float x, float y, float z, obj_data *objData)
+Model::Model(float x, float y, float z, obj_data *objData) : Entity(x, y, z)
 {
     name = objData->name;
     position.x = x;

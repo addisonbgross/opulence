@@ -108,7 +108,7 @@ public:
                            *cameraFactory.getMainCamera()->getFocus(),
                            *cameraFactory.getMainCamera()->getTop());
 
-        proj = glm::perspective(45.0f, SCREEN_WIDTH / SCREEN_HEIGHT, 1.0f, 1000.0f);
+        proj = glm::perspective(1.0f, SCREEN_WIDTH / SCREEN_HEIGHT, 0.1f, 1000.0f);
 
         /* vertex shader stuff */
         glUniformMatrix4fv(bufferCourier.getUniform(("model")), 1, GL_FALSE, &model[0][0]);
