@@ -72,6 +72,10 @@ iostream
 glm/glm.hpp
 -
 
+/home/champ/Git/crows/opulence/src/entity/Entity.cpp
+Entity.h
+/home/champ/Git/crows/opulence/src/entity/Entity.h
+
 /home/champ/Git/crows/opulence/src/entity/Entity.h
 iostream
 -
@@ -92,6 +96,10 @@ glm/gtc/matrix_transform.hpp
 glm/gtc/type_ptr.hpp
 -
 
+/home/champ/Git/crows/opulence/src/entity/animation/Animation.cpp
+Animation.h
+/home/champ/Git/crows/opulence/src/entity/animation/Animation.h
+
 /home/champ/Git/crows/opulence/src/entity/animation/Animation.h
 vector
 -
@@ -102,15 +110,31 @@ math.h
 ../../container/obj_data.h
 /home/champ/Git/crows/opulence/src/container/obj_data.h
 
+/home/champ/Git/crows/opulence/src/entity/camera/Camera.cpp
+Camera.h
+/home/champ/Git/crows/opulence/src/entity/camera/Camera.h
+
 /home/champ/Git/crows/opulence/src/entity/camera/Camera.h
 ../Entity.h
 /home/champ/Git/crows/opulence/src/entity/Entity.h
+
+/home/champ/Git/crows/opulence/src/entity/camera/RtsCamera.cpp
+RtsCamera.h
+/home/champ/Git/crows/opulence/src/entity/camera/RtsCamera.h
 
 /home/champ/Git/crows/opulence/src/entity/camera/RtsCamera.h
 Camera.h
 /home/champ/Git/crows/opulence/src/entity/camera/Camera.h
 
+/home/champ/Git/crows/opulence/src/entity/light/DirectionalLight.cpp
+DirectionalLight.h
 /home/champ/Git/crows/opulence/src/entity/light/DirectionalLight.h
+
+/home/champ/Git/crows/opulence/src/entity/light/DirectionalLight.h
+Light.h
+/home/champ/Git/crows/opulence/src/entity/light/Light.h
+
+/home/champ/Git/crows/opulence/src/entity/light/Light.cpp
 Light.h
 /home/champ/Git/crows/opulence/src/entity/light/Light.h
 
@@ -120,9 +144,17 @@ glm/detail/type_vec4.hpp
 ../Entity.h
 /home/champ/Git/crows/opulence/src/entity/Entity.h
 
+/home/champ/Git/crows/opulence/src/entity/light/PointLight.cpp
+PointLight.h
+/home/champ/Git/crows/opulence/src/entity/light/PointLight.h
+
 /home/champ/Git/crows/opulence/src/entity/light/PointLight.h
 Light.h
 /home/champ/Git/crows/opulence/src/entity/light/Light.h
+
+/home/champ/Git/crows/opulence/src/entity/model/Model.cpp
+Model.h
+/home/champ/Git/crows/opulence/src/entity/model/Model.h
 
 /home/champ/Git/crows/opulence/src/entity/model/Model.h
 vector
@@ -131,6 +163,10 @@ vector
 /home/champ/Git/crows/opulence/src/entity/Entity.h
 ../../container/obj_data.h
 /home/champ/Git/crows/opulence/src/container/obj_data.h
+
+/home/champ/Git/crows/opulence/src/factory/CameraFactory.cpp
+CameraFactory.h
+/home/champ/Git/crows/opulence/src/factory/CameraFactory.h
 
 /home/champ/Git/crows/opulence/src/factory/CameraFactory.h
 algorithm
@@ -141,6 +177,10 @@ iostream
 -
 ../entity/camera/Camera.h
 /home/champ/Git/crows/opulence/src/entity/camera/Camera.h
+
+/home/champ/Git/crows/opulence/src/factory/LightFactory.cpp
+LightFactory.h
+/home/champ/Git/crows/opulence/src/factory/LightFactory.h
 
 /home/champ/Git/crows/opulence/src/factory/LightFactory.h
 vector
@@ -154,6 +194,10 @@ iostream
 ../entity/light/PointLight.h
 /home/champ/Git/crows/opulence/src/entity/light/PointLight.h
 
+/home/champ/Git/crows/opulence/src/factory/ModelFactory.cpp
+ModelFactory.h
+/home/champ/Git/crows/opulence/src/factory/ModelFactory.h
+
 /home/champ/Git/crows/opulence/src/factory/ModelFactory.h
 ../loader/ObjLoader.h
 /home/champ/Git/crows/opulence/src/loader/ObjLoader.h
@@ -161,6 +205,10 @@ iostream
 /home/champ/Git/crows/opulence/src/service/BufferCourier.h
 ../container/obj_data.h
 /home/champ/Git/crows/opulence/src/container/obj_data.h
+
+/home/champ/Git/crows/opulence/src/loader/ObjLoader.cpp
+ObjLoader.h
+/home/champ/Git/crows/opulence/src/loader/ObjLoader.h
 
 /home/champ/Git/crows/opulence/src/loader/ObjLoader.h
 fstream
@@ -178,6 +226,10 @@ GL/gl.h
 ../container/mtl_data.h
 /home/champ/Git/crows/opulence/src/container/mtl_data.h
 
+/home/champ/Git/crows/opulence/src/loader/ShaderLoader.cpp
+ShaderLoader.h
+/home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
+
 /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
 GL/glew.h
 -
@@ -187,8 +239,16 @@ vector
 -
 cstring
 -
+string
+-
+sstream
+-
 iostream
 -
+
+/home/champ/Git/crows/opulence/src/service/BufferCourier.cpp
+BufferCourier.h
+/home/champ/Git/crows/opulence/src/service/BufferCourier.h
 
 /home/champ/Git/crows/opulence/src/service/BufferCourier.h
 map
@@ -202,11 +262,19 @@ typeinfo
 ../loader/ShaderLoader.h
 /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
 
+/home/champ/Git/crows/opulence/src/service/GLManager.cpp
+GLManager.h
+/home/champ/Git/crows/opulence/src/service/GLManager.h
+
 /home/champ/Git/crows/opulence/src/service/GLManager.h
 SDL.h
 -
 ../loader/ShaderLoader.h
 /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
+
+/home/champ/Git/crows/opulence/src/service/TimeManager.cpp
+TimeManager.h
+/home/champ/Git/crows/opulence/src/service/TimeManager.h
 
 /home/champ/Git/crows/opulence/src/service/TimeManager.h
 iostream
@@ -218,9 +286,17 @@ SDL_timer.h
 ../sprite/Sprite.h
 /home/champ/Git/crows/src/sprite/Sprite.h
 
+/home/champ/Git/crows/src/anima/character/Crow.cpp
+Crow.h
+/home/champ/Git/crows/src/anima/character/Crow.h
+
 /home/champ/Git/crows/src/anima/character/Crow.h
 ../Anima.h
 /home/champ/Git/crows/src/anima/Anima.h
+
+/home/champ/Git/crows/src/anima/clock/Clock.cpp
+Clock.h
+/home/champ/Git/crows/src/anima/clock/Clock.h
 
 /home/champ/Git/crows/src/anima/clock/Clock.h
 map
@@ -231,6 +307,10 @@ glm/glm.hpp
 /home/champ/Git/crows/opulence/src/service/TimeManager.h
 ../Anima.h
 /home/champ/Git/crows/src/anima/Anima.h
+Digit.h
+/home/champ/Git/crows/src/anima/clock/Digit.h
+
+/home/champ/Git/crows/src/anima/clock/Digit.cpp
 Digit.h
 /home/champ/Git/crows/src/anima/clock/Digit.h
 
@@ -260,6 +340,10 @@ map
 ControlSet.h
 /home/champ/Git/crows/src/controller/controlset/ControlSet.h
 
+/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp
+StandardController.h
+/home/champ/Git/crows/src/controller/standardcontroller/StandardController.h
+
 /home/champ/Git/crows/src/controller/standardcontroller/StandardController.h
 iostream
 -
@@ -268,11 +352,19 @@ deque
 ../Controller.h
 /home/champ/Git/crows/src/controller/Controller.h
 
+/home/champ/Git/crows/src/generator/SpriteGenerator.cpp
+SpriteGenerator.h
+/home/champ/Git/crows/src/generator/SpriteGenerator.h
+
 /home/champ/Git/crows/src/generator/SpriteGenerator.h
 vector
 -
 ../sprite/Sprite.h
 /home/champ/Git/crows/src/sprite/Sprite.h
+
+/home/champ/Git/crows/src/service/PathFinder.cpp
+PathFinder.h
+/home/champ/Git/crows/src/service/PathFinder.h
 
 /home/champ/Git/crows/src/service/PathFinder.h
 vector
@@ -281,6 +373,10 @@ glm/detail/type_vec3.hpp
 -
 ../sprite/Sprite.h
 /home/champ/Git/crows/src/sprite/Sprite.h
+
+/home/champ/Git/crows/src/service/SpriteFinder.cpp
+SpriteFinder.h
+/home/champ/Git/crows/src/service/SpriteFinder.h
 
 /home/champ/Git/crows/src/service/SpriteFinder.h
 ../sprite/Sprite.h

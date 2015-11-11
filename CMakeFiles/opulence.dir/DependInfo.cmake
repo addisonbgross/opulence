@@ -1,9 +1,9 @@
 # The set of languages for which implicit dependencies are needed:
-SET(CMAKE_DEPENDS_LANGUAGES
+set(CMAKE_DEPENDS_LANGUAGES
   "CXX"
   )
 # The set of files for implicit dependencies of each language:
-SET(CMAKE_DEPENDS_CHECK_CXX
+set(CMAKE_DEPENDS_CHECK_CXX
   "/home/champ/Git/crows/main.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o"
   "/home/champ/Git/crows/src/anima/character/Crow.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.o"
   "/home/champ/Git/crows/src/anima/clock/Clock.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.o"
@@ -31,17 +31,17 @@ SET(CMAKE_DEPENDS_CHECK_CXX
   "/home/champ/Git/crows/opulence/src/service/GLManager.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/service/GLManager.cpp.o"
   "/home/champ/Git/crows/opulence/src/service/TimeManager.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o"
   )
-SET(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Targets to which this target links.
-SET(CMAKE_TARGET_LINKED_INFO_FILES
+set(CMAKE_TARGET_LINKED_INFO_FILES
   )
 
 # The include file search paths:
-SET(CMAKE_C_TARGET_INCLUDE_PATH
+set(CMAKE_C_TARGET_INCLUDE_PATH
   "."
   "/usr/include/SDL2"
   )
-SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
-SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
-SET(CMAKE_ASM_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
+set(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
+set(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
+set(CMAKE_ASM_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

@@ -1,4 +1,4 @@
-FILE(REMOVE_RECURSE
+file(REMOVE_RECURSE
   "CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o"
   "CMakeFiles/opulence.dir/opulence.cpp.o"
   "CMakeFiles/opulence.dir/src/entity/Entity.cpp.o"
@@ -30,6 +30,6 @@ FILE(REMOVE_RECURSE
 )
 
 # Per-language clean rules from dependency scanning.
-FOREACH(lang CXX)
-  INCLUDE(CMakeFiles/opulence.dir/cmake_clean_${lang}.cmake OPTIONAL)
-ENDFOREACH(lang)
+foreach(lang CXX)
+  include(CMakeFiles/opulence.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

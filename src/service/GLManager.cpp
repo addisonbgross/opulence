@@ -35,7 +35,7 @@ bool GLManager::initGL()
     while (vertexShader == 0) {
         vertexShader = loader.loadShader("/home/champ/Git/crows/opulence/shaders/phongAttenuation.vert", programID);
         ++failCount;
-        if (failCount == 10) {
+        if (failCount >= 10) {
             std::cout << "Loading vertexShader failed!" << std::endl;
             failCount = 0;
             break;
@@ -46,7 +46,7 @@ bool GLManager::initGL()
     while (fragmentShader == 0) {
         fragmentShader = loader.loadShader("/home/champ/Git/crows/opulence/shaders/phongAttenuation.frag", programID);
         ++failCount;
-        if (failCount == 10) {
+        if (failCount >= 10) {
             std::cout << "Loading fragmentShader failed!" << std::endl;
             break;
         }
