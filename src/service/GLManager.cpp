@@ -35,7 +35,7 @@ bool GLManager::initGL()
     while (vertexShader == 0) {
         vertexShader = loader.loadShader("/home/champ/Git/crows/opulence/shaders/phongAttenuation.vert", programID);
         ++failCount;
-        if (failCount >= 10) {
+        if (failCount >= 1000) {
             std::cout << "Loading vertexShader failed!" << std::endl;
             failCount = 0;
             break;
@@ -46,8 +46,9 @@ bool GLManager::initGL()
     while (fragmentShader == 0) {
         fragmentShader = loader.loadShader("/home/champ/Git/crows/opulence/shaders/phongAttenuation.frag", programID);
         ++failCount;
-        if (failCount >= 10) {
+        if (failCount >= 1000) {
             std::cout << "Loading fragmentShader failed!" << std::endl;
+            failCount = 0;
             break;
         }
     }
@@ -105,6 +106,10 @@ bool GLManager::initSDL()
         // initialize GLEW system independence
         glewExperimental = GL_TRUE;
         GLenum glewError = glewInit();
+        if (glewError != GLEW_OK) {
+            printf("Error: Glew failed to initialize!\n");
+            exit(EXIT_FAILURE);
+        }
 
         //Use Vsync
         if (SDL_GL_SetSwapInterval(1) < 0) {
