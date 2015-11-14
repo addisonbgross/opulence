@@ -22,7 +22,7 @@ float Animation::getWidth()
 
 float Animation::getHeight()
 {
-    return currentModel->height;
+    return frames->at(0)->height;
 }
 
 float Animation::getDepth()
