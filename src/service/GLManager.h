@@ -29,6 +29,8 @@ public:
     GLuint getVertexShader();
     GLuint getFragmentShader();
     GLuint getVAO();
+    GLfloat getScreenWidth();
+    GLfloat getScreenHeight();
     SDL_Window *getWindow();
     SDL_Surface *getSurface();
 

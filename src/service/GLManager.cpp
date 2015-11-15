@@ -66,8 +66,7 @@ bool GLManager::initGL()
 }
 
 /**
- * initSDL() - create and configure native windowing system
- *
+ * initSDL() - create and configure native windowing systemDimensions
  * @return bool true if initialization is a success
  */
 bool GLManager::initSDL()
@@ -85,19 +84,26 @@ bool GLManager::initSDL()
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
         SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-        SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
+        SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 1);
         SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
-        SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 8);
+        SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 1);
 
         // allow for multisampling of frame buffer
         glEnable(GL_MULTISAMPLE);
+
+        // use native width and height of screen if possible
+        SDL_Rect r;
+        if (SDL_GetDisplayBounds(0, &r) == 0) {
+            this->screenWidth = r.w;
+            this->screenHeight = r.h;
+        }
 
         //Create window
         window = SDL_CreateWindow("opulence v1.0",
                                    SDL_WINDOWPOS_UNDEFINED,
                                    SDL_WINDOWPOS_UNDEFINED,
                                    this->screenWidth, this->screenHeight,
-                                   SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
+                                   SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN);
 
         surface = SDL_GetWindowSurface(window);
 
@@ -180,6 +186,16 @@ GLuint GLManager::getFragmentShader()
 GLuint GLManager::getVAO()
 {
     return VAO;
+}
+
+GLfloat GLManager::getScreenWidth()
+{
+    return screenWidth;
+}
+
+GLfloat GLManager::getScreenHeight()
+{
+    return screenHeight;
 }
 
 /**

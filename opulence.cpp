@@ -44,6 +44,10 @@ public:
 
     Opulence() : Opulence(SCREEN_WIDTH, SCREEN_HEIGHT) {}
 
+    Opulence(std::string title) : Opulence(SCREEN_WIDTH, SCREEN_HEIGHT) {
+        windowTitle = title;
+    }
+
     Opulence(float x, float y)
     {
         glMan.setScreenSize(x, y);
@@ -93,11 +97,25 @@ public:
         return &timeMan;
     }
 
+    // screen dimensions
+    int getScreenWidth()
+    {
+        return glMan.getScreenWidth();
+    }
+    int getScreenHeight()
+    {
+        return glMan.getScreenHeight();
+    }
+    void setScreenDimensions(int w, int h)
+    {
+        glMan.setScreenSize(w, h);
+    }
+
     void getStats()
     {
         bufferCourier.reportStats();
-        //modelFactory->reportStats();
-        timeMan.reportStats();
+        // modelFactory.reportStats();
+        // timeMan.reportStats();
     }
 
     void render()
@@ -108,7 +126,7 @@ public:
                            *cameraFactory.getMainCamera()->getFocus(),
                            *cameraFactory.getMainCamera()->getTop());
 
-        proj = glm::perspective(1.0f, SCREEN_WIDTH / SCREEN_HEIGHT, 0.1f, 1000.0f);
+        proj = glm::perspective(1.0f, glMan.getScreenWidth() / glMan.getScreenHeight(), 0.1f, 1000.0f);
 
         /* vertex shader stuff */
         glUniformMatrix4fv(bufferCourier.getUniform(("model")), 1, GL_FALSE, &model[0][0]);
@@ -134,11 +152,11 @@ public:
     glm::vec3 getClickTranslation(int x, int y)
     {
         GLfloat winX = (float)x;
-        GLfloat winY = SCREEN_HEIGHT - (float)y;
+        GLfloat winY = glMan.getScreenHeight() - (float)y;
         GLfloat winZ = 0;
         glReadPixels(winX, winY, 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &winZ);
         glm::vec3 click = glm::vec3(winX, winY, winZ);
-        glm::vec4 viewPort = glm::vec4(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        glm::vec4 viewPort = glm::vec4(0, 0, glMan.getScreenWidth(), glMan.getScreenHeight());
         glm::vec3 pix = glm::unProject(click, view, proj, viewPort);
 
         return pix;
