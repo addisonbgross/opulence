@@ -104,13 +104,14 @@ add_executable(opulence
             ../src/generator/SpriteGenerator.cpp
 
             # generated includes
+            ../src/anima/ui/clock/Digit.cpp
+            ../src/anima/ui/clock/Clock.cpp
+            ../src/anima/ui/clock/Digit.h
+            ../src/anima/ui/clock/Clock.h
+            ../src/utility/LevelObject.h
+            ../src/utility/LevelMaker.cpp
+            ../src/utility/LevelMaker.h
             ../src/anima/Anima.h
-            ../src/anima/character/Crow.h
-            ../src/anima/character/Crow.cpp
-            ../src/anima/clock/Clock.h
-            ../src/anima/clock/Clock.cpp
-            ../src/anima/clock/Digit.h
-            ../src/anima/clock/Digit.cpp
 )
 
 target_link_libraries(opulence

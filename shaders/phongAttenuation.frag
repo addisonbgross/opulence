@@ -29,7 +29,7 @@ void main()
     diffuseIntensity = clamp(directionalDiffuseIntensity + pointDiffuseIntensity, 0.0, 1.0);
 
     // cell shading
-    int cellShadingFactor = 8;
+    int cellShadingFactor = 10;
     diffuseIntensity = ceil(diffuseIntensity * cellShadingFactor) / cellShadingFactor;
 
     // specular
@@ -39,7 +39,7 @@ void main()
         float specularAngle = max(dot(reflection, f_normal), 0.0);
         specularIntensity = pow(specularAngle, 100);
         specularIntensity = ceil(specularIntensity * cellShadingFactor) / cellShadingFactor; // cell shading
-        specularIntensity = clamp(specularIntensity, 0.0, 0.5);
+        specularIntensity = clamp(specularIntensity, 0.0, 0.8);
     }
 
     // point light
@@ -52,5 +52,9 @@ void main()
         diffuseIntensity = ambientIntensity;
     }
 
-    gl_FragColor = (ambientIntensity * f_diffuse) + (diffuseIntensity * f_diffuse) + (specularIntensity * f_specular);
+    if (ambientIntensity < 0.075) {
+        gl_FragColor = (0.075 * f_diffuse) + (diffuseIntensity * f_diffuse) + (specularIntensity * f_specular);
+    } else {
+        gl_FragColor = (ambientIntensity * f_diffuse) + (diffuseIntensity * f_diffuse) + (specularIntensity * f_specular);
+    }
 }

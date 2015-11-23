@@ -67,6 +67,15 @@ public:
 
     ~Opulence() {}
 
+    void setFullscreen(bool set)
+    {
+        if (set) {
+            SDL_SetWindowFullscreen(glMan.getWindow(), SDL_WINDOW_FULLSCREEN);
+        } else {
+            SDL_SetWindowFullscreen(glMan.getWindow(), 0);
+        }
+    }
+
     void setClearColour(glm::vec4 *colour)
     {
         glClearColor(colour->r, colour->g, colour->b, colour->a);

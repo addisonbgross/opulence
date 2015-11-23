@@ -23,6 +23,8 @@ src/service/SpriteFinder.h
 /home/champ/Git/crows/src/service/SpriteFinder.h
 src/service/PathFinder.h
 /home/champ/Git/crows/src/service/PathFinder.h
+src/utility/LevelMaker.h
+/home/champ/Git/crows/src/utility/LevelMaker.h
 src/generator/SpriteGenerator.h
 /home/champ/Git/crows/src/generator/SpriteGenerator.h
 src/controller/controlset/ControlSet.h
@@ -31,12 +33,10 @@ src/controller/controlset/PlayerSet.h
 /home/champ/Git/crows/src/controller/controlset/PlayerSet.h
 src/anima/Anima.h
 /home/champ/Git/crows/src/anima/Anima.h
-src/anima/character/Crow.h
-/home/champ/Git/crows/src/anima/character/Crow.h
-src/anima/clock/Clock.h
-/home/champ/Git/crows/src/anima/clock/Clock.h
-src/anima/clock/Digit.h
-/home/champ/Git/crows/src/anima/clock/Digit.h
+src/anima/ui/clock/Clock.h
+/home/champ/Git/crows/src/anima/ui/clock/Clock.h
+src/anima/ui/clock/Digit.h
+/home/champ/Git/crows/src/anima/ui/clock/Digit.h
 
 /home/champ/Git/crows/main.cpp
 CrowGame.h
@@ -286,38 +286,30 @@ SDL_timer.h
 ../sprite/Sprite.h
 /home/champ/Git/crows/src/sprite/Sprite.h
 
-/home/champ/Git/crows/src/anima/character/Crow.cpp
-Crow.h
-/home/champ/Git/crows/src/anima/character/Crow.h
-
-/home/champ/Git/crows/src/anima/character/Crow.h
-../Anima.h
-/home/champ/Git/crows/src/anima/Anima.h
-
-/home/champ/Git/crows/src/anima/clock/Clock.cpp
+/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp
 Clock.h
-/home/champ/Git/crows/src/anima/clock/Clock.h
+/home/champ/Git/crows/src/anima/ui/clock/Clock.h
 
-/home/champ/Git/crows/src/anima/clock/Clock.h
+/home/champ/Git/crows/src/anima/ui/clock/Clock.h
 map
 -
 glm/glm.hpp
 -
-../../../opulence/src/service/TimeManager.h
+../../../../opulence/src/service/TimeManager.h
 /home/champ/Git/crows/opulence/src/service/TimeManager.h
-../Anima.h
+../../Anima.h
 /home/champ/Git/crows/src/anima/Anima.h
 Digit.h
-/home/champ/Git/crows/src/anima/clock/Digit.h
+/home/champ/Git/crows/src/anima/ui/clock/Digit.h
 
-/home/champ/Git/crows/src/anima/clock/Digit.cpp
+/home/champ/Git/crows/src/anima/ui/clock/Digit.cpp
 Digit.h
-/home/champ/Git/crows/src/anima/clock/Digit.h
+/home/champ/Git/crows/src/anima/ui/clock/Digit.h
 
-/home/champ/Git/crows/src/anima/clock/Digit.h
+/home/champ/Git/crows/src/anima/ui/clock/Digit.h
 map
 -
-../Anima.h
+../../Anima.h
 /home/champ/Git/crows/src/anima/Anima.h
 
 /home/champ/Git/crows/src/controller/./controlset/ControlSet.h
@@ -407,6 +399,28 @@ math.h
 /home/champ/Git/crows/opulence/src/factory/ModelFactory.h
 ../service/PathFinder.h
 /home/champ/Git/crows/src/service/PathFinder.h
+
+/home/champ/Git/crows/src/utility/LevelMaker.cpp
+LevelMaker.h
+/home/champ/Git/crows/src/utility/LevelMaker.h
+
+/home/champ/Git/crows/src/utility/LevelMaker.h
+fstream
+-
+iostream
+-
+sstream
+-
+string
+-
+vector
+-
+../sprite/Sprite.h
+/home/champ/Git/crows/src/sprite/Sprite.h
+LevelObject.h
+/home/champ/Git/crows/src/utility/LevelObject.h
+
+/home/champ/Git/crows/src/utility/LevelObject.h
 
 /usr/include/SDL2/SDL.h
 SDL_main.h

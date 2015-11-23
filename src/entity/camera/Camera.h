@@ -3,11 +3,12 @@
 
 #include "../Entity.h"
 
-class Camera {
+class Camera : public Entity {
 protected:
     glm::vec3 *eye;    // position of camera's view point
     glm::vec3 *focus;  // target of view
     glm::vec3 *top;    // relative up direction of camera
+    glm::vec4 *lateralAxis; // axis orthogonal to the eye
 
 public:
     Camera();
@@ -28,12 +29,15 @@ public:
     void setTop(glm::vec3 *newTop);
 
     // get
-    glm::vec3 *getEye();
-    glm::vec3 *getFocus();
-    glm::vec3 *getTop();
+    glm::vec3 * getEye();
+    glm::vec3 * getFocus();
+    glm::vec3 * getTop();
+    glm::quat getOrientation();
 
     void incrementZoom();
     void decrementZoom();
+
+    void updateBearing();
 };
 
 #endif

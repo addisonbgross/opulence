@@ -138,77 +138,53 @@ home/champ/Git/crows/main.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.s
 .PHONY : home/champ/Git/crows/main.cpp.s
 
-home/champ/Git/crows/src/anima/character/Crow.o: home/champ/Git/crows/src/anima/character/Crow.cpp.o
-.PHONY : home/champ/Git/crows/src/anima/character/Crow.o
+home/champ/Git/crows/src/anima/ui/clock/Clock.o: home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o
+.PHONY : home/champ/Git/crows/src/anima/ui/clock/Clock.o
 
 # target to build an object file
-home/champ/Git/crows/src/anima/character/Crow.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.o
-.PHONY : home/champ/Git/crows/src/anima/character/Crow.cpp.o
+home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o
+.PHONY : home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o
 
-home/champ/Git/crows/src/anima/character/Crow.i: home/champ/Git/crows/src/anima/character/Crow.cpp.i
-.PHONY : home/champ/Git/crows/src/anima/character/Crow.i
+home/champ/Git/crows/src/anima/ui/clock/Clock.i: home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.i
+.PHONY : home/champ/Git/crows/src/anima/ui/clock/Clock.i
 
 # target to preprocess a source file
-home/champ/Git/crows/src/anima/character/Crow.cpp.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.i
-.PHONY : home/champ/Git/crows/src/anima/character/Crow.cpp.i
+home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.i
+.PHONY : home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.i
 
-home/champ/Git/crows/src/anima/character/Crow.s: home/champ/Git/crows/src/anima/character/Crow.cpp.s
-.PHONY : home/champ/Git/crows/src/anima/character/Crow.s
+home/champ/Git/crows/src/anima/ui/clock/Clock.s: home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.s
+.PHONY : home/champ/Git/crows/src/anima/ui/clock/Clock.s
 
 # target to generate assembly for a file
-home/champ/Git/crows/src/anima/character/Crow.cpp.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/character/Crow.cpp.s
-.PHONY : home/champ/Git/crows/src/anima/character/Crow.cpp.s
+home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.s
+.PHONY : home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.s
 
-home/champ/Git/crows/src/anima/clock/Clock.o: home/champ/Git/crows/src/anima/clock/Clock.cpp.o
-.PHONY : home/champ/Git/crows/src/anima/clock/Clock.o
+home/champ/Git/crows/src/anima/ui/clock/Digit.o: home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.o
+.PHONY : home/champ/Git/crows/src/anima/ui/clock/Digit.o
 
 # target to build an object file
-home/champ/Git/crows/src/anima/clock/Clock.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.o
-.PHONY : home/champ/Git/crows/src/anima/clock/Clock.cpp.o
+home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.o
+.PHONY : home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.o
 
-home/champ/Git/crows/src/anima/clock/Clock.i: home/champ/Git/crows/src/anima/clock/Clock.cpp.i
-.PHONY : home/champ/Git/crows/src/anima/clock/Clock.i
-
-# target to preprocess a source file
-home/champ/Git/crows/src/anima/clock/Clock.cpp.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.i
-.PHONY : home/champ/Git/crows/src/anima/clock/Clock.cpp.i
-
-home/champ/Git/crows/src/anima/clock/Clock.s: home/champ/Git/crows/src/anima/clock/Clock.cpp.s
-.PHONY : home/champ/Git/crows/src/anima/clock/Clock.s
-
-# target to generate assembly for a file
-home/champ/Git/crows/src/anima/clock/Clock.cpp.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Clock.cpp.s
-.PHONY : home/champ/Git/crows/src/anima/clock/Clock.cpp.s
-
-home/champ/Git/crows/src/anima/clock/Digit.o: home/champ/Git/crows/src/anima/clock/Digit.cpp.o
-.PHONY : home/champ/Git/crows/src/anima/clock/Digit.o
-
-# target to build an object file
-home/champ/Git/crows/src/anima/clock/Digit.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.o
-.PHONY : home/champ/Git/crows/src/anima/clock/Digit.cpp.o
-
-home/champ/Git/crows/src/anima/clock/Digit.i: home/champ/Git/crows/src/anima/clock/Digit.cpp.i
-.PHONY : home/champ/Git/crows/src/anima/clock/Digit.i
+home/champ/Git/crows/src/anima/ui/clock/Digit.i: home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.i
+.PHONY : home/champ/Git/crows/src/anima/ui/clock/Digit.i
 
 # target to preprocess a source file
-home/champ/Git/crows/src/anima/clock/Digit.cpp.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.i
-.PHONY : home/champ/Git/crows/src/anima/clock/Digit.cpp.i
+home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.i
+.PHONY : home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.i
 
-home/champ/Git/crows/src/anima/clock/Digit.s: home/champ/Git/crows/src/anima/clock/Digit.cpp.s
-.PHONY : home/champ/Git/crows/src/anima/clock/Digit.s
+home/champ/Git/crows/src/anima/ui/clock/Digit.s: home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.s
+.PHONY : home/champ/Git/crows/src/anima/ui/clock/Digit.s
 
 # target to generate assembly for a file
-home/champ/Git/crows/src/anima/clock/Digit.cpp.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/clock/Digit.cpp.s
-.PHONY : home/champ/Git/crows/src/anima/clock/Digit.cpp.s
+home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.s
+.PHONY : home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.s
 
 home/champ/Git/crows/src/controller/standardcontroller/StandardController.o: home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o
 .PHONY : home/champ/Git/crows/src/controller/standardcontroller/StandardController.o
@@ -329,6 +305,30 @@ home/champ/Git/crows/src/sprite/Sprite.s: home/champ/Git/crows/src/sprite/Sprite
 home/champ/Git/crows/src/sprite/Sprite.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.s
 .PHONY : home/champ/Git/crows/src/sprite/Sprite.cpp.s
+
+home/champ/Git/crows/src/utility/LevelMaker.o: home/champ/Git/crows/src/utility/LevelMaker.cpp.o
+.PHONY : home/champ/Git/crows/src/utility/LevelMaker.o
+
+# target to build an object file
+home/champ/Git/crows/src/utility/LevelMaker.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/LevelMaker.cpp.o
+.PHONY : home/champ/Git/crows/src/utility/LevelMaker.cpp.o
+
+home/champ/Git/crows/src/utility/LevelMaker.i: home/champ/Git/crows/src/utility/LevelMaker.cpp.i
+.PHONY : home/champ/Git/crows/src/utility/LevelMaker.i
+
+# target to preprocess a source file
+home/champ/Git/crows/src/utility/LevelMaker.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/LevelMaker.cpp.i
+.PHONY : home/champ/Git/crows/src/utility/LevelMaker.cpp.i
+
+home/champ/Git/crows/src/utility/LevelMaker.s: home/champ/Git/crows/src/utility/LevelMaker.cpp.s
+.PHONY : home/champ/Git/crows/src/utility/LevelMaker.s
+
+# target to generate assembly for a file
+home/champ/Git/crows/src/utility/LevelMaker.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/LevelMaker.cpp.s
+.PHONY : home/champ/Git/crows/src/utility/LevelMaker.cpp.s
 
 opulence.o: opulence.cpp.o
 .PHONY : opulence.o
@@ -750,15 +750,12 @@ help:
 	@echo "... home/champ/Git/crows/main.o"
 	@echo "... home/champ/Git/crows/main.i"
 	@echo "... home/champ/Git/crows/main.s"
-	@echo "... home/champ/Git/crows/src/anima/character/Crow.o"
-	@echo "... home/champ/Git/crows/src/anima/character/Crow.i"
-	@echo "... home/champ/Git/crows/src/anima/character/Crow.s"
-	@echo "... home/champ/Git/crows/src/anima/clock/Clock.o"
-	@echo "... home/champ/Git/crows/src/anima/clock/Clock.i"
-	@echo "... home/champ/Git/crows/src/anima/clock/Clock.s"
-	@echo "... home/champ/Git/crows/src/anima/clock/Digit.o"
-	@echo "... home/champ/Git/crows/src/anima/clock/Digit.i"
-	@echo "... home/champ/Git/crows/src/anima/clock/Digit.s"
+	@echo "... home/champ/Git/crows/src/anima/ui/clock/Clock.o"
+	@echo "... home/champ/Git/crows/src/anima/ui/clock/Clock.i"
+	@echo "... home/champ/Git/crows/src/anima/ui/clock/Clock.s"
+	@echo "... home/champ/Git/crows/src/anima/ui/clock/Digit.o"
+	@echo "... home/champ/Git/crows/src/anima/ui/clock/Digit.i"
+	@echo "... home/champ/Git/crows/src/anima/ui/clock/Digit.s"
 	@echo "... home/champ/Git/crows/src/controller/standardcontroller/StandardController.o"
 	@echo "... home/champ/Git/crows/src/controller/standardcontroller/StandardController.i"
 	@echo "... home/champ/Git/crows/src/controller/standardcontroller/StandardController.s"
@@ -774,6 +771,9 @@ help:
 	@echo "... home/champ/Git/crows/src/sprite/Sprite.o"
 	@echo "... home/champ/Git/crows/src/sprite/Sprite.i"
 	@echo "... home/champ/Git/crows/src/sprite/Sprite.s"
+	@echo "... home/champ/Git/crows/src/utility/LevelMaker.o"
+	@echo "... home/champ/Git/crows/src/utility/LevelMaker.i"
+	@echo "... home/champ/Git/crows/src/utility/LevelMaker.s"
 	@echo "... opulence.o"
 	@echo "... opulence.i"
 	@echo "... opulence.s"

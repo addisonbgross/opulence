@@ -2,7 +2,7 @@
 
 Model::Model(float x, float y, float z, obj_data *objData) : Entity(x, y, z)
 {
-    name = objData->name;
+    name = objData->name.substr(0, objData->name.find("_", 0));
     position.x = x;
     position.y = y;
     position.z = z;

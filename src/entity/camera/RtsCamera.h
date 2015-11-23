@@ -5,7 +5,6 @@
 
 class RtsCamera : public Camera {
 private:
-    glm::vec4 *lateralAxis;
 
 public:
     RtsCamera();
@@ -18,7 +17,6 @@ public:
     void moveBack(float n);
     void rotateVertical(float deg);
     void rotateHorizontal(float deg);
-    void updateBearing();
 };
 
 #endif

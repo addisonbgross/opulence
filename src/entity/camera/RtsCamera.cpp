@@ -87,10 +87,3 @@ void RtsCamera::rotateHorizontal(float deg)
 
     updateBearing();
 }
-
-void RtsCamera::updateBearing()
-{
-    glm::vec3 camFocus = *eye - *focus;
-    glm::mat4 rotationMatrix = glm::rotate(glm::mat4(1.0f), glm::radians(90.f), glm::vec3(0.0f, 1.0f, 0.0f));
-    *lateralAxis = glm::normalize(rotationMatrix * glm::vec4(camFocus, 1.0f));
-}

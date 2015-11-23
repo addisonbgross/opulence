@@ -59,22 +59,6 @@ GLuint ShaderLoader::loadShader(const char *shaderPath, GLuint program) {
     GLint isCompiled = GL_FALSE;
     glGetShaderiv(shader, GL_COMPILE_STATUS, &isCompiled);
     if (isCompiled != GL_TRUE) {
-
-
-        GLint maxLength = 0;
-        std::vector<GLchar> errorLog(maxLength);
-        glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &maxLength);
-    	// glGetShaderInfoLog(shader, maxLength, &maxLength, &errorLog[0]);
-
-        // std::string str(errorLog.begin(), errorLog.end());
-        // if (str.length() > 0)
-        //     if (fileExtension == 'f')
-        //         std::cout << "FRAG: " << " => " << str << std::endl;
-        //     else if (fileExtension == 'v')
-        //         std::cout << "VERT: " << " => " << str << std::endl;
-
-
-        // glDeleteShader(shader);
         return 0;
     } else {
         glAttachShader(program, shader);
