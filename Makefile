@@ -138,6 +138,30 @@ home/champ/Git/crows/main.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.s
 .PHONY : home/champ/Git/crows/main.cpp.s
 
+home/champ/Git/crows/src/anima/tree/Tree.o: home/champ/Git/crows/src/anima/tree/Tree.cpp.o
+.PHONY : home/champ/Git/crows/src/anima/tree/Tree.o
+
+# target to build an object file
+home/champ/Git/crows/src/anima/tree/Tree.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/tree/Tree.cpp.o
+.PHONY : home/champ/Git/crows/src/anima/tree/Tree.cpp.o
+
+home/champ/Git/crows/src/anima/tree/Tree.i: home/champ/Git/crows/src/anima/tree/Tree.cpp.i
+.PHONY : home/champ/Git/crows/src/anima/tree/Tree.i
+
+# target to preprocess a source file
+home/champ/Git/crows/src/anima/tree/Tree.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/tree/Tree.cpp.i
+.PHONY : home/champ/Git/crows/src/anima/tree/Tree.cpp.i
+
+home/champ/Git/crows/src/anima/tree/Tree.s: home/champ/Git/crows/src/anima/tree/Tree.cpp.s
+.PHONY : home/champ/Git/crows/src/anima/tree/Tree.s
+
+# target to generate assembly for a file
+home/champ/Git/crows/src/anima/tree/Tree.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/tree/Tree.cpp.s
+.PHONY : home/champ/Git/crows/src/anima/tree/Tree.cpp.s
+
 home/champ/Git/crows/src/anima/ui/clock/Clock.o: home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o
 .PHONY : home/champ/Git/crows/src/anima/ui/clock/Clock.o
 
@@ -233,6 +257,30 @@ home/champ/Git/crows/src/generator/SpriteGenerator.s: home/champ/Git/crows/src/g
 home/champ/Git/crows/src/generator/SpriteGenerator.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.s
 .PHONY : home/champ/Git/crows/src/generator/SpriteGenerator.cpp.s
+
+home/champ/Git/crows/src/service/AnimaFinder.o: home/champ/Git/crows/src/service/AnimaFinder.cpp.o
+.PHONY : home/champ/Git/crows/src/service/AnimaFinder.o
+
+# target to build an object file
+home/champ/Git/crows/src/service/AnimaFinder.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/AnimaFinder.cpp.o
+.PHONY : home/champ/Git/crows/src/service/AnimaFinder.cpp.o
+
+home/champ/Git/crows/src/service/AnimaFinder.i: home/champ/Git/crows/src/service/AnimaFinder.cpp.i
+.PHONY : home/champ/Git/crows/src/service/AnimaFinder.i
+
+# target to preprocess a source file
+home/champ/Git/crows/src/service/AnimaFinder.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/AnimaFinder.cpp.i
+.PHONY : home/champ/Git/crows/src/service/AnimaFinder.cpp.i
+
+home/champ/Git/crows/src/service/AnimaFinder.s: home/champ/Git/crows/src/service/AnimaFinder.cpp.s
+.PHONY : home/champ/Git/crows/src/service/AnimaFinder.s
+
+# target to generate assembly for a file
+home/champ/Git/crows/src/service/AnimaFinder.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/AnimaFinder.cpp.s
+.PHONY : home/champ/Git/crows/src/service/AnimaFinder.cpp.s
 
 home/champ/Git/crows/src/service/PathFinder.o: home/champ/Git/crows/src/service/PathFinder.cpp.o
 .PHONY : home/champ/Git/crows/src/service/PathFinder.o
@@ -750,6 +798,9 @@ help:
 	@echo "... home/champ/Git/crows/main.o"
 	@echo "... home/champ/Git/crows/main.i"
 	@echo "... home/champ/Git/crows/main.s"
+	@echo "... home/champ/Git/crows/src/anima/tree/Tree.o"
+	@echo "... home/champ/Git/crows/src/anima/tree/Tree.i"
+	@echo "... home/champ/Git/crows/src/anima/tree/Tree.s"
 	@echo "... home/champ/Git/crows/src/anima/ui/clock/Clock.o"
 	@echo "... home/champ/Git/crows/src/anima/ui/clock/Clock.i"
 	@echo "... home/champ/Git/crows/src/anima/ui/clock/Clock.s"
@@ -762,6 +813,9 @@ help:
 	@echo "... home/champ/Git/crows/src/generator/SpriteGenerator.o"
 	@echo "... home/champ/Git/crows/src/generator/SpriteGenerator.i"
 	@echo "... home/champ/Git/crows/src/generator/SpriteGenerator.s"
+	@echo "... home/champ/Git/crows/src/service/AnimaFinder.o"
+	@echo "... home/champ/Git/crows/src/service/AnimaFinder.i"
+	@echo "... home/champ/Git/crows/src/service/AnimaFinder.s"
 	@echo "... home/champ/Git/crows/src/service/PathFinder.o"
 	@echo "... home/champ/Git/crows/src/service/PathFinder.i"
 	@echo "... home/champ/Git/crows/src/service/PathFinder.s"

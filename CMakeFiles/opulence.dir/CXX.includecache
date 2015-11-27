@@ -9,8 +9,6 @@
 /home/champ/Git/crows/CrowGame.h
 array
 -
-sstream
--
 opulence/opulence.cpp
 /home/champ/Git/crows/opulence/opulence.cpp
 src/sprite/Sprite.h
@@ -21,6 +19,8 @@ src/controller/standardcontroller/StandardController.h
 /home/champ/Git/crows/src/controller/standardcontroller/StandardController.h
 src/service/SpriteFinder.h
 /home/champ/Git/crows/src/service/SpriteFinder.h
+src/service/AnimaFinder.h
+/home/champ/Git/crows/src/service/AnimaFinder.h
 src/service/PathFinder.h
 /home/champ/Git/crows/src/service/PathFinder.h
 src/utility/LevelMaker.h
@@ -33,6 +33,8 @@ src/controller/controlset/PlayerSet.h
 /home/champ/Git/crows/src/controller/controlset/PlayerSet.h
 src/anima/Anima.h
 /home/champ/Git/crows/src/anima/Anima.h
+src/anima/tree/Tree.h
+/home/champ/Git/crows/src/anima/tree/Tree.h
 src/anima/ui/clock/Clock.h
 /home/champ/Git/crows/src/anima/ui/clock/Clock.h
 src/anima/ui/clock/Digit.h
@@ -283,8 +285,20 @@ SDL_timer.h
 -
 
 /home/champ/Git/crows/src/anima/Anima.h
-../sprite/Sprite.h
-/home/champ/Git/crows/src/sprite/Sprite.h
+sstream
+-
+../generator/SpriteGenerator.h
+/home/champ/Git/crows/src/generator/SpriteGenerator.h
+
+/home/champ/Git/crows/src/anima/tree/Tree.cpp
+Tree.h
+/home/champ/Git/crows/src/anima/tree/Tree.h
+
+/home/champ/Git/crows/src/anima/tree/Tree.h
+vector
+-
+../Anima.h
+/home/champ/Git/crows/src/anima/Anima.h
 
 /home/champ/Git/crows/src/anima/ui/clock/Clock.cpp
 Clock.h
@@ -297,8 +311,6 @@ glm/glm.hpp
 -
 ../../../../opulence/src/service/TimeManager.h
 /home/champ/Git/crows/opulence/src/service/TimeManager.h
-../../Anima.h
-/home/champ/Git/crows/src/anima/Anima.h
 Digit.h
 /home/champ/Git/crows/src/anima/ui/clock/Digit.h
 
@@ -353,6 +365,16 @@ vector
 -
 ../sprite/Sprite.h
 /home/champ/Git/crows/src/sprite/Sprite.h
+
+/home/champ/Git/crows/src/service/AnimaFinder.cpp
+AnimaFinder.h
+/home/champ/Git/crows/src/service/AnimaFinder.h
+
+/home/champ/Git/crows/src/service/AnimaFinder.h
+typeinfo
+-
+../anima/tree/Tree.h
+/home/champ/Git/crows/src/anima/tree/Tree.h
 
 /home/champ/Git/crows/src/service/PathFinder.cpp
 PathFinder.h

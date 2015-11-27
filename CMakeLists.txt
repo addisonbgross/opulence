@@ -104,6 +104,10 @@ add_executable(opulence
             ../src/generator/SpriteGenerator.cpp
 
             # generated includes
+            ../src/service/AnimaFinder.cpp
+            ../src/service/AnimaFinder.h
+            ../src/anima/tree/Tree.cpp
+            ../src/anima/tree/Tree.h
             ../src/anima/ui/clock/Digit.cpp
             ../src/anima/ui/clock/Clock.cpp
             ../src/anima/ui/clock/Digit.h
