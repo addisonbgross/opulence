@@ -13,6 +13,10 @@ opulence/opulence.cpp
 /home/champ/Git/crows/opulence/opulence.cpp
 src/sprite/Sprite.h
 /home/champ/Git/crows/src/sprite/Sprite.h
+src/sprite/AdvancedSprite.h
+/home/champ/Git/crows/src/sprite/AdvancedSprite.h
+src/sprite/crow/Crow.h
+/home/champ/Git/crows/src/sprite/crow/Crow.h
 src/controller/Controller.h
 /home/champ/Git/crows/src/controller/Controller.h
 src/controller/standardcontroller/StandardController.h
@@ -35,10 +39,6 @@ src/anima/Anima.h
 /home/champ/Git/crows/src/anima/Anima.h
 src/anima/tree/Tree.h
 /home/champ/Git/crows/src/anima/tree/Tree.h
-src/anima/ui/clock/Clock.h
-/home/champ/Git/crows/src/anima/ui/clock/Clock.h
-src/anima/ui/clock/Digit.h
-/home/champ/Git/crows/src/anima/ui/clock/Digit.h
 
 /home/champ/Git/crows/main.cpp
 CrowGame.h
@@ -287,8 +287,8 @@ SDL_timer.h
 /home/champ/Git/crows/src/anima/Anima.h
 sstream
 -
-../generator/SpriteGenerator.h
-/home/champ/Git/crows/src/generator/SpriteGenerator.h
+glm/glm.hpp
+-
 
 /home/champ/Git/crows/src/anima/tree/Tree.cpp
 Tree.h
@@ -299,30 +299,8 @@ vector
 -
 ../Anima.h
 /home/champ/Git/crows/src/anima/Anima.h
-
-/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp
-Clock.h
-/home/champ/Git/crows/src/anima/ui/clock/Clock.h
-
-/home/champ/Git/crows/src/anima/ui/clock/Clock.h
-map
--
-glm/glm.hpp
--
-../../../../opulence/src/service/TimeManager.h
-/home/champ/Git/crows/opulence/src/service/TimeManager.h
-Digit.h
-/home/champ/Git/crows/src/anima/ui/clock/Digit.h
-
-/home/champ/Git/crows/src/anima/ui/clock/Digit.cpp
-Digit.h
-/home/champ/Git/crows/src/anima/ui/clock/Digit.h
-
-/home/champ/Git/crows/src/anima/ui/clock/Digit.h
-map
--
-../../Anima.h
-/home/champ/Git/crows/src/anima/Anima.h
+../../generator/SpriteGenerator.h
+/home/champ/Git/crows/src/generator/SpriteGenerator.h
 
 /home/champ/Git/crows/src/controller/./controlset/ControlSet.h
 map
@@ -363,8 +341,8 @@ SpriteGenerator.h
 /home/champ/Git/crows/src/generator/SpriteGenerator.h
 vector
 -
-../sprite/Sprite.h
-/home/champ/Git/crows/src/sprite/Sprite.h
+../sprite/crow/Crow.h
+/home/champ/Git/crows/src/sprite/crow/Crow.h
 
 /home/champ/Git/crows/src/service/AnimaFinder.cpp
 AnimaFinder.h
@@ -396,6 +374,12 @@ SpriteFinder.h
 ../sprite/Sprite.h
 /home/champ/Git/crows/src/sprite/Sprite.h
 
+/home/champ/Git/crows/src/sprite/AdvancedSprite.h
+Sprite.h
+/home/champ/Git/crows/src/sprite/Sprite.h
+../anima/Anima.h
+/home/champ/Git/crows/src/anima/Anima.h
+
 /home/champ/Git/crows/src/sprite/Sprite.cpp
 Sprite.h
 /home/champ/Git/crows/src/sprite/Sprite.h
@@ -421,6 +405,14 @@ math.h
 /home/champ/Git/crows/opulence/src/factory/ModelFactory.h
 ../service/PathFinder.h
 /home/champ/Git/crows/src/service/PathFinder.h
+
+/home/champ/Git/crows/src/sprite/crow/Crow.cpp
+Crow.h
+/home/champ/Git/crows/src/sprite/crow/Crow.h
+
+/home/champ/Git/crows/src/sprite/crow/Crow.h
+../AdvancedSprite.h
+/home/champ/Git/crows/src/sprite/AdvancedSprite.h
 
 /home/champ/Git/crows/src/utility/LevelMaker.cpp
 LevelMaker.h

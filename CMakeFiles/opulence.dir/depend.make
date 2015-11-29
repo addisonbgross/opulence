@@ -24,8 +24,6 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: src/service/GLManager.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: src/service/TimeManager.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /home/champ/Git/crows/src/anima/Anima.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /home/champ/Git/crows/src/anima/tree/Tree.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /home/champ/Git/crows/src/anima/ui/clock/Clock.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /home/champ/Git/crows/src/anima/ui/clock/Digit.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /home/champ/Git/crows/src/controller/./controlset/ControlSet.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /home/champ/Git/crows/src/controller/Controller.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /home/champ/Git/crows/src/controller/controlset/ControlSet.h
@@ -35,7 +33,9 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /home/champ/Git/crows/s
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /home/champ/Git/crows/src/service/AnimaFinder.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /home/champ/Git/crows/src/service/PathFinder.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /home/champ/Git/crows/src/service/SpriteFinder.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /home/champ/Git/crows/src/sprite/AdvancedSprite.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /home/champ/Git/crows/src/sprite/Sprite.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /home/champ/Git/crows/src/sprite/crow/Crow.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /home/champ/Git/crows/src/utility/LevelMaker.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /home/champ/Git/crows/src/utility/LevelObject.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o: /usr/include/SDL2/SDL.h
@@ -97,50 +97,9 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/tree/Tree.cpp.o: /home/ch
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/tree/Tree.cpp.o: /home/champ/Git/crows/src/anima/tree/Tree.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/tree/Tree.cpp.o: /home/champ/Git/crows/src/generator/SpriteGenerator.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/tree/Tree.cpp.o: /home/champ/Git/crows/src/service/PathFinder.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/tree/Tree.cpp.o: /home/champ/Git/crows/src/sprite/AdvancedSprite.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/tree/Tree.cpp.o: /home/champ/Git/crows/src/sprite/Sprite.h
-
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o: src/container/mtl_data.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o: src/container/obj_data.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o: src/entity/Entity.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o: src/entity/animation/Animation.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o: src/entity/camera/Camera.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o: src/entity/model/Model.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o: src/factory/ModelFactory.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o: src/loader/ObjLoader.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o: src/loader/ShaderLoader.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o: src/service/BufferCourier.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o: src/service/TimeManager.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o: /home/champ/Git/crows/src/anima/Anima.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o: /home/champ/Git/crows/src/anima/ui/clock/Clock.cpp
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o: /home/champ/Git/crows/src/anima/ui/clock/Clock.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o: /home/champ/Git/crows/src/anima/ui/clock/Digit.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o: /home/champ/Git/crows/src/generator/SpriteGenerator.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o: /home/champ/Git/crows/src/service/PathFinder.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o: /home/champ/Git/crows/src/sprite/Sprite.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o: /usr/include/SDL2/SDL_config.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o: /usr/include/SDL2/SDL_error.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o: /usr/include/SDL2/SDL_platform.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o: /usr/include/SDL2/SDL_stdinc.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o: /usr/include/SDL2/SDL_timer.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o: /usr/include/SDL2/begin_code.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Clock.cpp.o: /usr/include/SDL2/close_code.h
-
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.o: src/container/mtl_data.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.o: src/container/obj_data.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.o: src/entity/Entity.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.o: src/entity/animation/Animation.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.o: src/entity/camera/Camera.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.o: src/entity/model/Model.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.o: src/factory/ModelFactory.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.o: src/loader/ObjLoader.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.o: src/loader/ShaderLoader.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.o: src/service/BufferCourier.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.o: /home/champ/Git/crows/src/anima/Anima.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.o: /home/champ/Git/crows/src/anima/ui/clock/Digit.cpp
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.o: /home/champ/Git/crows/src/anima/ui/clock/Digit.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.o: /home/champ/Git/crows/src/generator/SpriteGenerator.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.o: /home/champ/Git/crows/src/service/PathFinder.h
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/ui/clock/Digit.cpp.o: /home/champ/Git/crows/src/sprite/Sprite.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/tree/Tree.cpp.o: /home/champ/Git/crows/src/sprite/crow/Crow.h
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o: src/container/mtl_data.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o: src/container/obj_data.h
@@ -212,10 +171,13 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: src/loader/ObjLoader.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: src/loader/ShaderLoader.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: src/service/BufferCourier.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: /home/champ/Git/crows/src/anima/Anima.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: /home/champ/Git/crows/src/generator/SpriteGenerator.cpp
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: /home/champ/Git/crows/src/generator/SpriteGenerator.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: /home/champ/Git/crows/src/service/PathFinder.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: /home/champ/Git/crows/src/sprite/AdvancedSprite.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: /home/champ/Git/crows/src/sprite/Sprite.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o: /home/champ/Git/crows/src/sprite/crow/Crow.h
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/AnimaFinder.cpp.o: src/container/mtl_data.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/AnimaFinder.cpp.o: src/container/obj_data.h
@@ -233,7 +195,9 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/AnimaFinder.cpp.o: /hom
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/AnimaFinder.cpp.o: /home/champ/Git/crows/src/service/AnimaFinder.cpp
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/AnimaFinder.cpp.o: /home/champ/Git/crows/src/service/AnimaFinder.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/AnimaFinder.cpp.o: /home/champ/Git/crows/src/service/PathFinder.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/AnimaFinder.cpp.o: /home/champ/Git/crows/src/sprite/AdvancedSprite.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/AnimaFinder.cpp.o: /home/champ/Git/crows/src/sprite/Sprite.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/AnimaFinder.cpp.o: /home/champ/Git/crows/src/sprite/crow/Crow.h
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.o: src/container/mtl_data.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.o: src/container/obj_data.h
@@ -277,6 +241,23 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.o: src/servic
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.o: /home/champ/Git/crows/src/service/PathFinder.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.o: /home/champ/Git/crows/src/sprite/Sprite.cpp
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.o: /home/champ/Git/crows/src/sprite/Sprite.h
+
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o: src/container/mtl_data.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o: src/container/obj_data.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o: src/entity/Entity.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o: src/entity/animation/Animation.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o: src/entity/camera/Camera.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o: src/entity/model/Model.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o: src/factory/ModelFactory.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o: src/loader/ObjLoader.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o: src/loader/ShaderLoader.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o: src/service/BufferCourier.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o: /home/champ/Git/crows/src/anima/Anima.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o: /home/champ/Git/crows/src/service/PathFinder.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o: /home/champ/Git/crows/src/sprite/AdvancedSprite.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o: /home/champ/Git/crows/src/sprite/Sprite.h
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o: /home/champ/Git/crows/src/sprite/crow/Crow.cpp
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o: /home/champ/Git/crows/src/sprite/crow/Crow.h
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/LevelMaker.cpp.o: src/container/mtl_data.h
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/LevelMaker.cpp.o: src/container/obj_data.h
