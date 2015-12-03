@@ -13,6 +13,12 @@ void Animation::runOnce()
     isOnce = true;
 }
 
+void Animation::restart()
+{
+    isRunning = true;
+    frameCounter = 0;
+}
+
 /*** get ***/
 
 float Animation::getWidth()
@@ -85,6 +91,11 @@ Model * Animation::getCurrentFrame()
                     pingPongAscending = true;
                     frameCounter += rate;
                     currentModel = frames->at(floor(frameCounter));
+
+                    if (isOnce) {
+                        currentModel = frames->at(6);
+                        isRunning = false;
+                    }
                 }
             }
 

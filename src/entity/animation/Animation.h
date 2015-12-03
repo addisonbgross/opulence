@@ -26,6 +26,7 @@ public:
     ~Animation();
     Animation(float x, float y, float z, std::vector<Model*> *frames);
     void runOnce();
+    void restart();
 
     // get
     float getWidth();

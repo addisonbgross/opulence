@@ -36,6 +36,7 @@ public:
     glm::vec4 * getAmbientColour();
     float * getAmbientIntensity();
     DirectionalLight * getDirectionalLight();
+    float * getDirectionalIntensity();
     PointLight * getPointLight();
 };
 

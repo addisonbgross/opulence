@@ -41,7 +41,7 @@ void LightFactory::setAmbientColour(glm::vec4 *colour)
 
 void LightFactory::setAmbientIntensity(float i)
 {
-    ambientIntensity = i;
+    ambientIntensity = glm::clamp( i, 0.0f, 1.0f );
 }
 
 void LightFactory::setDirectionalColour(glm::vec4 *colour)
@@ -51,7 +51,7 @@ void LightFactory::setDirectionalColour(glm::vec4 *colour)
 
 void LightFactory::setDirectionalIntensity(float i)
 {
-    directionalLight->setIntensity(i);
+    directionalLight->setIntensity( glm::clamp( i, 0.0f, 1.0f ) );
 }
 
 /*** getters ***/
@@ -69,6 +69,11 @@ float * LightFactory::getAmbientIntensity()
 DirectionalLight * LightFactory::getDirectionalLight()
 {
     return this->directionalLight;
+}
+
+float * LightFactory::getDirectionalIntensity()
+{
+    return directionalLight->getIntensity();
 }
 
 PointLight * LightFactory::getPointLight()
