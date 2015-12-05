@@ -30,6 +30,11 @@ GLfloat * Entity::getOrientation()
     return &orientationReference[0][0];
 }
 
+int Entity::getHighlight()
+{
+    return isHighlight;
+}
+
 int Entity::getInterface()
 {
     return isInterface;
@@ -40,6 +45,11 @@ int Entity::getInterface()
 void Entity::setOrientation(glm::quat q)
 {
     orientation = q;
+}
+
+void Entity::setHighlight(int high)
+{
+    isHighlight = high;
 }
 
 void Entity::setInterface(int inter)

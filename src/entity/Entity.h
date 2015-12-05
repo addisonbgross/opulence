@@ -20,7 +20,8 @@
 class Entity {
 public:
     int id;
-    int isInterface = 0; // fuckin old school
+    int isHighlight = 0; // minimum lighting
+    int isInterface = 0; // skips the view matrix in the vert shader
     std::string name;
     glm::vec3 position;
     glm::quat orientation;
@@ -36,10 +37,12 @@ public:
     virtual float getDepth();
     glm::quat * getOrientationQuat();
     GLfloat * getOrientation();
+    int getHighlight();
     int getInterface();
 
     // set
     void setOrientation(glm::quat q);
+    void setHighlight(int high);
     void setInterface(int inter);
 };
 

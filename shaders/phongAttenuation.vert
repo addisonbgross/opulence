@@ -14,6 +14,7 @@ uniform float linearAtt;
 uniform float quadraticAtt;
 
 uniform float scale;
+uniform int isInterface;
 
 in vec3 position;
 in vec3 normal;
@@ -37,7 +38,11 @@ void main()
     mat4 mvp = proj * view * model;
     vec4 prePosition = orientation * vec4(scale * position, 1.0) + vec4(modelPosition, 0.0);
 
-    gl_Position = mvp * prePosition;
+    if ( isInterface == 1 ) {
+        gl_Position = proj * prePosition;
+    } else {
+        gl_Position = mvp * prePosition;
+    }
 
     f_camera = cameraPosition;
     f_diffuse = diffuse;

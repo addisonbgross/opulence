@@ -4,7 +4,7 @@ uniform float ambientIntensity;
 uniform vec4 ambientColour;
 uniform float directionalIntensity;
 uniform vec3 directionalLight;
-uniform int isInterface;
+uniform int isHighlight;
 
 in vec3 f_normal;
 in vec4 f_diffuse;
@@ -53,8 +53,8 @@ void main()
         diffuseIntensity = ambientIntensity;
     }
 
-    // interface elements have a minimum lighting requirement
-    if ( isInterface == 1 ) {
+    // ui elements have a minimum lighting requirement
+    if ( isHighlight == 1 ) {
         if ( diffuseIntensity < 0.5 ) {
             diffuseIntensity = 0.5;
         }

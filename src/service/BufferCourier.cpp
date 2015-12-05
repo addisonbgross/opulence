@@ -116,6 +116,7 @@ void BufferCourier::render()
             glUniform3fv(bufferUniforms.at("modelPosition"), 1, &modelPlace[0]);
             glUniform1fv(bufferUniforms.at("scale"), 1, model->getScale());
             glUniformMatrix4fv(bufferUniforms.at("orientation"), 1, GL_FALSE, model->getOrientation());
+            glUniform1i(bufferUniforms.at("isHighlight"), model->getHighlight());
             glUniform1i(bufferUniforms.at("isInterface"), model->getInterface());
 
             // push vertex positions
@@ -147,6 +148,7 @@ void BufferCourier::render()
     GLuint numAnimations = (GLuint) activeAnimations.size();
     for (i = 0; i < numAnimations; ++i) {
         Model *model = activeAnimations.at(i)->getCurrentFrame();
+        int isHighlight = activeAnimations.at(i)->getHighlight();
         int isInterface = activeAnimations.at(i)->getInterface();
 
         if (!model->hidden) {
@@ -157,6 +159,7 @@ void BufferCourier::render()
             glUniform3fv(bufferUniforms.at("modelPosition"), 1, &modelPlace[0]);
             glUniform1fv(bufferUniforms.at("scale"), 1, model->getScale());
             glUniformMatrix4fv(bufferUniforms.at("orientation"), 1, GL_FALSE, activeAnimations.at(i)->getOrientation());
+            glUniform1i(bufferUniforms.at("isHighlight"), isHighlight);
             glUniform1i(bufferUniforms.at("isInterface"), isInterface);
 
             // push vertex positions

@@ -197,12 +197,13 @@ public:
         bufferCourier.addUniform("orientation", glGetUniformLocation(gProgramID, "orientation"));
         bufferCourier.addUniform("modelPosition", glGetUniformLocation(gProgramID, "modelPosition"));
         bufferCourier.addUniform("cameraPosition", glGetUniformLocation(gProgramID, "cameraPosition"));
+        bufferCourier.addUniform("isInterface", glGetUniformLocation(gProgramID, "isInterface"));
         bufferCourier.addUniform("pointLight", glGetUniformLocation(gProgramID, "pointLight"));
         bufferCourier.addUniform("linearAtt", glGetUniformLocation(gProgramID, "linearAtt"));
         bufferCourier.addUniform("quadraticAtt", glGetUniformLocation(gProgramID, "quadraticAtt"));
 
         // fragment shader variables
-        bufferCourier.addUniform("isInterface", glGetUniformLocation(gProgramID, "isInterface"));
+        bufferCourier.addUniform("isHighlight", glGetUniformLocation(gProgramID, "isHighlight"));
         bufferCourier.addAttribute("diffuse", glGetAttribLocation(gProgramID, "diffuse"));
         bufferCourier.addAttribute("specular", glGetAttribLocation(gProgramID, "specular"));
         bufferCourier.addUniform("ambientIntensity", glGetUniformLocation(gProgramID, "ambientIntensity"));
