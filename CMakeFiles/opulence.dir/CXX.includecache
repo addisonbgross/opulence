@@ -117,6 +117,8 @@ Camera.h
 /home/champ/Git/crows/opulence/src/entity/camera/Camera.h
 
 /home/champ/Git/crows/opulence/src/entity/camera/Camera.h
+glm/gtx/vector_angle.hpp
+-
 ../Entity.h
 /home/champ/Git/crows/opulence/src/entity/Entity.h
 

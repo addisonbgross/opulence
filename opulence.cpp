@@ -76,9 +76,9 @@ public:
         }
     }
 
-    void setClearColour(glm::vec4 *colour)
+    void setClearColour(float r, float g, float b, float a)
     {
-        glClearColor(colour->r, colour->g, colour->b, colour->a);
+        glClearColor( r, g, b, a );
     }
 
     CameraFactory * getCameraFactory()
@@ -202,6 +202,7 @@ public:
         bufferCourier.addUniform("quadraticAtt", glGetUniformLocation(gProgramID, "quadraticAtt"));
 
         // fragment shader variables
+        bufferCourier.addUniform("isInterface", glGetUniformLocation(gProgramID, "isInterface"));
         bufferCourier.addAttribute("diffuse", glGetAttribLocation(gProgramID, "diffuse"));
         bufferCourier.addAttribute("specular", glGetAttribLocation(gProgramID, "specular"));
         bufferCourier.addUniform("ambientIntensity", glGetUniformLocation(gProgramID, "ambientIntensity"));

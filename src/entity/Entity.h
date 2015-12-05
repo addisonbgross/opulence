@@ -20,6 +20,7 @@
 class Entity {
 public:
     int id;
+    int isInterface = 0; // fuckin old school
     std::string name;
     glm::vec3 position;
     glm::quat orientation;
@@ -35,9 +36,11 @@ public:
     virtual float getDepth();
     glm::quat * getOrientationQuat();
     GLfloat * getOrientation();
+    int getInterface();
 
     // set
     void setOrientation(glm::quat q);
+    void setInterface(int inter);
 };
 
 #endif

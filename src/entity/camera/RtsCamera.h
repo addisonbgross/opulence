@@ -5,6 +5,9 @@
 
 class RtsCamera : public Camera {
 private:
+    float verticalRotationRestriction = glm::half_pi<float>() * 0.85f;
+    float heightTopRestriction = 50.0f;
+    float heightBottomRestriction = 2.0f;
 
 public:
     RtsCamera();
@@ -17,6 +20,11 @@ public:
     void moveBack(float n);
     void rotateVertical(float deg);
     void rotateHorizontal(float deg);
+    void incrementZoom();
+    void decrementZoom();
+
+    // get
+    float getAngleToGround( glm::vec3 vec );
 };
 
 #endif

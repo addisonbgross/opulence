@@ -63,18 +63,6 @@ glm::quat Camera::getOrientation()
     return glm::normalize(q);
 }
 
-void Camera::incrementZoom()
-{
-    eye->y += 1;
-}
-
-void Camera::decrementZoom()
-{
-    if (eye->y > 3) {
-        eye->y -= 1;
-    }
-}
-
 void Camera::updateBearing()
 {
     glm::vec3 camFocus = *eye - *focus;

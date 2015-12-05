@@ -70,10 +70,14 @@ void RtsCamera::rotateVertical(float deg)
     glm::mat4 mat = glm::toMat4( glm::mix(cameraLine, qRotation, 1.0f) );
     glm::vec4 temp = mat * glm::vec4(camFocus, 1.0f);
     temp += glm::vec4(*focus, 1.0f);
-    eye->x = temp.x;
-    eye->y = temp.y;
-    eye->z = temp.z;
-    updateBearing();
+
+    float angle = getAngleToGround( glm::vec3( temp ) - glm::vec3( *focus ) );
+    if ( temp.y > heightBottomRestriction && temp.y < heightTopRestriction && angle < verticalRotationRestriction ) {
+        eye->x = temp.x;
+        eye->y = temp.y;
+        eye->z = temp.z;
+        updateBearing();
+    }
 }
 
 void RtsCamera::rotateHorizontal(float deg)
@@ -86,4 +90,24 @@ void RtsCamera::rotateHorizontal(float deg)
     eye->z = temp.z;
 
     updateBearing();
+}
+
+void RtsCamera::incrementZoom()
+{
+    float angle = getAngleToGround( *eye - *focus );
+    if (  eye->y > heightBottomRestriction && eye->y < heightTopRestriction && angle < verticalRotationRestriction  ) {
+        eye->y += 0.5f;
+    }
+}
+
+void RtsCamera::decrementZoom()
+{
+    if ( eye->y > heightBottomRestriction ) {
+        eye->y -= 0.5f;
+    }
+}
+
+float RtsCamera::getAngleToGround( glm::vec3 vec )
+{
+    return glm::angle( glm::normalize( glm::vec3( vec.x, 0, vec.z ) ), glm::normalize( vec ) );
 }

@@ -1,6 +1,10 @@
 #ifndef OPULENCE_CAMERA_H
 #define OPULENCE_CAMERA_H
 
+// general
+#include <glm/gtx/vector_angle.hpp>
+
+// opulence
 #include "../Entity.h"
 
 class Camera : public Entity {
@@ -22,6 +26,8 @@ public:
     virtual void moveBack(float n) {};
     virtual void rotateVertical(float deg) {};
     virtual void rotateHorizontal(float deg) {};
+    virtual void incrementZoom() {};
+    virtual void decrementZoom() {};
 
     // set
     void setEye(glm::vec3 *newEye);
@@ -33,9 +39,6 @@ public:
     glm::vec3 * getFocus();
     glm::vec3 * getTop();
     glm::quat getOrientation();
-
-    void incrementZoom();
-    void decrementZoom();
 
     void updateBearing();
 };
