@@ -6,7 +6,7 @@
  * @params *filePath relative to opulence root folder
  * @return std::string the entire GLSL file as a string
  */
-std::string ShaderLoader::readFile(const char *filePath) {
+std::string ShaderLoader::readFile(std::string filePath) {
     // open shader file
     std::ifstream fileStream(filePath, std::ios::in);
 
@@ -33,8 +33,8 @@ std::string ShaderLoader::readFile(const char *filePath) {
  *
  * @return GLuint handle for GLSL shader in video card
  */
-GLuint ShaderLoader::loadShader(const char *shaderPath, GLuint program) {
-    GLchar fileExtension = shaderPath[strlen(shaderPath) - 4];
+GLuint ShaderLoader::loadShader(std::string shaderPath, GLuint program) {
+    GLchar fileExtension = shaderPath[shaderPath.length() - 4];
 
     // create appropriate shader handle
     GLuint shader;

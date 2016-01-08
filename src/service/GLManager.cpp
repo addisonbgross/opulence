@@ -33,7 +33,7 @@ bool GLManager::initGL()
     // load vertex shader
     int failCount = 0;
     while (vertexShader == 0) {
-        vertexShader = loader.loadShader("/home/champ/Git/crows/opulence/shaders/phongAttenuation.vert", programID);
+        vertexShader = loader.loadShader( OsType::osConvert("shaders/phongAttenuation.vert"), programID );
         ++failCount;
         if (failCount >= 1000) {
             std::cout << "Loading vertexShader failed!" << std::endl;
@@ -44,7 +44,7 @@ bool GLManager::initGL()
 
     // load fragment shader
     while (fragmentShader == 0) {
-        fragmentShader = loader.loadShader("/home/champ/Git/crows/opulence/shaders/phongAttenuation.frag", programID);
+        fragmentShader = loader.loadShader( OsType::osConvert("shaders/phongAttenuation.frag"), programID );
         ++failCount;
         if (failCount >= 1000) {
             std::cout << "Loading fragmentShader failed!" << std::endl;
@@ -94,8 +94,8 @@ bool GLManager::initSDL()
         // use native width and height of screen if possible
         SDL_Rect r;
         if (SDL_GetDisplayBounds(0, &r) == 0) {
-            this->screenWidth = r.w * 0.85;
-            this->screenHeight = r.h * 0.85;
+            this->screenWidth = r.w * 0.75f;
+            this->screenHeight = r.h * 0.75f;
         }
 
         //Create window
@@ -226,6 +226,7 @@ SDL_Surface * GLManager::getSurface()
  */
 void GLManager::setScreenSize(GLfloat w, GLfloat h)
 {
+    SDL_SetWindowSize(window , w, h);
     screenWidth = w;
     screenHeight = h;
 }

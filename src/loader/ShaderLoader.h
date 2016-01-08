@@ -18,8 +18,8 @@
  */
 class ShaderLoader {
 public:
-    std::string readFile(const char *filePath);                 // read in GLSL file
-    GLuint loadShader(const char *shaderPath, GLuint program);  // compile and attach shader
+    std::string readFile(std::string filePath);                 // read in GLSL file
+    GLuint loadShader(std::string shaderPath, GLuint program);  // compile and attach shader
 };
 
 #endif

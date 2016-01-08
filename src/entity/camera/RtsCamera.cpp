@@ -95,14 +95,14 @@ void RtsCamera::rotateHorizontal(float deg)
 void RtsCamera::incrementZoom()
 {
     float angle = getAngleToGround( *eye - *focus );
-    if (  eye->y > heightBottomRestriction && eye->y < heightTopRestriction && angle < verticalRotationRestriction  ) {
+    if ( eye->y < heightTopRestriction && angle < verticalRotationRestriction  ) {
         eye->y += 0.5f;
     }
 }
 
 void RtsCamera::decrementZoom()
 {
-    if ( eye->y > heightBottomRestriction ) {
+    if ( eye->y > heightBottomRestriction + 0.5f ) {
         eye->y -= 0.5f;
     }
 }

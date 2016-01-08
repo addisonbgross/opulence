@@ -47,8 +47,8 @@ void main()
     f_camera = cameraPosition;
     f_diffuse = diffuse;
     f_specular = specular;
-    f_point = pointLight;
-    f_normal = vec3(orientation * vec4(normalize(gl_NormalMatrix * normal), 1.0));
+    f_point = pointLight - vec3(prePosition);
+    f_normal = normalize( vec3(orientation * vec4(gl_NormalMatrix * normal, 1.0)) );
 
     // get distance to light source
     f_dist = length(vec4(pointLight, 1.0) - prePosition);

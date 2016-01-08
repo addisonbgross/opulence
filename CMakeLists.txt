@@ -29,7 +29,6 @@ set_source_files_properties(../main.cpp
                             LANGUAGE CXX)
 
 add_executable(opulence
-            WIN32
             ${SOURCE_FILES}
 
             # entities
@@ -63,6 +62,7 @@ add_executable(opulence
             src/service/GLManager.h
             src/service/TimeManager.cpp
             src/service/TimeManager.h
+            src/service/OsType.h
 
             # factories
             src/factory/CameraFactory.cpp
@@ -94,8 +94,6 @@ add_executable(opulence
                 ../src/controller/controlset/PlayerSet.h
 
             # services
-            ../src/service/SpriteFinder.h
-            ../src/service/SpriteFinder.cpp
             ../src/service/PathFinder.h
             ../src/service/PathFinder.cpp
 
@@ -104,13 +102,31 @@ add_executable(opulence
             ../src/generator/SpriteGenerator.cpp
 
             # generated includes
+            ../src/generator/LightGenerator.cpp
+            ../src/generator/LightGenerator.h
+            ../src/anima/interface/population/FoodPopulation.h
+            ../src/anima/interface/population/SquirrelPopulation.h
+            ../src/anima/interface/population/CrowPopulation.h
+            ../src/anima/interface/coin/Coin.h
+            ../src/anima/interface/character/CharacterSet.cpp
+            ../src/anima/interface/character/CharacterSet.h
+            ../src/anima/interface/character/Character.cpp
+            ../src/anima/interface/character/Character.h
+            ../src/generator/InterfaceGenerator.cpp
+            ../src/generator/InterfaceGenerator.h
+            ../src/habitat/garbage/Garbage.cpp
+            ../src/habitat/garbage/Garbage.h
+            ../src/habitat/tree/Tree.cpp
+            ../src/habitat/tree/Tree.h
+            ../src/habitat/Habitat.h
+            ../src/anima/interface/button/Button.cpp
+            ../src/anima/interface/button/Button.h
+            ../src/anima/interface/Interface.h
+            ../src/service/Manipulator.cpp
+            ../src/service/Manipulator.h
             ../src/sprite/AdvancedSprite.h
             ../src/sprite/crow/Crow.cpp
             ../src/sprite/crow/Crow.h
-            ../src/service/AnimaFinder.cpp
-            ../src/service/AnimaFinder.h
-            ../src/anima/tree/Tree.cpp
-            ../src/anima/tree/Tree.h
             ../src/utility/LevelObject.h
             ../src/utility/LevelMaker.cpp
             ../src/utility/LevelMaker.h

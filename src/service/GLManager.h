@@ -6,6 +6,7 @@
 
 // opulence
 #include "../loader/ShaderLoader.h"
+#include "../service/OsType.h"
 
 /**
  * GLManager - Initializes and controls SDL and OpenGL capabilites

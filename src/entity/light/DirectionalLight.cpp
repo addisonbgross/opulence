@@ -22,9 +22,9 @@ DirectionalLight::DirectionalLight(glm::vec4 *colour, glm::vec3 *direction) : Di
 
 /*** set ***/
 
-void DirectionalLight::setDirection(glm::vec3 *direction)
+void DirectionalLight::setDirection(glm::vec3 direction)
 {
-    this->direction = direction;
+    *this->direction = direction;
 }
 
 /*** get ***/

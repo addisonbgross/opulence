@@ -19,7 +19,7 @@ in float f_quadraticAttenuation;
 
 void main()
 {
-    // point light attenuation
+    // point light
     float att = f_constantAttenuation /
                             ( ( f_linearAttenuation * f_dist ) * ( f_quadraticAttenuation * pow( f_dist, 2 ) ) );
 
@@ -40,12 +40,6 @@ void main()
         float specularAngle = max( dot( reflection, f_normal ), 0.0 );
         specularIntensity = pow( specularAngle, 100 );
         specularIntensity = ceil( specularIntensity * cellShadingFactor ) / cellShadingFactor; // cell shading
-        specularIntensity = clamp( specularIntensity, 0.0, 0.8 );
-    }
-
-    // point light
-    if ( diffuseIntensity > 0.0 ) {
-        diffuseIntensity = clamp( diffuseIntensity, 0.0, 1.0 );
     }
 
     // ambient light is the darkest possible
@@ -55,13 +49,13 @@ void main()
 
     // ui elements have a minimum lighting requirement
     if ( isHighlight == 1 ) {
-        if ( diffuseIntensity < 0.5 ) {
-            diffuseIntensity = 0.5;
+        if ( diffuseIntensity < 0.75 ) {
+            diffuseIntensity = 0.75;
         }
     }
 
-    if ( ambientIntensity < 0.075 ) {
-        gl_FragColor = ( 0.075 * f_diffuse ) + ( diffuseIntensity * f_diffuse ) + ( specularIntensity * f_specular );
+    if ( ambientIntensity < 0.005 ) {
+        gl_FragColor = ( 0.005 * f_diffuse ) + ( diffuseIntensity * f_diffuse ) + ( specularIntensity * f_specular );
     } else {
         gl_FragColor = ( ambientIntensity * f_diffuse ) + ( diffuseIntensity * f_diffuse ) + ( specularIntensity * f_specular );
     }

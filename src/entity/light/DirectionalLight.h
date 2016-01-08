@@ -14,7 +14,7 @@ public:
     DirectionalLight(glm::vec4 *colour, glm::vec3 *direction);
 
     // set
-    void setDirection(glm::vec3 *direction);
+    void setDirection(glm::vec3 direction);
 
     // get
     glm::vec3 * getDirection();
