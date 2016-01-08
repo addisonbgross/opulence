@@ -7,11 +7,12 @@ uniform mat4 orientation;
 
 uniform vec3 modelPosition;
 uniform vec3 cameraPosition;
-uniform vec3 pointLight;
 
-// point light attenuation
-uniform float linearAtt;
-uniform float quadraticAtt;
+// point lights
+uniform vec3 pointLight[];
+uniform int numPointLights;
+uniform float linearAtt[];
+uniform float quadraticAtt[];
 
 uniform float scale;
 uniform int isInterface;
@@ -47,14 +48,14 @@ void main()
     f_camera = cameraPosition;
     f_diffuse = diffuse;
     f_specular = specular;
-    f_point = pointLight - vec3(prePosition);
+    f_point = pointLight[0] - vec3(prePosition);
     f_normal = normalize( vec3(orientation * vec4(gl_NormalMatrix * normal, 1.0)) );
 
     // get distance to light source
-    f_dist = length(vec4(pointLight, 1.0) - prePosition);
+    f_dist = length(vec4(pointLight[0], 1.0) - prePosition);
 
     // point lighting constants
-    f_linearAttenuation = linearAtt;
-    f_quadraticAttenuation = quadraticAtt;
+    f_linearAttenuation = linearAtt[0];
+    f_quadraticAttenuation = quadraticAtt[0];
     f_constantAttenuation = 0.05;  // its constant
 }

@@ -141,9 +141,10 @@ public:
         glUniformMatrix4fv(bufferCourier.getUniform(("model")), 1, GL_FALSE, &model[0][0]);
         glUniformMatrix4fv(bufferCourier.getUniform(("view")), 1, GL_FALSE, &view[0][0]);
         glUniformMatrix4fv(bufferCourier.getUniform(("proj")), 1, GL_FALSE, &proj[0][0]);
-        glUniform3fv(bufferCourier.getUniform("pointLight"), 1, &lightFactory.getPointLight()->position[0]);
-        glUniform1fv(bufferCourier.getUniform("linearAtt"), 1, lightFactory.getPointLight()->getLinearAttenuation());
-        glUniform1fv(bufferCourier.getUniform("quadraticAtt"), 1, lightFactory.getPointLight()->getQuadraticAttenuation());
+        glUniform3fv(bufferCourier.getUniform("pointLight"), 1, &lightFactory.getPointLights()[0].position[0]);
+        glUniform1i(bufferCourier.getUniform("numPointLights"), 1);
+        glUniform1fv(bufferCourier.getUniform("linearAtt"), 1, lightFactory.getPointLights()[0].getLinearAttenuation());
+        glUniform1fv(bufferCourier.getUniform("quadraticAtt"), 1, lightFactory.getPointLights()[0].getQuadraticAttenuation());
 
         /* fragment shader stuff */
         glUniform1fv(bufferCourier.getUniform("ambientIntensity"), 1, lightFactory.getAmbientIntensity());
@@ -199,13 +200,14 @@ public:
         bufferCourier.addUniform("cameraPosition", glGetUniformLocation(gProgramID, "cameraPosition"));
         bufferCourier.addUniform("isInterface", glGetUniformLocation(gProgramID, "isInterface"));
         bufferCourier.addUniform("pointLight", glGetUniformLocation(gProgramID, "pointLight"));
+        bufferCourier.addUniform("numPointLights", glGetUniformLocation(gProgramID, "numPointLights"));
         bufferCourier.addUniform("linearAtt", glGetUniformLocation(gProgramID, "linearAtt"));
         bufferCourier.addUniform("quadraticAtt", glGetUniformLocation(gProgramID, "quadraticAtt"));
 
         // fragment shader variables
-        bufferCourier.addUniform("isHighlight", glGetUniformLocation(gProgramID, "isHighlight"));
         bufferCourier.addAttribute("diffuse", glGetAttribLocation(gProgramID, "diffuse"));
         bufferCourier.addAttribute("specular", glGetAttribLocation(gProgramID, "specular"));
+        bufferCourier.addUniform("isHighlight", glGetUniformLocation(gProgramID, "isHighlight"));
         bufferCourier.addUniform("ambientIntensity", glGetUniformLocation(gProgramID, "ambientIntensity"));
         bufferCourier.addUniform("ambientColour", glGetUniformLocation(gProgramID, "ambientColour"));
         bufferCourier.addUniform("directionalIntensity", glGetUniformLocation(gProgramID, "directionalIntensity"));

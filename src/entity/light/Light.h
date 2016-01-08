@@ -12,16 +12,16 @@ private:
 
 public:
     Light();
-    Light(GLfloat x, GLfloat y, GLfloat z);
-    Light(GLfloat x, GLfloat y, GLfloat z, glm::vec4 *colour);
+    Light(float x, float y, float z);
+    Light(float x, float y, float z, glm::vec4 *colour);
     ~Light();
 
     // set
-    void setIntensity(GLfloat intensity);
+    void setIntensity(float intensity);
     void setColour(glm::vec4 *colour);
 
     // get
-    GLfloat * getIntensity();
+    float * getIntensity();
     glm::vec4 * getColour();
 };
 

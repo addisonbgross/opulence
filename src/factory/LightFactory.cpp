@@ -2,8 +2,8 @@
 
 LightFactory::LightFactory()
 {
-    ambientColour = new glm::vec4(1.0, 1.0, 1.0, 1.0);
     ambientIntensity = 0.2;
+    ambientColour = new glm::vec4(1.0, 1.0, 1.0, 1.0);
 }
 
 LightFactory::~LightFactory()
@@ -14,22 +14,20 @@ LightFactory::~LightFactory()
 DirectionalLight * LightFactory::makeDirectionalLight(glm::vec4 *colour)
 {
     directionalLight = new DirectionalLight(colour);
-    activeLights.push_back(directionalLight);
     return directionalLight;
 }
 
 DirectionalLight * LightFactory::makeDirectionalLight(glm::vec4 *colour, glm::vec3 *direction)
 {
     directionalLight = new DirectionalLight(colour, direction);
-    activeLights.push_back(directionalLight);
     return directionalLight;
 }
 
 PointLight * LightFactory::makePointLight(float x, float y, float z)
 {
-    pointLight = new PointLight(x, y, z, new glm::vec4(1.0, 1.0, 1.0, 1.0));
-    activeLights.push_back(pointLight);
-    return pointLight;
+    PointLight *pl = new PointLight(x, y, z, new glm::vec4(1.0, 1.0, 1.0, 1.0));
+    pointLights.push_back( pl );
+    return pl;
 }
 
 /*** setters ***/
@@ -76,7 +74,7 @@ float * LightFactory::getDirectionalIntensity()
     return directionalLight->getIntensity();
 }
 
-PointLight * LightFactory::getPointLight()
+PointLight * LightFactory::getPointLights()
 {
-    return this->pointLight;
+    return pointLights.at( 0 );
 }

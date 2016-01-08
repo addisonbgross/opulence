@@ -19,8 +19,8 @@ public:
     void setQuadraticAttenuation(float quadratic);
 
     // get
-    GLfloat * getLinearAttenuation();
-    GLfloat * getQuadraticAttenuation();
+    float * getLinearAttenuation();
+    float * getQuadraticAttenuation();
 };
 
 #endif

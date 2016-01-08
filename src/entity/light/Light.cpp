@@ -3,18 +3,24 @@
 Light::Light()
 {
     this->intensity = 0.3;
-    this->colour = new glm::vec4();
+    this->position.x = 0.0f;
+    this->position.y = 0.0f;
+    this->position.z = 0.0f;
+    this->colour = new glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 };
 
-Light::Light(float x, float y, float z) : Light()
+Light::Light(float x, float y, float z)
 {
+    this->intensity = 0.3;
     this->position.x = x;
     this->position.y = y;
     this->position.z = z;
+    this->colour = new glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 }
 
-Light::Light(float x, float y, float z, glm::vec4 *colour) : Light()
+Light::Light(float x, float y, float z, glm::vec4 *colour)
 {
+    this->intensity = 0.3;
     this->position.x = x;
     this->position.y = y;
     this->position.z = z;
@@ -28,7 +34,7 @@ Light::~Light()
 
 /*** set ***/
 
-void Light::setIntensity(GLfloat intensity)
+void Light::setIntensity(float intensity)
 {
     this->intensity = intensity;
 }
@@ -43,12 +49,12 @@ void Light::setColour(glm::vec4 *colour)
 
 /*** get ***/
 
-GLfloat * Light::getIntensity()
+float * Light::getIntensity()
 {
     return &this->intensity;
 }
 
-glm::vec4 *Light::getColour()
+glm::vec4 * Light::getColour()
 {
     return this->colour;
 }

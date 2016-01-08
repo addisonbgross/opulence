@@ -28,12 +28,12 @@ void PointLight::setQuadraticAttenuation(float quadratic)
 
 /*** get ***/
 
-GLfloat * PointLight::getLinearAttenuation()
+float * PointLight::getLinearAttenuation()
 {
     return &this->linearAttenuation;
 }
 
-GLfloat * PointLight::getQuadraticAttenuation()
+float * PointLight::getQuadraticAttenuation()
 {
     return &this->quadraticAttenuation;
 }
