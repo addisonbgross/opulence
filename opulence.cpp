@@ -141,10 +141,10 @@ public:
         glUniformMatrix4fv(bufferCourier.getUniform(("model")), 1, GL_FALSE, &model[0][0]);
         glUniformMatrix4fv(bufferCourier.getUniform(("view")), 1, GL_FALSE, &view[0][0]);
         glUniformMatrix4fv(bufferCourier.getUniform(("proj")), 1, GL_FALSE, &proj[0][0]);
-        glUniform3fv(bufferCourier.getUniform("pointLight"), 1, &lightFactory.getPointLights()[0].position[0]);
+        glUniform3fv(bufferCourier.getUniform("pointLight"), 1, lightFactory.getPointLightPositions());
         glUniform1i(bufferCourier.getUniform("numPointLights"), 1);
-        glUniform1fv(bufferCourier.getUniform("linearAtt"), 1, lightFactory.getPointLights()[0].getLinearAttenuation());
-        glUniform1fv(bufferCourier.getUniform("quadraticAtt"), 1, lightFactory.getPointLights()[0].getQuadraticAttenuation());
+        glUniform1fv(bufferCourier.getUniform("linearAtt"), 1, lightFactory.getPointLightLinearAttenuations());
+        glUniform1fv(bufferCourier.getUniform("quadraticAtt"), 1, lightFactory.getPointLightQuadradticAttenuations());
 
         /* fragment shader stuff */
         glUniform1fv(bufferCourier.getUniform("ambientIntensity"), 1, lightFactory.getAmbientIntensity());

@@ -44,7 +44,7 @@ void LightFactory::setAmbientIntensity(float i)
 
 void LightFactory::setDirectionalColour(glm::vec4 *colour)
 {
-    directionalLight->setColour(colour);
+    directionalLight->setColour( colour );
 }
 
 void LightFactory::setDirectionalIntensity(float i)
@@ -74,7 +74,43 @@ float * LightFactory::getDirectionalIntensity()
     return directionalLight->getIntensity();
 }
 
+// PointLights
 PointLight * LightFactory::getPointLights()
 {
     return pointLights.at( 0 );
+}
+
+float *  LightFactory::getPointLightPositions()
+{
+    pointLightPositions.clear();
+
+    for (auto point : pointLights) {
+        pointLightPositions.push_back( point->position.x );
+        pointLightPositions.push_back( point->position.y );
+        pointLightPositions.push_back( point->position.z );
+    }
+
+    return pointLightPositions.data();
+}
+
+float * LightFactory::getPointLightLinearAttenuations()
+{
+    pointLightLinearAttenuations.clear();
+
+    for (auto point : pointLights) {
+        pointLightLinearAttenuations.push_back( *point->getLinearAttenuation() );
+    }
+
+    return pointLightLinearAttenuations.data();
+}
+
+float * LightFactory::getPointLightQuadradticAttenuations()
+{
+    pointLightQuadraticAttenuations.clear();
+
+    for (auto point : pointLights) {
+        pointLightQuadraticAttenuations.push_back( *point->getQuadraticAttenuation() );
+    }
+
+    return pointLightQuadraticAttenuations.data();
 }
