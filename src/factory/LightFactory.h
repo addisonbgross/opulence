@@ -14,6 +14,7 @@ private:
     std::vector<float> pointLightPositions;
     std::vector<float> pointLightLinearAttenuations;
     std::vector<float> pointLightQuadraticAttenuations;
+    std::vector<float> pointLightConstantAttenuations;
 
     glm::vec4 *ambientColour;
     float ambientIntensity;
@@ -26,6 +27,7 @@ public:
     LightFactory();
     ~LightFactory();
 
+    // make
     DirectionalLight * makeDirectionalLight(glm::vec4 *colour);
     DirectionalLight * makeDirectionalLight(glm::vec4 *colour, glm::vec3 *direction);
     PointLight * makePointLight(float x, float y, float z);
@@ -41,12 +43,15 @@ public:
     float * getAmbientIntensity();
     DirectionalLight * getDirectionalLight();
     float * getDirectionalIntensity();
+    std::vector<PointLight *> * getPointLights();
 
     // PointLights
-    PointLight * getPointLights();
+    int getNumPointLights();
     float * getPointLightPositions();
     float * getPointLightLinearAttenuations();
     float * getPointLightQuadradticAttenuations();
+    float * getPointLightConstantAttenuations();
+    bool removeLight(Light *li);
 };
 
 #endif

@@ -3,20 +3,19 @@ project(opulence)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-# Use our modified FindSDL2* modules
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${opulence_SOURCE_DIR}/")
 
-# Set an output directory for our binaries
-set(BIN_DIR ${opulence_SOURCE_DIR}/opulence/bin)
-
-find_package(OpenGL REQUIRED)
+find_package(Threads)
 find_package(SDL2 REQUIRED)
+find_package(OpenGL REQUIRED)
 find_package(GLEW REQUIRED)
+find_package(GLM REQUIRED)
 
 include_directories(${PROJECT_BINARY_DIR}
-                    ${OPENGL_INCLUDE_DIR}
+                    ${OPENGL_INCLUDE_DIRS}
                     ${SDL2_INCLUDE_DIR}
-                    ${GLEW_INCLUDE_DIRS})
+                    ${GLEW_INCLUDE_DIR}
+                    ${GLM_INCLUDE_DIRS})
 
 set(SOURCE_FILES
     ../main.cpp
@@ -102,8 +101,6 @@ add_executable(opulence
             ../src/generator/SpriteGenerator.cpp
 
             # generated includes
-            ../src/generator/LightGenerator.cpp
-            ../src/generator/LightGenerator.h
             ../src/anima/interface/population/FoodPopulation.h
             ../src/anima/interface/population/SquirrelPopulation.h
             ../src/anima/interface/population/CrowPopulation.h

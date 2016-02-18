@@ -5,32 +5,39 @@ uniform vec4 ambientColour;
 uniform float directionalIntensity;
 uniform vec3 directionalLight;
 uniform int isHighlight;
+uniform int numPointLights;
 
 in vec3 f_normal;
 in vec4 f_diffuse;
 in vec4 f_specular;
 in vec3 f_camera;
-in vec3 f_point;
 
-in float f_dist;
-in float f_constantAttenuation;
+in vec3 f_pointLight;
+in float f_pointDist;
 in float f_linearAttenuation;
 in float f_quadraticAttenuation;
+in float f_constantAttenuation;
 
 void main()
 {
-    // point light
-    float att = f_constantAttenuation /
-                            ( ( f_linearAttenuation * f_dist ) * ( f_quadraticAttenuation * pow( f_dist, 2 ) ) );
+    // point light attenuation
+    float plAttenuation = f_constantAttenuation /
+                            ( ( f_linearAttenuation * f_pointDist ) * ( f_quadraticAttenuation * pow( f_pointDist, 2 ) ) );
 
     // diffuse
     float diffuseIntensity = 0.0;
     float directionalDiffuseIntensity = directionalIntensity * max( dot( normalize( f_normal ), -normalize( directionalLight ) ), 0.0 );
-    float pointDiffuseIntensity = att * max( dot( normalize( f_normal ), f_point ), 0.0 );
-    diffuseIntensity = clamp( directionalDiffuseIntensity + pointDiffuseIntensity, 0.0, 1.0 );
+
+    // apply closest point light
+    if ( numPointLights > 0 && directionalDiffuseIntensity < 0.7 ) {
+        float pointDiffuseIntensity = plAttenuation * max( dot( normalize( f_normal ), f_pointLight ), 0.0 );
+        diffuseIntensity = clamp( directionalDiffuseIntensity + pointDiffuseIntensity, 0.0, 1.0 );
+    } else {
+        diffuseIntensity = clamp( directionalDiffuseIntensity, 0.0, 1.0 );
+    }
 
     // cell shading
-    int cellShadingFactor = 10;
+    int cellShadingFactor = 6;
     diffuseIntensity = ceil( diffuseIntensity * cellShadingFactor ) / cellShadingFactor;
 
     // specular
@@ -54,8 +61,8 @@ void main()
         }
     }
 
-    if ( ambientIntensity < 0.005 ) {
-        gl_FragColor = ( 0.005 * f_diffuse ) + ( diffuseIntensity * f_diffuse ) + ( specularIntensity * f_specular );
+    if ( ambientIntensity < 0.05 ) {
+        gl_FragColor = ( 0.05 * f_diffuse ) + ( diffuseIntensity * f_diffuse ) + ( specularIntensity * f_specular );
     } else {
         gl_FragColor = ( ambientIntensity * f_diffuse ) + ( diffuseIntensity * f_diffuse ) + ( specularIntensity * f_specular );
     }

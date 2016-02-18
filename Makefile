@@ -258,30 +258,6 @@ home/champ/Git/crows/src/generator/InterfaceGenerator.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/InterfaceGenerator.cpp.s
 .PHONY : home/champ/Git/crows/src/generator/InterfaceGenerator.cpp.s
 
-home/champ/Git/crows/src/generator/LightGenerator.o: home/champ/Git/crows/src/generator/LightGenerator.cpp.o
-.PHONY : home/champ/Git/crows/src/generator/LightGenerator.o
-
-# target to build an object file
-home/champ/Git/crows/src/generator/LightGenerator.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/LightGenerator.cpp.o
-.PHONY : home/champ/Git/crows/src/generator/LightGenerator.cpp.o
-
-home/champ/Git/crows/src/generator/LightGenerator.i: home/champ/Git/crows/src/generator/LightGenerator.cpp.i
-.PHONY : home/champ/Git/crows/src/generator/LightGenerator.i
-
-# target to preprocess a source file
-home/champ/Git/crows/src/generator/LightGenerator.cpp.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/LightGenerator.cpp.i
-.PHONY : home/champ/Git/crows/src/generator/LightGenerator.cpp.i
-
-home/champ/Git/crows/src/generator/LightGenerator.s: home/champ/Git/crows/src/generator/LightGenerator.cpp.s
-.PHONY : home/champ/Git/crows/src/generator/LightGenerator.s
-
-# target to generate assembly for a file
-home/champ/Git/crows/src/generator/LightGenerator.cpp.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/LightGenerator.cpp.s
-.PHONY : home/champ/Git/crows/src/generator/LightGenerator.cpp.s
-
 home/champ/Git/crows/src/generator/SpriteGenerator.o: home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o
 .PHONY : home/champ/Git/crows/src/generator/SpriteGenerator.o
 
@@ -909,9 +885,6 @@ help:
 	@echo "... home/champ/Git/crows/src/generator/InterfaceGenerator.o"
 	@echo "... home/champ/Git/crows/src/generator/InterfaceGenerator.i"
 	@echo "... home/champ/Git/crows/src/generator/InterfaceGenerator.s"
-	@echo "... home/champ/Git/crows/src/generator/LightGenerator.o"
-	@echo "... home/champ/Git/crows/src/generator/LightGenerator.i"
-	@echo "... home/champ/Git/crows/src/generator/LightGenerator.s"
 	@echo "... home/champ/Git/crows/src/generator/SpriteGenerator.o"
 	@echo "... home/champ/Git/crows/src/generator/SpriteGenerator.i"
 	@echo "... home/champ/Git/crows/src/generator/SpriteGenerator.s"

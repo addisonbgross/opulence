@@ -58,7 +58,7 @@ GLuint ShaderLoader::loadShader(std::string shaderPath, GLuint program) {
     //Check vertex shader for errors
     GLint isCompiled = GL_FALSE;
     glGetShaderiv(shader, GL_COMPILE_STATUS, &isCompiled);
-    if (isCompiled != GL_TRUE) {
+    if (isCompiled == GL_FALSE) {
         return 0;
     } else {
         glAttachShader(program, shader);

@@ -94,8 +94,8 @@ bool GLManager::initSDL()
         // use native width and height of screen if possible
         SDL_Rect r;
         if (SDL_GetDisplayBounds(0, &r) == 0) {
-            this->screenWidth = r.w * 0.75f;
-            this->screenHeight = r.h * 0.75f;
+            this->screenWidth = r.w * 0.85f;
+            this->screenHeight = r.h * 0.85f;
         }
 
         //Create window

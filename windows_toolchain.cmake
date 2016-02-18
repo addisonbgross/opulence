@@ -1,18 +1,18 @@
 # the name of the target operating system
 SET(CMAKE_SYSTEM_NAME Windows)
 
+SET(CMAKE_SYSROOT ~/home/champ/Git/crows/opulence)
+
 # which compilers to use for C and C++
-set(PREFIX x86_64-w64-mingw32)
-SET(CMAKE_C_COMPILER ${PREFIX}-gcc)
-SET(CMAKE_CXX_COMPILER ${PREFIX}-g++)
-SET(CMAKE_RC_COMPILER windres)
+SET(CMAKE_C_COMPILER x86_64-w64-mingw32-gcc)
+SET(CMAKE_CXX_COMPILER x86_64-w64-mingw32-g++)
+SET(CMAKE_RC_COMPILER x86_64-w64-mingw32-windres)
 
 # here is the target environment located
-SET(CMAKE_FIND_ROOT_PATH /usr/x86_64-w64-mingw32)
+#SET(CMAKE_FIND_ROOT_PATH /usr/include /usr/include/SDL /x86_64-w64-mingw32)
 
-# adjust the default behaviour of the FIND_XXX() commands:
-# search headers and libraries in the target environment, search
-# programs in the host environment
-set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
-set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
-set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+# search for programs in the build host directories
+SET(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+SET(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+SET(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+

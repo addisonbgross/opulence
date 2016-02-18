@@ -3,6 +3,7 @@
 Light::Light()
 {
     this->intensity = 0.3;
+    this->isOn = true;
     this->position.x = 0.0f;
     this->position.y = 0.0f;
     this->position.z = 0.0f;
@@ -12,6 +13,7 @@ Light::Light()
 Light::Light(float x, float y, float z)
 {
     this->intensity = 0.3;
+    this->isOn = true;
     this->position.x = x;
     this->position.y = y;
     this->position.z = z;
@@ -21,6 +23,7 @@ Light::Light(float x, float y, float z)
 Light::Light(float x, float y, float z, glm::vec4 *colour)
 {
     this->intensity = 0.3;
+    this->isOn = true;
     this->position.x = x;
     this->position.y = y;
     this->position.z = z;

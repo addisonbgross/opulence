@@ -4,12 +4,14 @@ PointLight::PointLight(float x, float y, float z) : Light(x, y, z)
 {
     this->linearAttenuation = 0.045;
     this->quadraticAttenuation = 0.0075;
+    this->constantAttenuation = 0.05f;
 }
 
 PointLight::PointLight(float x, float y, float z, glm::vec4 *colour) : Light(x, y, z, colour)
 {
     this->linearAttenuation = 0.045;
     this->quadraticAttenuation = 0.0075;
+    this->constantAttenuation = 0.05f;
 }
 
 PointLight::~PointLight() {}
@@ -26,6 +28,11 @@ void PointLight::setQuadraticAttenuation(float quadratic)
     this->quadraticAttenuation = quadratic;
 }
 
+void PointLight::setConstantAttenuation(float constant)
+{
+    this->constantAttenuation = constant;
+}
+
 /*** get ***/
 
 float * PointLight::getLinearAttenuation()
@@ -36,4 +43,9 @@ float * PointLight::getLinearAttenuation()
 float * PointLight::getQuadraticAttenuation()
 {
     return &this->quadraticAttenuation;
+}
+
+float * PointLight::getConstantAttenuation()
+{
+    return &this->constantAttenuation;
 }

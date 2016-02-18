@@ -10,7 +10,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.o"
   "/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o"
   "/home/champ/Git/crows/src/generator/InterfaceGenerator.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/InterfaceGenerator.cpp.o"
-  "/home/champ/Git/crows/src/generator/LightGenerator.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/LightGenerator.cpp.o"
   "/home/champ/Git/crows/src/generator/SpriteGenerator.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o"
   "/home/champ/Git/crows/src/habitat/garbage/Garbage.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/garbage/Garbage.cpp.o"
   "/home/champ/Git/crows/src/habitat/tree/Tree.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/tree/Tree.cpp.o"
@@ -47,6 +46,7 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
 set(CMAKE_C_TARGET_INCLUDE_PATH
   "."
   "/usr/include/SDL2"
+  "/usr/local/include"
   )
 set(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
 set(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

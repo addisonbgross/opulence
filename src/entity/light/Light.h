@@ -16,6 +16,8 @@ public:
     Light(float x, float y, float z, glm::vec4 *colour);
     ~Light();
 
+    bool isOn;
+
     // set
     void setIntensity(float intensity);
     void setColour(glm::vec4 *colour);
