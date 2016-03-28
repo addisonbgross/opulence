@@ -12,6 +12,21 @@ RtsCamera::RtsCamera(float x, float y, float z) : Camera(x, y, z)
     updateBearing();
 }
 
+void RtsCamera::move(float x, float y, int screenWidth, int screenHeight)
+{
+    if ( x <= 0 ) {
+        moveLeft( cameraVelocity );
+    } else if ( x >= screenWidth - 1 ) {
+        moveRight( cameraVelocity );
+    }
+
+    if ( y <= 0 ) {
+        moveForward( cameraVelocity );
+    } else if ( y >= screenHeight - 1 ) {
+        moveBack( cameraVelocity );
+    }
+}
+
 void RtsCamera::moveForward(float n)
 {
     // height related acceleration
@@ -72,7 +87,7 @@ void RtsCamera::rotateVertical(float deg)
     temp += glm::vec4(*focus, 1.0f);
 
     float angle = getAngleToGround( glm::vec3( temp ) - glm::vec3( *focus ) );
-    if ( temp.y > heightBottomRestriction && temp.y < heightTopRestriction && angle < verticalRotationRestriction ) {
+    if ( temp.y > MIN_ZOOM && angle < ROTATION_LIMIT ) {
         eye->x = temp.x;
         eye->y = temp.y;
         eye->z = temp.z;
@@ -94,16 +109,27 @@ void RtsCamera::rotateHorizontal(float deg)
 
 void RtsCamera::incrementZoom()
 {
-    float angle = getAngleToGround( *eye - *focus );
-    if ( eye->y < heightTopRestriction && angle < verticalRotationRestriction  ) {
-        eye->y += 0.5f;
+    glm::vec3 temp = *eye - *focus;
+    temp *= zoomInSpeed;
+
+    float angle = getAngleToGround( temp - *focus );
+    if ( glm::length( temp ) < MAX_ZOOM && angle < ROTATION_LIMIT ) {
+            eye->x *= zoomInSpeed;
+            eye->y *= zoomInSpeed;
+            eye->z *= zoomInSpeed;
     }
 }
 
 void RtsCamera::decrementZoom()
 {
-    if ( eye->y > heightBottomRestriction + 0.5f ) {
-        eye->y -= 0.5f;
+    glm::vec3 temp = *eye - *focus;
+    temp *= zoomOutSpeed;
+
+    float angle = getAngleToGround( temp - *focus );
+    if ( temp.y > MIN_ZOOM && angle < ROTATION_LIMIT ) {
+        eye->x *= zoomOutSpeed;
+        eye->y *= zoomOutSpeed;
+        eye->z *= zoomOutSpeed;
     }
 }
 

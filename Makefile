@@ -426,6 +426,30 @@ home/champ/Git/crows/src/sprite/crow/Crow.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.s
 .PHONY : home/champ/Git/crows/src/sprite/crow/Crow.cpp.s
 
+home/champ/Git/crows/src/utility/DayManager.o: home/champ/Git/crows/src/utility/DayManager.cpp.o
+.PHONY : home/champ/Git/crows/src/utility/DayManager.o
+
+# target to build an object file
+home/champ/Git/crows/src/utility/DayManager.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/DayManager.cpp.o
+.PHONY : home/champ/Git/crows/src/utility/DayManager.cpp.o
+
+home/champ/Git/crows/src/utility/DayManager.i: home/champ/Git/crows/src/utility/DayManager.cpp.i
+.PHONY : home/champ/Git/crows/src/utility/DayManager.i
+
+# target to preprocess a source file
+home/champ/Git/crows/src/utility/DayManager.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/DayManager.cpp.i
+.PHONY : home/champ/Git/crows/src/utility/DayManager.cpp.i
+
+home/champ/Git/crows/src/utility/DayManager.s: home/champ/Git/crows/src/utility/DayManager.cpp.s
+.PHONY : home/champ/Git/crows/src/utility/DayManager.s
+
+# target to generate assembly for a file
+home/champ/Git/crows/src/utility/DayManager.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/DayManager.cpp.s
+.PHONY : home/champ/Git/crows/src/utility/DayManager.cpp.s
+
 home/champ/Git/crows/src/utility/LevelMaker.o: home/champ/Git/crows/src/utility/LevelMaker.cpp.o
 .PHONY : home/champ/Git/crows/src/utility/LevelMaker.o
 
@@ -906,6 +930,9 @@ help:
 	@echo "... home/champ/Git/crows/src/sprite/crow/Crow.o"
 	@echo "... home/champ/Git/crows/src/sprite/crow/Crow.i"
 	@echo "... home/champ/Git/crows/src/sprite/crow/Crow.s"
+	@echo "... home/champ/Git/crows/src/utility/DayManager.o"
+	@echo "... home/champ/Git/crows/src/utility/DayManager.i"
+	@echo "... home/champ/Git/crows/src/utility/DayManager.s"
 	@echo "... home/champ/Git/crows/src/utility/LevelMaker.o"
 	@echo "... home/champ/Git/crows/src/utility/LevelMaker.i"
 	@echo "... home/champ/Git/crows/src/utility/LevelMaker.s"

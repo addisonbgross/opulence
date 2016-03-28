@@ -5,15 +5,19 @@
 
 class RtsCamera : public Camera {
 private:
-    float verticalRotationRestriction = glm::half_pi<float>() * 0.85f;
-    float heightTopRestriction = 50.0f;
-    float heightBottomRestriction = 2.0f;
+    float cameraVelocity = 1.5f;
+    float zoomInSpeed = 1.03f;
+    float zoomOutSpeed = 0.97f;
+    float MAX_ZOOM = 200.0f;
+    float MIN_ZOOM = 3.0f;
+    float ROTATION_LIMIT = glm::half_pi<float>() * 0.80f;
 
 public:
     RtsCamera();
     RtsCamera(float x, float y, float z);
 
     // move
+    void move(float x, float y, int screenWidth, int screenHeight);
     void moveForward(float n);
     void moveLeft(float n);
     void moveRight(float n);

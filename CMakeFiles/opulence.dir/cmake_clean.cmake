@@ -21,6 +21,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o"
   "CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.o"
   "CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o"
+  "CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/DayManager.cpp.o"
   "CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.o"
   "CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/Character.cpp.o"
   "CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/InterfaceGenerator.cpp.o"

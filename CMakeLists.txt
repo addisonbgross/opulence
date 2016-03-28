@@ -101,9 +101,9 @@ add_executable(opulence
             ../src/generator/SpriteGenerator.cpp
 
             # generated includes
-            ../src/anima/interface/population/FoodPopulation.h
-            ../src/anima/interface/population/SquirrelPopulation.h
-            ../src/anima/interface/population/CrowPopulation.h
+            ../src/utility/DayManager.cpp
+            ../src/utility/DayManager.h
+            ../src/anima/interface/character/population/Population.h
             ../src/anima/interface/coin/Coin.h
             ../src/anima/interface/character/CharacterSet.cpp
             ../src/anima/interface/character/CharacterSet.h

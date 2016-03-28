@@ -20,6 +20,7 @@ public:
     ~Camera();
 
     // move
+    virtual void move(float x, float y, int screenWidth, int screenHeight) {};
     virtual void moveForward(float n) {};
     virtual void moveLeft(float n) {};
     virtual void moveRight(float n) {};
