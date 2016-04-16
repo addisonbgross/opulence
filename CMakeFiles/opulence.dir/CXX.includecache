@@ -11,6 +11,8 @@ array
 -
 opulence/opulence.cpp
 /home/champ/Git/crows/opulence/opulence.cpp
+src/ai/Ai.h
+/home/champ/Git/crows/src/ai/Ai.h
 src/controller/standardcontroller/StandardController.h
 /home/champ/Git/crows/src/controller/standardcontroller/StandardController.h
 src/service/Manipulator.h
@@ -253,12 +255,12 @@ GLManager.h
 /home/champ/Git/crows/opulence/src/service/GLManager.h
 
 /home/champ/Git/crows/opulence/src/service/GLManager.h
-SDL.h
--
 ../loader/ShaderLoader.h
 /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
 ../service/OsType.h
 /home/champ/Git/crows/opulence/src/service/OsType.h
+SDL.h
+/home/champ/Git/crows/opulence/src/service/SDL.h
 
 /home/champ/Git/crows/opulence/src/service/OsType.h
 string
@@ -275,6 +277,24 @@ iostream
 -
 SDL_timer.h
 -
+
+/home/champ/Git/crows/src/ai/Ai.cpp
+Ai.h
+/home/champ/Git/crows/src/ai/Ai.h
+
+/home/champ/Git/crows/src/ai/Ai.h
+iostream
+-
+vector
+-
+AiState.h
+/home/champ/Git/crows/src/ai/AiState.h
+../habitat/tree/Tree.h
+/home/champ/Git/crows/src/habitat/tree/Tree.h
+../habitat/garbage/Garbage.h
+/home/champ/Git/crows/src/habitat/garbage/Garbage.h
+
+/home/champ/Git/crows/src/ai/AiState.h
 
 /home/champ/Git/crows/src/anima/Anima.h
 sstream
@@ -336,7 +356,7 @@ map
 
 /home/champ/Git/crows/src/controller/Controller.h
 SDL.h
--
+/home/champ/Git/crows/src/controller/SDL.h
 ../sprite/Sprite.h
 /home/champ/Git/crows/src/sprite/Sprite.h
 ./controlset/ControlSet.h
@@ -381,14 +401,14 @@ algorithm
 -
 ../sprite/crow/Crow.h
 /home/champ/Git/crows/src/sprite/crow/Crow.h
+../sprite/squirrel/Squirrel.h
+/home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
 ../../opulence/src/service/OsType.h
 /home/champ/Git/crows/opulence/src/service/OsType.h
 ../../opulence/src/factory/LightFactory.h
 /home/champ/Git/crows/opulence/src/factory/LightFactory.h
 
 /home/champ/Git/crows/src/habitat/Habitat.h
-string
--
 ../sprite/Sprite.h
 /home/champ/Git/crows/src/sprite/Sprite.h
 
@@ -444,6 +464,10 @@ glm/detail/type_vec3.hpp
 ../sprite/Sprite.h
 /home/champ/Git/crows/src/sprite/Sprite.h
 
+/home/champ/Git/crows/src/sprite/AdvancedSprite.cpp
+AdvancedSprite.h
+/home/champ/Git/crows/src/sprite/AdvancedSprite.h
+
 /home/champ/Git/crows/src/sprite/AdvancedSprite.h
 Sprite.h
 /home/champ/Git/crows/src/sprite/Sprite.h
@@ -481,10 +505,14 @@ math.h
 /home/champ/Git/crows/src/service/PathFinder.h
 
 /home/champ/Git/crows/src/sprite/crow/Crow.cpp
-Crow.h
-/home/champ/Git/crows/src/sprite/crow/Crow.h
 
 /home/champ/Git/crows/src/sprite/crow/Crow.h
+../AdvancedSprite.h
+/home/champ/Git/crows/src/sprite/AdvancedSprite.h
+
+/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp
+
+/home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
 ../AdvancedSprite.h
 /home/champ/Git/crows/src/sprite/AdvancedSprite.h
 
@@ -521,10 +549,10 @@ vector
 -
 typeinfo
 -
-../sprite/Sprite.h
-/home/champ/Git/crows/src/sprite/Sprite.h
-../anima/interface/Interface.h
-/home/champ/Git/crows/src/anima/interface/Interface.h
+../habitat/tree/Tree.h
+/home/champ/Git/crows/src/habitat/tree/Tree.h
+../habitat/garbage/Garbage.h
+/home/champ/Git/crows/src/habitat/garbage/Garbage.h
 LevelObject.h
 /home/champ/Git/crows/src/utility/LevelObject.h
 ../../opulence/src/service/OsType.h

@@ -27,8 +27,8 @@ public:
     virtual void moveBack(float n) {};
     virtual void rotateVertical(float deg) {};
     virtual void rotateHorizontal(float deg) {};
-    virtual void incrementZoom() {};
-    virtual void decrementZoom() {};
+    virtual void zoomIn() {};
+    virtual void zoomOut() {};
 
     // set
     void setEye(glm::vec3 *newEye);

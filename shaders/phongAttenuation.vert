@@ -34,7 +34,7 @@ out float f_linearAttenuation;
 out float f_quadraticAttenuation;
 out float f_constantAttenuation;
 
-const int MAX_POINT_LIGHTS = 10;
+const int MAX_POINT_LIGHTS = 20;
 
 void main()
 {
@@ -66,6 +66,16 @@ void main()
         pld[7] = length(vec4(pointLight[7], 1.0) - prePosition);
         pld[8] = length(vec4(pointLight[8], 1.0) - prePosition);
         pld[9] = length(vec4(pointLight[9], 1.0) - prePosition);
+        pld[10] = length(vec4(pointLight[10], 1.0) - prePosition);
+        pld[11] = length(vec4(pointLight[11], 1.0) - prePosition);
+        pld[12] = length(vec4(pointLight[12], 1.0) - prePosition);
+        pld[13] = length(vec4(pointLight[13], 1.0) - prePosition);
+        pld[14] = length(vec4(pointLight[14], 1.0) - prePosition);
+        pld[15] = length(vec4(pointLight[15], 1.0) - prePosition);
+        pld[16] = length(vec4(pointLight[16], 1.0) - prePosition);
+        pld[17] = length(vec4(pointLight[17], 1.0) - prePosition);
+        pld[18] = length(vec4(pointLight[18], 1.0) - prePosition);
+        pld[19] = length(vec4(pointLight[19], 1.0) - prePosition);
     }
 
     float lowestDistance = 0;
@@ -151,6 +161,76 @@ void main()
         f_linearAttenuation = linearAtt[9];
         f_quadraticAttenuation = quadraticAtt[9];
         f_constantAttenuation = constantAtt[9];
+
+    } else if ( closestPointLight == 10 ) {
+        f_pointLight = pointLight[10] - vec3(prePosition);
+        f_pointDist = pld[10];
+        f_linearAttenuation = linearAtt[10];
+        f_quadraticAttenuation = quadraticAtt[10];
+        f_constantAttenuation = constantAtt[10];
+
+    } else if ( closestPointLight == 11 ) {
+        f_pointLight = pointLight[11] - vec3(prePosition);
+        f_pointDist = pld[11];
+        f_linearAttenuation = linearAtt[11];
+        f_quadraticAttenuation = quadraticAtt[11];
+        f_constantAttenuation = constantAtt[11];
+
+    } else if ( closestPointLight == 12 ) {
+        f_pointLight = pointLight[12] - vec3(prePosition);
+        f_pointDist = pld[12];
+        f_linearAttenuation = linearAtt[12];
+        f_quadraticAttenuation = quadraticAtt[12];
+        f_constantAttenuation = constantAtt[12];
+
+    } else if ( closestPointLight == 13 ) {
+        f_pointLight = pointLight[13] - vec3(prePosition);
+        f_pointDist = pld[13];
+        f_linearAttenuation = linearAtt[13];
+        f_quadraticAttenuation = quadraticAtt[13];
+        f_constantAttenuation = constantAtt[13];
+
+    } else if ( closestPointLight == 14 ) {
+        f_pointLight = pointLight[14] - vec3(prePosition);
+        f_pointDist = pld[14];
+        f_linearAttenuation = linearAtt[14];
+        f_quadraticAttenuation = quadraticAtt[14];
+        f_constantAttenuation = constantAtt[14];
+
+    } else if ( closestPointLight == 15 ) {
+        f_pointLight = pointLight[15] - vec3(prePosition);
+        f_pointDist = pld[15];
+        f_linearAttenuation = linearAtt[15];
+        f_quadraticAttenuation = quadraticAtt[15];
+        f_constantAttenuation = constantAtt[15];
+
+    } else if ( closestPointLight == 16 ) {
+        f_pointLight = pointLight[16] - vec3(prePosition);
+        f_pointDist = pld[16];
+        f_linearAttenuation = linearAtt[16];
+        f_quadraticAttenuation = quadraticAtt[16];
+        f_constantAttenuation = constantAtt[16];
+
+    } else if ( closestPointLight == 17 ) {
+        f_pointLight = pointLight[17] - vec3(prePosition);
+        f_pointDist = pld[17];
+        f_linearAttenuation = linearAtt[17];
+        f_quadraticAttenuation = quadraticAtt[17];
+        f_constantAttenuation = constantAtt[17];
+
+    } else if ( closestPointLight == 18 ) {
+        f_pointLight = pointLight[18] - vec3(prePosition);
+        f_pointDist = pld[18];
+        f_linearAttenuation = linearAtt[18];
+        f_quadraticAttenuation = quadraticAtt[18];
+        f_constantAttenuation = constantAtt[18];
+
+    } else if ( closestPointLight == 19 ) {
+        f_pointLight = pointLight[19] - vec3(prePosition);
+        f_pointDist = pld[19];
+        f_linearAttenuation = linearAtt[19];
+        f_quadraticAttenuation = quadraticAtt[19];
+        f_constantAttenuation = constantAtt[19];
 
     } else {
         f_pointLight = vec3(0, 0, 0);

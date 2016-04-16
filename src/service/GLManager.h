@@ -1,12 +1,12 @@
 #ifndef OPULENCE_GLMANAGER_H
 #define OPULENCE_GLMANAGER_H
 
-// general
-#include <SDL.h>
-
 // opulence
 #include "../loader/ShaderLoader.h"
 #include "../service/OsType.h"
+
+// general
+#include "SDL.h"
 
 /**
  * GLManager - Initializes and controls SDL and OpenGL capabilites

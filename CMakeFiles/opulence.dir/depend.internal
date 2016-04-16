@@ -24,6 +24,8 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o
  /home/champ/Git/crows/opulence/src/service/GLManager.h
  /home/champ/Git/crows/opulence/src/service/OsType.h
  /home/champ/Git/crows/opulence/src/service/TimeManager.h
+ /home/champ/Git/crows/src/ai/Ai.h
+ /home/champ/Git/crows/src/ai/AiState.h
  /home/champ/Git/crows/src/anima/Anima.h
  /home/champ/Git/crows/src/anima/interface/Interface.h
  /home/champ/Git/crows/src/anima/interface/button/Button.h
@@ -44,6 +46,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o
  /home/champ/Git/crows/src/sprite/AdvancedSprite.h
  /home/champ/Git/crows/src/sprite/Sprite.h
  /home/champ/Git/crows/src/sprite/crow/Crow.h
+ /home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
  /home/champ/Git/crows/src/utility/DayManager.h
  /home/champ/Git/crows/src/utility/LevelMaker.h
  /home/champ/Git/crows/src/utility/LevelObject.h
@@ -194,6 +197,146 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o
  /usr/local/include/glm/vec3.hpp
  /usr/local/include/glm/vec4.hpp
  /usr/local/include/glm/vector_relational.hpp
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/ai/Ai.cpp.o
+ /home/champ/Git/crows/opulence/src/container/mtl_data.h
+ /home/champ/Git/crows/opulence/src/container/obj_data.h
+ /home/champ/Git/crows/opulence/src/entity/Entity.h
+ /home/champ/Git/crows/opulence/src/entity/animation/Animation.h
+ /home/champ/Git/crows/opulence/src/entity/camera/Camera.h
+ /home/champ/Git/crows/opulence/src/entity/light/DirectionalLight.h
+ /home/champ/Git/crows/opulence/src/entity/light/Light.h
+ /home/champ/Git/crows/opulence/src/entity/light/PointLight.h
+ /home/champ/Git/crows/opulence/src/entity/model/Model.h
+ /home/champ/Git/crows/opulence/src/factory/LightFactory.h
+ /home/champ/Git/crows/opulence/src/factory/ModelFactory.h
+ /home/champ/Git/crows/opulence/src/loader/ObjLoader.h
+ /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
+ /home/champ/Git/crows/opulence/src/service/BufferCourier.h
+ /home/champ/Git/crows/opulence/src/service/OsType.h
+ /home/champ/Git/crows/src/ai/Ai.cpp
+ /home/champ/Git/crows/src/ai/Ai.h
+ /home/champ/Git/crows/src/ai/AiState.h
+ /home/champ/Git/crows/src/anima/Anima.h
+ /home/champ/Git/crows/src/anima/interface/Interface.h
+ /home/champ/Git/crows/src/anima/interface/button/Button.h
+ /home/champ/Git/crows/src/anima/interface/character/Character.h
+ /home/champ/Git/crows/src/anima/interface/character/CharacterSet.h
+ /home/champ/Git/crows/src/anima/interface/character/population/Population.h
+ /home/champ/Git/crows/src/anima/interface/coin/Coin.h
+ /home/champ/Git/crows/src/generator/InterfaceGenerator.h
+ /home/champ/Git/crows/src/generator/SpriteGenerator.h
+ /home/champ/Git/crows/src/habitat/Habitat.h
+ /home/champ/Git/crows/src/habitat/garbage/Garbage.h
+ /home/champ/Git/crows/src/habitat/tree/Tree.h
+ /home/champ/Git/crows/src/service/PathFinder.h
+ /home/champ/Git/crows/src/sprite/AdvancedSprite.h
+ /home/champ/Git/crows/src/sprite/Sprite.h
+ /home/champ/Git/crows/src/sprite/crow/Crow.h
+ /home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
+ /usr/local/include/glm/common.hpp
+ /usr/local/include/glm/detail/_fixes.hpp
+ /usr/local/include/glm/detail/_swizzle.hpp
+ /usr/local/include/glm/detail/_swizzle_func.hpp
+ /usr/local/include/glm/detail/_vectorize.hpp
+ /usr/local/include/glm/detail/func_common.hpp
+ /usr/local/include/glm/detail/func_common.inl
+ /usr/local/include/glm/detail/func_exponential.hpp
+ /usr/local/include/glm/detail/func_exponential.inl
+ /usr/local/include/glm/detail/func_geometric.hpp
+ /usr/local/include/glm/detail/func_geometric.inl
+ /usr/local/include/glm/detail/func_integer.hpp
+ /usr/local/include/glm/detail/func_integer.inl
+ /usr/local/include/glm/detail/func_matrix.hpp
+ /usr/local/include/glm/detail/func_matrix.inl
+ /usr/local/include/glm/detail/func_packing.hpp
+ /usr/local/include/glm/detail/func_packing.inl
+ /usr/local/include/glm/detail/func_trigonometric.hpp
+ /usr/local/include/glm/detail/func_trigonometric.inl
+ /usr/local/include/glm/detail/func_vector_relational.hpp
+ /usr/local/include/glm/detail/func_vector_relational.inl
+ /usr/local/include/glm/detail/precision.hpp
+ /usr/local/include/glm/detail/setup.hpp
+ /usr/local/include/glm/detail/type_float.hpp
+ /usr/local/include/glm/detail/type_half.hpp
+ /usr/local/include/glm/detail/type_half.inl
+ /usr/local/include/glm/detail/type_int.hpp
+ /usr/local/include/glm/detail/type_mat.hpp
+ /usr/local/include/glm/detail/type_mat2x2.hpp
+ /usr/local/include/glm/detail/type_mat2x2.inl
+ /usr/local/include/glm/detail/type_mat2x3.hpp
+ /usr/local/include/glm/detail/type_mat2x3.inl
+ /usr/local/include/glm/detail/type_mat2x4.hpp
+ /usr/local/include/glm/detail/type_mat2x4.inl
+ /usr/local/include/glm/detail/type_mat3x2.hpp
+ /usr/local/include/glm/detail/type_mat3x2.inl
+ /usr/local/include/glm/detail/type_mat3x3.hpp
+ /usr/local/include/glm/detail/type_mat3x3.inl
+ /usr/local/include/glm/detail/type_mat3x4.hpp
+ /usr/local/include/glm/detail/type_mat3x4.inl
+ /usr/local/include/glm/detail/type_mat4x2.hpp
+ /usr/local/include/glm/detail/type_mat4x2.inl
+ /usr/local/include/glm/detail/type_mat4x3.hpp
+ /usr/local/include/glm/detail/type_mat4x3.inl
+ /usr/local/include/glm/detail/type_mat4x4.hpp
+ /usr/local/include/glm/detail/type_mat4x4.inl
+ /usr/local/include/glm/detail/type_vec.hpp
+ /usr/local/include/glm/detail/type_vec1.hpp
+ /usr/local/include/glm/detail/type_vec1.inl
+ /usr/local/include/glm/detail/type_vec2.hpp
+ /usr/local/include/glm/detail/type_vec2.inl
+ /usr/local/include/glm/detail/type_vec3.hpp
+ /usr/local/include/glm/detail/type_vec3.inl
+ /usr/local/include/glm/detail/type_vec4.hpp
+ /usr/local/include/glm/detail/type_vec4.inl
+ /usr/local/include/glm/detail/type_vec4_avx.inl
+ /usr/local/include/glm/detail/type_vec4_avx2.inl
+ /usr/local/include/glm/detail/type_vec4_sse2.inl
+ /usr/local/include/glm/exponential.hpp
+ /usr/local/include/glm/fwd.hpp
+ /usr/local/include/glm/geometric.hpp
+ /usr/local/include/glm/glm.hpp
+ /usr/local/include/glm/gtc/constants.hpp
+ /usr/local/include/glm/gtc/constants.inl
+ /usr/local/include/glm/gtc/epsilon.hpp
+ /usr/local/include/glm/gtc/epsilon.inl
+ /usr/local/include/glm/gtc/matrix_transform.hpp
+ /usr/local/include/glm/gtc/matrix_transform.inl
+ /usr/local/include/glm/gtc/quaternion.hpp
+ /usr/local/include/glm/gtc/type_ptr.hpp
+ /usr/local/include/glm/gtc/type_ptr.inl
+ /usr/local/include/glm/gtx/compatibility.hpp
+ /usr/local/include/glm/gtx/compatibility.inl
+ /usr/local/include/glm/gtx/euler_angles.hpp
+ /usr/local/include/glm/gtx/euler_angles.inl
+ /usr/local/include/glm/gtx/norm.hpp
+ /usr/local/include/glm/gtx/norm.inl
+ /usr/local/include/glm/gtx/optimum_pow.hpp
+ /usr/local/include/glm/gtx/optimum_pow.inl
+ /usr/local/include/glm/gtx/quaternion.hpp
+ /usr/local/include/glm/gtx/quaternion.inl
+ /usr/local/include/glm/gtx/rotate_vector.hpp
+ /usr/local/include/glm/gtx/rotate_vector.inl
+ /usr/local/include/glm/gtx/transform.hpp
+ /usr/local/include/glm/gtx/transform.inl
+ /usr/local/include/glm/gtx/vector_angle.hpp
+ /usr/local/include/glm/gtx/vector_angle.inl
+ /usr/local/include/glm/integer.hpp
+ /usr/local/include/glm/mat2x2.hpp
+ /usr/local/include/glm/mat2x3.hpp
+ /usr/local/include/glm/mat2x4.hpp
+ /usr/local/include/glm/mat3x2.hpp
+ /usr/local/include/glm/mat3x3.hpp
+ /usr/local/include/glm/mat3x4.hpp
+ /usr/local/include/glm/mat4x2.hpp
+ /usr/local/include/glm/mat4x3.hpp
+ /usr/local/include/glm/mat4x4.hpp
+ /usr/local/include/glm/matrix.hpp
+ /usr/local/include/glm/packing.hpp
+ /usr/local/include/glm/trigonometric.hpp
+ /usr/local/include/glm/vec2.hpp
+ /usr/local/include/glm/vec3.hpp
+ /usr/local/include/glm/vec4.hpp
+ /usr/local/include/glm/vector_relational.hpp
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/button/Button.cpp.o
  /home/champ/Git/crows/opulence/src/container/mtl_data.h
  /home/champ/Git/crows/opulence/src/container/obj_data.h
@@ -220,6 +363,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/button/Button.c
  /home/champ/Git/crows/src/sprite/AdvancedSprite.h
  /home/champ/Git/crows/src/sprite/Sprite.h
  /home/champ/Git/crows/src/sprite/crow/Crow.h
+ /home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
  /usr/local/include/glm/common.hpp
  /usr/local/include/glm/detail/_fixes.hpp
  /usr/local/include/glm/detail/_swizzle.hpp
@@ -350,6 +494,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/Chara
  /home/champ/Git/crows/src/sprite/AdvancedSprite.h
  /home/champ/Git/crows/src/sprite/Sprite.h
  /home/champ/Git/crows/src/sprite/crow/Crow.h
+ /home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
  /usr/local/include/glm/common.hpp
  /usr/local/include/glm/detail/_fixes.hpp
  /usr/local/include/glm/detail/_swizzle.hpp
@@ -482,6 +627,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/Chara
  /home/champ/Git/crows/src/sprite/AdvancedSprite.h
  /home/champ/Git/crows/src/sprite/Sprite.h
  /home/champ/Git/crows/src/sprite/crow/Crow.h
+ /home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
  /usr/local/include/glm/common.hpp
  /usr/local/include/glm/detail/_fixes.hpp
  /usr/local/include/glm/detail/_swizzle.hpp
@@ -782,6 +928,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/InterfaceGenerator.cp
  /home/champ/Git/crows/src/sprite/AdvancedSprite.h
  /home/champ/Git/crows/src/sprite/Sprite.h
  /home/champ/Git/crows/src/sprite/crow/Crow.h
+ /home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
  /usr/local/include/glm/common.hpp
  /usr/local/include/glm/detail/_fixes.hpp
  /usr/local/include/glm/detail/_swizzle.hpp
@@ -910,6 +1057,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o
  /home/champ/Git/crows/src/sprite/AdvancedSprite.h
  /home/champ/Git/crows/src/sprite/Sprite.h
  /home/champ/Git/crows/src/sprite/crow/Crow.h
+ /home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
  /usr/local/include/glm/common.hpp
  /usr/local/include/glm/detail/_fixes.hpp
  /usr/local/include/glm/detail/_swizzle.hpp
@@ -1039,6 +1187,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/garbage/Garbage.cpp.o
  /home/champ/Git/crows/src/sprite/AdvancedSprite.h
  /home/champ/Git/crows/src/sprite/Sprite.h
  /home/champ/Git/crows/src/sprite/crow/Crow.h
+ /home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
  /usr/local/include/glm/common.hpp
  /usr/local/include/glm/detail/_fixes.hpp
  /usr/local/include/glm/detail/_swizzle.hpp
@@ -1175,6 +1324,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/tree/Tree.cpp.o
  /home/champ/Git/crows/src/sprite/AdvancedSprite.h
  /home/champ/Git/crows/src/sprite/Sprite.h
  /home/champ/Git/crows/src/sprite/crow/Crow.h
+ /home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
  /usr/local/include/glm/common.hpp
  /usr/local/include/glm/detail/_fixes.hpp
  /usr/local/include/glm/detail/_swizzle.hpp
@@ -1312,6 +1462,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/Manipulator.cpp.o
  /home/champ/Git/crows/src/sprite/AdvancedSprite.h
  /home/champ/Git/crows/src/sprite/Sprite.h
  /home/champ/Git/crows/src/sprite/crow/Crow.h
+ /home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
  /usr/local/include/glm/common.hpp
  /usr/local/include/glm/detail/_fixes.hpp
  /usr/local/include/glm/detail/_swizzle.hpp
@@ -1430,6 +1581,128 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.o
  /home/champ/Git/crows/opulence/src/service/BufferCourier.h
  /home/champ/Git/crows/src/service/PathFinder.cpp
  /home/champ/Git/crows/src/service/PathFinder.h
+ /home/champ/Git/crows/src/sprite/Sprite.h
+ /usr/local/include/glm/common.hpp
+ /usr/local/include/glm/detail/_fixes.hpp
+ /usr/local/include/glm/detail/_swizzle.hpp
+ /usr/local/include/glm/detail/_swizzle_func.hpp
+ /usr/local/include/glm/detail/_vectorize.hpp
+ /usr/local/include/glm/detail/func_common.hpp
+ /usr/local/include/glm/detail/func_common.inl
+ /usr/local/include/glm/detail/func_exponential.hpp
+ /usr/local/include/glm/detail/func_exponential.inl
+ /usr/local/include/glm/detail/func_geometric.hpp
+ /usr/local/include/glm/detail/func_geometric.inl
+ /usr/local/include/glm/detail/func_integer.hpp
+ /usr/local/include/glm/detail/func_integer.inl
+ /usr/local/include/glm/detail/func_matrix.hpp
+ /usr/local/include/glm/detail/func_matrix.inl
+ /usr/local/include/glm/detail/func_packing.hpp
+ /usr/local/include/glm/detail/func_packing.inl
+ /usr/local/include/glm/detail/func_trigonometric.hpp
+ /usr/local/include/glm/detail/func_trigonometric.inl
+ /usr/local/include/glm/detail/func_vector_relational.hpp
+ /usr/local/include/glm/detail/func_vector_relational.inl
+ /usr/local/include/glm/detail/precision.hpp
+ /usr/local/include/glm/detail/setup.hpp
+ /usr/local/include/glm/detail/type_float.hpp
+ /usr/local/include/glm/detail/type_half.hpp
+ /usr/local/include/glm/detail/type_half.inl
+ /usr/local/include/glm/detail/type_int.hpp
+ /usr/local/include/glm/detail/type_mat.hpp
+ /usr/local/include/glm/detail/type_mat2x2.hpp
+ /usr/local/include/glm/detail/type_mat2x2.inl
+ /usr/local/include/glm/detail/type_mat2x3.hpp
+ /usr/local/include/glm/detail/type_mat2x3.inl
+ /usr/local/include/glm/detail/type_mat2x4.hpp
+ /usr/local/include/glm/detail/type_mat2x4.inl
+ /usr/local/include/glm/detail/type_mat3x2.hpp
+ /usr/local/include/glm/detail/type_mat3x2.inl
+ /usr/local/include/glm/detail/type_mat3x3.hpp
+ /usr/local/include/glm/detail/type_mat3x3.inl
+ /usr/local/include/glm/detail/type_mat3x4.hpp
+ /usr/local/include/glm/detail/type_mat3x4.inl
+ /usr/local/include/glm/detail/type_mat4x2.hpp
+ /usr/local/include/glm/detail/type_mat4x2.inl
+ /usr/local/include/glm/detail/type_mat4x3.hpp
+ /usr/local/include/glm/detail/type_mat4x3.inl
+ /usr/local/include/glm/detail/type_mat4x4.hpp
+ /usr/local/include/glm/detail/type_mat4x4.inl
+ /usr/local/include/glm/detail/type_vec.hpp
+ /usr/local/include/glm/detail/type_vec1.hpp
+ /usr/local/include/glm/detail/type_vec1.inl
+ /usr/local/include/glm/detail/type_vec2.hpp
+ /usr/local/include/glm/detail/type_vec2.inl
+ /usr/local/include/glm/detail/type_vec3.hpp
+ /usr/local/include/glm/detail/type_vec3.inl
+ /usr/local/include/glm/detail/type_vec4.hpp
+ /usr/local/include/glm/detail/type_vec4.inl
+ /usr/local/include/glm/detail/type_vec4_avx.inl
+ /usr/local/include/glm/detail/type_vec4_avx2.inl
+ /usr/local/include/glm/detail/type_vec4_sse2.inl
+ /usr/local/include/glm/exponential.hpp
+ /usr/local/include/glm/fwd.hpp
+ /usr/local/include/glm/geometric.hpp
+ /usr/local/include/glm/glm.hpp
+ /usr/local/include/glm/gtc/constants.hpp
+ /usr/local/include/glm/gtc/constants.inl
+ /usr/local/include/glm/gtc/epsilon.hpp
+ /usr/local/include/glm/gtc/epsilon.inl
+ /usr/local/include/glm/gtc/matrix_transform.hpp
+ /usr/local/include/glm/gtc/matrix_transform.inl
+ /usr/local/include/glm/gtc/quaternion.hpp
+ /usr/local/include/glm/gtc/type_ptr.hpp
+ /usr/local/include/glm/gtc/type_ptr.inl
+ /usr/local/include/glm/gtx/compatibility.hpp
+ /usr/local/include/glm/gtx/compatibility.inl
+ /usr/local/include/glm/gtx/euler_angles.hpp
+ /usr/local/include/glm/gtx/euler_angles.inl
+ /usr/local/include/glm/gtx/norm.hpp
+ /usr/local/include/glm/gtx/norm.inl
+ /usr/local/include/glm/gtx/optimum_pow.hpp
+ /usr/local/include/glm/gtx/optimum_pow.inl
+ /usr/local/include/glm/gtx/quaternion.hpp
+ /usr/local/include/glm/gtx/quaternion.inl
+ /usr/local/include/glm/gtx/rotate_vector.hpp
+ /usr/local/include/glm/gtx/rotate_vector.inl
+ /usr/local/include/glm/gtx/transform.hpp
+ /usr/local/include/glm/gtx/transform.inl
+ /usr/local/include/glm/gtx/vector_angle.hpp
+ /usr/local/include/glm/gtx/vector_angle.inl
+ /usr/local/include/glm/integer.hpp
+ /usr/local/include/glm/mat2x2.hpp
+ /usr/local/include/glm/mat2x3.hpp
+ /usr/local/include/glm/mat2x4.hpp
+ /usr/local/include/glm/mat3x2.hpp
+ /usr/local/include/glm/mat3x3.hpp
+ /usr/local/include/glm/mat3x4.hpp
+ /usr/local/include/glm/mat4x2.hpp
+ /usr/local/include/glm/mat4x3.hpp
+ /usr/local/include/glm/mat4x4.hpp
+ /usr/local/include/glm/matrix.hpp
+ /usr/local/include/glm/packing.hpp
+ /usr/local/include/glm/trigonometric.hpp
+ /usr/local/include/glm/vec2.hpp
+ /usr/local/include/glm/vec3.hpp
+ /usr/local/include/glm/vec4.hpp
+ /usr/local/include/glm/vector_relational.hpp
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.o
+ /home/champ/Git/crows/opulence/src/container/mtl_data.h
+ /home/champ/Git/crows/opulence/src/container/obj_data.h
+ /home/champ/Git/crows/opulence/src/entity/Entity.h
+ /home/champ/Git/crows/opulence/src/entity/animation/Animation.h
+ /home/champ/Git/crows/opulence/src/entity/camera/Camera.h
+ /home/champ/Git/crows/opulence/src/entity/light/Light.h
+ /home/champ/Git/crows/opulence/src/entity/model/Model.h
+ /home/champ/Git/crows/opulence/src/factory/ModelFactory.h
+ /home/champ/Git/crows/opulence/src/loader/ObjLoader.h
+ /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
+ /home/champ/Git/crows/opulence/src/service/BufferCourier.h
+ /home/champ/Git/crows/src/anima/Anima.h
+ /home/champ/Git/crows/src/habitat/Habitat.h
+ /home/champ/Git/crows/src/service/PathFinder.h
+ /home/champ/Git/crows/src/sprite/AdvancedSprite.cpp
+ /home/champ/Git/crows/src/sprite/AdvancedSprite.h
  /home/champ/Git/crows/src/sprite/Sprite.h
  /usr/local/include/glm/common.hpp
  /usr/local/include/glm/detail/_fixes.hpp
@@ -1655,128 +1928,9 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.o
  /usr/local/include/glm/vec4.hpp
  /usr/local/include/glm/vector_relational.hpp
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o
- /home/champ/Git/crows/opulence/src/container/mtl_data.h
- /home/champ/Git/crows/opulence/src/container/obj_data.h
- /home/champ/Git/crows/opulence/src/entity/Entity.h
- /home/champ/Git/crows/opulence/src/entity/animation/Animation.h
- /home/champ/Git/crows/opulence/src/entity/camera/Camera.h
- /home/champ/Git/crows/opulence/src/entity/light/Light.h
- /home/champ/Git/crows/opulence/src/entity/model/Model.h
- /home/champ/Git/crows/opulence/src/factory/ModelFactory.h
- /home/champ/Git/crows/opulence/src/loader/ObjLoader.h
- /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
- /home/champ/Git/crows/opulence/src/service/BufferCourier.h
- /home/champ/Git/crows/src/anima/Anima.h
- /home/champ/Git/crows/src/habitat/Habitat.h
- /home/champ/Git/crows/src/service/PathFinder.h
- /home/champ/Git/crows/src/sprite/AdvancedSprite.h
- /home/champ/Git/crows/src/sprite/Sprite.h
  /home/champ/Git/crows/src/sprite/crow/Crow.cpp
- /home/champ/Git/crows/src/sprite/crow/Crow.h
- /usr/local/include/glm/common.hpp
- /usr/local/include/glm/detail/_fixes.hpp
- /usr/local/include/glm/detail/_swizzle.hpp
- /usr/local/include/glm/detail/_swizzle_func.hpp
- /usr/local/include/glm/detail/_vectorize.hpp
- /usr/local/include/glm/detail/func_common.hpp
- /usr/local/include/glm/detail/func_common.inl
- /usr/local/include/glm/detail/func_exponential.hpp
- /usr/local/include/glm/detail/func_exponential.inl
- /usr/local/include/glm/detail/func_geometric.hpp
- /usr/local/include/glm/detail/func_geometric.inl
- /usr/local/include/glm/detail/func_integer.hpp
- /usr/local/include/glm/detail/func_integer.inl
- /usr/local/include/glm/detail/func_matrix.hpp
- /usr/local/include/glm/detail/func_matrix.inl
- /usr/local/include/glm/detail/func_packing.hpp
- /usr/local/include/glm/detail/func_packing.inl
- /usr/local/include/glm/detail/func_trigonometric.hpp
- /usr/local/include/glm/detail/func_trigonometric.inl
- /usr/local/include/glm/detail/func_vector_relational.hpp
- /usr/local/include/glm/detail/func_vector_relational.inl
- /usr/local/include/glm/detail/precision.hpp
- /usr/local/include/glm/detail/setup.hpp
- /usr/local/include/glm/detail/type_float.hpp
- /usr/local/include/glm/detail/type_half.hpp
- /usr/local/include/glm/detail/type_half.inl
- /usr/local/include/glm/detail/type_int.hpp
- /usr/local/include/glm/detail/type_mat.hpp
- /usr/local/include/glm/detail/type_mat2x2.hpp
- /usr/local/include/glm/detail/type_mat2x2.inl
- /usr/local/include/glm/detail/type_mat2x3.hpp
- /usr/local/include/glm/detail/type_mat2x3.inl
- /usr/local/include/glm/detail/type_mat2x4.hpp
- /usr/local/include/glm/detail/type_mat2x4.inl
- /usr/local/include/glm/detail/type_mat3x2.hpp
- /usr/local/include/glm/detail/type_mat3x2.inl
- /usr/local/include/glm/detail/type_mat3x3.hpp
- /usr/local/include/glm/detail/type_mat3x3.inl
- /usr/local/include/glm/detail/type_mat3x4.hpp
- /usr/local/include/glm/detail/type_mat3x4.inl
- /usr/local/include/glm/detail/type_mat4x2.hpp
- /usr/local/include/glm/detail/type_mat4x2.inl
- /usr/local/include/glm/detail/type_mat4x3.hpp
- /usr/local/include/glm/detail/type_mat4x3.inl
- /usr/local/include/glm/detail/type_mat4x4.hpp
- /usr/local/include/glm/detail/type_mat4x4.inl
- /usr/local/include/glm/detail/type_vec.hpp
- /usr/local/include/glm/detail/type_vec1.hpp
- /usr/local/include/glm/detail/type_vec1.inl
- /usr/local/include/glm/detail/type_vec2.hpp
- /usr/local/include/glm/detail/type_vec2.inl
- /usr/local/include/glm/detail/type_vec3.hpp
- /usr/local/include/glm/detail/type_vec3.inl
- /usr/local/include/glm/detail/type_vec4.hpp
- /usr/local/include/glm/detail/type_vec4.inl
- /usr/local/include/glm/detail/type_vec4_avx.inl
- /usr/local/include/glm/detail/type_vec4_avx2.inl
- /usr/local/include/glm/detail/type_vec4_sse2.inl
- /usr/local/include/glm/exponential.hpp
- /usr/local/include/glm/fwd.hpp
- /usr/local/include/glm/geometric.hpp
- /usr/local/include/glm/glm.hpp
- /usr/local/include/glm/gtc/constants.hpp
- /usr/local/include/glm/gtc/constants.inl
- /usr/local/include/glm/gtc/epsilon.hpp
- /usr/local/include/glm/gtc/epsilon.inl
- /usr/local/include/glm/gtc/matrix_transform.hpp
- /usr/local/include/glm/gtc/matrix_transform.inl
- /usr/local/include/glm/gtc/quaternion.hpp
- /usr/local/include/glm/gtc/type_ptr.hpp
- /usr/local/include/glm/gtc/type_ptr.inl
- /usr/local/include/glm/gtx/compatibility.hpp
- /usr/local/include/glm/gtx/compatibility.inl
- /usr/local/include/glm/gtx/euler_angles.hpp
- /usr/local/include/glm/gtx/euler_angles.inl
- /usr/local/include/glm/gtx/norm.hpp
- /usr/local/include/glm/gtx/norm.inl
- /usr/local/include/glm/gtx/optimum_pow.hpp
- /usr/local/include/glm/gtx/optimum_pow.inl
- /usr/local/include/glm/gtx/quaternion.hpp
- /usr/local/include/glm/gtx/quaternion.inl
- /usr/local/include/glm/gtx/rotate_vector.hpp
- /usr/local/include/glm/gtx/rotate_vector.inl
- /usr/local/include/glm/gtx/transform.hpp
- /usr/local/include/glm/gtx/transform.inl
- /usr/local/include/glm/gtx/vector_angle.hpp
- /usr/local/include/glm/gtx/vector_angle.inl
- /usr/local/include/glm/integer.hpp
- /usr/local/include/glm/mat2x2.hpp
- /usr/local/include/glm/mat2x3.hpp
- /usr/local/include/glm/mat2x4.hpp
- /usr/local/include/glm/mat3x2.hpp
- /usr/local/include/glm/mat3x3.hpp
- /usr/local/include/glm/mat3x4.hpp
- /usr/local/include/glm/mat4x2.hpp
- /usr/local/include/glm/mat4x3.hpp
- /usr/local/include/glm/mat4x4.hpp
- /usr/local/include/glm/matrix.hpp
- /usr/local/include/glm/packing.hpp
- /usr/local/include/glm/trigonometric.hpp
- /usr/local/include/glm/vec2.hpp
- /usr/local/include/glm/vec3.hpp
- /usr/local/include/glm/vec4.hpp
- /usr/local/include/glm/vector_relational.hpp
+CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.o
+ /home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/DayManager.cpp.o
  /home/champ/Git/crows/opulence/src/container/mtl_data.h
  /home/champ/Git/crows/opulence/src/container/obj_data.h
@@ -1800,6 +1954,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/DayManager.cpp.o
  /home/champ/Git/crows/src/sprite/AdvancedSprite.h
  /home/champ/Git/crows/src/sprite/Sprite.h
  /home/champ/Git/crows/src/sprite/crow/Crow.h
+ /home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
  /home/champ/Git/crows/src/utility/DayManager.cpp
  /home/champ/Git/crows/src/utility/DayManager.h
  /usr/local/include/glm/common.hpp
@@ -1924,8 +2079,21 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/LevelMaker.cpp.o
  /home/champ/Git/crows/opulence/src/service/OsType.h
  /home/champ/Git/crows/src/anima/Anima.h
  /home/champ/Git/crows/src/anima/interface/Interface.h
+ /home/champ/Git/crows/src/anima/interface/button/Button.h
+ /home/champ/Git/crows/src/anima/interface/character/Character.h
+ /home/champ/Git/crows/src/anima/interface/character/CharacterSet.h
+ /home/champ/Git/crows/src/anima/interface/character/population/Population.h
+ /home/champ/Git/crows/src/anima/interface/coin/Coin.h
+ /home/champ/Git/crows/src/generator/InterfaceGenerator.h
+ /home/champ/Git/crows/src/generator/SpriteGenerator.h
+ /home/champ/Git/crows/src/habitat/Habitat.h
+ /home/champ/Git/crows/src/habitat/garbage/Garbage.h
+ /home/champ/Git/crows/src/habitat/tree/Tree.h
  /home/champ/Git/crows/src/service/PathFinder.h
+ /home/champ/Git/crows/src/sprite/AdvancedSprite.h
  /home/champ/Git/crows/src/sprite/Sprite.h
+ /home/champ/Git/crows/src/sprite/crow/Crow.h
+ /home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
  /home/champ/Git/crows/src/utility/LevelMaker.cpp
  /home/champ/Git/crows/src/utility/LevelMaker.h
  /home/champ/Git/crows/src/utility/LevelObject.h

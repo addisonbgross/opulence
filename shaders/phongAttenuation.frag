@@ -37,7 +37,7 @@ void main()
     }
 
     // cell shading
-    int cellShadingFactor = 6;
+    int cellShadingFactor = 8;
     diffuseIntensity = ceil( diffuseIntensity * cellShadingFactor ) / cellShadingFactor;
 
     // specular
@@ -45,7 +45,7 @@ void main()
     if ( diffuseIntensity > 0.0 ) {
         vec3 reflection = normalize( directionalLight + f_camera );
         float specularAngle = max( dot( reflection, f_normal ), 0.0 );
-        specularIntensity = pow( specularAngle, 100 );
+        specularIntensity = pow( specularAngle, 50 );
         specularIntensity = ceil( specularIntensity * cellShadingFactor ) / cellShadingFactor; // cell shading
     }
 

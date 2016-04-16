@@ -138,6 +138,30 @@ home/champ/Git/crows/main.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.s
 .PHONY : home/champ/Git/crows/main.cpp.s
 
+home/champ/Git/crows/src/ai/Ai.o: home/champ/Git/crows/src/ai/Ai.cpp.o
+.PHONY : home/champ/Git/crows/src/ai/Ai.o
+
+# target to build an object file
+home/champ/Git/crows/src/ai/Ai.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/ai/Ai.cpp.o
+.PHONY : home/champ/Git/crows/src/ai/Ai.cpp.o
+
+home/champ/Git/crows/src/ai/Ai.i: home/champ/Git/crows/src/ai/Ai.cpp.i
+.PHONY : home/champ/Git/crows/src/ai/Ai.i
+
+# target to preprocess a source file
+home/champ/Git/crows/src/ai/Ai.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/ai/Ai.cpp.i
+.PHONY : home/champ/Git/crows/src/ai/Ai.cpp.i
+
+home/champ/Git/crows/src/ai/Ai.s: home/champ/Git/crows/src/ai/Ai.cpp.s
+.PHONY : home/champ/Git/crows/src/ai/Ai.s
+
+# target to generate assembly for a file
+home/champ/Git/crows/src/ai/Ai.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/ai/Ai.cpp.s
+.PHONY : home/champ/Git/crows/src/ai/Ai.cpp.s
+
 home/champ/Git/crows/src/anima/interface/button/Button.o: home/champ/Git/crows/src/anima/interface/button/Button.cpp.o
 .PHONY : home/champ/Git/crows/src/anima/interface/button/Button.o
 
@@ -378,6 +402,30 @@ home/champ/Git/crows/src/service/PathFinder.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.s
 .PHONY : home/champ/Git/crows/src/service/PathFinder.cpp.s
 
+home/champ/Git/crows/src/sprite/AdvancedSprite.o: home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.o
+.PHONY : home/champ/Git/crows/src/sprite/AdvancedSprite.o
+
+# target to build an object file
+home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.o
+.PHONY : home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.o
+
+home/champ/Git/crows/src/sprite/AdvancedSprite.i: home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.i
+.PHONY : home/champ/Git/crows/src/sprite/AdvancedSprite.i
+
+# target to preprocess a source file
+home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.i
+.PHONY : home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.i
+
+home/champ/Git/crows/src/sprite/AdvancedSprite.s: home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.s
+.PHONY : home/champ/Git/crows/src/sprite/AdvancedSprite.s
+
+# target to generate assembly for a file
+home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.s
+.PHONY : home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.s
+
 home/champ/Git/crows/src/sprite/Sprite.o: home/champ/Git/crows/src/sprite/Sprite.cpp.o
 .PHONY : home/champ/Git/crows/src/sprite/Sprite.o
 
@@ -425,6 +473,30 @@ home/champ/Git/crows/src/sprite/crow/Crow.s: home/champ/Git/crows/src/sprite/cro
 home/champ/Git/crows/src/sprite/crow/Crow.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.s
 .PHONY : home/champ/Git/crows/src/sprite/crow/Crow.cpp.s
+
+home/champ/Git/crows/src/sprite/squirrel/Squirrel.o: home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.o
+.PHONY : home/champ/Git/crows/src/sprite/squirrel/Squirrel.o
+
+# target to build an object file
+home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.o:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.o
+.PHONY : home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.o
+
+home/champ/Git/crows/src/sprite/squirrel/Squirrel.i: home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.i
+.PHONY : home/champ/Git/crows/src/sprite/squirrel/Squirrel.i
+
+# target to preprocess a source file
+home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.i
+.PHONY : home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.i
+
+home/champ/Git/crows/src/sprite/squirrel/Squirrel.s: home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.s
+.PHONY : home/champ/Git/crows/src/sprite/squirrel/Squirrel.s
+
+# target to generate assembly for a file
+home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.s
+.PHONY : home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.s
 
 home/champ/Git/crows/src/utility/DayManager.o: home/champ/Git/crows/src/utility/DayManager.cpp.o
 .PHONY : home/champ/Git/crows/src/utility/DayManager.o
@@ -894,6 +966,9 @@ help:
 	@echo "... home/champ/Git/crows/main.o"
 	@echo "... home/champ/Git/crows/main.i"
 	@echo "... home/champ/Git/crows/main.s"
+	@echo "... home/champ/Git/crows/src/ai/Ai.o"
+	@echo "... home/champ/Git/crows/src/ai/Ai.i"
+	@echo "... home/champ/Git/crows/src/ai/Ai.s"
 	@echo "... home/champ/Git/crows/src/anima/interface/button/Button.o"
 	@echo "... home/champ/Git/crows/src/anima/interface/button/Button.i"
 	@echo "... home/champ/Git/crows/src/anima/interface/button/Button.s"
@@ -924,12 +999,18 @@ help:
 	@echo "... home/champ/Git/crows/src/service/PathFinder.o"
 	@echo "... home/champ/Git/crows/src/service/PathFinder.i"
 	@echo "... home/champ/Git/crows/src/service/PathFinder.s"
+	@echo "... home/champ/Git/crows/src/sprite/AdvancedSprite.o"
+	@echo "... home/champ/Git/crows/src/sprite/AdvancedSprite.i"
+	@echo "... home/champ/Git/crows/src/sprite/AdvancedSprite.s"
 	@echo "... home/champ/Git/crows/src/sprite/Sprite.o"
 	@echo "... home/champ/Git/crows/src/sprite/Sprite.i"
 	@echo "... home/champ/Git/crows/src/sprite/Sprite.s"
 	@echo "... home/champ/Git/crows/src/sprite/crow/Crow.o"
 	@echo "... home/champ/Git/crows/src/sprite/crow/Crow.i"
 	@echo "... home/champ/Git/crows/src/sprite/crow/Crow.s"
+	@echo "... home/champ/Git/crows/src/sprite/squirrel/Squirrel.o"
+	@echo "... home/champ/Git/crows/src/sprite/squirrel/Squirrel.i"
+	@echo "... home/champ/Git/crows/src/sprite/squirrel/Squirrel.s"
 	@echo "... home/champ/Git/crows/src/utility/DayManager.o"
 	@echo "... home/champ/Git/crows/src/utility/DayManager.i"
 	@echo "... home/champ/Git/crows/src/utility/DayManager.s"

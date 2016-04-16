@@ -101,6 +101,12 @@ add_executable(opulence
             ../src/generator/SpriteGenerator.cpp
 
             # generated includes
+            ../src/sprite/AdvancedSprite.cpp
+            ../src/sprite/squirrel/Squirrel.cpp
+            ../src/sprite/squirrel/Squirrel.h
+            ../src/ai/AiState.h
+            ../src/ai/Ai.cpp
+            ../src/ai/Ai.h
             ../src/utility/DayManager.cpp
             ../src/utility/DayManager.h
             ../src/anima/interface/character/population/Population.h

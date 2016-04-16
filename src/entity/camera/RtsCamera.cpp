@@ -107,29 +107,25 @@ void RtsCamera::rotateHorizontal(float deg)
     updateBearing();
 }
 
-void RtsCamera::incrementZoom()
+void RtsCamera::zoomIn()
 {
-    glm::vec3 temp = *eye - *focus;
-    temp *= zoomInSpeed;
-
-    float angle = getAngleToGround( temp - *focus );
-    if ( glm::length( temp ) < MAX_ZOOM && angle < ROTATION_LIMIT ) {
-            eye->x *= zoomInSpeed;
-            eye->y *= zoomInSpeed;
-            eye->z *= zoomInSpeed;
-    }
-}
-
-void RtsCamera::decrementZoom()
-{
-    glm::vec3 temp = *eye - *focus;
-    temp *= zoomOutSpeed;
+    glm::vec3 dir = *eye - *focus;
+    glm::vec3 temp = *eye - glm::normalize( dir );
 
     float angle = getAngleToGround( temp - *focus );
     if ( temp.y > MIN_ZOOM && angle < ROTATION_LIMIT ) {
-        eye->x *= zoomOutSpeed;
-        eye->y *= zoomOutSpeed;
-        eye->z *= zoomOutSpeed;
+        *eye -= glm::normalize( dir ) * zoomInSpeed;
+    }
+}
+
+void RtsCamera::zoomOut()
+{
+    glm::vec3 dir = *eye - *focus;
+    glm::vec3 temp = *eye + glm::normalize( dir );
+
+    float angle = getAngleToGround( temp - *focus );
+    if ( glm::length( temp ) < MAX_ZOOM && angle < ROTATION_LIMIT ) {
+        *eye += glm::normalize( dir ) * zoomOutSpeed;
     }
 }
 

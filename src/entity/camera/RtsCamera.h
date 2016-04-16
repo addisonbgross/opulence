@@ -5,12 +5,12 @@
 
 class RtsCamera : public Camera {
 private:
-    float cameraVelocity = 1.5f;
-    float zoomInSpeed = 1.03f;
-    float zoomOutSpeed = 0.97f;
+    float cameraVelocity = 1.75f;
+    float zoomInSpeed = 1.1f;
+    float zoomOutSpeed = 0.9f;
     float MAX_ZOOM = 200.0f;
     float MIN_ZOOM = 3.0f;
-    float ROTATION_LIMIT = glm::half_pi<float>() * 0.80f;
+    float ROTATION_LIMIT = glm::half_pi<float>() * 0.8f;
 
 public:
     RtsCamera();
@@ -24,8 +24,8 @@ public:
     void moveBack(float n);
     void rotateVertical(float deg);
     void rotateHorizontal(float deg);
-    void incrementZoom();
-    void decrementZoom();
+    void zoomIn();
+    void zoomOut();
 
     // get
     float getAngleToGround( glm::vec3 vec );
