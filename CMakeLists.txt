@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 2.8)
 project(opulence)
 
+IF (WIN32)
+    add_definitions(-DGLEW_STATIC)
+ENDIF()
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${opulence_SOURCE_DIR}/")
@@ -8,7 +12,11 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${opulence_SOURCE_DIR}/")
 find_package(Threads)
 find_package(SDL2 REQUIRED)
 find_package(OpenGL REQUIRED)
-find_package(GLEW REQUIRED)
+
+IF (!WIN32)
+    find_package(GLEW REQUIRED)
+ENDIF()
+
 find_package(GLM REQUIRED)
 
 include_directories(${PROJECT_BINARY_DIR}
@@ -17,9 +25,18 @@ include_directories(${PROJECT_BINARY_DIR}
                     ${GLEW_INCLUDE_DIR}
                     ${GLM_INCLUDE_DIRS})
 
-set(SOURCE_FILES
-    ../main.cpp
-    opulence.cpp)
+IF (WIN32)
+    set(SOURCE_FILES
+        ../main.cpp
+        opulence.cpp
+        src/service/glew/glew.h
+        src/service/glew/wglew.h
+        src/service/glew/glew.c)
+ELSE()
+    set(SOURCE_FILES
+        ../main.cpp
+        opulence.cpp)
+ENDIF()
 
 set(HEADER_FILES)
 set_source_files_properties(../main.cpp
@@ -102,8 +119,6 @@ add_executable(opulence
 
             # generated includes
             ../src/sprite/AdvancedSprite.cpp
-            ../src/sprite/squirrel/Squirrel.cpp
-            ../src/sprite/squirrel/Squirrel.h
             ../src/ai/AiState.h
             ../src/ai/Ai.cpp
             ../src/ai/Ai.h
@@ -128,8 +143,6 @@ add_executable(opulence
             ../src/service/Manipulator.cpp
             ../src/service/Manipulator.h
             ../src/sprite/AdvancedSprite.h
-            ../src/sprite/crow/Crow.cpp
-            ../src/sprite/crow/Crow.h
             ../src/utility/LevelObject.h
             ../src/utility/LevelMaker.cpp
             ../src/utility/LevelMaker.h
@@ -138,5 +151,5 @@ add_executable(opulence
 
 target_link_libraries(opulence
                     ${SDL2_LIBRARY}
-                    ${OPENGL_LIBRARIES}
-                    ${GLEW_LIBRARIES})
+                    ${GLEW_LIBRARY}
+                    ${OPENGL_LIBRARIES})

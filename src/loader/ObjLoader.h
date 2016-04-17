@@ -8,8 +8,15 @@
 // glm
 #include <glm/glm.hpp>
 
+// glew
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
+    #define GLEW_STATIC
+    #include "../service/glew/glew.h"
+#else
+    #include <GL/glew.h>
+#endif
+
 // gl
-#include <GL/glew.h>
 #include <GL/gl.h>
 
 // opulence

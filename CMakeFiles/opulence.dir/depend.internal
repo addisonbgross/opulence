@@ -24,6 +24,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o
  /home/champ/Git/crows/opulence/src/service/GLManager.h
  /home/champ/Git/crows/opulence/src/service/OsType.h
  /home/champ/Git/crows/opulence/src/service/TimeManager.h
+ /home/champ/Git/crows/opulence/src/service/glew/glew.h
  /home/champ/Git/crows/src/ai/Ai.h
  /home/champ/Git/crows/src/ai/AiState.h
  /home/champ/Git/crows/src/anima/Anima.h
@@ -45,8 +46,6 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o
  /home/champ/Git/crows/src/service/PathFinder.h
  /home/champ/Git/crows/src/sprite/AdvancedSprite.h
  /home/champ/Git/crows/src/sprite/Sprite.h
- /home/champ/Git/crows/src/sprite/crow/Crow.h
- /home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
  /home/champ/Git/crows/src/utility/DayManager.h
  /home/champ/Git/crows/src/utility/LevelMaker.h
  /home/champ/Git/crows/src/utility/LevelObject.h
@@ -213,6 +212,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/ai/Ai.cpp.o
  /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
  /home/champ/Git/crows/opulence/src/service/BufferCourier.h
  /home/champ/Git/crows/opulence/src/service/OsType.h
+ /home/champ/Git/crows/opulence/src/service/glew/glew.h
  /home/champ/Git/crows/src/ai/Ai.cpp
  /home/champ/Git/crows/src/ai/Ai.h
  /home/champ/Git/crows/src/ai/AiState.h
@@ -231,8 +231,6 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/ai/Ai.cpp.o
  /home/champ/Git/crows/src/service/PathFinder.h
  /home/champ/Git/crows/src/sprite/AdvancedSprite.h
  /home/champ/Git/crows/src/sprite/Sprite.h
- /home/champ/Git/crows/src/sprite/crow/Crow.h
- /home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
  /usr/local/include/glm/common.hpp
  /usr/local/include/glm/detail/_fixes.hpp
  /usr/local/include/glm/detail/_swizzle.hpp
@@ -353,6 +351,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/button/Button.c
  /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
  /home/champ/Git/crows/opulence/src/service/BufferCourier.h
  /home/champ/Git/crows/opulence/src/service/OsType.h
+ /home/champ/Git/crows/opulence/src/service/glew/glew.h
  /home/champ/Git/crows/src/anima/Anima.h
  /home/champ/Git/crows/src/anima/interface/Interface.h
  /home/champ/Git/crows/src/anima/interface/button/Button.cpp
@@ -362,8 +361,6 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/button/Button.c
  /home/champ/Git/crows/src/service/PathFinder.h
  /home/champ/Git/crows/src/sprite/AdvancedSprite.h
  /home/champ/Git/crows/src/sprite/Sprite.h
- /home/champ/Git/crows/src/sprite/crow/Crow.h
- /home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
  /usr/local/include/glm/common.hpp
  /usr/local/include/glm/detail/_fixes.hpp
  /usr/local/include/glm/detail/_swizzle.hpp
@@ -484,6 +481,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/Chara
  /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
  /home/champ/Git/crows/opulence/src/service/BufferCourier.h
  /home/champ/Git/crows/opulence/src/service/OsType.h
+ /home/champ/Git/crows/opulence/src/service/glew/glew.h
  /home/champ/Git/crows/src/anima/Anima.h
  /home/champ/Git/crows/src/anima/interface/Interface.h
  /home/champ/Git/crows/src/anima/interface/character/Character.cpp
@@ -493,8 +491,6 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/Chara
  /home/champ/Git/crows/src/service/PathFinder.h
  /home/champ/Git/crows/src/sprite/AdvancedSprite.h
  /home/champ/Git/crows/src/sprite/Sprite.h
- /home/champ/Git/crows/src/sprite/crow/Crow.h
- /home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
  /usr/local/include/glm/common.hpp
  /usr/local/include/glm/detail/_fixes.hpp
  /usr/local/include/glm/detail/_swizzle.hpp
@@ -615,6 +611,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/Chara
  /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
  /home/champ/Git/crows/opulence/src/service/BufferCourier.h
  /home/champ/Git/crows/opulence/src/service/OsType.h
+ /home/champ/Git/crows/opulence/src/service/glew/glew.h
  /home/champ/Git/crows/src/anima/Anima.h
  /home/champ/Git/crows/src/anima/interface/Interface.h
  /home/champ/Git/crows/src/anima/interface/character/Character.h
@@ -626,8 +623,6 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/Chara
  /home/champ/Git/crows/src/service/PathFinder.h
  /home/champ/Git/crows/src/sprite/AdvancedSprite.h
  /home/champ/Git/crows/src/sprite/Sprite.h
- /home/champ/Git/crows/src/sprite/crow/Crow.h
- /home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
  /usr/local/include/glm/common.hpp
  /usr/local/include/glm/detail/_fixes.hpp
  /usr/local/include/glm/detail/_swizzle.hpp
@@ -744,6 +739,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/S
  /home/champ/Git/crows/opulence/src/loader/ObjLoader.h
  /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
  /home/champ/Git/crows/opulence/src/service/BufferCourier.h
+ /home/champ/Git/crows/opulence/src/service/glew/glew.h
  /home/champ/Git/crows/src/controller/./controlset/ControlSet.h
  /home/champ/Git/crows/src/controller/Controller.h
  /home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp
@@ -913,6 +909,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/InterfaceGenerator.cp
  /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
  /home/champ/Git/crows/opulence/src/service/BufferCourier.h
  /home/champ/Git/crows/opulence/src/service/OsType.h
+ /home/champ/Git/crows/opulence/src/service/glew/glew.h
  /home/champ/Git/crows/src/anima/Anima.h
  /home/champ/Git/crows/src/anima/interface/Interface.h
  /home/champ/Git/crows/src/anima/interface/button/Button.h
@@ -927,8 +924,6 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/InterfaceGenerator.cp
  /home/champ/Git/crows/src/service/PathFinder.h
  /home/champ/Git/crows/src/sprite/AdvancedSprite.h
  /home/champ/Git/crows/src/sprite/Sprite.h
- /home/champ/Git/crows/src/sprite/crow/Crow.h
- /home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
  /usr/local/include/glm/common.hpp
  /usr/local/include/glm/detail/_fixes.hpp
  /usr/local/include/glm/detail/_swizzle.hpp
@@ -1049,6 +1044,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o
  /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
  /home/champ/Git/crows/opulence/src/service/BufferCourier.h
  /home/champ/Git/crows/opulence/src/service/OsType.h
+ /home/champ/Git/crows/opulence/src/service/glew/glew.h
  /home/champ/Git/crows/src/anima/Anima.h
  /home/champ/Git/crows/src/generator/SpriteGenerator.cpp
  /home/champ/Git/crows/src/generator/SpriteGenerator.h
@@ -1056,8 +1052,6 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o
  /home/champ/Git/crows/src/service/PathFinder.h
  /home/champ/Git/crows/src/sprite/AdvancedSprite.h
  /home/champ/Git/crows/src/sprite/Sprite.h
- /home/champ/Git/crows/src/sprite/crow/Crow.h
- /home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
  /usr/local/include/glm/common.hpp
  /usr/local/include/glm/detail/_fixes.hpp
  /usr/local/include/glm/detail/_swizzle.hpp
@@ -1178,6 +1172,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/garbage/Garbage.cpp.o
  /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
  /home/champ/Git/crows/opulence/src/service/BufferCourier.h
  /home/champ/Git/crows/opulence/src/service/OsType.h
+ /home/champ/Git/crows/opulence/src/service/glew/glew.h
  /home/champ/Git/crows/src/anima/Anima.h
  /home/champ/Git/crows/src/generator/SpriteGenerator.h
  /home/champ/Git/crows/src/habitat/Habitat.h
@@ -1186,8 +1181,6 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/garbage/Garbage.cpp.o
  /home/champ/Git/crows/src/service/PathFinder.h
  /home/champ/Git/crows/src/sprite/AdvancedSprite.h
  /home/champ/Git/crows/src/sprite/Sprite.h
- /home/champ/Git/crows/src/sprite/crow/Crow.h
- /home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
  /usr/local/include/glm/common.hpp
  /usr/local/include/glm/detail/_fixes.hpp
  /usr/local/include/glm/detail/_swizzle.hpp
@@ -1308,6 +1301,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/tree/Tree.cpp.o
  /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
  /home/champ/Git/crows/opulence/src/service/BufferCourier.h
  /home/champ/Git/crows/opulence/src/service/OsType.h
+ /home/champ/Git/crows/opulence/src/service/glew/glew.h
  /home/champ/Git/crows/src/anima/Anima.h
  /home/champ/Git/crows/src/anima/interface/Interface.h
  /home/champ/Git/crows/src/anima/interface/button/Button.h
@@ -1318,13 +1312,12 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/tree/Tree.cpp.o
  /home/champ/Git/crows/src/generator/InterfaceGenerator.h
  /home/champ/Git/crows/src/generator/SpriteGenerator.h
  /home/champ/Git/crows/src/habitat/Habitat.h
+ /home/champ/Git/crows/src/habitat/garbage/Garbage.h
  /home/champ/Git/crows/src/habitat/tree/Tree.cpp
  /home/champ/Git/crows/src/habitat/tree/Tree.h
  /home/champ/Git/crows/src/service/PathFinder.h
  /home/champ/Git/crows/src/sprite/AdvancedSprite.h
  /home/champ/Git/crows/src/sprite/Sprite.h
- /home/champ/Git/crows/src/sprite/crow/Crow.h
- /home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
  /usr/local/include/glm/common.hpp
  /usr/local/include/glm/detail/_fixes.hpp
  /usr/local/include/glm/detail/_swizzle.hpp
@@ -1445,6 +1438,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/Manipulator.cpp.o
  /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
  /home/champ/Git/crows/opulence/src/service/BufferCourier.h
  /home/champ/Git/crows/opulence/src/service/OsType.h
+ /home/champ/Git/crows/opulence/src/service/glew/glew.h
  /home/champ/Git/crows/src/anima/Anima.h
  /home/champ/Git/crows/src/anima/interface/Interface.h
  /home/champ/Git/crows/src/anima/interface/button/Button.h
@@ -1455,14 +1449,13 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/Manipulator.cpp.o
  /home/champ/Git/crows/src/generator/InterfaceGenerator.h
  /home/champ/Git/crows/src/generator/SpriteGenerator.h
  /home/champ/Git/crows/src/habitat/Habitat.h
+ /home/champ/Git/crows/src/habitat/garbage/Garbage.h
  /home/champ/Git/crows/src/habitat/tree/Tree.h
  /home/champ/Git/crows/src/service/Manipulator.cpp
  /home/champ/Git/crows/src/service/Manipulator.h
  /home/champ/Git/crows/src/service/PathFinder.h
  /home/champ/Git/crows/src/sprite/AdvancedSprite.h
  /home/champ/Git/crows/src/sprite/Sprite.h
- /home/champ/Git/crows/src/sprite/crow/Crow.h
- /home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
  /usr/local/include/glm/common.hpp
  /usr/local/include/glm/detail/_fixes.hpp
  /usr/local/include/glm/detail/_swizzle.hpp
@@ -1579,6 +1572,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.o
  /home/champ/Git/crows/opulence/src/loader/ObjLoader.h
  /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
  /home/champ/Git/crows/opulence/src/service/BufferCourier.h
+ /home/champ/Git/crows/opulence/src/service/glew/glew.h
  /home/champ/Git/crows/src/service/PathFinder.cpp
  /home/champ/Git/crows/src/service/PathFinder.h
  /home/champ/Git/crows/src/sprite/Sprite.h
@@ -1698,6 +1692,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.o
  /home/champ/Git/crows/opulence/src/loader/ObjLoader.h
  /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
  /home/champ/Git/crows/opulence/src/service/BufferCourier.h
+ /home/champ/Git/crows/opulence/src/service/glew/glew.h
  /home/champ/Git/crows/src/anima/Anima.h
  /home/champ/Git/crows/src/habitat/Habitat.h
  /home/champ/Git/crows/src/service/PathFinder.h
@@ -1820,6 +1815,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.o
  /home/champ/Git/crows/opulence/src/loader/ObjLoader.h
  /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
  /home/champ/Git/crows/opulence/src/service/BufferCourier.h
+ /home/champ/Git/crows/opulence/src/service/glew/glew.h
  /home/champ/Git/crows/src/service/PathFinder.h
  /home/champ/Git/crows/src/sprite/Sprite.cpp
  /home/champ/Git/crows/src/sprite/Sprite.h
@@ -1927,10 +1923,6 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.o
  /usr/local/include/glm/vec3.hpp
  /usr/local/include/glm/vec4.hpp
  /usr/local/include/glm/vector_relational.hpp
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o
- /home/champ/Git/crows/src/sprite/crow/Crow.cpp
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.o
- /home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/DayManager.cpp.o
  /home/champ/Git/crows/opulence/src/container/mtl_data.h
  /home/champ/Git/crows/opulence/src/container/obj_data.h
@@ -1947,14 +1939,13 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/DayManager.cpp.o
  /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
  /home/champ/Git/crows/opulence/src/service/BufferCourier.h
  /home/champ/Git/crows/opulence/src/service/OsType.h
+ /home/champ/Git/crows/opulence/src/service/glew/glew.h
  /home/champ/Git/crows/src/anima/Anima.h
  /home/champ/Git/crows/src/generator/SpriteGenerator.h
  /home/champ/Git/crows/src/habitat/Habitat.h
  /home/champ/Git/crows/src/service/PathFinder.h
  /home/champ/Git/crows/src/sprite/AdvancedSprite.h
  /home/champ/Git/crows/src/sprite/Sprite.h
- /home/champ/Git/crows/src/sprite/crow/Crow.h
- /home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
  /home/champ/Git/crows/src/utility/DayManager.cpp
  /home/champ/Git/crows/src/utility/DayManager.h
  /usr/local/include/glm/common.hpp
@@ -2077,6 +2068,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/LevelMaker.cpp.o
  /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
  /home/champ/Git/crows/opulence/src/service/BufferCourier.h
  /home/champ/Git/crows/opulence/src/service/OsType.h
+ /home/champ/Git/crows/opulence/src/service/glew/glew.h
  /home/champ/Git/crows/src/anima/Anima.h
  /home/champ/Git/crows/src/anima/interface/Interface.h
  /home/champ/Git/crows/src/anima/interface/button/Button.h
@@ -2092,8 +2084,6 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/LevelMaker.cpp.o
  /home/champ/Git/crows/src/service/PathFinder.h
  /home/champ/Git/crows/src/sprite/AdvancedSprite.h
  /home/champ/Git/crows/src/sprite/Sprite.h
- /home/champ/Git/crows/src/sprite/crow/Crow.h
- /home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
  /home/champ/Git/crows/src/utility/LevelMaker.cpp
  /home/champ/Git/crows/src/utility/LevelMaker.h
  /home/champ/Git/crows/src/utility/LevelObject.h
@@ -2222,6 +2212,7 @@ CMakeFiles/opulence.dir/opulence.cpp.o
  /home/champ/Git/crows/opulence/src/service/GLManager.h
  /home/champ/Git/crows/opulence/src/service/OsType.h
  /home/champ/Git/crows/opulence/src/service/TimeManager.h
+ /home/champ/Git/crows/opulence/src/service/glew/glew.h
  /usr/include/SDL2/SDL.h
  /usr/include/SDL2/SDL_assert.h
  /usr/include/SDL2/SDL_atomic.h
@@ -3347,6 +3338,7 @@ CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o
  /home/champ/Git/crows/opulence/src/loader/ObjLoader.h
  /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
  /home/champ/Git/crows/opulence/src/service/BufferCourier.h
+ /home/champ/Git/crows/opulence/src/service/glew/glew.h
  /usr/local/include/glm/common.hpp
  /usr/local/include/glm/detail/_fixes.hpp
  /usr/local/include/glm/detail/_swizzle.hpp
@@ -3442,6 +3434,7 @@ CMakeFiles/opulence.dir/src/loader/ObjLoader.cpp.o
  /home/champ/Git/crows/opulence/src/container/obj_data.h
  /home/champ/Git/crows/opulence/src/loader/ObjLoader.cpp
  /home/champ/Git/crows/opulence/src/loader/ObjLoader.h
+ /home/champ/Git/crows/opulence/src/service/glew/glew.h
  /usr/local/include/glm/common.hpp
  /usr/local/include/glm/detail/_fixes.hpp
  /usr/local/include/glm/detail/_swizzle.hpp
@@ -3524,6 +3517,7 @@ CMakeFiles/opulence.dir/src/loader/ObjLoader.cpp.o
 CMakeFiles/opulence.dir/src/loader/ShaderLoader.cpp.o
  /home/champ/Git/crows/opulence/src/loader/ShaderLoader.cpp
  /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
+ /home/champ/Git/crows/opulence/src/service/glew/glew.h
 CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.o
  /home/champ/Git/crows/opulence/src/container/obj_data.h
  /home/champ/Git/crows/opulence/src/entity/Entity.h
@@ -3532,6 +3526,7 @@ CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.o
  /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
  /home/champ/Git/crows/opulence/src/service/BufferCourier.cpp
  /home/champ/Git/crows/opulence/src/service/BufferCourier.h
+ /home/champ/Git/crows/opulence/src/service/glew/glew.h
  /usr/local/include/glm/common.hpp
  /usr/local/include/glm/detail/_fixes.hpp
  /usr/local/include/glm/detail/_swizzle.hpp
@@ -3627,6 +3622,7 @@ CMakeFiles/opulence.dir/src/service/GLManager.cpp.o
  /home/champ/Git/crows/opulence/src/service/GLManager.cpp
  /home/champ/Git/crows/opulence/src/service/GLManager.h
  /home/champ/Git/crows/opulence/src/service/OsType.h
+ /home/champ/Git/crows/opulence/src/service/glew/glew.h
  /usr/include/SDL2/SDL.h
  /usr/include/SDL2/SDL_assert.h
  /usr/include/SDL2/SDL_atomic.h

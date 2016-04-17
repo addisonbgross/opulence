@@ -205,6 +205,8 @@ vector
 -
 glm/glm.hpp
 -
+../service/glew/glew.h
+/home/champ/Git/crows/opulence/src/service/glew/glew.h
 GL/glew.h
 -
 GL/gl.h
@@ -219,6 +221,8 @@ ShaderLoader.h
 /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
 
 /home/champ/Git/crows/opulence/src/loader/ShaderLoader.h
+../service/glew/glew.h
+/home/champ/Git/crows/opulence/src/service/glew/glew.h
 GL/glew.h
 -
 fstream
@@ -276,6 +280,22 @@ TimeManager.h
 iostream
 -
 SDL_timer.h
+-
+
+/home/champ/Git/crows/opulence/src/service/glew/glew.h
+stddef.h
+-
+inttypes.h
+-
+stdint.h
+-
+inttypes.h
+-
+Availability.h
+-
+OpenGL/glu.h
+-
+GL/glu.h
 -
 
 /home/champ/Git/crows/src/ai/Ai.cpp
@@ -399,10 +419,8 @@ vector
 -
 algorithm
 -
-../sprite/crow/Crow.h
-/home/champ/Git/crows/src/sprite/crow/Crow.h
-../sprite/squirrel/Squirrel.h
-/home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
+../sprite/AdvancedSprite.h
+/home/champ/Git/crows/src/sprite/AdvancedSprite.h
 ../../opulence/src/service/OsType.h
 /home/champ/Git/crows/opulence/src/service/OsType.h
 ../../opulence/src/factory/LightFactory.h
@@ -431,12 +449,8 @@ Tree.h
 /home/champ/Git/crows/src/habitat/tree/Tree.h
 vector
 -
-../Habitat.h
-/home/champ/Git/crows/src/habitat/Habitat.h
-../../anima/Anima.h
-/home/champ/Git/crows/src/anima/Anima.h
-../../generator/SpriteGenerator.h
-/home/champ/Git/crows/src/generator/SpriteGenerator.h
+../garbage/Garbage.h
+/home/champ/Git/crows/src/habitat/garbage/Garbage.h
 ../../generator/InterfaceGenerator.h
 /home/champ/Git/crows/src/generator/InterfaceGenerator.h
 
@@ -503,18 +517,6 @@ math.h
 /home/champ/Git/crows/opulence/src/factory/ModelFactory.h
 ../service/PathFinder.h
 /home/champ/Git/crows/src/service/PathFinder.h
-
-/home/champ/Git/crows/src/sprite/crow/Crow.cpp
-
-/home/champ/Git/crows/src/sprite/crow/Crow.h
-../AdvancedSprite.h
-/home/champ/Git/crows/src/sprite/AdvancedSprite.h
-
-/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp
-
-/home/champ/Git/crows/src/sprite/squirrel/Squirrel.h
-../AdvancedSprite.h
-/home/champ/Git/crows/src/sprite/AdvancedSprite.h
 
 /home/champ/Git/crows/src/utility/DayManager.cpp
 DayManager.h

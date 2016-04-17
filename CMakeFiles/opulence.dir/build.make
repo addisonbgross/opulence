@@ -578,32 +578,9 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.o.pro
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.o.provides.build: CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.o
 
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.o: CMakeFiles/opulence.dir/flags.make
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.o: /home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_24)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.o -c /home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp
-
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp > CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.i
-
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.s
-
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.o.requires:
-.PHONY : CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.o.requires
-
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.o.provides: CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.o.requires
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.o.provides.build
-.PHONY : CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.o.provides
-
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.o.provides.build: CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.o
-
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/ai/Ai.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/ai/Ai.cpp.o: /home/champ/Git/crows/src/ai/Ai.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_25)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_24)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/home/champ/Git/crows/src/ai/Ai.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/ai/Ai.cpp.o -c /home/champ/Git/crows/src/ai/Ai.cpp
 
@@ -626,7 +603,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/ai/Ai.cpp.o.provides.build: CMa
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/DayManager.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/DayManager.cpp.o: /home/champ/Git/crows/src/utility/DayManager.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_26)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_25)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/DayManager.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/DayManager.cpp.o -c /home/champ/Git/crows/src/utility/DayManager.cpp
 
@@ -649,7 +626,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/DayManager.cpp.o.provid
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.o: /home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_27)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_26)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.o -c /home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp
 
@@ -672,7 +649,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/Chara
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/Character.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/Character.cpp.o: /home/champ/Git/crows/src/anima/interface/character/Character.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_28)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_27)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/Character.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/Character.cpp.o -c /home/champ/Git/crows/src/anima/interface/character/Character.cpp
 
@@ -695,7 +672,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/Chara
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/InterfaceGenerator.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/InterfaceGenerator.cpp.o: /home/champ/Git/crows/src/generator/InterfaceGenerator.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_29)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_28)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/InterfaceGenerator.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/InterfaceGenerator.cpp.o -c /home/champ/Git/crows/src/generator/InterfaceGenerator.cpp
 
@@ -718,7 +695,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/InterfaceGenerator.cp
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/garbage/Garbage.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/garbage/Garbage.cpp.o: /home/champ/Git/crows/src/habitat/garbage/Garbage.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_30)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_29)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/garbage/Garbage.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/garbage/Garbage.cpp.o -c /home/champ/Git/crows/src/habitat/garbage/Garbage.cpp
 
@@ -741,7 +718,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/garbage/Garbage.cpp.o.p
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/tree/Tree.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/tree/Tree.cpp.o: /home/champ/Git/crows/src/habitat/tree/Tree.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_31)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_30)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/tree/Tree.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/tree/Tree.cpp.o -c /home/champ/Git/crows/src/habitat/tree/Tree.cpp
 
@@ -764,7 +741,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/tree/Tree.cpp.o.provide
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/button/Button.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/button/Button.cpp.o: /home/champ/Git/crows/src/anima/interface/button/Button.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_32)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_31)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/button/Button.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/button/Button.cpp.o -c /home/champ/Git/crows/src/anima/interface/button/Button.cpp
 
@@ -787,7 +764,7 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/button/Button.c
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/Manipulator.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/Manipulator.cpp.o: /home/champ/Git/crows/src/service/Manipulator.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_33)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_32)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/Manipulator.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/Manipulator.cpp.o -c /home/champ/Git/crows/src/service/Manipulator.cpp
 
@@ -808,32 +785,9 @@ CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/Manipulator.cpp.o.provi
 
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/Manipulator.cpp.o.provides.build: CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/Manipulator.cpp.o
 
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o: CMakeFiles/opulence.dir/flags.make
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o: /home/champ/Git/crows/src/sprite/crow/Crow.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_34)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o -c /home/champ/Git/crows/src/sprite/crow/Crow.cpp
-
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/champ/Git/crows/src/sprite/crow/Crow.cpp > CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.i
-
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/champ/Git/crows/src/sprite/crow/Crow.cpp -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.s
-
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o.requires:
-.PHONY : CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o.requires
-
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o.provides: CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o.requires
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o.provides.build
-.PHONY : CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o.provides
-
-CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o.provides.build: CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o
-
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/LevelMaker.cpp.o: CMakeFiles/opulence.dir/flags.make
 CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/LevelMaker.cpp.o: /home/champ/Git/crows/src/utility/LevelMaker.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_35)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/champ/Git/crows/opulence/CMakeFiles $(CMAKE_PROGRESS_33)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/LevelMaker.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/LevelMaker.cpp.o -c /home/champ/Git/crows/src/utility/LevelMaker.cpp
 
@@ -879,7 +833,6 @@ opulence_OBJECTS = \
 "CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.o" \
 "CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o" \
 "CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.o" \
-"CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.o" \
 "CMakeFiles/opulence.dir/home/champ/Git/crows/src/ai/Ai.cpp.o" \
 "CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/DayManager.cpp.o" \
 "CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.o" \
@@ -889,7 +842,6 @@ opulence_OBJECTS = \
 "CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/tree/Tree.cpp.o" \
 "CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/button/Button.cpp.o" \
 "CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/Manipulator.cpp.o" \
-"CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o" \
 "CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/LevelMaker.cpp.o"
 
 # External object files for target opulence
@@ -918,7 +870,6 @@ opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardco
 opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.o
 opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o
 opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.o
-opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.o
 opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/ai/Ai.cpp.o
 opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/DayManager.cpp.o
 opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.o
@@ -928,14 +879,13 @@ opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/garbage/Garba
 opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/tree/Tree.cpp.o
 opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/button/Button.cpp.o
 opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/Manipulator.cpp.o
-opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o
 opulence: CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/LevelMaker.cpp.o
 opulence: CMakeFiles/opulence.dir/build.make
 opulence: /usr/lib/x86_64-linux-gnu/libSDL2main.a
 opulence: /usr/lib/x86_64-linux-gnu/libSDL2.so
+opulence: /usr/lib/x86_64-linux-gnu/libGLEW.so
 opulence: /usr/lib/x86_64-linux-gnu/libGLU.so
 opulence: /usr/lib/x86_64-linux-gnu/libGL.so
-opulence: /usr/lib/x86_64-linux-gnu/libGLEW.so
 opulence: CMakeFiles/opulence.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable opulence"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/opulence.dir/link.txt --verbose=$(VERBOSE)
@@ -967,7 +917,6 @@ CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/s
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.o.requires
-CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/squirrel/Squirrel.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/src/ai/Ai.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/DayManager.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.o.requires
@@ -977,7 +926,6 @@ CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/s
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/tree/Tree.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/button/Button.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/Manipulator.cpp.o.requires
-CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/crow/Crow.cpp.o.requires
 CMakeFiles/opulence.dir/requires: CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/LevelMaker.cpp.o.requires
 .PHONY : CMakeFiles/opulence.dir/requires
 
