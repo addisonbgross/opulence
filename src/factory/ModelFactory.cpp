@@ -50,7 +50,7 @@ Animation * ModelFactory::makeAnimation(float x, float y, float z, std::string n
     if (objMap.count(name + "_0") > 0) {
         frames = new std::vector<Model*>();
         for (int i = 0; i < 6; ++i) {
-            frameName = name + "_" + std::to_string(i);
+            frameName = name + "_" + to_string(i);
             model = new Model(x, y, z, &objMap.at(frameName));
             frames->push_back(model);
         }
@@ -72,7 +72,7 @@ Animation * ModelFactory::makeAnimation(float x, float y, float z, std::string n
     if (objMap.count(name + "_0") > 0) {
         frames = new std::vector<Model*>();
         for (int i = 0; i < 6; ++i) {
-            frameName = name + "_" + std::to_string(i);
+            frameName = name + "_" + to_string(i);
             model = new Model(x, y, z, &objMap.at(frameName));
             model->setScale(scale);
             frames->push_back(model);
