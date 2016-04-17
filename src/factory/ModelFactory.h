@@ -1,6 +1,10 @@
 #ifndef OPULENCE_MODELFACTORY_H
 #define OPULENCE_MODELFACTORY_H
 
+// general
+#include <sstream>
+
+// opulence
 #include "../loader/ObjLoader.h"
 #include "../service/BufferCourier.h"
 #include "../container/obj_data.h"
@@ -34,6 +38,13 @@ public:
 
     // get
     Model * getModel(std::string name);
+
+    template < typename T > std::string to_string( const T& n )
+    {
+        std::ostringstream stm ;
+        stm << n ;
+        return stm.str() ;
+    }
 };
 
 

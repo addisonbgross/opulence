@@ -27,6 +27,8 @@ src/habitat/garbage/Garbage.h
 /home/champ/Git/crows/main.cpp
 CrowGame.h
 /home/champ/Git/crows/CrowGame.h
+windows.h
+-
 
 /home/champ/Git/crows/opulence/opulence.cpp
 glm/glm.hpp
@@ -187,6 +189,8 @@ ModelFactory.h
 /home/champ/Git/crows/opulence/src/factory/ModelFactory.h
 
 /home/champ/Git/crows/opulence/src/factory/ModelFactory.h
+sstream
+-
 ../loader/ObjLoader.h
 /home/champ/Git/crows/opulence/src/loader/ObjLoader.h
 ../service/BufferCourier.h
