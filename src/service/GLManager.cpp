@@ -54,7 +54,7 @@ bool GLManager::initGL()
     }
 
     // create VAO
-    //glGenVertexArrays(1, &VAO);
+    glGenVertexArrays(1, &VAO);
 
     // link OpenGL program
     glLinkProgram(programID);

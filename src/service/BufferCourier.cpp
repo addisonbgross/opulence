@@ -181,7 +181,7 @@ void BufferCourier::render()
             // push vertex indexes
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, model->indexBuffer);
             glDrawElements(GL_TRIANGLES, model->getNumIndexVerts() / 3, GL_UNSIGNED_INT, 0);
-	
+
             // update total triangles being drawn in scene
             totalTriangles += (model->getNumIndexVerts() / 3);
         }
@@ -252,7 +252,7 @@ void BufferCourier::removeModel(int id)
             activeModels[i]->id -= 1;
         }
     }
-	
+
     activeModels.shrink_to_fit();
 }
 
@@ -277,7 +277,7 @@ void BufferCourier::removeAnimation(Animation *animation)
             activeAnimations[i]->id -= 1;
         }
     }
-	
+
     activeAnimations.shrink_to_fit();
 }
 

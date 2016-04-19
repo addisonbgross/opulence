@@ -13,8 +13,8 @@ find_package(Threads)
 find_package(SDL2 REQUIRED)
 find_package(OpenGL REQUIRED)
 
+find_package(GLEW REQUIRED)
 IF (!WIN32)
-    find_package(GLEW REQUIRED)
 ENDIF()
 
 find_package(GLM REQUIRED)
