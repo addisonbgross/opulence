@@ -13,7 +13,7 @@ BufferCourier::~BufferCourier() {}
  */
 void BufferCourier::reportStats()
 {
-    std::cout.imbue(std::locale(""));  // ensures that totals are comma separated numbers
+    //std::cout.imbue(std::locale(""));  // ensures that totals are comma separated numbers
     std::cout << "Total Triangles: " << totalTriangles << std::endl;
     std::cout << "Active Models: " << activeModels.size() << std::endl;
     std::cout << "Acitve Animations: " << activeAnimations.size() << std::endl;
@@ -94,7 +94,7 @@ void BufferCourier::clearBuffer(Model *model)
 void BufferCourier::render()
 {
     //Clear color, depth and stencil buffers
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     // enable GLSL attributes in pipeline
     for (auto &i : bufferAttributes) {
@@ -137,7 +137,7 @@ void BufferCourier::render()
 
             // push vertex indexes
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, model->indexBuffer);
-            glDrawElements(GL_TRIANGLES, model->getNumIndexVerts(), GL_UNSIGNED_INT, 0);
+            glDrawElements(GL_TRIANGLES, model->getNumIndexVerts() / 3, GL_UNSIGNED_INT, 0);
 
             // update total triangles being drawn in scene
             totalTriangles += (model->getNumIndexVerts() / 3);
@@ -180,8 +180,8 @@ void BufferCourier::render()
 
             // push vertex indexes
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, model->indexBuffer);
-            glDrawElements(GL_TRIANGLES, model->getNumIndexVerts(), GL_UNSIGNED_INT, 0);
-
+            glDrawElements(GL_TRIANGLES, model->getNumIndexVerts() / 3, GL_UNSIGNED_INT, 0);
+	
             // update total triangles being drawn in scene
             totalTriangles += (model->getNumIndexVerts() / 3);
         }
@@ -246,13 +246,14 @@ void BufferCourier::removeModel(int id)
 {
     clearBuffer(activeModels[id]);
     activeModels.erase(activeModels.begin() + (double) id);
-    activeModels.shrink_to_fit();
 
-    for (int i = 0; i < activeModels.size(); ++i) {
+    for (int i = id; i < activeModels.size(); ++i) {
         if (activeModels[i]->id > id) {
             activeModels[i]->id -= 1;
         }
     }
+	
+    activeModels.shrink_to_fit();
 }
 
 /**
@@ -268,15 +269,16 @@ void BufferCourier::removeAnimation(Animation *animation)
 
     int id = animation->id;
     activeAnimations.erase(activeAnimations.begin() + (double) animation->id);
-    activeAnimations.shrink_to_fit();
 
     // ensure all that the id's of all activeAnimations are also shrunk
     // to fit the vector correctly
-    for (int i = 0; i < activeAnimations.size(); ++i) {
+    for (int i = id; i < activeAnimations.size(); ++i) {
         if (activeAnimations[i]->id > id) {
             activeAnimations[i]->id -= 1;
         }
     }
+	
+    activeAnimations.shrink_to_fit();
 }
 
 /**

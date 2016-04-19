@@ -1,55 +1,79 @@
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
+  "C"
   "CXX"
   )
 # The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/champ/Git/crows/main.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o"
-  "/home/champ/Git/crows/src/ai/Ai.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/src/ai/Ai.cpp.o"
-  "/home/champ/Git/crows/src/anima/interface/button/Button.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/button/Button.cpp.o"
-  "/home/champ/Git/crows/src/anima/interface/character/Character.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/Character.cpp.o"
-  "/home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.o"
-  "/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o"
-  "/home/champ/Git/crows/src/generator/InterfaceGenerator.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/InterfaceGenerator.cpp.o"
-  "/home/champ/Git/crows/src/generator/SpriteGenerator.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o"
-  "/home/champ/Git/crows/src/habitat/garbage/Garbage.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/garbage/Garbage.cpp.o"
-  "/home/champ/Git/crows/src/habitat/tree/Tree.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/tree/Tree.cpp.o"
-  "/home/champ/Git/crows/src/service/Manipulator.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/Manipulator.cpp.o"
-  "/home/champ/Git/crows/src/service/PathFinder.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.o"
-  "/home/champ/Git/crows/src/sprite/AdvancedSprite.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.o"
-  "/home/champ/Git/crows/src/sprite/Sprite.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.o"
-  "/home/champ/Git/crows/src/utility/DayManager.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/DayManager.cpp.o"
-  "/home/champ/Git/crows/src/utility/LevelMaker.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/LevelMaker.cpp.o"
-  "/home/champ/Git/crows/opulence/opulence.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/opulence.cpp.o"
-  "/home/champ/Git/crows/opulence/src/entity/Entity.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/entity/Entity.cpp.o"
-  "/home/champ/Git/crows/opulence/src/entity/animation/Animation.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.o"
-  "/home/champ/Git/crows/opulence/src/entity/camera/Camera.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/entity/camera/Camera.cpp.o"
-  "/home/champ/Git/crows/opulence/src/entity/camera/RtsCamera.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/entity/camera/RtsCamera.cpp.o"
-  "/home/champ/Git/crows/opulence/src/entity/light/DirectionalLight.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/entity/light/DirectionalLight.cpp.o"
-  "/home/champ/Git/crows/opulence/src/entity/light/Light.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/entity/light/Light.cpp.o"
-  "/home/champ/Git/crows/opulence/src/entity/light/PointLight.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/entity/light/PointLight.cpp.o"
-  "/home/champ/Git/crows/opulence/src/entity/model/Model.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/entity/model/Model.cpp.o"
-  "/home/champ/Git/crows/opulence/src/factory/CameraFactory.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/factory/CameraFactory.cpp.o"
-  "/home/champ/Git/crows/opulence/src/factory/LightFactory.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.o"
-  "/home/champ/Git/crows/opulence/src/factory/ModelFactory.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o"
-  "/home/champ/Git/crows/opulence/src/loader/ObjLoader.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/loader/ObjLoader.cpp.o"
-  "/home/champ/Git/crows/opulence/src/loader/ShaderLoader.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/loader/ShaderLoader.cpp.o"
-  "/home/champ/Git/crows/opulence/src/service/BufferCourier.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.o"
-  "/home/champ/Git/crows/opulence/src/service/GLManager.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/service/GLManager.cpp.o"
-  "/home/champ/Git/crows/opulence/src/service/TimeManager.cpp" "/home/champ/Git/crows/opulence/CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o"
+set(CMAKE_DEPENDS_CHECK_C
+  "C:/Users/adog/Git/crows/opulence/src/service/glew/glew.c" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/src/service/glew/glew.c.obj"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_C_COMPILER_ID "GNU")
 
-# Targets to which this target links.
-set(CMAKE_TARGET_LINKED_INFO_FILES
+# Preprocessor definitions for this target.
+set(CMAKE_TARGET_DEFINITIONS_C
+  "GLEW_STATIC"
   )
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
   "."
-  "/usr/include/SDL2"
-  "/usr/local/include"
+  "C:/MinGW/include/SDL2"
+  "C:/MinGW/include"
+  "C:/MinGW/include/glm"
   )
-set(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
-set(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
-set(CMAKE_ASM_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
+set(CMAKE_DEPENDS_CHECK_CXX
+  "C:/Users/adog/Git/crows/main.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/C_/Users/adog/Git/crows/main.cpp.obj"
+  "C:/Users/adog/Git/crows/src/ai/Ai.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/C_/Users/adog/Git/crows/src/ai/Ai.cpp.obj"
+  "C:/Users/adog/Git/crows/src/anima/interface/button/Button.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/C_/Users/adog/Git/crows/src/anima/interface/button/Button.cpp.obj"
+  "C:/Users/adog/Git/crows/src/anima/interface/character/Character.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/C_/Users/adog/Git/crows/src/anima/interface/character/Character.cpp.obj"
+  "C:/Users/adog/Git/crows/src/anima/interface/character/CharacterSet.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/C_/Users/adog/Git/crows/src/anima/interface/character/CharacterSet.cpp.obj"
+  "C:/Users/adog/Git/crows/src/controller/standardcontroller/StandardController.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/C_/Users/adog/Git/crows/src/controller/standardcontroller/StandardController.cpp.obj"
+  "C:/Users/adog/Git/crows/src/generator/InterfaceGenerator.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/C_/Users/adog/Git/crows/src/generator/InterfaceGenerator.cpp.obj"
+  "C:/Users/adog/Git/crows/src/generator/SpriteGenerator.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/C_/Users/adog/Git/crows/src/generator/SpriteGenerator.cpp.obj"
+  "C:/Users/adog/Git/crows/src/habitat/garbage/Garbage.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/C_/Users/adog/Git/crows/src/habitat/garbage/Garbage.cpp.obj"
+  "C:/Users/adog/Git/crows/src/habitat/tree/Tree.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/C_/Users/adog/Git/crows/src/habitat/tree/Tree.cpp.obj"
+  "C:/Users/adog/Git/crows/src/service/Manipulator.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/C_/Users/adog/Git/crows/src/service/Manipulator.cpp.obj"
+  "C:/Users/adog/Git/crows/src/service/PathFinder.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/C_/Users/adog/Git/crows/src/service/PathFinder.cpp.obj"
+  "C:/Users/adog/Git/crows/src/sprite/AdvancedSprite.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/C_/Users/adog/Git/crows/src/sprite/AdvancedSprite.cpp.obj"
+  "C:/Users/adog/Git/crows/src/sprite/Sprite.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/C_/Users/adog/Git/crows/src/sprite/Sprite.cpp.obj"
+  "C:/Users/adog/Git/crows/src/utility/DayManager.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/C_/Users/adog/Git/crows/src/utility/DayManager.cpp.obj"
+  "C:/Users/adog/Git/crows/src/utility/LevelMaker.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/C_/Users/adog/Git/crows/src/utility/LevelMaker.cpp.obj"
+  "C:/Users/adog/Git/crows/opulence/opulence.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/opulence.cpp.obj"
+  "C:/Users/adog/Git/crows/opulence/src/entity/Entity.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/src/entity/Entity.cpp.obj"
+  "C:/Users/adog/Git/crows/opulence/src/entity/animation/Animation.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.obj"
+  "C:/Users/adog/Git/crows/opulence/src/entity/camera/Camera.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/src/entity/camera/Camera.cpp.obj"
+  "C:/Users/adog/Git/crows/opulence/src/entity/camera/RtsCamera.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/src/entity/camera/RtsCamera.cpp.obj"
+  "C:/Users/adog/Git/crows/opulence/src/entity/light/DirectionalLight.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/src/entity/light/DirectionalLight.cpp.obj"
+  "C:/Users/adog/Git/crows/opulence/src/entity/light/Light.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/src/entity/light/Light.cpp.obj"
+  "C:/Users/adog/Git/crows/opulence/src/entity/light/PointLight.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/src/entity/light/PointLight.cpp.obj"
+  "C:/Users/adog/Git/crows/opulence/src/entity/model/Model.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/src/entity/model/Model.cpp.obj"
+  "C:/Users/adog/Git/crows/opulence/src/factory/CameraFactory.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/src/factory/CameraFactory.cpp.obj"
+  "C:/Users/adog/Git/crows/opulence/src/factory/LightFactory.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.obj"
+  "C:/Users/adog/Git/crows/opulence/src/factory/ModelFactory.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.obj"
+  "C:/Users/adog/Git/crows/opulence/src/loader/ObjLoader.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/src/loader/ObjLoader.cpp.obj"
+  "C:/Users/adog/Git/crows/opulence/src/loader/ShaderLoader.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/src/loader/ShaderLoader.cpp.obj"
+  "C:/Users/adog/Git/crows/opulence/src/service/BufferCourier.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.obj"
+  "C:/Users/adog/Git/crows/opulence/src/service/GLManager.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/src/service/GLManager.cpp.obj"
+  "C:/Users/adog/Git/crows/opulence/src/service/TimeManager.cpp" "C:/Users/adog/Git/crows/opulence/CMakeFiles/opulence.dir/src/service/TimeManager.cpp.obj"
+  )
+set(CMAKE_CXX_COMPILER_ID "GNU")
+
+# Preprocessor definitions for this target.
+set(CMAKE_TARGET_DEFINITIONS_CXX
+  "GLEW_STATIC"
+  )
+
+# The include file search paths:
+set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "."
+  "C:/MinGW/include/SDL2"
+  "C:/MinGW/include"
+  "C:/MinGW/include/glm"
+  )
+
+# Targets to which this target links.
+set(CMAKE_TARGET_LINKED_INFO_FILES
+  )
+
+# Fortran module output directory.
+set(CMAKE_Fortran_TARGET_MODULE_DIR "")
