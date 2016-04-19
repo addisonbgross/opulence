@@ -219,7 +219,7 @@ public:
         glUseProgram(glMan.getID());
 
         // enable vertex array object
-        //glBindVertexArray(glMan.getVAO());
+        glBindVertexArray(glMan.getVAO());
 
         return 0;
     }
