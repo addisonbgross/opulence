@@ -12,12 +12,12 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${opulence_SOURCE_DIR}/")
 find_package(Threads)
 find_package(SDL2 REQUIRED)
 find_package(OpenGL REQUIRED)
+find_package(GLM REQUIRED)
 
-find_package(GLEW REQUIRED)
-IF (!WIN32)
+IF (NOT WIN32)
+    find_package(GLEW REQUIRED)
 ENDIF()
 
-find_package(GLM REQUIRED)
 
 include_directories(${PROJECT_BINARY_DIR}
                     ${OPENGL_INCLUDE_DIRS}
