@@ -86,7 +86,7 @@ bool GLManager::initSDL()
         SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
         SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
         SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
-        SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 8);
+        SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 2);
 
         // allow for multisampling of frame buffer
         glEnable(GL_MULTISAMPLE);
@@ -94,8 +94,8 @@ bool GLManager::initSDL()
         // use native width and height of screen if possible
         SDL_Rect r;
         if (SDL_GetDisplayBounds(0, &r) == 0) {
-            this->screenWidth = r.w;// * 0.85f;
-            this->screenHeight = r.h;// * 0.85f;
+            this->screenWidth = r.w * 0.85f;
+            this->screenHeight = r.h * 0.85f;
         }
 
         //Create window
@@ -103,7 +103,7 @@ bool GLManager::initSDL()
                                    SDL_WINDOWPOS_UNDEFINED,
                                    SDL_WINDOWPOS_UNDEFINED,
                                    this->screenWidth, this->screenHeight,
-                                   SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN);
+                                   SDL_WINDOW_OPENGL | SDL_WINDOW_BORDERLESS);
 
         surface = SDL_GetWindowSurface(window);
 

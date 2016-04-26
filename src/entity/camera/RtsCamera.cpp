@@ -114,7 +114,7 @@ void RtsCamera::zoomIn()
 
     float angle = getAngleToGround( temp - *focus );
     if ( temp.y > MIN_ZOOM && angle < ROTATION_LIMIT ) {
-        *eye -= glm::normalize( dir ) * zoomInSpeed;
+        *eye -= glm::normalize( dir ) * zoomSpeed;
     }
 }
 
@@ -125,7 +125,7 @@ void RtsCamera::zoomOut()
 
     float angle = getAngleToGround( temp - *focus );
     if ( glm::length( temp ) < MAX_ZOOM && angle < ROTATION_LIMIT ) {
-        *eye += glm::normalize( dir ) * zoomOutSpeed;
+        *eye += glm::normalize( dir ) * zoomSpeed;
     }
 }
 
