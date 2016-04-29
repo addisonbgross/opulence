@@ -124,7 +124,7 @@ void RtsCamera::zoomOut()
     glm::vec3 temp = *eye + glm::normalize( dir );
 
     float angle = getAngleToGround( temp - *focus );
-    if ( glm::length( temp ) < MAX_ZOOM && angle < ROTATION_LIMIT ) {
+    if ( glm::length( temp ) - glm::length( *focus ) < MAX_ZOOM && angle < ROTATION_LIMIT ) {
         *eye += glm::normalize( dir ) * zoomSpeed;
     }
 }

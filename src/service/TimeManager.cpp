@@ -46,3 +46,18 @@ float TimeManager::getTime()
         return SDL_GetTicks() - origin;
     }
 }
+/**
+ * getLap() - get the time since this was last called
+ *
+ * @return delta time in milliseconds
+ */
+float TimeManager::getLap()
+{
+    if (running) {
+        float delta = getTime() - lastLap;
+        lastLap = getTime();
+        return delta;
+    } else {
+        return 0;
+    }
+}

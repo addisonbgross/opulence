@@ -6,8 +6,8 @@
 class RtsCamera : public Camera {
 private:
     float cameraVelocity = 1.75f;
-    float zoomSpeed = 2.0f;
-    float MAX_ZOOM = 200.0f;
+    float zoomSpeed = 5.5f;
+    float MAX_ZOOM = 750.0f;
     float MIN_ZOOM = 3.0f;
     float ROTATION_LIMIT = glm::half_pi<float>() * 0.8f;
 

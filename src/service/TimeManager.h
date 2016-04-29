@@ -12,6 +12,7 @@ class TimeManager {
 private:
     float origin = 0;     // the beginning time of the current time framge
     float paused = 0;     // the saved time when paused
+    float lastLap = 0;    // the time since the last getLap() call
     bool running = true;  // the timer start/stop flag
 
 public:
@@ -21,6 +22,7 @@ public:
 
     // get
     float getTime();      // get current time elapsed
+    float getLap();       // get time since the last time this was used
 };
 
 #endif
