@@ -97,56 +97,56 @@ add_executable(opulence
             ############
 
             # sprites
-            ../src/sprite/Sprite.h
+            ../src/sprite/Sprite.hpp
             ../src/sprite/Sprite.cpp
 
             # controllers
-            ../src/controller/Controller.h
-            ../src/controller/standardcontroller/StandardController.h
+            ../src/controller/Controller.hpp
+            ../src/controller/standardcontroller/StandardController.hpp
             ../src/controller/standardcontroller/StandardController.cpp
 
                 # control sets
-                ../src/controller/controlset/ControlSet.h
-                ../src/controller/controlset/PlayerSet.h
+                ../src/controller/controlset/ControlSet.hpp
+                ../src/controller/controlset/PlayerSet.hpp
 
             # services
-            ../src/service/PathFinder.h
+            ../src/service/PathFinder.hpp
             ../src/service/PathFinder.cpp
 
             # generators
-            ../src/generator/SpriteGenerator.h
+            ../src/generator/SpriteGenerator.hpp
             ../src/generator/SpriteGenerator.cpp
 
             # generated includes
             ../src/sprite/AdvancedSprite.cpp
-            ../src/ai/AiState.h
+            ../src/ai/AiState.hpp
             ../src/ai/Ai.cpp
-            ../src/ai/Ai.h
+            ../src/ai/Ai.hpp
             ../src/utility/DayManager.cpp
-            ../src/utility/DayManager.h
-            ../src/anima/interface/character/population/Population.h
-            ../src/anima/interface/coin/Coin.h
+            ../src/utility/DayManager.hpp
+            ../src/anima/interface/character/population/Population.hpp
+            ../src/anima/interface/coin/Coin.hpp
             ../src/anima/interface/character/CharacterSet.cpp
-            ../src/anima/interface/character/CharacterSet.h
+            ../src/anima/interface/character/CharacterSet.hpp
             ../src/anima/interface/character/Character.cpp
-            ../src/anima/interface/character/Character.h
+            ../src/anima/interface/character/Character.hpp
             ../src/generator/InterfaceGenerator.cpp
-            ../src/generator/InterfaceGenerator.h
+            ../src/generator/InterfaceGenerator.hpp
             ../src/habitat/garbage/Garbage.cpp
-            ../src/habitat/garbage/Garbage.h
+            ../src/habitat/garbage/Garbage.hpp
             ../src/habitat/tree/Tree.cpp
-            ../src/habitat/tree/Tree.h
-            ../src/habitat/Habitat.h
+            ../src/habitat/tree/Tree.hpp
+            ../src/habitat/Habitat.hpp
             ../src/anima/interface/button/Button.cpp
-            ../src/anima/interface/button/Button.h
-            ../src/anima/interface/Interface.h
+            ../src/anima/interface/button/Button.hpp
+            ../src/anima/interface/Interface.hpp
             ../src/service/Manipulator.cpp
-            ../src/service/Manipulator.h
-            ../src/sprite/AdvancedSprite.h
-            ../src/utility/LevelObject.h
+            ../src/service/Manipulator.hpp
+            ../src/sprite/AdvancedSprite.hpp
+            ../src/utility/LevelObject.hpp
             ../src/utility/LevelMaker.cpp
-            ../src/utility/LevelMaker.h
-            ../src/anima/Anima.h
+            ../src/utility/LevelMaker.hpp
+            ../src/anima/Anima.hpp
 )
 
 target_link_libraries(opulence
