@@ -13,7 +13,7 @@
     #define GLEW_STATIC
     #include "../service/glew/glew.h"
 #else
-    #include <GL/glew.h>
+    #include "../service/glew/glew.h"
 #endif
 
 // gl

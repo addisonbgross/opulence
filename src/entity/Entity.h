@@ -5,7 +5,7 @@
 #include <iostream>
 
 // opulence
-#include <GL/glew.h>
+#include "../service/glew/glew.h"
 #include <GL/gl.h>
 
 // glm

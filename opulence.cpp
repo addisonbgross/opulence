@@ -2,7 +2,7 @@
 #define OPULENCE_H
 
 // glm
-#include <glm/glm.hpp>
+#include "glm/glm.hpp"
 
 // opulence
 #include "src/entity/model/Model.h"
