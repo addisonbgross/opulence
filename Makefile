@@ -39,27 +39,27 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = "C:/Program Files (x86)/CMake/bin/cmake.exe"
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = "C:/Program Files (x86)/CMake/bin/cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/champ/Git/crows/opulence
+CMAKE_SOURCE_DIR = C:/Users/champ/Git/crows/opulence
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/champ/Git/crows/opulence
+CMAKE_BINARY_DIR = C:/Users/champ/Git/crows/opulence
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	"C:/Program Files (x86)/CMake/bin/cmake-gui.exe" -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -70,7 +70,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"C:/Program Files (x86)/CMake/bin/cmake.exe" -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/champ/Git/crows/opulence/CMakeFiles /home/champ/Git/crows/opulence/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:/Users/champ/Git/crows/opulence/CMakeFiles C:/Users/champ/Git/crows/opulence/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/champ/Git/crows/opulence/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:/Users/champ/Git/crows/opulence/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,446 +123,446 @@ opulence/fast:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/build
 .PHONY : opulence/fast
 
-home/champ/Git/crows/main.o: home/champ/Git/crows/main.cpp.o
+C_/Users/champ/Git/crows/main.obj: C_/Users/champ/Git/crows/main.cpp.obj
 
-.PHONY : home/champ/Git/crows/main.o
+.PHONY : C_/Users/champ/Git/crows/main.obj
 
 # target to build an object file
-home/champ/Git/crows/main.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.o
-.PHONY : home/champ/Git/crows/main.cpp.o
+C_/Users/champ/Git/crows/main.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/main.cpp.obj
+.PHONY : C_/Users/champ/Git/crows/main.cpp.obj
 
-home/champ/Git/crows/main.i: home/champ/Git/crows/main.cpp.i
+C_/Users/champ/Git/crows/main.i: C_/Users/champ/Git/crows/main.cpp.i
 
-.PHONY : home/champ/Git/crows/main.i
+.PHONY : C_/Users/champ/Git/crows/main.i
 
 # target to preprocess a source file
-home/champ/Git/crows/main.cpp.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.i
-.PHONY : home/champ/Git/crows/main.cpp.i
+C_/Users/champ/Git/crows/main.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/main.cpp.i
+.PHONY : C_/Users/champ/Git/crows/main.cpp.i
 
-home/champ/Git/crows/main.s: home/champ/Git/crows/main.cpp.s
+C_/Users/champ/Git/crows/main.s: C_/Users/champ/Git/crows/main.cpp.s
 
-.PHONY : home/champ/Git/crows/main.s
+.PHONY : C_/Users/champ/Git/crows/main.s
 
 # target to generate assembly for a file
-home/champ/Git/crows/main.cpp.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/main.cpp.s
-.PHONY : home/champ/Git/crows/main.cpp.s
+C_/Users/champ/Git/crows/main.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/main.cpp.s
+.PHONY : C_/Users/champ/Git/crows/main.cpp.s
 
-home/champ/Git/crows/src/ai/Ai.o: home/champ/Git/crows/src/ai/Ai.cpp.o
+C_/Users/champ/Git/crows/src/ai/Ai.obj: C_/Users/champ/Git/crows/src/ai/Ai.cpp.obj
 
-.PHONY : home/champ/Git/crows/src/ai/Ai.o
+.PHONY : C_/Users/champ/Git/crows/src/ai/Ai.obj
 
 # target to build an object file
-home/champ/Git/crows/src/ai/Ai.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/ai/Ai.cpp.o
-.PHONY : home/champ/Git/crows/src/ai/Ai.cpp.o
+C_/Users/champ/Git/crows/src/ai/Ai.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/ai/Ai.cpp.obj
+.PHONY : C_/Users/champ/Git/crows/src/ai/Ai.cpp.obj
 
-home/champ/Git/crows/src/ai/Ai.i: home/champ/Git/crows/src/ai/Ai.cpp.i
+C_/Users/champ/Git/crows/src/ai/Ai.i: C_/Users/champ/Git/crows/src/ai/Ai.cpp.i
 
-.PHONY : home/champ/Git/crows/src/ai/Ai.i
+.PHONY : C_/Users/champ/Git/crows/src/ai/Ai.i
 
 # target to preprocess a source file
-home/champ/Git/crows/src/ai/Ai.cpp.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/ai/Ai.cpp.i
-.PHONY : home/champ/Git/crows/src/ai/Ai.cpp.i
+C_/Users/champ/Git/crows/src/ai/Ai.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/ai/Ai.cpp.i
+.PHONY : C_/Users/champ/Git/crows/src/ai/Ai.cpp.i
 
-home/champ/Git/crows/src/ai/Ai.s: home/champ/Git/crows/src/ai/Ai.cpp.s
+C_/Users/champ/Git/crows/src/ai/Ai.s: C_/Users/champ/Git/crows/src/ai/Ai.cpp.s
 
-.PHONY : home/champ/Git/crows/src/ai/Ai.s
+.PHONY : C_/Users/champ/Git/crows/src/ai/Ai.s
 
 # target to generate assembly for a file
-home/champ/Git/crows/src/ai/Ai.cpp.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/ai/Ai.cpp.s
-.PHONY : home/champ/Git/crows/src/ai/Ai.cpp.s
+C_/Users/champ/Git/crows/src/ai/Ai.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/ai/Ai.cpp.s
+.PHONY : C_/Users/champ/Git/crows/src/ai/Ai.cpp.s
 
-home/champ/Git/crows/src/anima/interface/button/Button.o: home/champ/Git/crows/src/anima/interface/button/Button.cpp.o
+C_/Users/champ/Git/crows/src/anima/interface/button/Button.obj: C_/Users/champ/Git/crows/src/anima/interface/button/Button.cpp.obj
 
-.PHONY : home/champ/Git/crows/src/anima/interface/button/Button.o
+.PHONY : C_/Users/champ/Git/crows/src/anima/interface/button/Button.obj
 
 # target to build an object file
-home/champ/Git/crows/src/anima/interface/button/Button.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/button/Button.cpp.o
-.PHONY : home/champ/Git/crows/src/anima/interface/button/Button.cpp.o
+C_/Users/champ/Git/crows/src/anima/interface/button/Button.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/anima/interface/button/Button.cpp.obj
+.PHONY : C_/Users/champ/Git/crows/src/anima/interface/button/Button.cpp.obj
 
-home/champ/Git/crows/src/anima/interface/button/Button.i: home/champ/Git/crows/src/anima/interface/button/Button.cpp.i
+C_/Users/champ/Git/crows/src/anima/interface/button/Button.i: C_/Users/champ/Git/crows/src/anima/interface/button/Button.cpp.i
 
-.PHONY : home/champ/Git/crows/src/anima/interface/button/Button.i
+.PHONY : C_/Users/champ/Git/crows/src/anima/interface/button/Button.i
 
 # target to preprocess a source file
-home/champ/Git/crows/src/anima/interface/button/Button.cpp.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/button/Button.cpp.i
-.PHONY : home/champ/Git/crows/src/anima/interface/button/Button.cpp.i
+C_/Users/champ/Git/crows/src/anima/interface/button/Button.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/anima/interface/button/Button.cpp.i
+.PHONY : C_/Users/champ/Git/crows/src/anima/interface/button/Button.cpp.i
 
-home/champ/Git/crows/src/anima/interface/button/Button.s: home/champ/Git/crows/src/anima/interface/button/Button.cpp.s
+C_/Users/champ/Git/crows/src/anima/interface/button/Button.s: C_/Users/champ/Git/crows/src/anima/interface/button/Button.cpp.s
 
-.PHONY : home/champ/Git/crows/src/anima/interface/button/Button.s
+.PHONY : C_/Users/champ/Git/crows/src/anima/interface/button/Button.s
 
 # target to generate assembly for a file
-home/champ/Git/crows/src/anima/interface/button/Button.cpp.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/button/Button.cpp.s
-.PHONY : home/champ/Git/crows/src/anima/interface/button/Button.cpp.s
+C_/Users/champ/Git/crows/src/anima/interface/button/Button.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/anima/interface/button/Button.cpp.s
+.PHONY : C_/Users/champ/Git/crows/src/anima/interface/button/Button.cpp.s
 
-home/champ/Git/crows/src/anima/interface/character/Character.o: home/champ/Git/crows/src/anima/interface/character/Character.cpp.o
+C_/Users/champ/Git/crows/src/anima/interface/character/Character.obj: C_/Users/champ/Git/crows/src/anima/interface/character/Character.cpp.obj
 
-.PHONY : home/champ/Git/crows/src/anima/interface/character/Character.o
+.PHONY : C_/Users/champ/Git/crows/src/anima/interface/character/Character.obj
 
 # target to build an object file
-home/champ/Git/crows/src/anima/interface/character/Character.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/Character.cpp.o
-.PHONY : home/champ/Git/crows/src/anima/interface/character/Character.cpp.o
+C_/Users/champ/Git/crows/src/anima/interface/character/Character.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/anima/interface/character/Character.cpp.obj
+.PHONY : C_/Users/champ/Git/crows/src/anima/interface/character/Character.cpp.obj
 
-home/champ/Git/crows/src/anima/interface/character/Character.i: home/champ/Git/crows/src/anima/interface/character/Character.cpp.i
+C_/Users/champ/Git/crows/src/anima/interface/character/Character.i: C_/Users/champ/Git/crows/src/anima/interface/character/Character.cpp.i
 
-.PHONY : home/champ/Git/crows/src/anima/interface/character/Character.i
+.PHONY : C_/Users/champ/Git/crows/src/anima/interface/character/Character.i
 
 # target to preprocess a source file
-home/champ/Git/crows/src/anima/interface/character/Character.cpp.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/Character.cpp.i
-.PHONY : home/champ/Git/crows/src/anima/interface/character/Character.cpp.i
+C_/Users/champ/Git/crows/src/anima/interface/character/Character.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/anima/interface/character/Character.cpp.i
+.PHONY : C_/Users/champ/Git/crows/src/anima/interface/character/Character.cpp.i
 
-home/champ/Git/crows/src/anima/interface/character/Character.s: home/champ/Git/crows/src/anima/interface/character/Character.cpp.s
+C_/Users/champ/Git/crows/src/anima/interface/character/Character.s: C_/Users/champ/Git/crows/src/anima/interface/character/Character.cpp.s
 
-.PHONY : home/champ/Git/crows/src/anima/interface/character/Character.s
+.PHONY : C_/Users/champ/Git/crows/src/anima/interface/character/Character.s
 
 # target to generate assembly for a file
-home/champ/Git/crows/src/anima/interface/character/Character.cpp.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/Character.cpp.s
-.PHONY : home/champ/Git/crows/src/anima/interface/character/Character.cpp.s
+C_/Users/champ/Git/crows/src/anima/interface/character/Character.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/anima/interface/character/Character.cpp.s
+.PHONY : C_/Users/champ/Git/crows/src/anima/interface/character/Character.cpp.s
 
-home/champ/Git/crows/src/anima/interface/character/CharacterSet.o: home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.o
+C_/Users/champ/Git/crows/src/anima/interface/character/CharacterSet.obj: C_/Users/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.obj
 
-.PHONY : home/champ/Git/crows/src/anima/interface/character/CharacterSet.o
+.PHONY : C_/Users/champ/Git/crows/src/anima/interface/character/CharacterSet.obj
 
 # target to build an object file
-home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.o
-.PHONY : home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.o
+C_/Users/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.obj
+.PHONY : C_/Users/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.obj
 
-home/champ/Git/crows/src/anima/interface/character/CharacterSet.i: home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.i
+C_/Users/champ/Git/crows/src/anima/interface/character/CharacterSet.i: C_/Users/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.i
 
-.PHONY : home/champ/Git/crows/src/anima/interface/character/CharacterSet.i
+.PHONY : C_/Users/champ/Git/crows/src/anima/interface/character/CharacterSet.i
 
 # target to preprocess a source file
-home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.i
-.PHONY : home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.i
+C_/Users/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.i
+.PHONY : C_/Users/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.i
 
-home/champ/Git/crows/src/anima/interface/character/CharacterSet.s: home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.s
+C_/Users/champ/Git/crows/src/anima/interface/character/CharacterSet.s: C_/Users/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.s
 
-.PHONY : home/champ/Git/crows/src/anima/interface/character/CharacterSet.s
+.PHONY : C_/Users/champ/Git/crows/src/anima/interface/character/CharacterSet.s
 
 # target to generate assembly for a file
-home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.s
-.PHONY : home/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.s
+C_/Users/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.s
+.PHONY : C_/Users/champ/Git/crows/src/anima/interface/character/CharacterSet.cpp.s
 
-home/champ/Git/crows/src/controller/standardcontroller/StandardController.o: home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o
+C_/Users/champ/Git/crows/src/controller/standardcontroller/StandardController.obj: C_/Users/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.obj
 
-.PHONY : home/champ/Git/crows/src/controller/standardcontroller/StandardController.o
+.PHONY : C_/Users/champ/Git/crows/src/controller/standardcontroller/StandardController.obj
 
 # target to build an object file
-home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o
-.PHONY : home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.o
+C_/Users/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.obj
+.PHONY : C_/Users/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.obj
 
-home/champ/Git/crows/src/controller/standardcontroller/StandardController.i: home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.i
+C_/Users/champ/Git/crows/src/controller/standardcontroller/StandardController.i: C_/Users/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.i
 
-.PHONY : home/champ/Git/crows/src/controller/standardcontroller/StandardController.i
+.PHONY : C_/Users/champ/Git/crows/src/controller/standardcontroller/StandardController.i
 
 # target to preprocess a source file
-home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.i
-.PHONY : home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.i
+C_/Users/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.i
+.PHONY : C_/Users/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.i
 
-home/champ/Git/crows/src/controller/standardcontroller/StandardController.s: home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.s
+C_/Users/champ/Git/crows/src/controller/standardcontroller/StandardController.s: C_/Users/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.s
 
-.PHONY : home/champ/Git/crows/src/controller/standardcontroller/StandardController.s
+.PHONY : C_/Users/champ/Git/crows/src/controller/standardcontroller/StandardController.s
 
 # target to generate assembly for a file
-home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.s
-.PHONY : home/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.s
+C_/Users/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.s
+.PHONY : C_/Users/champ/Git/crows/src/controller/standardcontroller/StandardController.cpp.s
 
-home/champ/Git/crows/src/generator/InterfaceGenerator.o: home/champ/Git/crows/src/generator/InterfaceGenerator.cpp.o
+C_/Users/champ/Git/crows/src/generator/InterfaceGenerator.obj: C_/Users/champ/Git/crows/src/generator/InterfaceGenerator.cpp.obj
 
-.PHONY : home/champ/Git/crows/src/generator/InterfaceGenerator.o
+.PHONY : C_/Users/champ/Git/crows/src/generator/InterfaceGenerator.obj
 
 # target to build an object file
-home/champ/Git/crows/src/generator/InterfaceGenerator.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/InterfaceGenerator.cpp.o
-.PHONY : home/champ/Git/crows/src/generator/InterfaceGenerator.cpp.o
+C_/Users/champ/Git/crows/src/generator/InterfaceGenerator.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/generator/InterfaceGenerator.cpp.obj
+.PHONY : C_/Users/champ/Git/crows/src/generator/InterfaceGenerator.cpp.obj
 
-home/champ/Git/crows/src/generator/InterfaceGenerator.i: home/champ/Git/crows/src/generator/InterfaceGenerator.cpp.i
+C_/Users/champ/Git/crows/src/generator/InterfaceGenerator.i: C_/Users/champ/Git/crows/src/generator/InterfaceGenerator.cpp.i
 
-.PHONY : home/champ/Git/crows/src/generator/InterfaceGenerator.i
+.PHONY : C_/Users/champ/Git/crows/src/generator/InterfaceGenerator.i
 
 # target to preprocess a source file
-home/champ/Git/crows/src/generator/InterfaceGenerator.cpp.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/InterfaceGenerator.cpp.i
-.PHONY : home/champ/Git/crows/src/generator/InterfaceGenerator.cpp.i
+C_/Users/champ/Git/crows/src/generator/InterfaceGenerator.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/generator/InterfaceGenerator.cpp.i
+.PHONY : C_/Users/champ/Git/crows/src/generator/InterfaceGenerator.cpp.i
 
-home/champ/Git/crows/src/generator/InterfaceGenerator.s: home/champ/Git/crows/src/generator/InterfaceGenerator.cpp.s
+C_/Users/champ/Git/crows/src/generator/InterfaceGenerator.s: C_/Users/champ/Git/crows/src/generator/InterfaceGenerator.cpp.s
 
-.PHONY : home/champ/Git/crows/src/generator/InterfaceGenerator.s
+.PHONY : C_/Users/champ/Git/crows/src/generator/InterfaceGenerator.s
 
 # target to generate assembly for a file
-home/champ/Git/crows/src/generator/InterfaceGenerator.cpp.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/InterfaceGenerator.cpp.s
-.PHONY : home/champ/Git/crows/src/generator/InterfaceGenerator.cpp.s
+C_/Users/champ/Git/crows/src/generator/InterfaceGenerator.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/generator/InterfaceGenerator.cpp.s
+.PHONY : C_/Users/champ/Git/crows/src/generator/InterfaceGenerator.cpp.s
 
-home/champ/Git/crows/src/generator/SpriteGenerator.o: home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o
+C_/Users/champ/Git/crows/src/generator/SpriteGenerator.obj: C_/Users/champ/Git/crows/src/generator/SpriteGenerator.cpp.obj
 
-.PHONY : home/champ/Git/crows/src/generator/SpriteGenerator.o
+.PHONY : C_/Users/champ/Git/crows/src/generator/SpriteGenerator.obj
 
 # target to build an object file
-home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o
-.PHONY : home/champ/Git/crows/src/generator/SpriteGenerator.cpp.o
+C_/Users/champ/Git/crows/src/generator/SpriteGenerator.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/generator/SpriteGenerator.cpp.obj
+.PHONY : C_/Users/champ/Git/crows/src/generator/SpriteGenerator.cpp.obj
 
-home/champ/Git/crows/src/generator/SpriteGenerator.i: home/champ/Git/crows/src/generator/SpriteGenerator.cpp.i
+C_/Users/champ/Git/crows/src/generator/SpriteGenerator.i: C_/Users/champ/Git/crows/src/generator/SpriteGenerator.cpp.i
 
-.PHONY : home/champ/Git/crows/src/generator/SpriteGenerator.i
+.PHONY : C_/Users/champ/Git/crows/src/generator/SpriteGenerator.i
 
 # target to preprocess a source file
-home/champ/Git/crows/src/generator/SpriteGenerator.cpp.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.i
-.PHONY : home/champ/Git/crows/src/generator/SpriteGenerator.cpp.i
+C_/Users/champ/Git/crows/src/generator/SpriteGenerator.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/generator/SpriteGenerator.cpp.i
+.PHONY : C_/Users/champ/Git/crows/src/generator/SpriteGenerator.cpp.i
 
-home/champ/Git/crows/src/generator/SpriteGenerator.s: home/champ/Git/crows/src/generator/SpriteGenerator.cpp.s
+C_/Users/champ/Git/crows/src/generator/SpriteGenerator.s: C_/Users/champ/Git/crows/src/generator/SpriteGenerator.cpp.s
 
-.PHONY : home/champ/Git/crows/src/generator/SpriteGenerator.s
+.PHONY : C_/Users/champ/Git/crows/src/generator/SpriteGenerator.s
 
 # target to generate assembly for a file
-home/champ/Git/crows/src/generator/SpriteGenerator.cpp.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/generator/SpriteGenerator.cpp.s
-.PHONY : home/champ/Git/crows/src/generator/SpriteGenerator.cpp.s
+C_/Users/champ/Git/crows/src/generator/SpriteGenerator.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/generator/SpriteGenerator.cpp.s
+.PHONY : C_/Users/champ/Git/crows/src/generator/SpriteGenerator.cpp.s
 
-home/champ/Git/crows/src/habitat/garbage/Garbage.o: home/champ/Git/crows/src/habitat/garbage/Garbage.cpp.o
+C_/Users/champ/Git/crows/src/habitat/garbage/Garbage.obj: C_/Users/champ/Git/crows/src/habitat/garbage/Garbage.cpp.obj
 
-.PHONY : home/champ/Git/crows/src/habitat/garbage/Garbage.o
+.PHONY : C_/Users/champ/Git/crows/src/habitat/garbage/Garbage.obj
 
 # target to build an object file
-home/champ/Git/crows/src/habitat/garbage/Garbage.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/garbage/Garbage.cpp.o
-.PHONY : home/champ/Git/crows/src/habitat/garbage/Garbage.cpp.o
+C_/Users/champ/Git/crows/src/habitat/garbage/Garbage.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/habitat/garbage/Garbage.cpp.obj
+.PHONY : C_/Users/champ/Git/crows/src/habitat/garbage/Garbage.cpp.obj
 
-home/champ/Git/crows/src/habitat/garbage/Garbage.i: home/champ/Git/crows/src/habitat/garbage/Garbage.cpp.i
+C_/Users/champ/Git/crows/src/habitat/garbage/Garbage.i: C_/Users/champ/Git/crows/src/habitat/garbage/Garbage.cpp.i
 
-.PHONY : home/champ/Git/crows/src/habitat/garbage/Garbage.i
+.PHONY : C_/Users/champ/Git/crows/src/habitat/garbage/Garbage.i
 
 # target to preprocess a source file
-home/champ/Git/crows/src/habitat/garbage/Garbage.cpp.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/garbage/Garbage.cpp.i
-.PHONY : home/champ/Git/crows/src/habitat/garbage/Garbage.cpp.i
+C_/Users/champ/Git/crows/src/habitat/garbage/Garbage.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/habitat/garbage/Garbage.cpp.i
+.PHONY : C_/Users/champ/Git/crows/src/habitat/garbage/Garbage.cpp.i
 
-home/champ/Git/crows/src/habitat/garbage/Garbage.s: home/champ/Git/crows/src/habitat/garbage/Garbage.cpp.s
+C_/Users/champ/Git/crows/src/habitat/garbage/Garbage.s: C_/Users/champ/Git/crows/src/habitat/garbage/Garbage.cpp.s
 
-.PHONY : home/champ/Git/crows/src/habitat/garbage/Garbage.s
+.PHONY : C_/Users/champ/Git/crows/src/habitat/garbage/Garbage.s
 
 # target to generate assembly for a file
-home/champ/Git/crows/src/habitat/garbage/Garbage.cpp.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/garbage/Garbage.cpp.s
-.PHONY : home/champ/Git/crows/src/habitat/garbage/Garbage.cpp.s
+C_/Users/champ/Git/crows/src/habitat/garbage/Garbage.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/habitat/garbage/Garbage.cpp.s
+.PHONY : C_/Users/champ/Git/crows/src/habitat/garbage/Garbage.cpp.s
 
-home/champ/Git/crows/src/habitat/tree/Tree.o: home/champ/Git/crows/src/habitat/tree/Tree.cpp.o
+C_/Users/champ/Git/crows/src/habitat/tree/Tree.obj: C_/Users/champ/Git/crows/src/habitat/tree/Tree.cpp.obj
 
-.PHONY : home/champ/Git/crows/src/habitat/tree/Tree.o
+.PHONY : C_/Users/champ/Git/crows/src/habitat/tree/Tree.obj
 
 # target to build an object file
-home/champ/Git/crows/src/habitat/tree/Tree.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/tree/Tree.cpp.o
-.PHONY : home/champ/Git/crows/src/habitat/tree/Tree.cpp.o
+C_/Users/champ/Git/crows/src/habitat/tree/Tree.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/habitat/tree/Tree.cpp.obj
+.PHONY : C_/Users/champ/Git/crows/src/habitat/tree/Tree.cpp.obj
 
-home/champ/Git/crows/src/habitat/tree/Tree.i: home/champ/Git/crows/src/habitat/tree/Tree.cpp.i
+C_/Users/champ/Git/crows/src/habitat/tree/Tree.i: C_/Users/champ/Git/crows/src/habitat/tree/Tree.cpp.i
 
-.PHONY : home/champ/Git/crows/src/habitat/tree/Tree.i
+.PHONY : C_/Users/champ/Git/crows/src/habitat/tree/Tree.i
 
 # target to preprocess a source file
-home/champ/Git/crows/src/habitat/tree/Tree.cpp.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/tree/Tree.cpp.i
-.PHONY : home/champ/Git/crows/src/habitat/tree/Tree.cpp.i
+C_/Users/champ/Git/crows/src/habitat/tree/Tree.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/habitat/tree/Tree.cpp.i
+.PHONY : C_/Users/champ/Git/crows/src/habitat/tree/Tree.cpp.i
 
-home/champ/Git/crows/src/habitat/tree/Tree.s: home/champ/Git/crows/src/habitat/tree/Tree.cpp.s
+C_/Users/champ/Git/crows/src/habitat/tree/Tree.s: C_/Users/champ/Git/crows/src/habitat/tree/Tree.cpp.s
 
-.PHONY : home/champ/Git/crows/src/habitat/tree/Tree.s
+.PHONY : C_/Users/champ/Git/crows/src/habitat/tree/Tree.s
 
 # target to generate assembly for a file
-home/champ/Git/crows/src/habitat/tree/Tree.cpp.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/habitat/tree/Tree.cpp.s
-.PHONY : home/champ/Git/crows/src/habitat/tree/Tree.cpp.s
+C_/Users/champ/Git/crows/src/habitat/tree/Tree.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/habitat/tree/Tree.cpp.s
+.PHONY : C_/Users/champ/Git/crows/src/habitat/tree/Tree.cpp.s
 
-home/champ/Git/crows/src/service/Manipulator.o: home/champ/Git/crows/src/service/Manipulator.cpp.o
+C_/Users/champ/Git/crows/src/service/Manipulator.obj: C_/Users/champ/Git/crows/src/service/Manipulator.cpp.obj
 
-.PHONY : home/champ/Git/crows/src/service/Manipulator.o
+.PHONY : C_/Users/champ/Git/crows/src/service/Manipulator.obj
 
 # target to build an object file
-home/champ/Git/crows/src/service/Manipulator.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/Manipulator.cpp.o
-.PHONY : home/champ/Git/crows/src/service/Manipulator.cpp.o
+C_/Users/champ/Git/crows/src/service/Manipulator.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/service/Manipulator.cpp.obj
+.PHONY : C_/Users/champ/Git/crows/src/service/Manipulator.cpp.obj
 
-home/champ/Git/crows/src/service/Manipulator.i: home/champ/Git/crows/src/service/Manipulator.cpp.i
+C_/Users/champ/Git/crows/src/service/Manipulator.i: C_/Users/champ/Git/crows/src/service/Manipulator.cpp.i
 
-.PHONY : home/champ/Git/crows/src/service/Manipulator.i
+.PHONY : C_/Users/champ/Git/crows/src/service/Manipulator.i
 
 # target to preprocess a source file
-home/champ/Git/crows/src/service/Manipulator.cpp.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/Manipulator.cpp.i
-.PHONY : home/champ/Git/crows/src/service/Manipulator.cpp.i
+C_/Users/champ/Git/crows/src/service/Manipulator.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/service/Manipulator.cpp.i
+.PHONY : C_/Users/champ/Git/crows/src/service/Manipulator.cpp.i
 
-home/champ/Git/crows/src/service/Manipulator.s: home/champ/Git/crows/src/service/Manipulator.cpp.s
+C_/Users/champ/Git/crows/src/service/Manipulator.s: C_/Users/champ/Git/crows/src/service/Manipulator.cpp.s
 
-.PHONY : home/champ/Git/crows/src/service/Manipulator.s
+.PHONY : C_/Users/champ/Git/crows/src/service/Manipulator.s
 
 # target to generate assembly for a file
-home/champ/Git/crows/src/service/Manipulator.cpp.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/Manipulator.cpp.s
-.PHONY : home/champ/Git/crows/src/service/Manipulator.cpp.s
+C_/Users/champ/Git/crows/src/service/Manipulator.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/service/Manipulator.cpp.s
+.PHONY : C_/Users/champ/Git/crows/src/service/Manipulator.cpp.s
 
-home/champ/Git/crows/src/service/PathFinder.o: home/champ/Git/crows/src/service/PathFinder.cpp.o
+C_/Users/champ/Git/crows/src/service/PathFinder.obj: C_/Users/champ/Git/crows/src/service/PathFinder.cpp.obj
 
-.PHONY : home/champ/Git/crows/src/service/PathFinder.o
+.PHONY : C_/Users/champ/Git/crows/src/service/PathFinder.obj
 
 # target to build an object file
-home/champ/Git/crows/src/service/PathFinder.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.o
-.PHONY : home/champ/Git/crows/src/service/PathFinder.cpp.o
+C_/Users/champ/Git/crows/src/service/PathFinder.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/service/PathFinder.cpp.obj
+.PHONY : C_/Users/champ/Git/crows/src/service/PathFinder.cpp.obj
 
-home/champ/Git/crows/src/service/PathFinder.i: home/champ/Git/crows/src/service/PathFinder.cpp.i
+C_/Users/champ/Git/crows/src/service/PathFinder.i: C_/Users/champ/Git/crows/src/service/PathFinder.cpp.i
 
-.PHONY : home/champ/Git/crows/src/service/PathFinder.i
+.PHONY : C_/Users/champ/Git/crows/src/service/PathFinder.i
 
 # target to preprocess a source file
-home/champ/Git/crows/src/service/PathFinder.cpp.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.i
-.PHONY : home/champ/Git/crows/src/service/PathFinder.cpp.i
+C_/Users/champ/Git/crows/src/service/PathFinder.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/service/PathFinder.cpp.i
+.PHONY : C_/Users/champ/Git/crows/src/service/PathFinder.cpp.i
 
-home/champ/Git/crows/src/service/PathFinder.s: home/champ/Git/crows/src/service/PathFinder.cpp.s
+C_/Users/champ/Git/crows/src/service/PathFinder.s: C_/Users/champ/Git/crows/src/service/PathFinder.cpp.s
 
-.PHONY : home/champ/Git/crows/src/service/PathFinder.s
+.PHONY : C_/Users/champ/Git/crows/src/service/PathFinder.s
 
 # target to generate assembly for a file
-home/champ/Git/crows/src/service/PathFinder.cpp.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/service/PathFinder.cpp.s
-.PHONY : home/champ/Git/crows/src/service/PathFinder.cpp.s
+C_/Users/champ/Git/crows/src/service/PathFinder.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/service/PathFinder.cpp.s
+.PHONY : C_/Users/champ/Git/crows/src/service/PathFinder.cpp.s
 
-home/champ/Git/crows/src/sprite/AdvancedSprite.o: home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.o
+C_/Users/champ/Git/crows/src/sprite/AdvancedSprite.obj: C_/Users/champ/Git/crows/src/sprite/AdvancedSprite.cpp.obj
 
-.PHONY : home/champ/Git/crows/src/sprite/AdvancedSprite.o
+.PHONY : C_/Users/champ/Git/crows/src/sprite/AdvancedSprite.obj
 
 # target to build an object file
-home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.o
-.PHONY : home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.o
+C_/Users/champ/Git/crows/src/sprite/AdvancedSprite.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/sprite/AdvancedSprite.cpp.obj
+.PHONY : C_/Users/champ/Git/crows/src/sprite/AdvancedSprite.cpp.obj
 
-home/champ/Git/crows/src/sprite/AdvancedSprite.i: home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.i
+C_/Users/champ/Git/crows/src/sprite/AdvancedSprite.i: C_/Users/champ/Git/crows/src/sprite/AdvancedSprite.cpp.i
 
-.PHONY : home/champ/Git/crows/src/sprite/AdvancedSprite.i
+.PHONY : C_/Users/champ/Git/crows/src/sprite/AdvancedSprite.i
 
 # target to preprocess a source file
-home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.i
-.PHONY : home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.i
+C_/Users/champ/Git/crows/src/sprite/AdvancedSprite.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/sprite/AdvancedSprite.cpp.i
+.PHONY : C_/Users/champ/Git/crows/src/sprite/AdvancedSprite.cpp.i
 
-home/champ/Git/crows/src/sprite/AdvancedSprite.s: home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.s
+C_/Users/champ/Git/crows/src/sprite/AdvancedSprite.s: C_/Users/champ/Git/crows/src/sprite/AdvancedSprite.cpp.s
 
-.PHONY : home/champ/Git/crows/src/sprite/AdvancedSprite.s
+.PHONY : C_/Users/champ/Git/crows/src/sprite/AdvancedSprite.s
 
 # target to generate assembly for a file
-home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.s
-.PHONY : home/champ/Git/crows/src/sprite/AdvancedSprite.cpp.s
+C_/Users/champ/Git/crows/src/sprite/AdvancedSprite.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/sprite/AdvancedSprite.cpp.s
+.PHONY : C_/Users/champ/Git/crows/src/sprite/AdvancedSprite.cpp.s
 
-home/champ/Git/crows/src/sprite/Sprite.o: home/champ/Git/crows/src/sprite/Sprite.cpp.o
+C_/Users/champ/Git/crows/src/sprite/Sprite.obj: C_/Users/champ/Git/crows/src/sprite/Sprite.cpp.obj
 
-.PHONY : home/champ/Git/crows/src/sprite/Sprite.o
+.PHONY : C_/Users/champ/Git/crows/src/sprite/Sprite.obj
 
 # target to build an object file
-home/champ/Git/crows/src/sprite/Sprite.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.o
-.PHONY : home/champ/Git/crows/src/sprite/Sprite.cpp.o
+C_/Users/champ/Git/crows/src/sprite/Sprite.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/sprite/Sprite.cpp.obj
+.PHONY : C_/Users/champ/Git/crows/src/sprite/Sprite.cpp.obj
 
-home/champ/Git/crows/src/sprite/Sprite.i: home/champ/Git/crows/src/sprite/Sprite.cpp.i
+C_/Users/champ/Git/crows/src/sprite/Sprite.i: C_/Users/champ/Git/crows/src/sprite/Sprite.cpp.i
 
-.PHONY : home/champ/Git/crows/src/sprite/Sprite.i
+.PHONY : C_/Users/champ/Git/crows/src/sprite/Sprite.i
 
 # target to preprocess a source file
-home/champ/Git/crows/src/sprite/Sprite.cpp.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.i
-.PHONY : home/champ/Git/crows/src/sprite/Sprite.cpp.i
+C_/Users/champ/Git/crows/src/sprite/Sprite.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/sprite/Sprite.cpp.i
+.PHONY : C_/Users/champ/Git/crows/src/sprite/Sprite.cpp.i
 
-home/champ/Git/crows/src/sprite/Sprite.s: home/champ/Git/crows/src/sprite/Sprite.cpp.s
+C_/Users/champ/Git/crows/src/sprite/Sprite.s: C_/Users/champ/Git/crows/src/sprite/Sprite.cpp.s
 
-.PHONY : home/champ/Git/crows/src/sprite/Sprite.s
+.PHONY : C_/Users/champ/Git/crows/src/sprite/Sprite.s
 
 # target to generate assembly for a file
-home/champ/Git/crows/src/sprite/Sprite.cpp.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/sprite/Sprite.cpp.s
-.PHONY : home/champ/Git/crows/src/sprite/Sprite.cpp.s
+C_/Users/champ/Git/crows/src/sprite/Sprite.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/sprite/Sprite.cpp.s
+.PHONY : C_/Users/champ/Git/crows/src/sprite/Sprite.cpp.s
 
-home/champ/Git/crows/src/utility/DayManager.o: home/champ/Git/crows/src/utility/DayManager.cpp.o
+C_/Users/champ/Git/crows/src/utility/DayManager.obj: C_/Users/champ/Git/crows/src/utility/DayManager.cpp.obj
 
-.PHONY : home/champ/Git/crows/src/utility/DayManager.o
+.PHONY : C_/Users/champ/Git/crows/src/utility/DayManager.obj
 
 # target to build an object file
-home/champ/Git/crows/src/utility/DayManager.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/DayManager.cpp.o
-.PHONY : home/champ/Git/crows/src/utility/DayManager.cpp.o
+C_/Users/champ/Git/crows/src/utility/DayManager.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/utility/DayManager.cpp.obj
+.PHONY : C_/Users/champ/Git/crows/src/utility/DayManager.cpp.obj
 
-home/champ/Git/crows/src/utility/DayManager.i: home/champ/Git/crows/src/utility/DayManager.cpp.i
+C_/Users/champ/Git/crows/src/utility/DayManager.i: C_/Users/champ/Git/crows/src/utility/DayManager.cpp.i
 
-.PHONY : home/champ/Git/crows/src/utility/DayManager.i
+.PHONY : C_/Users/champ/Git/crows/src/utility/DayManager.i
 
 # target to preprocess a source file
-home/champ/Git/crows/src/utility/DayManager.cpp.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/DayManager.cpp.i
-.PHONY : home/champ/Git/crows/src/utility/DayManager.cpp.i
+C_/Users/champ/Git/crows/src/utility/DayManager.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/utility/DayManager.cpp.i
+.PHONY : C_/Users/champ/Git/crows/src/utility/DayManager.cpp.i
 
-home/champ/Git/crows/src/utility/DayManager.s: home/champ/Git/crows/src/utility/DayManager.cpp.s
+C_/Users/champ/Git/crows/src/utility/DayManager.s: C_/Users/champ/Git/crows/src/utility/DayManager.cpp.s
 
-.PHONY : home/champ/Git/crows/src/utility/DayManager.s
+.PHONY : C_/Users/champ/Git/crows/src/utility/DayManager.s
 
 # target to generate assembly for a file
-home/champ/Git/crows/src/utility/DayManager.cpp.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/DayManager.cpp.s
-.PHONY : home/champ/Git/crows/src/utility/DayManager.cpp.s
+C_/Users/champ/Git/crows/src/utility/DayManager.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/utility/DayManager.cpp.s
+.PHONY : C_/Users/champ/Git/crows/src/utility/DayManager.cpp.s
 
-home/champ/Git/crows/src/utility/LevelMaker.o: home/champ/Git/crows/src/utility/LevelMaker.cpp.o
+C_/Users/champ/Git/crows/src/utility/LevelMaker.obj: C_/Users/champ/Git/crows/src/utility/LevelMaker.cpp.obj
 
-.PHONY : home/champ/Git/crows/src/utility/LevelMaker.o
+.PHONY : C_/Users/champ/Git/crows/src/utility/LevelMaker.obj
 
 # target to build an object file
-home/champ/Git/crows/src/utility/LevelMaker.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/LevelMaker.cpp.o
-.PHONY : home/champ/Git/crows/src/utility/LevelMaker.cpp.o
+C_/Users/champ/Git/crows/src/utility/LevelMaker.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/utility/LevelMaker.cpp.obj
+.PHONY : C_/Users/champ/Git/crows/src/utility/LevelMaker.cpp.obj
 
-home/champ/Git/crows/src/utility/LevelMaker.i: home/champ/Git/crows/src/utility/LevelMaker.cpp.i
+C_/Users/champ/Git/crows/src/utility/LevelMaker.i: C_/Users/champ/Git/crows/src/utility/LevelMaker.cpp.i
 
-.PHONY : home/champ/Git/crows/src/utility/LevelMaker.i
+.PHONY : C_/Users/champ/Git/crows/src/utility/LevelMaker.i
 
 # target to preprocess a source file
-home/champ/Git/crows/src/utility/LevelMaker.cpp.i:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/LevelMaker.cpp.i
-.PHONY : home/champ/Git/crows/src/utility/LevelMaker.cpp.i
+C_/Users/champ/Git/crows/src/utility/LevelMaker.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/utility/LevelMaker.cpp.i
+.PHONY : C_/Users/champ/Git/crows/src/utility/LevelMaker.cpp.i
 
-home/champ/Git/crows/src/utility/LevelMaker.s: home/champ/Git/crows/src/utility/LevelMaker.cpp.s
+C_/Users/champ/Git/crows/src/utility/LevelMaker.s: C_/Users/champ/Git/crows/src/utility/LevelMaker.cpp.s
 
-.PHONY : home/champ/Git/crows/src/utility/LevelMaker.s
+.PHONY : C_/Users/champ/Git/crows/src/utility/LevelMaker.s
 
 # target to generate assembly for a file
-home/champ/Git/crows/src/utility/LevelMaker.cpp.s:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/home/champ/Git/crows/src/utility/LevelMaker.cpp.s
-.PHONY : home/champ/Git/crows/src/utility/LevelMaker.cpp.s
+C_/Users/champ/Git/crows/src/utility/LevelMaker.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/utility/LevelMaker.cpp.s
+.PHONY : C_/Users/champ/Git/crows/src/utility/LevelMaker.cpp.s
 
-opulence.o: opulence.cpp.o
+opulence.obj: opulence.cpp.obj
 
-.PHONY : opulence.o
+.PHONY : opulence.obj
 
 # target to build an object file
-opulence.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/opulence.cpp.o
-.PHONY : opulence.cpp.o
+opulence.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/opulence.cpp.obj
+.PHONY : opulence.cpp.obj
 
 opulence.i: opulence.cpp.i
 
@@ -582,14 +582,14 @@ opulence.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/opulence.cpp.s
 .PHONY : opulence.cpp.s
 
-src/entity/Entity.o: src/entity/Entity.cpp.o
+src/entity/Entity.obj: src/entity/Entity.cpp.obj
 
-.PHONY : src/entity/Entity.o
+.PHONY : src/entity/Entity.obj
 
 # target to build an object file
-src/entity/Entity.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/Entity.cpp.o
-.PHONY : src/entity/Entity.cpp.o
+src/entity/Entity.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/Entity.cpp.obj
+.PHONY : src/entity/Entity.cpp.obj
 
 src/entity/Entity.i: src/entity/Entity.cpp.i
 
@@ -609,14 +609,14 @@ src/entity/Entity.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/Entity.cpp.s
 .PHONY : src/entity/Entity.cpp.s
 
-src/entity/animation/Animation.o: src/entity/animation/Animation.cpp.o
+src/entity/animation/Animation.obj: src/entity/animation/Animation.cpp.obj
 
-.PHONY : src/entity/animation/Animation.o
+.PHONY : src/entity/animation/Animation.obj
 
 # target to build an object file
-src/entity/animation/Animation.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.o
-.PHONY : src/entity/animation/Animation.cpp.o
+src/entity/animation/Animation.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.obj
+.PHONY : src/entity/animation/Animation.cpp.obj
 
 src/entity/animation/Animation.i: src/entity/animation/Animation.cpp.i
 
@@ -636,14 +636,14 @@ src/entity/animation/Animation.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/animation/Animation.cpp.s
 .PHONY : src/entity/animation/Animation.cpp.s
 
-src/entity/camera/Camera.o: src/entity/camera/Camera.cpp.o
+src/entity/camera/Camera.obj: src/entity/camera/Camera.cpp.obj
 
-.PHONY : src/entity/camera/Camera.o
+.PHONY : src/entity/camera/Camera.obj
 
 # target to build an object file
-src/entity/camera/Camera.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/camera/Camera.cpp.o
-.PHONY : src/entity/camera/Camera.cpp.o
+src/entity/camera/Camera.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/camera/Camera.cpp.obj
+.PHONY : src/entity/camera/Camera.cpp.obj
 
 src/entity/camera/Camera.i: src/entity/camera/Camera.cpp.i
 
@@ -663,14 +663,14 @@ src/entity/camera/Camera.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/camera/Camera.cpp.s
 .PHONY : src/entity/camera/Camera.cpp.s
 
-src/entity/camera/RtsCamera.o: src/entity/camera/RtsCamera.cpp.o
+src/entity/camera/RtsCamera.obj: src/entity/camera/RtsCamera.cpp.obj
 
-.PHONY : src/entity/camera/RtsCamera.o
+.PHONY : src/entity/camera/RtsCamera.obj
 
 # target to build an object file
-src/entity/camera/RtsCamera.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/camera/RtsCamera.cpp.o
-.PHONY : src/entity/camera/RtsCamera.cpp.o
+src/entity/camera/RtsCamera.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/camera/RtsCamera.cpp.obj
+.PHONY : src/entity/camera/RtsCamera.cpp.obj
 
 src/entity/camera/RtsCamera.i: src/entity/camera/RtsCamera.cpp.i
 
@@ -690,14 +690,14 @@ src/entity/camera/RtsCamera.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/camera/RtsCamera.cpp.s
 .PHONY : src/entity/camera/RtsCamera.cpp.s
 
-src/entity/light/DirectionalLight.o: src/entity/light/DirectionalLight.cpp.o
+src/entity/light/DirectionalLight.obj: src/entity/light/DirectionalLight.cpp.obj
 
-.PHONY : src/entity/light/DirectionalLight.o
+.PHONY : src/entity/light/DirectionalLight.obj
 
 # target to build an object file
-src/entity/light/DirectionalLight.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/light/DirectionalLight.cpp.o
-.PHONY : src/entity/light/DirectionalLight.cpp.o
+src/entity/light/DirectionalLight.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/light/DirectionalLight.cpp.obj
+.PHONY : src/entity/light/DirectionalLight.cpp.obj
 
 src/entity/light/DirectionalLight.i: src/entity/light/DirectionalLight.cpp.i
 
@@ -717,14 +717,14 @@ src/entity/light/DirectionalLight.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/light/DirectionalLight.cpp.s
 .PHONY : src/entity/light/DirectionalLight.cpp.s
 
-src/entity/light/Light.o: src/entity/light/Light.cpp.o
+src/entity/light/Light.obj: src/entity/light/Light.cpp.obj
 
-.PHONY : src/entity/light/Light.o
+.PHONY : src/entity/light/Light.obj
 
 # target to build an object file
-src/entity/light/Light.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/light/Light.cpp.o
-.PHONY : src/entity/light/Light.cpp.o
+src/entity/light/Light.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/light/Light.cpp.obj
+.PHONY : src/entity/light/Light.cpp.obj
 
 src/entity/light/Light.i: src/entity/light/Light.cpp.i
 
@@ -744,14 +744,14 @@ src/entity/light/Light.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/light/Light.cpp.s
 .PHONY : src/entity/light/Light.cpp.s
 
-src/entity/light/PointLight.o: src/entity/light/PointLight.cpp.o
+src/entity/light/PointLight.obj: src/entity/light/PointLight.cpp.obj
 
-.PHONY : src/entity/light/PointLight.o
+.PHONY : src/entity/light/PointLight.obj
 
 # target to build an object file
-src/entity/light/PointLight.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/light/PointLight.cpp.o
-.PHONY : src/entity/light/PointLight.cpp.o
+src/entity/light/PointLight.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/light/PointLight.cpp.obj
+.PHONY : src/entity/light/PointLight.cpp.obj
 
 src/entity/light/PointLight.i: src/entity/light/PointLight.cpp.i
 
@@ -771,14 +771,14 @@ src/entity/light/PointLight.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/light/PointLight.cpp.s
 .PHONY : src/entity/light/PointLight.cpp.s
 
-src/entity/model/Model.o: src/entity/model/Model.cpp.o
+src/entity/model/Model.obj: src/entity/model/Model.cpp.obj
 
-.PHONY : src/entity/model/Model.o
+.PHONY : src/entity/model/Model.obj
 
 # target to build an object file
-src/entity/model/Model.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/model/Model.cpp.o
-.PHONY : src/entity/model/Model.cpp.o
+src/entity/model/Model.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/model/Model.cpp.obj
+.PHONY : src/entity/model/Model.cpp.obj
 
 src/entity/model/Model.i: src/entity/model/Model.cpp.i
 
@@ -798,14 +798,14 @@ src/entity/model/Model.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/entity/model/Model.cpp.s
 .PHONY : src/entity/model/Model.cpp.s
 
-src/factory/CameraFactory.o: src/factory/CameraFactory.cpp.o
+src/factory/CameraFactory.obj: src/factory/CameraFactory.cpp.obj
 
-.PHONY : src/factory/CameraFactory.o
+.PHONY : src/factory/CameraFactory.obj
 
 # target to build an object file
-src/factory/CameraFactory.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/factory/CameraFactory.cpp.o
-.PHONY : src/factory/CameraFactory.cpp.o
+src/factory/CameraFactory.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/factory/CameraFactory.cpp.obj
+.PHONY : src/factory/CameraFactory.cpp.obj
 
 src/factory/CameraFactory.i: src/factory/CameraFactory.cpp.i
 
@@ -825,14 +825,14 @@ src/factory/CameraFactory.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/factory/CameraFactory.cpp.s
 .PHONY : src/factory/CameraFactory.cpp.s
 
-src/factory/LightFactory.o: src/factory/LightFactory.cpp.o
+src/factory/LightFactory.obj: src/factory/LightFactory.cpp.obj
 
-.PHONY : src/factory/LightFactory.o
+.PHONY : src/factory/LightFactory.obj
 
 # target to build an object file
-src/factory/LightFactory.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.o
-.PHONY : src/factory/LightFactory.cpp.o
+src/factory/LightFactory.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.obj
+.PHONY : src/factory/LightFactory.cpp.obj
 
 src/factory/LightFactory.i: src/factory/LightFactory.cpp.i
 
@@ -852,14 +852,14 @@ src/factory/LightFactory.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/factory/LightFactory.cpp.s
 .PHONY : src/factory/LightFactory.cpp.s
 
-src/factory/ModelFactory.o: src/factory/ModelFactory.cpp.o
+src/factory/ModelFactory.obj: src/factory/ModelFactory.cpp.obj
 
-.PHONY : src/factory/ModelFactory.o
+.PHONY : src/factory/ModelFactory.obj
 
 # target to build an object file
-src/factory/ModelFactory.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.o
-.PHONY : src/factory/ModelFactory.cpp.o
+src/factory/ModelFactory.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.obj
+.PHONY : src/factory/ModelFactory.cpp.obj
 
 src/factory/ModelFactory.i: src/factory/ModelFactory.cpp.i
 
@@ -879,14 +879,14 @@ src/factory/ModelFactory.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/factory/ModelFactory.cpp.s
 .PHONY : src/factory/ModelFactory.cpp.s
 
-src/loader/ObjLoader.o: src/loader/ObjLoader.cpp.o
+src/loader/ObjLoader.obj: src/loader/ObjLoader.cpp.obj
 
-.PHONY : src/loader/ObjLoader.o
+.PHONY : src/loader/ObjLoader.obj
 
 # target to build an object file
-src/loader/ObjLoader.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/loader/ObjLoader.cpp.o
-.PHONY : src/loader/ObjLoader.cpp.o
+src/loader/ObjLoader.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/loader/ObjLoader.cpp.obj
+.PHONY : src/loader/ObjLoader.cpp.obj
 
 src/loader/ObjLoader.i: src/loader/ObjLoader.cpp.i
 
@@ -906,14 +906,14 @@ src/loader/ObjLoader.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/loader/ObjLoader.cpp.s
 .PHONY : src/loader/ObjLoader.cpp.s
 
-src/loader/ShaderLoader.o: src/loader/ShaderLoader.cpp.o
+src/loader/ShaderLoader.obj: src/loader/ShaderLoader.cpp.obj
 
-.PHONY : src/loader/ShaderLoader.o
+.PHONY : src/loader/ShaderLoader.obj
 
 # target to build an object file
-src/loader/ShaderLoader.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/loader/ShaderLoader.cpp.o
-.PHONY : src/loader/ShaderLoader.cpp.o
+src/loader/ShaderLoader.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/loader/ShaderLoader.cpp.obj
+.PHONY : src/loader/ShaderLoader.cpp.obj
 
 src/loader/ShaderLoader.i: src/loader/ShaderLoader.cpp.i
 
@@ -933,14 +933,14 @@ src/loader/ShaderLoader.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/loader/ShaderLoader.cpp.s
 .PHONY : src/loader/ShaderLoader.cpp.s
 
-src/service/BufferCourier.o: src/service/BufferCourier.cpp.o
+src/service/BufferCourier.obj: src/service/BufferCourier.cpp.obj
 
-.PHONY : src/service/BufferCourier.o
+.PHONY : src/service/BufferCourier.obj
 
 # target to build an object file
-src/service/BufferCourier.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.o
-.PHONY : src/service/BufferCourier.cpp.o
+src/service/BufferCourier.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.obj
+.PHONY : src/service/BufferCourier.cpp.obj
 
 src/service/BufferCourier.i: src/service/BufferCourier.cpp.i
 
@@ -960,14 +960,14 @@ src/service/BufferCourier.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/BufferCourier.cpp.s
 .PHONY : src/service/BufferCourier.cpp.s
 
-src/service/GLManager.o: src/service/GLManager.cpp.o
+src/service/GLManager.obj: src/service/GLManager.cpp.obj
 
-.PHONY : src/service/GLManager.o
+.PHONY : src/service/GLManager.obj
 
 # target to build an object file
-src/service/GLManager.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/GLManager.cpp.o
-.PHONY : src/service/GLManager.cpp.o
+src/service/GLManager.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/GLManager.cpp.obj
+.PHONY : src/service/GLManager.cpp.obj
 
 src/service/GLManager.i: src/service/GLManager.cpp.i
 
@@ -987,14 +987,14 @@ src/service/GLManager.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/GLManager.cpp.s
 .PHONY : src/service/GLManager.cpp.s
 
-src/service/TimeManager.o: src/service/TimeManager.cpp.o
+src/service/TimeManager.obj: src/service/TimeManager.cpp.obj
 
-.PHONY : src/service/TimeManager.o
+.PHONY : src/service/TimeManager.obj
 
 # target to build an object file
-src/service/TimeManager.cpp.o:
-	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/TimeManager.cpp.o
-.PHONY : src/service/TimeManager.cpp.o
+src/service/TimeManager.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/TimeManager.cpp.obj
+.PHONY : src/service/TimeManager.cpp.obj
 
 src/service/TimeManager.i: src/service/TimeManager.cpp.i
 
@@ -1014,6 +1014,33 @@ src/service/TimeManager.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/TimeManager.cpp.s
 .PHONY : src/service/TimeManager.cpp.s
 
+src/service/glew/glew.obj: src/service/glew/glew.c.obj
+
+.PHONY : src/service/glew/glew.obj
+
+# target to build an object file
+src/service/glew/glew.c.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/glew/glew.c.obj
+.PHONY : src/service/glew/glew.c.obj
+
+src/service/glew/glew.i: src/service/glew/glew.c.i
+
+.PHONY : src/service/glew/glew.i
+
+# target to preprocess a source file
+src/service/glew/glew.c.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/glew/glew.c.i
+.PHONY : src/service/glew/glew.c.i
+
+src/service/glew/glew.s: src/service/glew/glew.c.s
+
+.PHONY : src/service/glew/glew.s
+
+# target to generate assembly for a file
+src/service/glew/glew.c.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/src/service/glew/glew.c.s
+.PHONY : src/service/glew/glew.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1021,107 +1048,110 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
-	@echo "... rebuild_cache"
 	@echo "... opulence"
-	@echo "... home/champ/Git/crows/main.o"
-	@echo "... home/champ/Git/crows/main.i"
-	@echo "... home/champ/Git/crows/main.s"
-	@echo "... home/champ/Git/crows/src/ai/Ai.o"
-	@echo "... home/champ/Git/crows/src/ai/Ai.i"
-	@echo "... home/champ/Git/crows/src/ai/Ai.s"
-	@echo "... home/champ/Git/crows/src/anima/interface/button/Button.o"
-	@echo "... home/champ/Git/crows/src/anima/interface/button/Button.i"
-	@echo "... home/champ/Git/crows/src/anima/interface/button/Button.s"
-	@echo "... home/champ/Git/crows/src/anima/interface/character/Character.o"
-	@echo "... home/champ/Git/crows/src/anima/interface/character/Character.i"
-	@echo "... home/champ/Git/crows/src/anima/interface/character/Character.s"
-	@echo "... home/champ/Git/crows/src/anima/interface/character/CharacterSet.o"
-	@echo "... home/champ/Git/crows/src/anima/interface/character/CharacterSet.i"
-	@echo "... home/champ/Git/crows/src/anima/interface/character/CharacterSet.s"
-	@echo "... home/champ/Git/crows/src/controller/standardcontroller/StandardController.o"
-	@echo "... home/champ/Git/crows/src/controller/standardcontroller/StandardController.i"
-	@echo "... home/champ/Git/crows/src/controller/standardcontroller/StandardController.s"
-	@echo "... home/champ/Git/crows/src/generator/InterfaceGenerator.o"
-	@echo "... home/champ/Git/crows/src/generator/InterfaceGenerator.i"
-	@echo "... home/champ/Git/crows/src/generator/InterfaceGenerator.s"
-	@echo "... home/champ/Git/crows/src/generator/SpriteGenerator.o"
-	@echo "... home/champ/Git/crows/src/generator/SpriteGenerator.i"
-	@echo "... home/champ/Git/crows/src/generator/SpriteGenerator.s"
-	@echo "... home/champ/Git/crows/src/habitat/garbage/Garbage.o"
-	@echo "... home/champ/Git/crows/src/habitat/garbage/Garbage.i"
-	@echo "... home/champ/Git/crows/src/habitat/garbage/Garbage.s"
-	@echo "... home/champ/Git/crows/src/habitat/tree/Tree.o"
-	@echo "... home/champ/Git/crows/src/habitat/tree/Tree.i"
-	@echo "... home/champ/Git/crows/src/habitat/tree/Tree.s"
-	@echo "... home/champ/Git/crows/src/service/Manipulator.o"
-	@echo "... home/champ/Git/crows/src/service/Manipulator.i"
-	@echo "... home/champ/Git/crows/src/service/Manipulator.s"
-	@echo "... home/champ/Git/crows/src/service/PathFinder.o"
-	@echo "... home/champ/Git/crows/src/service/PathFinder.i"
-	@echo "... home/champ/Git/crows/src/service/PathFinder.s"
-	@echo "... home/champ/Git/crows/src/sprite/AdvancedSprite.o"
-	@echo "... home/champ/Git/crows/src/sprite/AdvancedSprite.i"
-	@echo "... home/champ/Git/crows/src/sprite/AdvancedSprite.s"
-	@echo "... home/champ/Git/crows/src/sprite/Sprite.o"
-	@echo "... home/champ/Git/crows/src/sprite/Sprite.i"
-	@echo "... home/champ/Git/crows/src/sprite/Sprite.s"
-	@echo "... home/champ/Git/crows/src/utility/DayManager.o"
-	@echo "... home/champ/Git/crows/src/utility/DayManager.i"
-	@echo "... home/champ/Git/crows/src/utility/DayManager.s"
-	@echo "... home/champ/Git/crows/src/utility/LevelMaker.o"
-	@echo "... home/champ/Git/crows/src/utility/LevelMaker.i"
-	@echo "... home/champ/Git/crows/src/utility/LevelMaker.s"
-	@echo "... opulence.o"
+	@echo "... rebuild_cache"
+	@echo "... C_/Users/champ/Git/crows/main.obj"
+	@echo "... C_/Users/champ/Git/crows/main.i"
+	@echo "... C_/Users/champ/Git/crows/main.s"
+	@echo "... C_/Users/champ/Git/crows/src/ai/Ai.obj"
+	@echo "... C_/Users/champ/Git/crows/src/ai/Ai.i"
+	@echo "... C_/Users/champ/Git/crows/src/ai/Ai.s"
+	@echo "... C_/Users/champ/Git/crows/src/anima/interface/button/Button.obj"
+	@echo "... C_/Users/champ/Git/crows/src/anima/interface/button/Button.i"
+	@echo "... C_/Users/champ/Git/crows/src/anima/interface/button/Button.s"
+	@echo "... C_/Users/champ/Git/crows/src/anima/interface/character/Character.obj"
+	@echo "... C_/Users/champ/Git/crows/src/anima/interface/character/Character.i"
+	@echo "... C_/Users/champ/Git/crows/src/anima/interface/character/Character.s"
+	@echo "... C_/Users/champ/Git/crows/src/anima/interface/character/CharacterSet.obj"
+	@echo "... C_/Users/champ/Git/crows/src/anima/interface/character/CharacterSet.i"
+	@echo "... C_/Users/champ/Git/crows/src/anima/interface/character/CharacterSet.s"
+	@echo "... C_/Users/champ/Git/crows/src/controller/standardcontroller/StandardController.obj"
+	@echo "... C_/Users/champ/Git/crows/src/controller/standardcontroller/StandardController.i"
+	@echo "... C_/Users/champ/Git/crows/src/controller/standardcontroller/StandardController.s"
+	@echo "... C_/Users/champ/Git/crows/src/generator/InterfaceGenerator.obj"
+	@echo "... C_/Users/champ/Git/crows/src/generator/InterfaceGenerator.i"
+	@echo "... C_/Users/champ/Git/crows/src/generator/InterfaceGenerator.s"
+	@echo "... C_/Users/champ/Git/crows/src/generator/SpriteGenerator.obj"
+	@echo "... C_/Users/champ/Git/crows/src/generator/SpriteGenerator.i"
+	@echo "... C_/Users/champ/Git/crows/src/generator/SpriteGenerator.s"
+	@echo "... C_/Users/champ/Git/crows/src/habitat/garbage/Garbage.obj"
+	@echo "... C_/Users/champ/Git/crows/src/habitat/garbage/Garbage.i"
+	@echo "... C_/Users/champ/Git/crows/src/habitat/garbage/Garbage.s"
+	@echo "... C_/Users/champ/Git/crows/src/habitat/tree/Tree.obj"
+	@echo "... C_/Users/champ/Git/crows/src/habitat/tree/Tree.i"
+	@echo "... C_/Users/champ/Git/crows/src/habitat/tree/Tree.s"
+	@echo "... C_/Users/champ/Git/crows/src/service/Manipulator.obj"
+	@echo "... C_/Users/champ/Git/crows/src/service/Manipulator.i"
+	@echo "... C_/Users/champ/Git/crows/src/service/Manipulator.s"
+	@echo "... C_/Users/champ/Git/crows/src/service/PathFinder.obj"
+	@echo "... C_/Users/champ/Git/crows/src/service/PathFinder.i"
+	@echo "... C_/Users/champ/Git/crows/src/service/PathFinder.s"
+	@echo "... C_/Users/champ/Git/crows/src/sprite/AdvancedSprite.obj"
+	@echo "... C_/Users/champ/Git/crows/src/sprite/AdvancedSprite.i"
+	@echo "... C_/Users/champ/Git/crows/src/sprite/AdvancedSprite.s"
+	@echo "... C_/Users/champ/Git/crows/src/sprite/Sprite.obj"
+	@echo "... C_/Users/champ/Git/crows/src/sprite/Sprite.i"
+	@echo "... C_/Users/champ/Git/crows/src/sprite/Sprite.s"
+	@echo "... C_/Users/champ/Git/crows/src/utility/DayManager.obj"
+	@echo "... C_/Users/champ/Git/crows/src/utility/DayManager.i"
+	@echo "... C_/Users/champ/Git/crows/src/utility/DayManager.s"
+	@echo "... C_/Users/champ/Git/crows/src/utility/LevelMaker.obj"
+	@echo "... C_/Users/champ/Git/crows/src/utility/LevelMaker.i"
+	@echo "... C_/Users/champ/Git/crows/src/utility/LevelMaker.s"
+	@echo "... opulence.obj"
 	@echo "... opulence.i"
 	@echo "... opulence.s"
-	@echo "... src/entity/Entity.o"
+	@echo "... src/entity/Entity.obj"
 	@echo "... src/entity/Entity.i"
 	@echo "... src/entity/Entity.s"
-	@echo "... src/entity/animation/Animation.o"
+	@echo "... src/entity/animation/Animation.obj"
 	@echo "... src/entity/animation/Animation.i"
 	@echo "... src/entity/animation/Animation.s"
-	@echo "... src/entity/camera/Camera.o"
+	@echo "... src/entity/camera/Camera.obj"
 	@echo "... src/entity/camera/Camera.i"
 	@echo "... src/entity/camera/Camera.s"
-	@echo "... src/entity/camera/RtsCamera.o"
+	@echo "... src/entity/camera/RtsCamera.obj"
 	@echo "... src/entity/camera/RtsCamera.i"
 	@echo "... src/entity/camera/RtsCamera.s"
-	@echo "... src/entity/light/DirectionalLight.o"
+	@echo "... src/entity/light/DirectionalLight.obj"
 	@echo "... src/entity/light/DirectionalLight.i"
 	@echo "... src/entity/light/DirectionalLight.s"
-	@echo "... src/entity/light/Light.o"
+	@echo "... src/entity/light/Light.obj"
 	@echo "... src/entity/light/Light.i"
 	@echo "... src/entity/light/Light.s"
-	@echo "... src/entity/light/PointLight.o"
+	@echo "... src/entity/light/PointLight.obj"
 	@echo "... src/entity/light/PointLight.i"
 	@echo "... src/entity/light/PointLight.s"
-	@echo "... src/entity/model/Model.o"
+	@echo "... src/entity/model/Model.obj"
 	@echo "... src/entity/model/Model.i"
 	@echo "... src/entity/model/Model.s"
-	@echo "... src/factory/CameraFactory.o"
+	@echo "... src/factory/CameraFactory.obj"
 	@echo "... src/factory/CameraFactory.i"
 	@echo "... src/factory/CameraFactory.s"
-	@echo "... src/factory/LightFactory.o"
+	@echo "... src/factory/LightFactory.obj"
 	@echo "... src/factory/LightFactory.i"
 	@echo "... src/factory/LightFactory.s"
-	@echo "... src/factory/ModelFactory.o"
+	@echo "... src/factory/ModelFactory.obj"
 	@echo "... src/factory/ModelFactory.i"
 	@echo "... src/factory/ModelFactory.s"
-	@echo "... src/loader/ObjLoader.o"
+	@echo "... src/loader/ObjLoader.obj"
 	@echo "... src/loader/ObjLoader.i"
 	@echo "... src/loader/ObjLoader.s"
-	@echo "... src/loader/ShaderLoader.o"
+	@echo "... src/loader/ShaderLoader.obj"
 	@echo "... src/loader/ShaderLoader.i"
 	@echo "... src/loader/ShaderLoader.s"
-	@echo "... src/service/BufferCourier.o"
+	@echo "... src/service/BufferCourier.obj"
 	@echo "... src/service/BufferCourier.i"
 	@echo "... src/service/BufferCourier.s"
-	@echo "... src/service/GLManager.o"
+	@echo "... src/service/GLManager.obj"
 	@echo "... src/service/GLManager.i"
 	@echo "... src/service/GLManager.s"
-	@echo "... src/service/TimeManager.o"
+	@echo "... src/service/TimeManager.obj"
 	@echo "... src/service/TimeManager.i"
 	@echo "... src/service/TimeManager.s"
+	@echo "... src/service/glew/glew.obj"
+	@echo "... src/service/glew/glew.i"
+	@echo "... src/service/glew/glew.s"
 .PHONY : help
 
 
