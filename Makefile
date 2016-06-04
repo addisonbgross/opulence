@@ -393,6 +393,33 @@ C_/Users/champ/Git/crows/src/habitat/tree/Tree.cpp.s:
 	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/habitat/tree/Tree.cpp.s
 .PHONY : C_/Users/champ/Git/crows/src/habitat/tree/Tree.cpp.s
 
+C_/Users/champ/Git/crows/src/service/Lobber.obj: C_/Users/champ/Git/crows/src/service/Lobber.cpp.obj
+
+.PHONY : C_/Users/champ/Git/crows/src/service/Lobber.obj
+
+# target to build an object file
+C_/Users/champ/Git/crows/src/service/Lobber.cpp.obj:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/service/Lobber.cpp.obj
+.PHONY : C_/Users/champ/Git/crows/src/service/Lobber.cpp.obj
+
+C_/Users/champ/Git/crows/src/service/Lobber.i: C_/Users/champ/Git/crows/src/service/Lobber.cpp.i
+
+.PHONY : C_/Users/champ/Git/crows/src/service/Lobber.i
+
+# target to preprocess a source file
+C_/Users/champ/Git/crows/src/service/Lobber.cpp.i:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/service/Lobber.cpp.i
+.PHONY : C_/Users/champ/Git/crows/src/service/Lobber.cpp.i
+
+C_/Users/champ/Git/crows/src/service/Lobber.s: C_/Users/champ/Git/crows/src/service/Lobber.cpp.s
+
+.PHONY : C_/Users/champ/Git/crows/src/service/Lobber.s
+
+# target to generate assembly for a file
+C_/Users/champ/Git/crows/src/service/Lobber.cpp.s:
+	$(MAKE) -f CMakeFiles/opulence.dir/build.make CMakeFiles/opulence.dir/C_/Users/champ/Git/crows/src/service/Lobber.cpp.s
+.PHONY : C_/Users/champ/Git/crows/src/service/Lobber.cpp.s
+
 C_/Users/champ/Git/crows/src/service/Manipulator.obj: C_/Users/champ/Git/crows/src/service/Manipulator.cpp.obj
 
 .PHONY : C_/Users/champ/Git/crows/src/service/Manipulator.obj
@@ -1080,6 +1107,9 @@ help:
 	@echo "... C_/Users/champ/Git/crows/src/habitat/tree/Tree.obj"
 	@echo "... C_/Users/champ/Git/crows/src/habitat/tree/Tree.i"
 	@echo "... C_/Users/champ/Git/crows/src/habitat/tree/Tree.s"
+	@echo "... C_/Users/champ/Git/crows/src/service/Lobber.obj"
+	@echo "... C_/Users/champ/Git/crows/src/service/Lobber.i"
+	@echo "... C_/Users/champ/Git/crows/src/service/Lobber.s"
 	@echo "... C_/Users/champ/Git/crows/src/service/Manipulator.obj"
 	@echo "... C_/Users/champ/Git/crows/src/service/Manipulator.i"
 	@echo "... C_/Users/champ/Git/crows/src/service/Manipulator.s"

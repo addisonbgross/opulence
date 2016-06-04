@@ -142,6 +142,8 @@ add_executable(opulence
             ../src/anima/interface/Interface.hpp
             ../src/service/Manipulator.cpp
             ../src/service/Manipulator.hpp
+            ../src/service/Lobber.cpp
+            ../src/service/Lobber.hpp
             ../src/sprite/AdvancedSprite.hpp
             ../src/utility/LevelObject.hpp
             ../src/utility/LevelMaker.cpp
