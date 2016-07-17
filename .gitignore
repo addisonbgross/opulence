@@ -1,6 +1,7 @@
 # Caching
 CMakeCache.txt
 test/gtest-1.7.0/*
+crowgame
 
 # IntelliJ cLion settings
 /.idea
